@@ -307,13 +307,18 @@ Logger* g_pLog;
 <pre><code>const intA_GLOBAL_CONSTANT = 5;
 </code></pre><h2 id="1-12-静态变量的命名前缀（适用于C-）"><a href="#1-12-静态变量的命名前缀（适用于C-）" class="headerlink" title="1.12.   静态变量的命名前缀（适用于C++）"></a>1.12.   静态变量的命名前缀（适用于C++）</h2><p>²  静态变量以 ‘s’ 作为前缀。</p>
 <p>例如：</p>
-<p>   class Test</p>
-<p>   {</p>
-<p>   public:</p>
-<p>   private:</p>
-<pre><code>staticStatusInfo m_sStatus;
-</code></pre><p>   }</p>
-<h2 id="1-13-自定义类型（typedef）的命名（适用于C-C-）"><a href="#1-13-自定义类型（typedef）的命名（适用于C-C-）" class="headerlink" title="1.13.   自定义类型（typedef）的命名（适用于C/C++）"></a>1.13.   自定义类型（typedef）的命名（适用于C/C++）</h2><p>²  类型定义名称指的是用typedef定义的名称。</p>
+<pre><code>class Test
+
+{
+
+public:
+
+private:
+
+   staticStatusInfo m_sStatus;
+
+}
+</code></pre><h2 id="1-13-自定义类型（typedef）的命名（适用于C-C-）"><a href="#1-13-自定义类型（typedef）的命名（适用于C-C-）" class="headerlink" title="1.13.   自定义类型（typedef）的命名（适用于C/C++）"></a>1.13.   自定义类型（typedef）的命名（适用于C/C++）</h2><p>²  类型定义名称指的是用typedef定义的名称。</p>
 <p>²  类型定义名称使用与类名相同的规则，并使用Type作为后缀。</p>
 <p>例如：</p>
 <p>   typedefuint16  ModuleType;</p>
