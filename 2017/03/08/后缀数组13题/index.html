@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://prostkhala.github.io/2017/03/08/后缀数组13题/index.html">
 <meta property="og:site_name" content="ST">
 <meta property="og:description" content="论文后缀数组——处理字符串的有力工具–罗穗骞">
-<meta property="og:updated_time" content="2017-03-09T03:34:32.067Z">
+<meta property="og:updated_time" content="2017-03-09T13:57:05.116Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="后缀数组十三题">
 <meta name="twitter:description" content="论文后缀数组——处理字符串的有力工具–罗穗骞">
@@ -335,7 +335,7 @@ int main()
 <pre><code>sa[i-1]  abba
 
 sa[i]    abcd //height[i] = 2
-</code></pre><p>这一组数据为例，两者相同的字串有$2*（2+1）/2=3$个。刚开始我不知道为什么这里要减去$2$而不是$3$，后来是因为只应减去包含该后缀首个字符的字串个数，否在会导致重复计算。</p>
+</code></pre><p>这一组数据为例，两者相同的字串有$2*（2+1）/2=3$个。刚开始我不知道为什么这里要减去$2$而不是$3$，后来知道是因为只能减去包含该后缀首个字符的字串个数，否在会导致重复计算。</p>
 <p>这个例子中只应减去a，ab这两个重复字符，之后必有两个后缀为</p>
 <pre><code>bba
 bcd //height = 1
