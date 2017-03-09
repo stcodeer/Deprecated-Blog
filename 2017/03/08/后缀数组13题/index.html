@@ -1,99 +1,159 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>后缀数组十三题 | ST</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="论文后缀数组——处理字符串的有力工具–罗穗骞">
-<meta property="og:type" content="article">
-<meta property="og:title" content="后缀数组十三题">
-<meta property="og:url" content="https://prostkhala.github.io/2017/03/08/后缀数组13题/index.html">
-<meta property="og:site_name" content="ST">
-<meta property="og:description" content="论文后缀数组——处理字符串的有力工具–罗穗骞">
-<meta property="og:updated_time" content="2017-03-09T03:34:32.067Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="后缀数组十三题">
-<meta name="twitter:description" content="论文后缀数组——处理字符串的有力工具–罗穗骞">
-  
-    <link rel="alternate" href="/https://github.com/ProSTKhala/ProSTKhala.github.io" title="ST" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="../../../../css/style.css">
-  
 
+
+
+
+
+
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="sutong">
+  
+  
+  
+  
+    <meta name="description" content="论文后缀数组——处理字符串的有力工具–罗穗骞">
+  
+  <title>后缀数组十三题 [ ST ]</title>
+  
+  
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+  
+  
+  <link rel="stylesheet" href="../../../../css/random.css">
+<link rel="stylesheet" href="../../../../css/vegas.min.css">
+<link rel="stylesheet" href="../../../../css/highlight-railscasts.css">
+<link rel="stylesheet" href="../../../../css/jquery.fancybox.css">
+<link rel="stylesheet" href="../../../../css/iconfont/iconfont.css">
+<link rel="stylesheet" href="../../../../css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="../../../../css/plyr.css">
+  
 </head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="../../../../index.html" id="logo">ST</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="../../../../index.html" id="subtitle">A HAOIER</a>
-        </h2>
-      
+<div class="side-navigate hide-area">
+  
+  
+    <div class="item next">
+      <a href="../../07/c++代码规范/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        C/C++代码规范
+      </div>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
         
-          <a class="main-nav-link" href="../../../../index.html">Home</a>
+        <a onClick="openUserCard()">
+          <img id="avatar" src="https://raw.githubusercontent.com/ProSTKhala/ProSTKhala.github.io/master/images/ST.jpg"/>
+          <div id="homelink">ST</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
         
-          <a class="main-nav-link" href="../../../../archives">Archives</a>
         
-      </nav>
-      <nav id="sub-nav">
+          
+            <li>
+          
+            <a href="../../../../index.html">Home</a>
+            
+          </li>
         
-          <a id="nav-rss-link" class="nav-icon" href="/https://github.com/ProSTKhala/ProSTKhala.github.io" title="RSS Feed"></a>
+          
+            <li>
+          
+            <a href="../../../../archives">Archives</a>
+            
+          </li>
         
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://prostkhala.github.io"></form>
+          
+            <li>
+          
+            <a href="../../../../tags">Tags</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="../../../../categories">Categories</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="../../../../about">About</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="https://github.com/ProSTKhala/ProSTKhala.github.io">Github</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
       </div>
     </div>
   </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-后缀数组13题" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="" class="article-date">
-  <time datetime="2017-03-08T03:02:35.000Z" itemprop="datePublished">2017-03-08</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="../../../../categories/Hollerith-type/">Hollerith-type</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      后缀数组十三题
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
+  <div id="content-outer">
+    <div id="content-inner">
       
-        <h1 id="论文"><a href="#论文" class="headerlink" title="论文"></a>论文</h1><p><a href="https://github.com/ProSTKhala/ProSTKhala.github.io/blob/master/pdfs/%E7%AE%97%E6%B3%95%E5%90%88%E9%9B%86%E4%B9%8B%E3%80%8A%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E2%80%94%E2%80%94%E5%A4%84%E7%90%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%89%E5%8A%9B%E5%B7%A5%E5%85%B7%E3%80%8B.pdf" target="_blank" rel="external">后缀数组——处理字符串的有力工具–罗穗骞</a></p>
+      
+  <article id="post">
+    <h1>后缀数组十三题</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">撰写于 2017-03-08</span>
+      
+        <span id = "post-title-updated">修改于 2017-03-09</span>
+      
+      
+      <span id = "post-title-categories">分类
+      
+      
+        
+        
+        <a href="../../../../categories/Hollerith-type/">Hollerith-type</a>
+      
+      </span>
+      
+      
+      <span id = "post-title-tags">
+      标签
+      
+      
+        
+        
+        <a href="../../../../tags/后缀数组/">后缀数组</a>
+      
+        
+          /
+        
+        
+        <a href="../../../../tags/字符串问题/">字符串问题</a>
+      
+      </span>
+      
+    </p>
+    
+    <h1 id="论文"><a href="#论文" class="headerlink" title="论文"></a>论文</h1><p><a href="https://github.com/ProSTKhala/ProSTKhala.github.io/blob/master/pdfs/%E7%AE%97%E6%B3%95%E5%90%88%E9%9B%86%E4%B9%8B%E3%80%8A%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E2%80%94%E2%80%94%E5%A4%84%E7%90%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%89%E5%8A%9B%E5%B7%A5%E5%85%B7%E3%80%8B.pdf" target="_blank" rel="external">后缀数组——处理字符串的有力工具–罗穗骞</a></p>
  <a id="more"></a> 
 <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><hr>
 <h2 id="例3-1-cogs902-Musical-Theme-poj1743"><a href="#例3-1-cogs902-Musical-Theme-poj1743" class="headerlink" title="例3         (1).cogs902:Musical Theme(poj1743)"></a>例3         (1).<a href="http://cogs.pro/cogs/problem/problem.php?pid=902" target="_blank" rel="external">cogs902:Musical Theme</a>(poj1743)</h2><p>本题题目描述与论文略有差别。</p>
@@ -901,124 +961,193 @@ int main()
 <hr>
 <h2 id="例13-1-poj1226-Substrings"><a href="#例13-1-poj1226-Substrings" class="headerlink" title="例13    (1).poj1226:Substrings"></a>例13    (1).<a href="http://poj.org/problem?id=1226" target="_blank" rel="external">poj1226:Substrings</a></h2><hr>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://prostkhala.github.io/2017/03/08/后缀数组13题/" data-id="cj00lyu060000hgrf7pmzvlg3" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/后缀数组/">后缀数组</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/字符串问题/">字符串问题</a></li></ul>
-
-    </footer>
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">显示目录</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
+  <div class="random-toc">
+    <h2>目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#论文"><span class="toc-text">论文</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#题目"><span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#例3-1-cogs902-Musical-Theme-poj1743"><span class="toc-text">例3         (1).cogs902:Musical Theme(poj1743)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例4-1-poj3261：Milk-Patterns"><span class="toc-text">例4         (1).poj3261：Milk Patterns</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例5-1-spoj694：Distinct-Substrings-Vjudge"><span class="toc-text">例5         (1).spoj694：Distinct Substrings(Vjudge)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-cogs1709-不同的子串-（spoj705）"><span class="toc-text">(2).cogs1709:不同的子串 （spoj705）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例6-1-ural1297：Palindrome-Vjudge"><span class="toc-text">例6         (1).ural1297：Palindrome(Vjudge)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例7-1-cogs1710-Power-Strings-（poj2406）"><span class="toc-text">例7           (1).cogs1710:Power Strings  （poj2406）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例8-1-poj3693-Maximum-repetition-substring"><span class="toc-text">例8       (1).poj3693:Maximum repetition substring</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-cogs1711-重复的字符串-（spoj687）"><span class="toc-text">(2).cogs1711:重复的字符串 （spoj687）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例9-1-cogs1713-Long-Long-Message-（poj2774）"><span class="toc-text">例9      (1).cogs1713:Long Long Message  （poj2774）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例10-1-cogs1712-Common-Substrings-（poj3415）"><span class="toc-text">例10    (1).cogs1712:Common Substrings  （poj3415）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例11-1-cogs2128-生命形态-（poj3294）"><span class="toc-text">例11    (1).cogs2128:生命形态   （poj3294）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例12-1-cogs2120-破译进攻计划-（spoj220）"><span class="toc-text">例12    (1).cogs2120:破译进攻计划   （spoj220）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例13-1-poj1226-Substrings"><span class="toc-text">例13    (1).poj1226:Substrings</span></a></li></ol></li></ol>
   </div>
+</div>
+
   
-    
-<nav id="article-nav">
+<nav id="pagination">
   
+
   
-    <a href="../../07/c++代码规范/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">C/C++代码规范</div>
-    </a>
+
+  
+    <a href="../../07/c++代码规范/" class="next">下一篇 C/C++代码规范 &rarr;</a>
   
 </nav>
 
-  
-</article>
+  <!-- JiaThis Button BEGIN -->
 
-</section>
+<!-- JiaThis Button END -->
+
+
+      
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by sutong using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="https://raw.githubusercontent.com/ProSTKhala/ProSTKhala.github.io/master/images/ST.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/ProSTKhala/ProSTKhala.github.io">
         
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Hollerith-type/">Hollerith-type</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/代码规范/">代码规范</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/代码规范/">代码规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/后缀数组/">后缀数组</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/字符串问题/">字符串问题</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="../../../../tags/代码规范/" style="font-size: 10px;">代码规范</a> <a href="../../../../tags/后缀数组/" style="font-size: 10px;">后缀数组</a> <a href="../../../../tags/字符串问题/" style="font-size: 10px;">字符串问题</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/03/">三月 2017</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
+          <i class="icon iconfont github">&#xe606;</i>
         
-          <li>
-            <a href="">后缀数组十三题</a>
-          </li>
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://coding.net/u/Prostkhala">
         
-          <li>
-            <a href="../../07/c++代码规范/">C/C++代码规范</a>
-          </li>
+          <i class="icon iconfont coding">&#xe607;</i>
         
-      </ul>
-    </div>
-  </div>
-
+      </a>
+    </li>
   
-</aside>
+    <li>
+      <a href="https://www.zhihu.com/people/su-tong-75-78/activities">
         
-      </div>
-      <footer id="footer">
+          <i class="icon iconfont zhihu">&#xe60b;</i>
+        
+      </a>
+    </li>
   
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 sutong<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
+</ul>
   </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
   
-    <a href="../../../../index.html" class="mobile-nav-link">Home</a>
   
-    <a href="../../../../archives" class="mobile-nav-link">Archives</a>
+    <script src="../../../../js/jquery-2.2.3.min.js"></script>
   
-</nav>
-    
+    <script src="../../../../js/vegas.min.js"></script>
+  
+    <script src="../../../../js/random.js"></script>
+  
+    <script src="../../../../js/highlight.pack.js"></script>
+  
+    <script src="../../../../js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="../../../../js/jquery.fancybox.pack.js"></script>
+  
+    <script src="../../../../js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="../../../../js/plyr.js"></script>
+  
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["slideLeft2","slideRight2","swirLeft","swirRight","flash","flash2"],"timer":true,"delay":5000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
 
 
-  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
-  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+  turnoffBackgroundImage = true;
 
 
-<script src="../../../../js/script.js"></script>
+var backgroundColor = "34495E";
 
-  </div>
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '../../../../css/sprite.svg'});
+</script>
 </body>
 </html>
+

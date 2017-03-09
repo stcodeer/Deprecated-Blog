@@ -1,132 +1,164 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>C/C++代码规范 | ST</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="命名规则
-1 起个合适的名字
-    11    类的名称 适用于C
-    12    方法和函数的名称 适用于C++
-    13   含有度量单位的名称 适用于C++
-    14    缩写名称不要全部大写 适用于C++
-2类的命名 适用于C
-3类库或程序库命名 适用于C++
-4方法和函数的命名 适用于C
-5类属性的命名 适用于C
-6方法和函数参数的命名 适用于C
-7局部变量的命名 适用于">
-<meta property="og:type" content="article">
-<meta property="og:title" content="C/C++代码规范">
-<meta property="og:url" content="https://prostkhala.github.io/2017/03/07/c++代码规范/index.html">
-<meta property="og:site_name" content="ST">
-<meta property="og:description" content="命名规则
-1 起个合适的名字
-    11    类的名称 适用于C
-    12    方法和函数的名称 适用于C++
-    13   含有度量单位的名称 适用于C++
-    14    缩写名称不要全部大写 适用于C++
-2类的命名 适用于C
-3类库或程序库命名 适用于C++
-4方法和函数的命名 适用于C
-5类属性的命名 适用于C
-6方法和函数参数的命名 适用于C
-7局部变量的命名 适用于">
-<meta property="og:updated_time" content="2017-03-09T03:34:54.813Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C/C++代码规范">
-<meta name="twitter:description" content="命名规则
-1 起个合适的名字
-    11    类的名称 适用于C
-    12    方法和函数的名称 适用于C++
-    13   含有度量单位的名称 适用于C++
-    14    缩写名称不要全部大写 适用于C++
-2类的命名 适用于C
-3类库或程序库命名 适用于C++
-4方法和函数的命名 适用于C
-5类属性的命名 适用于C
-6方法和函数参数的命名 适用于C
-7局部变量的命名 适用于">
-  
-    <link rel="alternate" href="/https://github.com/ProSTKhala/ProSTKhala.github.io" title="ST" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="../../../../css/style.css">
-  
 
+
+
+
+
+
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="sutong">
+  
+  
+  
+  
+    <meta name="description" content="命名规则
+1 起个合适的名字
+    11    类的名称 适用于C
+    12    方法和函数的名称 适用于C++
+    13   含有度量单位的名称 适用于C++
+    14    缩写名称不要全部大写 适用于C++
+2类的命名 适用于C
+3类库或程序库命名 适用于C++
+4方法和函数的命名 适用于C
+5类属性的命名 适用于C
+6方法和函数参数的命名 适用于C
+7局部变量的命名 ...">
+  
+  <title>C/C++代码规范 [ ST ]</title>
+  
+  
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+  
+  
+  <link rel="stylesheet" href="../../../../css/random.css">
+<link rel="stylesheet" href="../../../../css/vegas.min.css">
+<link rel="stylesheet" href="../../../../css/highlight-railscasts.css">
+<link rel="stylesheet" href="../../../../css/jquery.fancybox.css">
+<link rel="stylesheet" href="../../../../css/iconfont/iconfont.css">
+<link rel="stylesheet" href="../../../../css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="../../../../css/plyr.css">
+  
 </head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="../../../../index.html" id="logo">ST</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="../../../../index.html" id="subtitle">A HAOIER</a>
-        </h2>
-      
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="../../08/后缀数组13题/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        后缀数组十三题
+      </div>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+  
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
         
-          <a class="main-nav-link" href="../../../../index.html">Home</a>
+        <a onClick="openUserCard()">
+          <img id="avatar" src="https://raw.githubusercontent.com/ProSTKhala/ProSTKhala.github.io/master/images/ST.jpg"/>
+          <div id="homelink">ST</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
         
-          <a class="main-nav-link" href="../../../../archives">Archives</a>
         
-      </nav>
-      <nav id="sub-nav">
+          
+            <li>
+          
+            <a href="../../../../index.html">Home</a>
+            
+          </li>
         
-          <a id="nav-rss-link" class="nav-icon" href="/https://github.com/ProSTKhala/ProSTKhala.github.io" title="RSS Feed"></a>
+          
+            <li>
+          
+            <a href="../../../../archives">Archives</a>
+            
+          </li>
         
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://prostkhala.github.io"></form>
+          
+            <li>
+          
+            <a href="../../../../tags">Tags</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="../../../../categories">Categories</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="../../../../about">About</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="https://github.com/ProSTKhala/ProSTKhala.github.io">Github</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
       </div>
     </div>
   </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-c++代码规范" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="" class="article-date">
-  <time datetime="2017-03-07T09:53:42.000Z" itemprop="datePublished">2017-03-07</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="../../../../categories/代码规范/">代码规范</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      C/C++代码规范
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
+  <div id="content-outer">
+    <div id="content-inner">
       
-        <pre><code>命名规则
+      
+  <article id="post">
+    <h1>C/C++代码规范</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">撰写于 2017-03-07</span>
+      
+        <span id = "post-title-updated">修改于 2017-03-09</span>
+      
+      
+      <span id = "post-title-categories">分类
+      
+      
+        
+        
+        <a href="../../../../categories/代码规范/">代码规范</a>
+      
+      </span>
+      
+      
+      <span id = "post-title-tags">
+      标签
+      
+      
+        
+        
+        <a href="../../../../tags/代码规范/">代码规范</a>
+      
+      </span>
+      
+    </p>
+    
+    <pre><code>命名规则
 1 起个合适的名字
     11    类的名称 适用于C
     12    方法和函数的名称 适用于C++
@@ -1165,128 +1197,193 @@ max(int x, inty)
 <p>和全局变量一样，宏也会与其它名称产生冲突。下面两条规则有助于解决这个问题：</p>
 <p>n  在宏名称前加上库的名字<br>避免使用简单而常用的名字，如：MAX 和MIN。</p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://prostkhala.github.io/2017/03/07/c++代码规范/" data-id="cj00v3p6900007srf5gfkxxa2" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/代码规范/">代码规范</a></li></ul>
-
-    </footer>
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">显示目录</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
+  <div class="random-toc">
+    <h2>目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-命名规则"><span class="toc-text">1.    命名规则</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-起个合适的名字"><span class="toc-text">1.1. 起个合适的名字</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-1-类的名称（适用于C-）"><span class="toc-text">1.1.1.    类的名称（适用于C++）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-2-方法和函数的名称（适用于C-C-）"><span class="toc-text">1.1.2.    方法和函数的名称（适用于C/C++）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-3-含有度量单位的名称（适用于C-C-）"><span class="toc-text">1.1.3.   含有度量单位的名称（适用于C/C++）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-4-缩写名称不要全部大写（适用于C-C-）"><span class="toc-text">1.1.4.    缩写名称不要全部大写（适用于C/C++）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-类的命名（适用于C-）"><span class="toc-text">1.2.类的命名（适用于C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-类库（或程序库）命名-（适用于C-C-）"><span class="toc-text">1.3.类库（或程序库）命名 （适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-方法和函数的命名（适用于C-）"><span class="toc-text">1.4.方法和函数的命名（适用于C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-类属性的命名（适用于C-）"><span class="toc-text">1.5.类属性的命名（适用于C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-方法和函数参数的命名（适用于C-）"><span class="toc-text">1.6.方法和函数参数的命名（适用于C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-7-局部变量的命名（适用于C-C-）"><span class="toc-text">1.7.局部变量的命名（适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-8-指针变量的命名前缀（适用于C-C-）"><span class="toc-text">1.8.指针变量的命名前缀（适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-9-引用变量和返回引用函数的命名前缀（适用于C-）"><span class="toc-text">1.9.引用变量和返回引用函数的命名前缀（适用于C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-10-全局变量的命名前缀（适用于C-C-）"><span class="toc-text">1.10.   全局变量的命名前缀（适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-11-全局常量的命名（适用于C-C-）"><span class="toc-text">1.11.   全局常量的命名（适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-12-静态变量的命名前缀（适用于C-）"><span class="toc-text">1.12.   静态变量的命名前缀（适用于C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-13-自定义类型（typedef）的命名（适用于C-C-）"><span class="toc-text">1.13.   自定义类型（typedef）的命名（适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-14-宏定义的命名（适用于C-C-）"><span class="toc-text">1.14.   宏定义的命名（适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-15-C-函数的命名（适用于C-C-）"><span class="toc-text">1.15.   C 函数的命名（适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-16-枚举的命名（适用于C-C-）"><span class="toc-text">1.16.   枚举的命名（适用于C/C++）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-排版规则"><span class="toc-text">2.    排版规则</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-布局和模板"><span class="toc-text">2.1. 布局和模板</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-1-类的布局模板-（适用于C-）"><span class="toc-text">2.1.1.    类的布局模板 （适用于C++）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2-源文件格式（适用于C-）"><span class="toc-text">2.1.2.   源文件格式（适用于C++）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-3-保护头文件不被重复包含-（适用于C-C-）"><span class="toc-text">2.1.3.    保护头文件不被重复包含 （适用于C/C++）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-4-方法和函数的布局-（适用于C-C-）"><span class="toc-text">2.1.4.    方法和函数的布局 （适用于C/C++）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-缩进、制表符以及空格-（适用于C-C-）"><span class="toc-text">2.2. 缩进、制表符以及空格 （适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-尽量使一行不要超过78个字母-（适用于C-C-）"><span class="toc-text">2.3. 尽量使一行不要超过78个字母 （适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-保证一行只写一条语句-（适用于C-C-）"><span class="toc-text">2.4. 保证一行只写一条语句 （适用于C/C++）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-2-什么时候应使用花括号"><span class="toc-text">2.5.2.    什么时候应使用花括号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-3-在花括号结束的位置加上注释"><span class="toc-text">2.5.3.    在花括号结束的位置加上注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-4-注意屏幕大小"><span class="toc-text">2.5.4.    注意屏幕大小</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-圆括号-规则-（适用于C-C-）"><span class="toc-text">2.6.圆括号 () 规则 （适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-7-if-else-语句的格式-（适用于C-C-）"><span class="toc-text">2.7.if else 语句的格式 （适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-8-switch-格式-（适用于C-C-）"><span class="toc-text">2.8.switch 格式 （适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-9-使用goto-continue-break-和-（适用于C-C-）"><span class="toc-text">2.9. 使用goto,continue,break 和 ?: （适用于C/C++）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-9-1-Goto"><span class="toc-text">2.9.1.    Goto</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-9-2-Continue-and-Break"><span class="toc-text">2.9.2.    Continue and Break</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-9-3"><span class="toc-text">2.9.3.    ?:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-10-运算符号的规则-（适用于C-C-）"><span class="toc-text">2.10.   运算符号的规则 （适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-11-变量声明语句块-（适用于C-C-）"><span class="toc-text">2.11.    变量声明语句块 （适用于C/C++）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-文档及注释"><span class="toc-text">3.    文档及注释</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-文件或程序库的文档注释（适用于C-C-）"><span class="toc-text">3.1. 文件或程序库的文档注释（适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-类文档注释（适用于C-C-）"><span class="toc-text">3.2. 类文档注释（适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-函数文档注释（适用于C-C-）"><span class="toc-text">3.3. 函数文档注释（适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-Include-语句注释-（适用于C-C-）"><span class="toc-text">3.4. Include 语句注释 （适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-语句块注释（适用于C-C-）"><span class="toc-text">3.5.语句块注释（适用于C/C++）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-编码要求"><span class="toc-text">4.    编码要求</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-不要忽略编译器的警告（适用于C-C-）"><span class="toc-text">4.1. 不要忽略编译器的警告（适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-应使用源代码管理器（适用于C-C-）"><span class="toc-text">4.2. 应使用源代码管理器（适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-固有的类方法成员（适用于C-）"><span class="toc-text">4.3. 固有的类方法成员（适用于C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-使用命名空间-（适用于C-）"><span class="toc-text">4.4. 使用命名空间 （适用于C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-初始化所有的变量-（适用于C-C-）"><span class="toc-text">4.5. 初始化所有的变量 （适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-保持函数短小精悍（适用于C-C-）"><span class="toc-text">4.6. 保持函数短小精悍（适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-7-对空语句进行注释-（适用于C-C-）"><span class="toc-text">4.7.对空语句进行注释 （适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-8-不要用if语句的默认方法测试非零值（适用于C-C-）"><span class="toc-text">4.8. 不要用if语句的默认方法测试非零值（适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-9-布尔类型-（适用于C-C-）"><span class="toc-text">4.9.布尔类型 （适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-10-避免在语句中内含赋值-（适用于C-C-）"><span class="toc-text">4.10.   避免在语句中内含赋值 （适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-11-正确的使用Const-（适用于C-C-）"><span class="toc-text">4.11.   正确的使用Const （适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-12-不要在头文件定义数据（适用于C-C-）"><span class="toc-text">4.12.    不要在头文件定义数据（适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-13-不要直接使用数字-（适用于C-C-）"><span class="toc-text">4.13.   不要直接使用数字 （适用于C/C++）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-14-宏（适用于C-C-）"><span class="toc-text">4.14.    宏（适用于C/C++）</span></a></li></ol></li></ol>
   </div>
+</div>
+
   
-    
-<nav id="article-nav">
+<nav id="pagination">
   
-    <a href="../../08/后缀数组13题/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          后缀数组十三题
-        
-      </div>
-    </a>
+    <a href="../../08/后缀数组13题/" class="prev">&larr; 上一篇 后缀数组十三题</a>
   
+
+  
+
   
 </nav>
 
-  
-</article>
+  <!-- JiaThis Button BEGIN -->
 
-</section>
+<!-- JiaThis Button END -->
+
+
+      
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by sutong using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="https://raw.githubusercontent.com/ProSTKhala/ProSTKhala.github.io/master/images/ST.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/ProSTKhala/ProSTKhala.github.io">
         
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Hollerith-type/">Hollerith-type</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/代码规范/">代码规范</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/代码规范/">代码规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/后缀数组/">后缀数组</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/字符串问题/">字符串问题</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="../../../../tags/代码规范/" style="font-size: 10px;">代码规范</a> <a href="../../../../tags/后缀数组/" style="font-size: 10px;">后缀数组</a> <a href="../../../../tags/字符串问题/" style="font-size: 10px;">字符串问题</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2017/03/">三月 2017</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
+          <i class="icon iconfont github">&#xe606;</i>
         
-          <li>
-            <a href="../../08/后缀数组13题/">后缀数组十三题</a>
-          </li>
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://coding.net/u/Prostkhala">
         
-          <li>
-            <a href="">C/C++代码规范</a>
-          </li>
+          <i class="icon iconfont coding">&#xe607;</i>
         
-      </ul>
-    </div>
-  </div>
-
+      </a>
+    </li>
   
-</aside>
+    <li>
+      <a href="https://www.zhihu.com/people/su-tong-75-78/activities">
         
-      </div>
-      <footer id="footer">
+          <i class="icon iconfont zhihu">&#xe60b;</i>
+        
+      </a>
+    </li>
   
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 sutong<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
+</ul>
   </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
   
-    <a href="../../../../index.html" class="mobile-nav-link">Home</a>
   
-    <a href="../../../../archives" class="mobile-nav-link">Archives</a>
+    <script src="../../../../js/jquery-2.2.3.min.js"></script>
   
-</nav>
-    
+    <script src="../../../../js/vegas.min.js"></script>
+  
+    <script src="../../../../js/random.js"></script>
+  
+    <script src="../../../../js/highlight.pack.js"></script>
+  
+    <script src="../../../../js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="../../../../js/jquery.fancybox.pack.js"></script>
+  
+    <script src="../../../../js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="../../../../js/plyr.js"></script>
+  
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["slideLeft2","slideRight2","swirLeft","swirRight","flash","flash2"],"timer":true,"delay":5000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
 
 
-  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
-  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+  turnoffBackgroundImage = true;
 
 
-<script src="../../../../js/script.js"></script>
+var backgroundColor = "34495E";
 
-  </div>
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '../../../../css/sprite.svg'});
+</script>
 </body>
 </html>
+
