@@ -1,290 +1,546 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
+<!doctype html>
+
+
+
   
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="https://prostkhala.github.io">
-  <title>C/C++代码规范 | ST</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="命名规则
-1 起个合适的名字
-    11    类的名称 适用于C
-    12    方法和函数的名称 适用于C++
-    13   含有度量单位的名称 适用于C++
-    14    缩写名称不要全部大写 适用于C++
-2类的命名 适用于C
-3类库或程序库命名 适用于C++
-4方法和函数的命名 适用于C
-5类属性的命名 适用于C
-6方法和函数参数的命名 适用于C
-7局部变量的命名 适用于">
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="代码规范," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="命名规则
+    1 起个合适的名字
+        11    类的名称 适用于C
+        12    方法和函数的名称 适用于C++
+        13   含有度量单位的名称 适用于C++
+        14    缩写名称不要全部大写 适用于C++
+    2类的命名 适用于C
+    3类库或程序库命名 适用于C++
+    4方法和函数的命名 适用于C
+    5类">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C/C++代码规范">
 <meta property="og:url" content="https://prostkhala.github.io/2017/03/07/c++代码规范/index.html">
 <meta property="og:site_name" content="ST">
 <meta property="og:description" content="命名规则
-1 起个合适的名字
-    11    类的名称 适用于C
-    12    方法和函数的名称 适用于C++
-    13   含有度量单位的名称 适用于C++
-    14    缩写名称不要全部大写 适用于C++
-2类的命名 适用于C
-3类库或程序库命名 适用于C++
-4方法和函数的命名 适用于C
-5类属性的命名 适用于C
-6方法和函数参数的命名 适用于C
-7局部变量的命名 适用于">
+    1 起个合适的名字
+        11    类的名称 适用于C
+        12    方法和函数的名称 适用于C++
+        13   含有度量单位的名称 适用于C++
+        14    缩写名称不要全部大写 适用于C++
+    2类的命名 适用于C
+    3类库或程序库命名 适用于C++
+    4方法和函数的命名 适用于C
+    5类">
 <meta property="og:updated_time" content="2017-03-09T03:34:54.813Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C/C++代码规范">
 <meta name="twitter:description" content="命名规则
-1 起个合适的名字
-    11    类的名称 适用于C
-    12    方法和函数的名称 适用于C++
-    13   含有度量单位的名称 适用于C++
-    14    缩写名称不要全部大写 适用于C++
-2类的命名 适用于C
-3类库或程序库命名 适用于C++
-4方法和函数的命名 适用于C
-5类属性的命名 适用于C
-6方法和函数参数的命名 适用于C
-7局部变量的命名 适用于">
-  
-    <link rel="alternative" href="/atom.xml" title="ST" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link rel="stylesheet" type="text/css" href="/./main.2d7529.css">
-  <style type="text/css">
-  
-    #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+    1 起个合适的名字
+        11    类的名称 适用于C
+        12    方法和函数的名称 适用于C++
+        13   含有度量单位的名称 适用于C++
+        14    缩写名称不要全部大写 适用于C++
+    2类的命名 适用于C
+    3类库或程序库命名 适用于C++
+    4方法和函数的命名 适用于C
+    5类">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '2QO73P8IRL',
+      apiKey: 'd708fdfc7728c0f4e49cf1d1dbfbc6f7',
+      indexName: 'ProSTKhala',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
-  </style>
-  
+  };
+</script>
 
-  
 
+
+  <link rel="canonical" href="https://prostkhala.github.io/2017/03/07/c++代码规范/"/>
+
+
+
+
+
+  <title> C/C++代码规范 | ST </title>
 </head>
 
-<body>
-  <div id="container" q-class="show:isCtnShow">
-    <canvas id="anm-canvas" class="anm-canvas"></canvas>
-    <div class="left-col" q-class="show:isShow">
-      
-<div class="overlay" style="background: #4d4d4d"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/" class="profilepic">
-			<img src="https://raw.githubusercontent.com/ProSTKhala/ProSTKhala.github.io/master/images/ST.jpg" class="js-avatar">
-		</a>
-		<hgroup>
-		  <h1 class="header-author"><a href="/">ST</a></h1>
-		</hgroup>
-		
-		<p class="header-subtitle">A HAOIER</p>
-		
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-		<nav class="header-menu">
-			<ul>
-			
-				<li><a href="/">Home</a></li>
-	        
-			</ul>
-		</nav>
-		<nav class="header-smart-menu">
-    		
-    			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">  _SEARCH_   </a>
-    			
-            
-    			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">   _FRIENDS_   </a>
-    			
-            
-    			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">   _ABOUT_   </a>
-    			
-            
-		</nav>
-		<nav class="header-nav">
-			<div class="social">
-				
-					<a class="github" target="_blank" href="https://github.com/ProSTKhala" title="github"><i class="icon-github"></i></a>
-		        
-					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/su-tong-75-78/activities" title="zhihu"><i class="icon-zhihu"></i></a>
-		        
-					<a class="qq" target="_blank" href="/770780079" title="qq"><i class="icon-qq"></i></a>
-		        
-					<a class="mail" target="_blank" href="/770780079@qq.com" title="mail"><i class="icon-mail"></i></a>
-		        
-			</div>
-		</nav>
-	</header>		
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ST</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">A HAOIER</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
-    </div>
-    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
-      
-<nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
-	<div class="btnctn js-mobile-btnctn">
-  		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
-	</div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-				<img src="https://raw.githubusercontent.com/ProSTKhala/ProSTKhala.github.io/master/images/ST.jpg" class="js-avatar">
-			</div>
-			<hgroup>
-			  <h1 class="header-author js-header-author">ST</h1>
-			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>A HAOIER<i class="icon icon-quo-right"></i></p>
-			
-			
-			
-				
-			
-			
-			
-			<nav class="header-nav">
-				<div class="social">
-					
-						<a class="github" target="_blank" href="https://github.com/ProSTKhala" title="github"><i class="icon-github"></i></a>
-			        
-						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/su-tong-75-78/activities" title="zhihu"><i class="icon-zhihu"></i></a>
-			        
-						<a class="qq" target="_blank" href="/770780079" title="qq"><i class="icon-qq"></i></a>
-			        
-						<a class="mail" target="_blank" href="/770780079@qq.com" title="mail"><i class="icon-mail"></i></a>
-			        
-				</div>
-			</nav>
+<nav class="site-nav">
+  
 
-			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
-				
-				
-					<li style="width: 100%"><a href="/">Home</a></li>
-		        
-				</ul>
-			</nav>
-		</header>				
-	</div>
-	<div class="mobile-mask" style="display:none" q-show="isShow"></div>
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
 </nav>
 
-      <div id="wrapper" class="body-wrap">
-        <div class="menu-l">
-          <div class="canvas-wrap">
-            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
-          </div>
-          <div id="js-content" class="content-ll">
-            <article id="post-c++代码规范" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      C/C++代码规范
-    </h1>
+
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://prostkhala.github.io/2017/03/07/c++代码规范/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ST">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/ProSTKhala/ProSTKhala.github.io/master/images/ST.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ST">
+    </span>
+
+    
+      <header class="post-header">
+
         
-        <a href="/2017/03/07/c++代码规范/" class="archive-article-date">
-  	<time datetime="2017-03-07T09:53:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-07</time>
-</a>
         
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                C/C++代码规范
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-07T17:53:42+08:00">
+                2017-03-07
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-03-09T11:34:54+08:00">
+                2017-03-09
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/代码规范/" itemprop="url" rel="index">
+                    <span itemprop="name">代码规范</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/07/c++代码规范/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/07/c++代码规范/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
-        <pre><code>命名规则
-1 起个合适的名字
-    11    类的名称 适用于C
-    12    方法和函数的名称 适用于C++
-    13   含有度量单位的名称 适用于C++
-    14    缩写名称不要全部大写 适用于C++
-2类的命名 适用于C
-3类库或程序库命名 适用于C++
-4方法和函数的命名 适用于C
-5类属性的命名 适用于C
-6方法和函数参数的命名 适用于C
-7局部变量的命名 适用于C++
-8指针变量的命名前缀 适用于C++
-9引用变量和返回引用函数的命名前缀 适用于C
-10   全局变量的命名前缀 适用于C++
-11   全局常量的命名 适用于C+
-命名规则
-1 起个合适的名字
-    11    类的名称 适用于C
-    12    方法和函数的名称 适用于C++
-    13   含有度量单位的名称 适用于C++
-    14    缩写名称不要全部大写 适用于C++
-2类的命名 适用于C
-3类库或程序库命名 适用于C++
-4方法和函数的命名 适用于C
-5类属性的命名 适用于C
-6方法和函数参数的命名 适用于C
-7局部变量的命名 适用于C++
-8指针变量的命名前缀 适用于C++
-9引用变量和返回引用函数的命名前缀 适用于C
-10   全局变量的命名前缀 适用于C++
-11   全局常量的命名 适用于C++
-12   静态变量的命名前缀 适用于C
-13   自定义类型typedef的命名 适用于C++
-14   宏定义的命名 适用于C++
-15   C 函数的命名 适用于C++
-16   枚举的命名 适用于C++
-排版规则
-1 布局和模板
-    11    类的布局模板 适用于C
-    12   源文件格式 适用于C
-    13    保护头文件不被重复包含 适用于C++
-    14    方法和函数的布局 适用于C++
-2 缩进制表符以及空格 适用于C++
-3 尽量使一行不要超过78个字母 适用于C++
-4 保证一行只写一条语句 适用于C++
-5 花括号 规则 适用于C++
-    51    花括号的位置
-    52    什么时候应使用花括号
-    53    在花括号结束的位置加上注释
-    54    注意屏幕大小 
-6圆括号 规则 适用于C++
-7if else 语句的格式 适用于C++
-8switch 格式 适用于C++
-9 使用gotocontinuebreak 和 适用于C++
-    91    Goto
-    92    Continue and Break
-    93    
-10   运算符号的规则 适用于C++
-11    变量声明语句块 适用于C++
-文档及注释
-1 文件或程序库的文档注释 适用于C++
-2 类文档注释 适用于C++
-3 函数文档注释 适用于C++
-4 Include 语句注释 适用于C++
-5语句块注释 适用于C++
-编码要求
-1 不要忽略编译器的警告 适用于C++
-2 应使用源代码管理器 适用于C++
-3 固有的类方法成员 适用于C
-4 使用命名空间 适用于C
-5 初始化所有的变量 适用于C++
-6 保持函数短小精悍 适用于C++
-7对空语句进行注释 适用于C++
-8不要用if语句的默认方法测试非零值 适用于C++
-9布尔类型 适用于C++
-10避免在语句中内含赋值 适用于C++
-11正确的使用Const 适用于C++
-12不要在头文件定义数据适用于C++
-13不要直接使用数字 适用于C++
-14宏 适用于C++
+      
+
+      
+        <pre><code>    命名规则
+    1 起个合适的名字
+        11    类的名称 适用于C
+        12    方法和函数的名称 适用于C++
+        13   含有度量单位的名称 适用于C++
+        14    缩写名称不要全部大写 适用于C++
+    2类的命名 适用于C
+    3类库或程序库命名 适用于C++
+    4方法和函数的命名 适用于C
+    5类属性的命名 适用于C
+    6方法和函数参数的命名 适用于C
+    7局部变量的命名 适用于C++
+    8指针变量的命名前缀 适用于C++
+    9引用变量和返回引用函数的命名前缀 适用于C
+    10   全局变量的命名前缀 适用于C++
+    11   全局常量的命名 适用于C+
+    命名规则
+    1 起个合适的名字
+        11    类的名称 适用于C
+        12    方法和函数的名称 适用于C++
+        13   含有度量单位的名称 适用于C++
+        14    缩写名称不要全部大写 适用于C++
+    2类的命名 适用于C
+    3类库或程序库命名 适用于C++
+    4方法和函数的命名 适用于C
+    5类属性的命名 适用于C
+    6方法和函数参数的命名 适用于C
+    7局部变量的命名 适用于C++
+    8指针变量的命名前缀 适用于C++
+    9引用变量和返回引用函数的命名前缀 适用于C
+    10   全局变量的命名前缀 适用于C++
+    11   全局常量的命名 适用于C++
+    12   静态变量的命名前缀 适用于C
+    13   自定义类型typedef的命名 适用于C++
+    14   宏定义的命名 适用于C++
+    15   C 函数的命名 适用于C++
+    16   枚举的命名 适用于C++
+    排版规则
+    1 布局和模板
+        11    类的布局模板 适用于C
+        12   源文件格式 适用于C
+        13    保护头文件不被重复包含 适用于C++
+        14    方法和函数的布局 适用于C++
+    2 缩进制表符以及空格 适用于C++
+    3 尽量使一行不要超过78个字母 适用于C++
+    4 保证一行只写一条语句 适用于C++
+    5 花括号 规则 适用于C++
+        51    花括号的位置
+        52    什么时候应使用花括号
+        53    在花括号结束的位置加上注释
+        54    注意屏幕大小 
+    6圆括号 规则 适用于C++
+    7if else 语句的格式 适用于C++
+    8switch 格式 适用于C++
+    9 使用gotocontinuebreak 和 适用于C++
+        91    Goto
+        92    Continue and Break
+        93    
+    10   运算符号的规则 适用于C++
+    11    变量声明语句块 适用于C++
+    文档及注释
+    1 文件或程序库的文档注释 适用于C++
+    2 类文档注释 适用于C++
+    3 函数文档注释 适用于C++
+    4 Include 语句注释 适用于C++
+    5语句块注释 适用于C++
+    编码要求
+    1 不要忽略编译器的警告 适用于C++
+    2 应使用源代码管理器 适用于C++
+    3 固有的类方法成员 适用于C
+    4 使用命名空间 适用于C
+    5 初始化所有的变量 适用于C++
+    6 保持函数短小精悍 适用于C++
+    7对空语句进行注释 适用于C++
+    8不要用if语句的默认方法测试非零值 适用于C++
+    9布尔类型 适用于C++
+    10避免在语句中内含赋值 适用于C++
+    11正确的使用Const 适用于C++
+    12不要在头文件定义数据适用于C++
+    13不要直接使用数字 适用于C++
+    14宏 适用于C++
 </code></pre> <a id="more"></a> 
 <h1 id="1-命名规则"><a href="#1-命名规则" class="headerlink" title="1.    命名规则"></a>1.    命名规则</h1><h2 id="1-1-起个合适的名字"><a href="#1-1-起个合适的名字" class="headerlink" title="1.1. 起个合适的名字"></a>1.1. 起个合适的名字</h2><h3 id="1-1-1-类的名称（适用于C-）"><a href="#1-1-1-类的名称（适用于C-）" class="headerlink" title="1.1.1.    类的名称（适用于C++）"></a>1.1.1.    类的名称（适用于C++）</h3><p>²  类的名称要能告诉我们，这个类是什么。因此，类的名称通常是名词。</p>
 <p>²  类的名字不需要告诉我们，它从哪个类继承而来的。</p>
@@ -315,116 +571,116 @@ class NetworkAbcKey;      // 而不是 NetworkABCKey
 <p>²  名字的第一个字母应大写</p>
 <p>²  不含有下划线 (‘_’)</p>
 <p>例如：</p>
-<pre><code>class NameOneTwo; 
+<pre><code>   class NameOneTwo; 
 
-class Name;
+   class Name;
 </code></pre><h2 id="1-3-类库（或程序库）命名-（适用于C-C-）"><a href="#1-3-类库（或程序库）命名-（适用于C-C-）" class="headerlink" title="1.3.类库（或程序库）命名 （适用于C/C++）"></a>1.3.类库（或程序库）命名 （适用于C/C++）</h2><p>²  使用命名空间防止名字冲突。</p>
 <p>²  如果编译器没有实现命名空间，需要用前缀来避名名字冲突，不过前缀不要过长（2个字母比较好）。</p>
 <p>例如：</p>
 <p>John Johnson 完成了一个数据结构的库，它可以使用JJ作为库的前缀，所以类名就象下面这样：</p>
-<pre><code>class JjLinkList
+<pre><code>   class JjLinkList
 
-{
+   {
 
-}
+   }
 </code></pre><h2 id="1-4-方法和函数的命名（适用于C-）"><a href="#1-4-方法和函数的命名（适用于C-）" class="headerlink" title="1.4.方法和函数的命名（适用于C++）"></a>1.4.方法和函数的命名（适用于C++）</h2><p>²  使用与类名相同的规则</p>
 <p>例如：</p>
-<pre><code> class NameOneTwo
+<pre><code>   class NameOneTwo
 
- {
+   {
 
-     public:
+       public:
 
-int     DoIt();
+  int     DoIt();
 
-void    HandleError();
+  void    HandleError();
 
- }
+   }
 </code></pre><h2 id="1-5-类属性的命名（适用于C-）"><a href="#1-5-类属性的命名（适用于C-）" class="headerlink" title="1.5.类属性的命名（适用于C++）"></a>1.5.类属性的命名（适用于C++）</h2><p>²  属性（通常是非公有数据成员）名字以字母’m’开头。</p>
 <p>²  在 ‘m(m_)’  后面，使用与类名相同的规则。</p>
 <p>²  ‘m(m_)’ 总是位于其它修饰符（如表示指针的 ‘p’）的前面。</p>
 <p>例如：</p>
-<pre><code>class NameOneTwo
+<pre><code>   class NameOneTwo
 
-{
+   {
 
-public:
+   public:
 
-   int     VarAbc();
+      int     VarAbc();
 
-   int     ErrorNumber();
+      int     ErrorNumber();
 
-private:
+   private:
 
-   int          mVarAbc;
+      int          mVarAbc;
 
-   int          mErrorNumber;
+      int          mErrorNumber;
 
-   String*      mpName;
+      String*      mpName;
 
-}
+   }
 </code></pre><h2 id="1-6-方法和函数参数的命名（适用于C-）"><a href="#1-6-方法和函数参数的命名（适用于C-）" class="headerlink" title="1.6.方法和函数参数的命名（适用于C++）"></a>1.6.方法和函数参数的命名（适用于C++）</h2><p>²  第一个字母必须小写。</p>
 <p>²  第一个字母后面的单词使用与类名相同的规则。</p>
 <p>例如：</p>
-<pre><code> class NameOneTwo
+<pre><code>   class NameOneTwo
 
- {
+   {
 
- public:
+   public:
 
-int     StartYourEngines(
+  int     StartYourEngines(
 
-                         Engine&amp;rSomeEngine,
+                           Engine&amp;rSomeEngine,
 
-                        Engine&amp;rAnotherEngine);
+                          Engine&amp;rAnotherEngine);
 
- }
+   }
 </code></pre><h2 id="1-7-局部变量的命名（适用于C-C-）"><a href="#1-7-局部变量的命名（适用于C-C-）" class="headerlink" title="1.7.局部变量的命名（适用于C/C++）"></a>1.7.局部变量的命名（适用于C/C++）</h2><p>²  所有字母都用小写</p>
 <p>²  使用下划线 ‘_’ 作为单词的分隔。</p>
 <p>例如：</p>
-<pre><code>  int
+<pre><code>   int
 
- NameOneTwo::HandleError(int errorNumber)
+  NameOneTwo::HandleError(int errorNumber)
 
-  {
+   {
 
- int            error= OsErr();
+  int            error= OsErr();
 
- Time           time_of_error;
+  Time           time_of_error;
 
-ErrorProcessor error_processor;
+ ErrorProcessor error_processor;
 </code></pre><p>   }</p>
 <h2 id="1-8-指针变量的命名前缀（适用于C-C-）"><a href="#1-8-指针变量的命名前缀（适用于C-C-）" class="headerlink" title="1.8.指针变量的命名前缀（适用于C/C++）"></a>1.8.指针变量的命名前缀（适用于C/C++）</h2><p>²  指针变量多数情况应在前面加 ‘p’。</p>
 <p>²  星号 ‘*’ 应靠近类型，而不是变量名。</p>
 <p>例如：</p>
-<pre><code>String* pName=new String;
+<pre><code>  String* pName=new String;
 </code></pre><p>  特别的：String* pName, name; 应分成两行来写：</p>
-<pre><code>String* pName;
+<pre><code>  String* pName;
 
-String  name;
+  String  name;
 </code></pre><h2 id="1-9-引用变量和返回引用函数的命名前缀（适用于C-）"><a href="#1-9-引用变量和返回引用函数的命名前缀（适用于C-）" class="headerlink" title="1.9.引用变量和返回引用函数的命名前缀（适用于C++）"></a>1.9.引用变量和返回引用函数的命名前缀（适用于C++）</h2><p>²  引用必须用 ‘r’作前缀修饰。</p>
 <p>例如：</p>
-<pre><code>  class Test
+<pre><code>   class Test
 
-  {
+   {
 
-  public:
+   public:
 
- void               DoSomething(StatusInfo&amp;rStatus);
-
-
-
-StatusInfo&amp;        rStatus();
-
- constStatusInfo&amp;  Status() const; // 这里返回的是常量引用，所以不符合本规则
+  void               DoSomething(StatusInfo&amp;rStatus);
 
 
 
-  private:
+ StatusInfo&amp;        rStatus();
 
-    StatusInfo&amp;        mrStatus;
+  constStatusInfo&amp;  Status() const; // 这里返回的是常量引用，所以不符合本规则
 
-  }
+
+
+   private:
+
+     StatusInfo&amp;        mrStatus;
+
+   }
 </code></pre><h2 id="1-10-全局变量的命名前缀（适用于C-C-）"><a href="#1-10-全局变量的命名前缀（适用于C-C-）" class="headerlink" title="1.10.   全局变量的命名前缀（适用于C/C++）"></a>1.10.   全局变量的命名前缀（适用于C/C++）</h2><p>²  全局变量总是以 ‘g(g_)’ 作为前缀。</p>
 <p>例如：</p>
 <pre><code>Logger g_Log;
@@ -435,23 +691,23 @@ Logger* g_pLog;
 <pre><code>const intA_GLOBAL_CONSTANT = 5;
 </code></pre><h2 id="1-12-静态变量的命名前缀（适用于C-）"><a href="#1-12-静态变量的命名前缀（适用于C-）" class="headerlink" title="1.12.   静态变量的命名前缀（适用于C++）"></a>1.12.   静态变量的命名前缀（适用于C++）</h2><p>²  静态变量以 ‘s’ 作为前缀。</p>
 <p>例如：</p>
-<pre><code>class Test
+<pre><code>   class Test
 
-{
+   {
 
-public:
+   public:
 
-private:
+   private:
 
-   staticStatusInfo m_sStatus;
+      staticStatusInfo m_sStatus;
 
-}
+   }
 </code></pre><h2 id="1-13-自定义类型（typedef）的命名（适用于C-C-）"><a href="#1-13-自定义类型（typedef）的命名（适用于C-C-）" class="headerlink" title="1.13.   自定义类型（typedef）的命名（适用于C/C++）"></a>1.13.   自定义类型（typedef）的命名（适用于C/C++）</h2><p>²  类型定义名称指的是用typedef定义的名称。</p>
 <p>²  类型定义名称使用与类名相同的规则，并使用Type作为后缀。</p>
 <p>例如：</p>
-<pre><code>typedefuint16  ModuleType;
+<pre><code>   typedefuint16  ModuleType;
 
-typedefuint32  SystemType;
+   typedefuint32  SystemType;
 </code></pre><h2 id="1-14-宏定义的命名（适用于C-C-）"><a href="#1-14-宏定义的命名（适用于C-C-）" class="headerlink" title="1.14.   宏定义的命名（适用于C/C++）"></a>1.14.   宏定义的命名（适用于C/C++）</h2><p>²  所有单词的字母都用大写，并使用下划线 ‘_’ 分隔.</p>
 <p>例如：</p>
 <pre><code>#define MAX(a,b) blah
@@ -460,35 +716,35 @@ typedefuint32  SystemType;
 </code></pre><h2 id="1-15-C-函数的命名（适用于C-C-）"><a href="#1-15-C-函数的命名（适用于C-C-）" class="headerlink" title="1.15.   C 函数的命名（适用于C/C++）"></a>1.15.   C 函数的命名（适用于C/C++）</h2><p>²  C++项目中，应尽量少用C函数。</p>
 <p>²  C函数使用GNU规范，所有字母都使用小写，并用下划线 ‘_’ 作为单词的分隔。</p>
 <p>例如：</p>
-<pre><code> int
+<pre><code>   int
 
-some_bloody_function()
+  some_bloody_function()
 
- {
+   {
 
- }
+   }
 </code></pre><p>²  特别的，为了赚容C/C++，在必要的时候，在C++中应以下面的格式定义C函数：</p>
-<pre><code>extern “C” int some_bloody_function();
+<pre><code>   extern “C” int some_bloody_function();
 </code></pre><p>²  或在C/C++中推荐使用下面的格式：</p>
-<pre><code> #ifdef__cplusplus__
+<pre><code>   #ifdef__cplusplus__
 
- extern “C”{
+   extern “C”{
 
- #endif
+   #endif
 
- int
+   int
 
-some_bloody_function()
+  some_bloody_function()
 
- {
+   {
 
- }
+   }
 
- #ifdef__cplusplus__
+   #ifdef__cplusplus__
 
- }
+   }
 
- #endif
+   #endif
 </code></pre><h2 id="1-16-枚举的命名（适用于C-C-）"><a href="#1-16-枚举的命名（适用于C-C-）" class="headerlink" title="1.16.   枚举的命名（适用于C/C++）"></a>1.16.   枚举的命名（适用于C/C++）</h2><p>²  所有字母都大写，并用下划线 ‘_’ 作为单词分隔。</p>
 <p>例如：</p>
 <pre><code>   enumPinStateType
@@ -654,390 +910,390 @@ enum { STATE_ERR, STATE_OPEN, STATE_RUNNING, STATE_DYING};
     #endif  // SORUTION_PROJECT_CLASSNAME_H
 </code></pre><p>²  定义的顺序是: public, protected, private</p>
 <p>²  要清楚public/protected/private都应该放置哪些东西</p>
-<h3 id="2-1-2-源文件格式（适用于C-）"><a href="#2-1-2-源文件格式（适用于C-）" class="headerlink" title="2.1.2.   源文件格式（适用于C++）"></a>2.1.2.   源文件格式（适用于C++）</h3><pre><code>#include &quot;XX.h&quot;                               // class implemented
+<h3 id="2-1-2-源文件格式（适用于C-）"><a href="#2-1-2-源文件格式（适用于C-）" class="headerlink" title="2.1.2.   源文件格式（适用于C++）"></a>2.1.2.   源文件格式（适用于C++）</h3><pre><code>    #include &quot;XX.h&quot;                               // class implemented
 </code></pre><p>/////////////// PUBLIC///////////////////////</p>
 <p>//================= 构造函数 ====================</p>
-<pre><code>XX::XX()
+<pre><code>    XX::XX()
 
-{
+    {
 
-}// XX
-
-
-
-XX::XX(const XX&amp;)
-
-{
-
-}// XX
+    }// XX
 
 
 
-XX::~XX()
+    XX::XX(const XX&amp;)
 
-{
+    {
 
-}// ~XX
+    }// XX
+
+
+
+    XX::~XX()
+
+    {
+
+    }// ~XX
 </code></pre><p>//=============== 操作符=========================</p>
-<pre><code>XX&amp;
+<pre><code>    XX&amp;
 
-XX::operator=(XX&amp;);
+    XX::operator=(XX&amp;);
 
-{
+    {
 
-   return *this;
+       return *this;
 
 
 
-}// =
+    }// =
 </code></pre><p>//==============类的操作 =====================</p>
 <p>//==============属性存取 =====================</p>
 <p>//==============状态查询   =====================</p>
 <p>///////////// PROTECTED  //////////////////</p>
 <p>///////////// PRIVATE    //////////////////</p>
 <h3 id="2-1-3-保护头文件不被重复包含-（适用于C-C-）"><a href="#2-1-3-保护头文件不被重复包含-（适用于C-C-）" class="headerlink" title="2.1.3.    保护头文件不被重复包含 （适用于C/C++）"></a>2.1.3.    保护头文件不被重复包含 （适用于C/C++）</h3><p>²  应使用宏定义来保护头文件不被重复包含：</p>
-<pre><code>#ifndef SORUTION_PROJECT_CLASSNAME_H
+<pre><code>    #ifndef SORUTION_PROJECT_CLASSNAME_H
 
-#define SORUTION_PROJECT_CLASSNAME_H
+    #define SORUTION_PROJECT_CLASSNAME_H
 
 
 
-#endif // SORUTION_PROJECT_CLASSNAME_H
+    #endif // SORUTION_PROJECT_CLASSNAME_H
 </code></pre><p>²  如果使用命名空间的时候，要把命名空间加到文件名前面：</p>
-<pre><code>#ifndef SORUTION_PROJECT_NAMESPACE_CLASSNAME_H
+<pre><code>    #ifndef SORUTION_PROJECT_NAMESPACE_CLASSNAME_H
 
-#define SORUTION_PROJECT_NAMESPACE_CLASSNAME_H
+    #define SORUTION_PROJECT_NAMESPACE_CLASSNAME_H
 </code></pre><p>#endif</p>
 <h3 id="2-1-4-方法和函数的布局-（适用于C-C-）"><a href="#2-1-4-方法和函数的布局-（适用于C-C-）" class="headerlink" title="2.1.4.    方法和函数的布局 （适用于C/C++）"></a>2.1.4.    方法和函数的布局 （适用于C/C++）</h3><p>²  对于有较多参数的函数的写法</p>
 <p>如果参数较多，一行写不下，我们应该分成几行来写，并且每个参数都另起一行对齐：</p>
-<pre><code>int AnyMethod(
+<pre><code>       int AnyMethod(
 
-              int  arg1, 
+                     int  arg1, 
 
-              int   arg2,
+                     int   arg2,
 
-              int   arg3,
+                     int   arg3,
 
-              int   arg4); 
+                     int   arg4); 
 </code></pre><p>或</p>
-<pre><code>int AnyMethod( int   arg1 
+<pre><code>    int AnyMethod( int   arg1 
 
-               , int   arg2
+                   , int   arg2
 
-               , int   arg3
+                   , int   arg3
 
-               , int   arg4);
+                   , int   arg4);
 </code></pre><h2 id="2-2-缩进、制表符以及空格-（适用于C-C-）"><a href="#2-2-缩进、制表符以及空格-（适用于C-C-）" class="headerlink" title="2.2. 缩进、制表符以及空格 （适用于C/C++）"></a>2.2. 缩进、制表符以及空格 （适用于C/C++）</h2><p>²  缩进的时候，每一层缩进3，4，或8个空格。（推荐使用4个空格）</p>
 <p>²  不要使用TAB，用空格，大多数编辑器可以用空格代替TAB。TAB应固定4个空格，因为大多数编辑器都是这么设置的。</p>
 <p>²  虽然没有规定缩进的层次，但是4至5层是合适的。如果缩进的层次太多，你可能需要考虑是否进行代码重构了。</p>
 <p>例如：</p>
-<pre><code>void
+<pre><code>       void
 
-func()
-
-{
-
-   if (something bad)
-
-   {
-
-       if (another thing bad)
+       func()
 
        {
 
-           while (more input)
+          if (something bad)
 
-           {
+          {
 
-           }
+              if (another thing bad)
+
+              {
+
+                  while (more input)
+
+                  {
+
+                  }
+
+              }
+
+          }
 
        }
-
-   }
-
-}
 </code></pre><h2 id="2-3-尽量使一行不要超过78个字母-（适用于C-C-）"><a href="#2-3-尽量使一行不要超过78个字母-（适用于C-C-）" class="headerlink" title="2.3. 尽量使一行不要超过78个字母 （适用于C/C++）"></a>2.3. 尽量使一行不要超过78个字母 （适用于C/C++）</h2><p>²  有许多编辑器屏幕只有78个字母宽</p>
 <h2 id="2-4-保证一行只写一条语句-（适用于C-C-）"><a href="#2-4-保证一行只写一条语句-（适用于C-C-）" class="headerlink" title="2.4. 保证一行只写一条语句 （适用于C/C++）"></a>2.4. 保证一行只写一条语句 （适用于C/C++）</h2><p>²  一行最多只写一条语句</p>
 <p>²  一行只定义一个变量</p>
 <p>例如：</p>
 <p>不要象下面这样:</p>
-<pre><code>char** a, *x;
+<pre><code>    char** a, *x;
 
 
 
-int width, height; //widthand height of image
+    int width, height; //widthand height of image
 </code></pre><p>要象这样:</p>
-<pre><code>char** a= 0;  // 文档说明
+<pre><code>    char** a= 0;  // 文档说明
 
-char*  x= 0;  // 文档说明
-2.5. 花括号 {} 规则 （适用于C/C++）
-2.5.1.    花括号的位置
+    char*  x= 0;  // 文档说明
+    2.5. 花括号 {} 规则 （适用于C/C++）
+    2.5.1.    花括号的位置
 </code></pre><p>²  在关键字的下一行单独放置括号，并且与关键字对齐，如：</p>
-<pre><code>if (condition)       
-
-{
-
-    ...
-
-}
-
-while (condition)
-
-{
-
-    …
-
-}
-</code></pre><h3 id="2-5-2-什么时候应使用花括号"><a href="#2-5-2-什么时候应使用花括号" class="headerlink" title="2.5.2.    什么时候应使用花括号"></a>2.5.2.    什么时候应使用花括号</h3><p>所有的 if, while 和 do 语句，要么用单行格式，要么使用花括号格式。</p>
-<p>²  使用花括号格式：</p>
-<pre><code>if (1 == somevalue)
-
-{
-
-   somevalue = 2;
-
-}
-
-²  单行格式：
-
-if (1 == somevalue) somevalue = 2;
-
-或下面这样（对于这种写法，建议使用花括号）：
-
-if (1 == somevalue)
-
-{
-somevalue = 2;
-
-}
-</code></pre><h3 id="2-5-3-在花括号结束的位置加上注释"><a href="#2-5-3-在花括号结束的位置加上注释" class="headerlink" title="2.5.3.    在花括号结束的位置加上注释"></a>2.5.3.    在花括号结束的位置加上注释</h3><p>²  在花括号结束的位置加上注释是一个好习惯。假如前后花括号距离很远，注释就能帮你理解它是如何对应的。如：</p>
-<pre><code>while(1)
-
-{
-
-   if (valid)
-
-   {
-
-
-
-   } // if valid
-
-   else
-
-   {
-
-   } // not valid
-
-
-
-} // end forever
-</code></pre><h3 id="2-5-4-注意屏幕大小"><a href="#2-5-4-注意屏幕大小" class="headerlink" title="2.5.4.    注意屏幕大小"></a>2.5.4.    注意屏幕大小</h3><p>²  一个语句块尽量不超过一个屏幕大小，这样，不要卷动屏幕就可以阅读代码。</p>
-<h2 id="2-6-圆括号-规则-（适用于C-C-）"><a href="#2-6-圆括号-规则-（适用于C-C-）" class="headerlink" title="2.6.圆括号 () 规则 （适用于C/C++）"></a>2.6.圆括号 () 规则 （适用于C/C++）</h2><p>²  圆括号与关键字之间应放一个空格。</p>
-<p>²  圆括号与函数名之间不要有空格。</p>
-<p>²  Return 语句不要使用圆括号。</p>
-<p>例如：</p>
-<pre><code>if (condition)
-
-{
-
-}
-
-
-
-while(condition)
-
-{
-
-}
-
-
-
-strcpy(s, s1);
-
-
-
-return 1;
-</code></pre><h2 id="2-7-if-else-语句的格式-（适用于C-C-）"><a href="#2-7-if-else-语句的格式-（适用于C-C-）" class="headerlink" title="2.7.if else 语句的格式 （适用于C/C++）"></a>2.7.if else 语句的格式 （适用于C/C++）</h2><p>²  布局</p>
-<pre><code>if (条件)               // 注释
-
-{
-
-}
-
-else if (条件)           // 注释
-
-{
-
-}
-
-else                   // 注释
-
-{
-
-}
-</code></pre><p>²  条件格式</p>
-<p>总是把常量放在等号或不等于号的左边：</p>
-<pre><code>if ( 6 == errorNum ) ...
-</code></pre><p>一个很重要的理由是，假如漏写一个等号，这种写法会产生一个编译错误，有助于马上发现问题。</p>
-<p>比如：</p>
-<pre><code>if ( errorNum == 6) ...
-</code></pre><p>错写成：</p>
-<pre><code>if ( errorNum = 6) ... // 这是一个不容易发现的灾难
-</code></pre><h2 id="2-8-switch-格式-（适用于C-C-）"><a href="#2-8-switch-格式-（适用于C-C-）" class="headerlink" title="2.8.switch 格式 （适用于C/C++）"></a>2.8.switch 格式 （适用于C/C++）</h2><p>²  直通的case语句，应该放置一条注释说明这个case语句是直通到下一个case语句的。</p>
-<p>²  总是要写default语句，不管是否是需要。</p>
-<p>²  在case中需要定义变量的时候，应把所有代码放在语句块中。</p>
-<p>例如：</p>
-<pre><code>switch (...)
-
-{
-
-case 1:
-
-    ...
-
-        // 继续执行case2
-
-
-
-case 2:
-
-    {       
-
-        int v;
-
-        ...
-
-    }
-
-    break;
-
-
-
-default:
-
-}
-</code></pre><h2 id="2-9-使用goto-continue-break-和-（适用于C-C-）"><a href="#2-9-使用goto-continue-break-和-（适用于C-C-）" class="headerlink" title="2.9. 使用goto,continue,break 和 ?: （适用于C/C++）"></a>2.9. 使用goto,continue,break 和 ?: （适用于C/C++）</h2><h3 id="2-9-1-Goto"><a href="#2-9-1-Goto" class="headerlink" title="2.9.1.    Goto"></a>2.9.1.    Goto</h3><p>²  尽量避免使用Goto 语句。一个合理使用goto语句的场合是，当你需要从多层循环中跳出。例如：</p>
-<pre><code>for (...)
-
-{
-
-    while (...)
+<pre><code>    if (condition)       
 
     {
 
         ...
 
-            if (disaster)
+    }
 
-goto error; //跳出循环
+    while (condition)
+
+    {
+
+        …
+
+    }
+</code></pre><h3 id="2-5-2-什么时候应使用花括号"><a href="#2-5-2-什么时候应使用花括号" class="headerlink" title="2.5.2.    什么时候应使用花括号"></a>2.5.2.    什么时候应使用花括号</h3><p>所有的 if, while 和 do 语句，要么用单行格式，要么使用花括号格式。</p>
+<p>²  使用花括号格式：</p>
+<pre><code>    if (1 == somevalue)
+
+    {
+
+       somevalue = 2;
 
     }
 
-}
+    ²  单行格式：
 
-...
+    if (1 == somevalue) somevalue = 2;
 
-error:
+    或下面这样（对于这种写法，建议使用花括号）：
 
-clean up the mess
+    if (1 == somevalue)
+
+    {
+    somevalue = 2;
+
+    }
+</code></pre><h3 id="2-5-3-在花括号结束的位置加上注释"><a href="#2-5-3-在花括号结束的位置加上注释" class="headerlink" title="2.5.3.    在花括号结束的位置加上注释"></a>2.5.3.    在花括号结束的位置加上注释</h3><p>²  在花括号结束的位置加上注释是一个好习惯。假如前后花括号距离很远，注释就能帮你理解它是如何对应的。如：</p>
+<pre><code>    while(1)
+
+    {
+
+       if (valid)
+
+       {
+
+
+
+       } // if valid
+
+       else
+
+       {
+
+       } // not valid
+
+
+
+    } // end forever
+</code></pre><h3 id="2-5-4-注意屏幕大小"><a href="#2-5-4-注意屏幕大小" class="headerlink" title="2.5.4.    注意屏幕大小"></a>2.5.4.    注意屏幕大小</h3><p>²  一个语句块尽量不超过一个屏幕大小，这样，不要卷动屏幕就可以阅读代码。</p>
+<h2 id="2-6-圆括号-规则-（适用于C-C-）"><a href="#2-6-圆括号-规则-（适用于C-C-）" class="headerlink" title="2.6.圆括号 () 规则 （适用于C/C++）"></a>2.6.圆括号 () 规则 （适用于C/C++）</h2><p>²  圆括号与关键字之间应放一个空格。</p>
+<p>²  圆括号与函数名之间不要有空格。</p>
+<p>²  Return 语句不要使用圆括号。</p>
+<p>例如：</p>
+<pre><code>    if (condition)
+
+    {
+
+    }
+
+
+
+    while(condition)
+
+    {
+
+    }
+
+
+
+    strcpy(s, s1);
+
+
+
+    return 1;
+</code></pre><h2 id="2-7-if-else-语句的格式-（适用于C-C-）"><a href="#2-7-if-else-语句的格式-（适用于C-C-）" class="headerlink" title="2.7.if else 语句的格式 （适用于C/C++）"></a>2.7.if else 语句的格式 （适用于C/C++）</h2><p>²  布局</p>
+<pre><code>       if (条件)               // 注释
+
+       {
+
+       }
+
+       else if (条件)           // 注释
+
+       {
+
+       }
+
+       else                   // 注释
+
+       {
+
+       }
+</code></pre><p>²  条件格式</p>
+<p>总是把常量放在等号或不等于号的左边：</p>
+<pre><code>    if ( 6 == errorNum ) ...
+</code></pre><p>一个很重要的理由是，假如漏写一个等号，这种写法会产生一个编译错误，有助于马上发现问题。</p>
+<p>比如：</p>
+<pre><code>    if ( errorNum == 6) ...
+</code></pre><p>错写成：</p>
+<pre><code>    if ( errorNum = 6) ... // 这是一个不容易发现的灾难
+</code></pre><h2 id="2-8-switch-格式-（适用于C-C-）"><a href="#2-8-switch-格式-（适用于C-C-）" class="headerlink" title="2.8.switch 格式 （适用于C/C++）"></a>2.8.switch 格式 （适用于C/C++）</h2><p>²  直通的case语句，应该放置一条注释说明这个case语句是直通到下一个case语句的。</p>
+<p>²  总是要写default语句，不管是否是需要。</p>
+<p>²  在case中需要定义变量的时候，应把所有代码放在语句块中。</p>
+<p>例如：</p>
+<pre><code>    switch (...)
+
+    {
+
+    case 1:
+
+        ...
+
+            // 继续执行case2
+
+
+
+    case 2:
+
+        {       
+
+            int v;
+
+            ...
+
+        }
+
+        break;
+
+
+
+    default:
+
+    }
+</code></pre><h2 id="2-9-使用goto-continue-break-和-（适用于C-C-）"><a href="#2-9-使用goto-continue-break-和-（适用于C-C-）" class="headerlink" title="2.9. 使用goto,continue,break 和 ?: （适用于C/C++）"></a>2.9. 使用goto,continue,break 和 ?: （适用于C/C++）</h2><h3 id="2-9-1-Goto"><a href="#2-9-1-Goto" class="headerlink" title="2.9.1.    Goto"></a>2.9.1.    Goto</h3><p>²  尽量避免使用Goto 语句。一个合理使用goto语句的场合是，当你需要从多层循环中跳出。例如：</p>
+<pre><code>    for (...)
+
+    {
+
+        while (...)
+
+        {
+
+            ...
+
+                if (disaster)
+
+    goto error; //跳出循环
+
+        }
+
+    }
+
+    ...
+
+    error:
+
+    clean up the mess
 </code></pre><p>²  跳转的标号必须单独在一行的最左边。Goto语句需要有相应的注释，说明它的用途。</p>
 <h3 id="2-9-2-Continue-and-Break"><a href="#2-9-2-Continue-and-Break" class="headerlink" title="2.9.2.    Continue and Break"></a>2.9.2.    Continue and Break</h3><p>²  Continue 和break 实际上起到与goto一样的作用，因此，尽量少用为上。并且，Continue与break最好不要连用。</p>
 <h3 id="2-9-3"><a href="#2-9-3" class="headerlink" title="2.9.3.    ?:"></a>2.9.3.    ?:</h3><p>²  用括号把条件表达式括起来。</p>
 <p>²  不要在 ? : 中写上过多的代码，操作表达式应尽可能简洁。</p>
 <p>²  操作语句应分行写，除非它们能够简洁的放在一行当中。</p>
 <p>例如：</p>
-<pre><code>(condition) ?funct1() : func2();
+<pre><code>       (condition) ?funct1() : func2();
 </code></pre><p>   或</p>
-<pre><code>(condition)
+<pre><code>       (condition)
 
-   ? longstatement
+          ? longstatement
 
-   : anotherlong statement;
+          : anotherlong statement;
 </code></pre><h2 id="2-10-运算符号的规则-（适用于C-C-）"><a href="#2-10-运算符号的规则-（适用于C-C-）" class="headerlink" title="2.10.   运算符号的规则 （适用于C/C++）"></a>2.10.   运算符号的规则 （适用于C/C++）</h2><p>²  一元操作符如（!、~ 等等）应贴近操作对象。<br>如：</p>
-<pre><code>if (!IsOk)
+<pre><code>    if (!IsOk)
 
-    return ++v;
+        return ++v;
 </code></pre><p>²  二元操作符如（+、*、%、== 等等）应在前后留空格。<br>如：</p>
-<pre><code>if ( v1 == v2)
+<pre><code>    if ( v1 == v2)
 
-     return v1 * 3;
+         return v1 * 3;
 </code></pre><p>²  ++ 和 – 尽量使用前置运算。在C++中，不管 ++i 还是 i++，总是++i更容易生成优化代码。<br>如：<br>        for(int i = 0; i &lt; 10; ++i)</p>
 <h2 id="2-11-变量声明语句块-（适用于C-C-）"><a href="#2-11-变量声明语句块-（适用于C-C-）" class="headerlink" title="2.11.    变量声明语句块 （适用于C/C++）"></a>2.11.    变量声明语句块 （适用于C/C++）</h2><p>²  变量应该是随用随声明，不要集中在函数前（有些C语言不支持，则不在此要求之列）。特别是在for语句的循环变量，应只在for语句中定义。<br>如：<br>        for(int i = 0; i &lt; 10; ++i)</p>
 <p>²  声明语句块必须要对齐</p>
 <p>类型，变量，等号和初始化值要分别对齐。</p>
 <p>例如：</p>
-<pre><code>DWORD      mDword;
+<pre><code>       DWORD      mDword;
 
-DWORD*     mpDword;
+       DWORD*     mpDword;
 
-char*      mpChar;
+       char*      mpChar;
 
-char       mChar;
+       char       mChar;
 
 
 
-mDword     =    0;
+       mDword     =    0;
 
-mpDword    =    NULL;
+       mpDword    =    NULL;
 
-mpChar      =    NULL;
+       mpChar      =    NULL;
 
-mChar      =    0;
+       mChar      =    0;
 </code></pre><h1 id="3-文档及注释"><a href="#3-文档及注释" class="headerlink" title="3.    文档及注释"></a>3.    文档及注释</h1><p>应当使用文档自动生成工具，来生成相关的程序文档。</p>
 <h2 id="3-1-文件或程序库的文档注释（适用于C-C-）"><a href="#3-1-文件或程序库的文档注释（适用于C-C-）" class="headerlink" title="3.1. 文件或程序库的文档注释（适用于C/C++）"></a>3.1. 文件或程序库的文档注释（适用于C/C++）</h2><p>可以为整个文件编写文档。</p>
 <p>例如：</p>
-<pre><code>/** @file file.h
+<pre><code>    /** @file file.h
 
- * Abrief file description.
+     * Abrief file description.
 
- * Amore elaborated file description.
+     * Amore elaborated file description.
 
- */
+     */
 </code></pre><h2 id="3-2-类文档注释（适用于C-C-）"><a href="#3-2-类文档注释（适用于C-C-）" class="headerlink" title="3.2. 类文档注释（适用于C/C++）"></a>3.2. 类文档注释（适用于C/C++）</h2><p>在类定义前面应加上类说明文档。</p>
 <p>例如：</p>
-<pre><code>/** WindowsNT
+<pre><code>    /** WindowsNT
 
- *  @brief Windows Nice Try.
+     *  @brief Windows Nice Try.
 
- *  @author Bill Gates
+     *  @author Bill Gates
 
- *  @author Several species of small furryanimals gathered together
+     *  @author Several species of small furryanimals gathered together
 
- *          in a cave and grooving with a pict.
+     *          in a cave and grooving with a pict.
 
- *  @version 4.0
+     *  @version 4.0
 
- *  @date   1996-1998
+     *  @date   1996-1998
 
- *  @bug It crashes a lot and requires hugeamounts of memory.
+     *  @bug It crashes a lot and requires hugeamounts of memory.
 
- *  @bug The class introduces the more bugs, thelonger it is used.
+     *  @bug The class introduces the more bugs, thelonger it is used.
 
- *  @warning This class may explode in your face.
+     *  @warning This class may explode in your face.
 
- *  @warning If you inherit anything from thisclass, you&apos;re doomed.
+     *  @warning If you inherit anything from thisclass, you&#39;re doomed.
 
- */
+     */
 
-class WindowsNT {};
+    class WindowsNT {};
 </code></pre><h2 id="3-3-函数文档注释（适用于C-C-）"><a href="#3-3-函数文档注释（适用于C-C-）" class="headerlink" title="3.3. 函数文档注释（适用于C/C++）"></a>3.3. 函数文档注释（适用于C/C++）</h2><p>²  函数注释</p>
 <p>所有的参数都应该有文档说明(param)，所有的返回代码都应该有文档说明(return)，所有的例外都应该有文档说明(exception)。可以使用(see)引用有关的开发资源。如：</p>
-<pre><code>/**
+<pre><code>      /**
 
- * 赋值操作符
+       * 赋值操作符
 
- *
+       *
 
- *@param val 将要赋给本对象的值
+       *@param val 将要赋给本对象的值
 
- *
+       *
 
- *@return 本对象的引用
+       *@return 本对象的引用
 
- */
+       */
 
-XX&amp;  operator =(XX&amp; val);
+      XX&amp;  operator =(XX&amp; val);
 </code></pre><p>²  注释属性</p>
 <p>一些自动文档工具定义的属性可以包含在文档中，常用的有：</p>
 <p>n  前提条件 (pre)<br>定义调用这个函数的前提条件</p>
@@ -1046,60 +1302,60 @@ XX&amp;  operator =(XX&amp; val);
 <p>n  将要完成的工作 (todo)<br>说明哪些事情将在不久以后完成</p>
 <p>n  使用例子说明 (example)<br>一个图片能表达100句话，一个好的例子能解答1000个问题。</p>
 <p>例如：</p>
-<pre><code>/**
+<pre><code>      /**
 
- * 复制一个字串
+       * 复制一个字串
 
- *
+       *
 
- *@pre
+       *@pre
 
- *     - 需要保证(from != 0)
+       *     - 需要保证(from != 0)
 
- *     - 需要保证(to != 0)
+       *     - 需要保证(to != 0)
 
- *
+       *
 
- *@warning
+       *@warning
 
- * 缓冲区必需足够大，以便容纳的下要拷贝的字串。
+       * 缓冲区必需足够大，以便容纳的下要拷贝的字串。
 
- *
+       *
 
- *@example teststrcpy.cpp
+       *@example teststrcpy.cpp
 
- *
+       *
 
- *@param from 要拷贝的字串
+       *@param from 要拷贝的字串
 
- *@param to 用于容纳字串的缓冲区
+       *@param to 用于容纳字串的缓冲区
 
- *@return void
+       *@return void
 
- */
+       */
 
-void  strcpy(constchar* from, char* to);
+      void  strcpy(constchar* from, char* to);
 </code></pre><h2 id="3-4-Include-语句注释-（适用于C-C-）"><a href="#3-4-Include-语句注释-（适用于C-C-）" class="headerlink" title="3.4. Include 语句注释 （适用于C/C++）"></a>3.4. Include 语句注释 （适用于C/C++）</h2><p>²  如果有必要，＃include语句也应有注释，它可以告诉我们，为什么要包含这个头文件。</p>
 <h2 id="3-5-语句块注释（适用于C-C-）"><a href="#3-5-语句块注释（适用于C-C-）" class="headerlink" title="3.5.语句块注释（适用于C/C++）"></a>3.5.语句块注释（适用于C/C++）</h2><p>²  语句块的注释可以用在语句块的开头和结束位置：</p>
-<pre><code>{ 
+<pre><code>    { 
 
-    // Block1 (meaningful comment about Block1)
+        // Block1 (meaningful comment about Block1)
 
-    ... some code
-
-
-
-    { 
-
-        // Block2 (meaningful comment about Block2)
-
-        ... somecode
-
-    }  // End Block2
+        ... some code
 
 
 
-}  // End Block1
+        { 
+
+            // Block2 (meaningful comment about Block2)
+
+            ... somecode
+
+        }  // End Block2
+
+
+
+    }  // End Block1
 </code></pre><h1 id="4-编码要求"><a href="#4-编码要求" class="headerlink" title="4.    编码要求"></a>4.    编码要求</h1><h2 id="4-1-不要忽略编译器的警告（适用于C-C-）"><a href="#4-1-不要忽略编译器的警告（适用于C-C-）" class="headerlink" title="4.1. 不要忽略编译器的警告（适用于C/C++）"></a>4.1. 不要忽略编译器的警告（适用于C/C++）</h2><p>²  编译器的警告，通常能够指示出编码存在的笔误或逻辑错误。因此，不能轻视编译器的任何警告。正确的作法是，不允许代码在编译时产生任何警告信息。</p>
 <h2 id="4-2-应使用源代码管理器（适用于C-C-）"><a href="#4-2-应使用源代码管理器（适用于C-C-）" class="headerlink" title="4.2. 应使用源代码管理器（适用于C/C++）"></a>4.2. 应使用源代码管理器（适用于C/C++）</h2><p>²  根据开发规模，选择合适的源代码管理器。使用源代码管理器是非常必要的。</p>
 <h2 id="4-3-固有的类方法成员（适用于C-）"><a href="#4-3-固有的类方法成员（适用于C-）" class="headerlink" title="4.3. 固有的类方法成员（适用于C++）"></a>4.3. 固有的类方法成员（适用于C++）</h2><p>²  默认构造函数(DefaultConstructor)</p>
@@ -1116,519 +1372,520 @@ void  strcpy(constchar* from, char* to);
 <h2 id="4-5-初始化所有的变量-（适用于C-C-）"><a href="#4-5-初始化所有的变量-（适用于C-C-）" class="headerlink" title="4.5. 初始化所有的变量 （适用于C/C++）"></a>4.5. 初始化所有的变量 （适用于C/C++）</h2><p>²  无论如何，都要初始化所有的变量。我们无法保证编译器会给个什么样的初值。</p>
 <h2 id="4-6-保持函数短小精悍（适用于C-C-）"><a href="#4-6-保持函数短小精悍（适用于C-C-）" class="headerlink" title="4.6. 保持函数短小精悍（适用于C/C++）"></a>4.6. 保持函数短小精悍（适用于C/C++）</h2><p>²  一般情况下，一个函数最好在一个屏幕内，不要超过三个屏幕。</p>
 <h2 id="4-7-对空语句进行注释-（适用于C-C-）"><a href="#4-7-对空语句进行注释-（适用于C-C-）" class="headerlink" title="4.7.对空语句进行注释 （适用于C/C++）"></a>4.7.对空语句进行注释 （适用于C/C++）</h2><p>²  For和while语句如果跟随一个空语句，需要对此语句进行注释，并且空语句应另起一行。如：</p>
-<pre><code>while(*dest++ = *srC++)
+<pre><code>       while(*dest++ = *srC++)
 
-   ;         // VOID
+          ;         // VOID
 </code></pre><p>²  不允许写成：</p>
-<pre><code>while (*dest++ = *srC++) ;   // 绝对不允许这么写
+<pre><code>       while (*dest++ = *srC++) ;   // 绝对不允许这么写
 </code></pre><h2 id="4-8-不要用if语句的默认方法测试非零值（适用于C-C-）"><a href="#4-8-不要用if语句的默认方法测试非零值（适用于C-C-）" class="headerlink" title="4.8. 不要用if语句的默认方法测试非零值（适用于C/C++）"></a>4.8. 不要用if语句的默认方法测试非零值（适用于C/C++）</h2><p>²  If语句只用于检测布尔值(bool)，不要用默认的方法测试非零值，比如：</p>
 <p>建议使用：</p>
-<pre><code>if (FAIL != f())
+<pre><code>       if (FAIL != f())
 </code></pre><p>不建议使用下面的表达式：</p>
-<pre><code>if (f())
+<pre><code>       if (f())
 </code></pre><p>²  宏定义的情况也一样：</p>
-<pre><code>#define STREQ(a,b) (strcmp((a), (b)) == 0)
+<pre><code>       #define STREQ(a,b) (strcmp((a), (b)) == 0)
 </code></pre><p>或者使用内联函数：</p>
-<pre><code> inline bool
+<pre><code>       inline bool
 
-StringEqual(char* a, char* b)
+      StringEqual(char* a, char* b)
 
- {
+       {
 
-    (strcmp(a, b)== 0) ? return true : return false;
+          (strcmp(a, b)== 0) ? return true : return false;
 
-     Or more compactly:
+           Or more compactly:
 
-    returnstrcmp(a, b) == 0;
+          returnstrcmp(a, b) == 0;
 
- }
+       }
 </code></pre><h2 id="4-9-布尔类型-（适用于C-C-）"><a href="#4-9-布尔类型-（适用于C-C-）" class="headerlink" title="4.9.布尔类型 （适用于C/C++）"></a>4.9.布尔类型 （适用于C/C++）</h2><p>²  早期的C++没有布尔类型，但新的C++标准增加了布尔类型。如果可以使用内置的布尔类型的情况下，应使用布尔类型。</p>
 <p>早期的布尔类型定义为：</p>
-<pre><code>typedef int     bool;
+<pre><code>       typedef int     bool;
 
-#defineTRUE    1
+       #defineTRUE    1
 
-#defineFALSE   0
+       #defineFALSE   0
 </code></pre><p>或：</p>
-<pre><code>const intTRUE  = 1;
+<pre><code>       const intTRUE  = 1;
 
-const int FALSE= 0;
+       const int FALSE= 0;
 </code></pre><p>²  在这种情况下，条件表达式不要比较1值(如TRUE，YES等等)，而要用0值(如FALSE,NO等等)进行比较。因为多数函数返回0表示FALSE，而非零表示TRUE。如：</p>
-<pre><code>if (TRUE ==func()) { ... // 错误：假如func()返回 2 怎么办？
+<pre><code>       if (TRUE ==func()) { ... // 错误：假如func()返回 2 怎么办？
 </code></pre><p>必须写成：</p>
-<pre><code>if (FALSE !=func()) { ...
+<pre><code>       if (FALSE !=func()) { ...
 </code></pre><h2 id="4-10-避免在语句中内含赋值-（适用于C-C-）"><a href="#4-10-避免在语句中内含赋值-（适用于C-C-）" class="headerlink" title="4.10.   避免在语句中内含赋值 （适用于C/C++）"></a>4.10.   避免在语句中内含赋值 （适用于C/C++）</h2><p>²  只有一种情况可以在语句中内含赋值，它要能使代码显得更易理解，例如：</p>
-<pre><code>while (EOF != (c= getchar()))
+<pre><code>       while (EOF != (c= getchar()))
 
-{
+       {
 
-   process thecharacter
+          process thecharacter
 
-}
+       }
 </code></pre><p>²  ++ 和 – 操作也是一种赋值语句</p>
 <p>²  内含赋值语句常常会带来一些副作用。在遇到这种情况时，我们应分成几个语句来写。比如：</p>
-<pre><code>a = b + c;
+<pre><code>       a = b + c;
 
-d = a + r;
+       d = a + r;
 </code></pre><p>不应该写成：</p>
-<pre><code>d = (a = b + c)+ r;
+<pre><code>           d = (a = b + c)+ r;
 </code></pre><h2 id="4-11-正确的使用Const-（适用于C-C-）"><a href="#4-11-正确的使用Const-（适用于C-C-）" class="headerlink" title="4.11.   正确的使用Const （适用于C/C++）"></a>4.11.   正确的使用Const （适用于C/C++）</h2><p>²  C/C++ 提供const 关键字，用于指示不应该被修改的对象或数据。正确的使用Const既可以提供编译器的优化指示，也能够避免一些编码错误。</p>
 <h2 id="4-12-不要在头文件定义数据（适用于C-C-）"><a href="#4-12-不要在头文件定义数据（适用于C-C-）" class="headerlink" title="4.12.    不要在头文件定义数据（适用于C/C++）"></a>4.12.    不要在头文件定义数据（适用于C/C++）</h2><p>不要把数据定义放在头文件，如：</p>
-<pre><code>/*
+<pre><code>    /*
 
- * aheader.h
+     * aheader.h
 
- */
+     */
 
-int x = 0;
+    int x = 0;
 </code></pre><h2 id="4-13-不要直接使用数字-（适用于C-C-）"><a href="#4-13-不要直接使用数字-（适用于C-C-）" class="headerlink" title="4.13.   不要直接使用数字 （适用于C/C++）"></a>4.13.   不要直接使用数字 （适用于C/C++）</h2><p>²  直接使用数字，会使源代码难以理解和维护。如：</p>
-<pre><code>if      (22 ==foo)    { start_thermo_nuclear_war(); }
+<pre><code>    if      (22 ==foo)    { start_thermo_nuclear_war(); }
 
-else if (19 == foo)    {refund_lotso_money(); }
+    else if (19 == foo)    {refund_lotso_money(); }
 
-else if (16 == foo)    {infinite_loop(); }
+    else if (16 == foo)    {infinite_loop(); }
 
-else                   { cry_cause_im_lost(); }
+    else                   { cry_cause_im_lost(); }
 </code></pre><p>当一段时间过去以后，有谁会记得22和19是什么意思？假如数字改变，或者是编写错误，更是难以发现问题。</p>
 <p>²  我们可以用#define或者常量来改变这一状况，如：</p>
-<pre><code>#define  PRESIDENT_WENT_CRAZY  (22)
+<pre><code>    #define  PRESIDENT_WENT_CRAZY  (22)
 
-const int WE_GOOFED= 19;
+    const int WE_GOOFED= 19;
 
-enum
+    enum
 
-{
+    {
 
-    THEY_DIDNT_PAY=16
+        THEY_DIDNT_PAY=16
 
-};
+    };
 
 
 
-if (PRESIDENT_WENT_CRAZY    == foo) { start_thermo_nuclear_war(); }
+    if (PRESIDENT_WENT_CRAZY    == foo) { start_thermo_nuclear_war(); }
 
-else if (WE_GOOFED          == foo)  {refund_lotso_money(); }
+    else if (WE_GOOFED          == foo)  {refund_lotso_money(); }
 
-else if (THEY_DIDNT_PAY     == foo) { infinite_loop();}
+    else if (THEY_DIDNT_PAY     == foo) { infinite_loop();}
 
-else                                 {happy_days_i_know_why_im_here(); }
+    else                                 {happy_days_i_know_why_im_here(); }
 </code></pre><h2 id="4-14-宏（适用于C-C-）"><a href="#4-14-宏（适用于C-C-）" class="headerlink" title="4.14.    宏（适用于C/C++）"></a>4.14.    宏（适用于C/C++）</h2><p>²  如果可以，使用内联函数代替宏。</p>
 <p>例如：</p>
-<pre><code>#ifndef MAX
+<pre><code>    #ifndef MAX
 
-#define  MAX(x,y)  (((x) &gt; (y) ? (x) : (y))    // 取最大数
+    #define  MAX(x,y)  (((x) &gt; (y) ? (x) : (y))    // 取最大数
 
-#endif
+    #endif
 </code></pre><p>使用内联函数可以达到相同的效果，而且更安全：</p>
-<pre><code>inline int
+<pre><code>       inline int
 
-max(int x, inty)
+       max(int x, inty)
 
-{
+       {
 
-   return (x&gt; y ? x : y);
+          return (x&gt; y ? x : y);
 
-}
+       }
 </code></pre><p>²  要注意副作用</p>
 <p>必须小心副作用，因为在调用表达式时，会发生潜在的错误。</p>
 <p>例如：</p>
-<pre><code>MAX(f(x),z++);
+<pre><code>       MAX(f(x),z++);
 </code></pre><p>²  表达式总是用括号括起来</p>
 <p>在宏展开时，使用括号可以避免宏展开后产生的二义性。</p>
 <p>例如：</p>
-<pre><code>#define ADD(x,y) x + y
+<pre><code>    #define ADD(x,y) x + y
 </code></pre><p>必须写成：</p>
-<pre><code>#define ADD(x,y) ((x) + (y))
+<pre><code>    #define ADD(x,y) ((x) + (y))
 </code></pre><p>²  保证宏名称的唯一性</p>
 <p>和全局变量一样，宏也会与其它名称产生冲突。下面两条规则有助于解决这个问题：</p>
 <p>n  在宏名称前加上库的名字<br>避免使用简单而常用的名字，如：MAX 和MIN。</p>
 
       
+    </div>
+
+    <div>
+      
+        
 
       
     </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">代码规范</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/代码规范/" class="article-tag-list-link color5">代码规范</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
+    <div>
       
         
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/代码规范/" rel="tag"># 代码规范</a>
+          
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://prostkhala.github.io/2017/03/07/c++代码规范/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
 
-  
-<nav id="article-nav">
-  
-    <a href="/2017/03/08/后缀数组13题/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
+      
         
-          后缀数组十三题
-        
-      </div>
-    </a>
-  
-  
-</nav>
+      
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
 
+          <span class="post-nav-divider"></span>
 
-
-
-
-  
-  <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="c++代码规范" data-title="C/C++代码规范" data-url="https://prostkhala.github.io/2017/03/07/c++代码规范/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-  
-
-
-
-
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/08/后缀数组13题/" rel="prev" title="后缀数组十三题">
+                后缀数组十三题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/07/c++代码规范/"
+           data-title="C/C++代码规范" data-url="https://prostkhala.github.io/2017/03/07/c++代码规范/">
       </div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2017 ST
-    	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
   </div>
-</footer>
-    </div>
-    <script>
-	var yiliaConfig = {
-		mathjax: true,
-		isHome: false,
-		isPost: true,
-		isArchive: false,
-		isTag: false,
-		isCategory: false,
-		open_in_new: false,
-		root: "/",
-		innerArchive: true,
-		showTags: true
-	}
-</script>
 
-<script>!function(t){function n(r){if(e[r])return e[r].exports;var o=e[r]={exports:{},id:r,loaded:!1};return t[r].call(o.exports,o,o.exports,n),o.loaded=!0,o.exports}var e={};return n.m=t,n.c=e,n.p="./",n(0)}([function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}function o(t,n){var e=/\/|index.html/g;return t.replace(e,"")===n.replace(e,"")}function i(){for(var t=document.querySelectorAll(".js-header-menu li a"),n=window.location.pathname,e=0,r=t.length;e<r;e++){var i=t[e];o(n,i.getAttribute("href"))&&(0,d.default)(i,"active")}}function u(t){for(var n=t.offsetLeft,e=t.offsetParent;null!==e;)n+=e.offsetLeft,e=e.offsetParent;return n}function f(t){for(var n=t.offsetTop,e=t.offsetParent;null!==e;)n+=e.offsetTop,e=e.offsetParent;return n}function c(t,n,e,r,o){var i=u(t),c=f(t)-n;if(c-e<=o){var a=t.$newDom;a||(a=t.cloneNode(!0),(0,h.default)(t,a),t.$newDom=a,a.style.position="fixed",a.style.top=(e||c)+"px",a.style.left=i+"px",a.style.zIndex=r||2,a.style.width="100%",a.style.color="#fff"),a.style.visibility="visible",t.style.visibility="hidden"}else{t.style.visibility="visible";var s=t.$newDom;s&&(s.style.visibility="hidden")}}function a(){var t=document.querySelector(".js-overlay"),n=document.querySelector(".js-header-menu");c(t,document.body.scrollTop,-63,2,0),c(n,document.body.scrollTop,1,3,0)}function s(){document.querySelector("#container").addEventListener("scroll",function(t){a()}),window.addEventListener("scroll",function(t){a()}),a()}function l(){x.default.versions.mobile&&window.screen.width<800&&(i(),s())}var p=e(71),d=r(p),v=e(72),y=(r(v),e(84)),h=r(y),b=e(69),x=r(b),m=e(75),g=r(m),w=e(70);l(),(0,w.addLoadEvent)(function(){g.default.init()}),t.exports={}},function(t,n){var e=t.exports="undefined"!=typeof window&&window.Math==Math?window:"undefined"!=typeof self&&self.Math==Math?self:Function("return this")();"number"==typeof __g&&(__g=e)},function(t,n){var e={}.hasOwnProperty;t.exports=function(t,n){return e.call(t,n)}},function(t,n,e){var r=e(49),o=e(15);t.exports=function(t){return r(o(t))}},function(t,n,e){t.exports=!e(8)(function(){return 7!=Object.defineProperty({},"a",{get:function(){return 7}}).a})},function(t,n,e){var r=e(6),o=e(12);t.exports=e(4)?function(t,n,e){return r.f(t,n,o(1,e))}:function(t,n,e){return t[n]=e,t}},function(t,n,e){var r=e(10),o=e(30),i=e(24),u=Object.defineProperty;n.f=e(4)?Object.defineProperty:function(t,n,e){if(r(t),n=i(n,!0),r(e),o)try{return u(t,n,e)}catch(t){}if("get"in e||"set"in e)throw TypeError("Accessors not supported!");return"value"in e&&(t[n]=e.value),t}},function(t,n,e){var r=e(22)("wks"),o=e(13),i=e(1).Symbol,u="function"==typeof i,f=t.exports=function(t){return r[t]||(r[t]=u&&i[t]||(u?i:o)("Symbol."+t))};f.store=r},function(t,n){t.exports=function(t){try{return!!t()}catch(t){return!0}}},function(t,n,e){var r=e(35),o=e(16);t.exports=Object.keys||function(t){return r(t,o)}},function(t,n,e){var r=e(11);t.exports=function(t){if(!r(t))throw TypeError(t+" is not an object!");return t}},function(t,n){t.exports=function(t){return"object"==typeof t?null!==t:"function"==typeof t}},function(t,n){t.exports=function(t,n){return{enumerable:!(1&t),configurable:!(2&t),writable:!(4&t),value:n}}},function(t,n){var e=0,r=Math.random();t.exports=function(t){return"Symbol(".concat(void 0===t?"":t,")_",(++e+r).toString(36))}},function(t,n){var e=t.exports={version:"2.4.0"};"number"==typeof __e&&(__e=e)},function(t,n){t.exports=function(t){if(void 0==t)throw TypeError("Can't call method on  "+t);return t}},function(t,n){t.exports="constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf".split(",")},function(t,n){t.exports={}},function(t,n){t.exports=!0},function(t,n){n.f={}.propertyIsEnumerable},function(t,n,e){var r=e(6).f,o=e(2),i=e(7)("toStringTag");t.exports=function(t,n,e){t&&!o(t=e?t:t.prototype,i)&&r(t,i,{configurable:!0,value:n})}},function(t,n,e){var r=e(22)("keys"),o=e(13);t.exports=function(t){return r[t]||(r[t]=o(t))}},function(t,n,e){var r=e(1),o="__core-js_shared__",i=r[o]||(r[o]={});t.exports=function(t){return i[t]||(i[t]={})}},function(t,n){var e=Math.ceil,r=Math.floor;t.exports=function(t){return isNaN(t=+t)?0:(t>0?r:e)(t)}},function(t,n,e){var r=e(11);t.exports=function(t,n){if(!r(t))return t;var e,o;if(n&&"function"==typeof(e=t.toString)&&!r(o=e.call(t)))return o;if("function"==typeof(e=t.valueOf)&&!r(o=e.call(t)))return o;if(!n&&"function"==typeof(e=t.toString)&&!r(o=e.call(t)))return o;throw TypeError("Can't convert object to primitive value")}},function(t,n,e){var r=e(1),o=e(14),i=e(18),u=e(26),f=e(6).f;t.exports=function(t){var n=o.Symbol||(o.Symbol=i?{}:r.Symbol||{});"_"==t.charAt(0)||t in n||f(n,t,{value:u.f(t)})}},function(t,n,e){n.f=e(7)},function(t,n,e){var r=e(1),o=e(14),i=e(46),u=e(5),f="prototype",c=function(t,n,e){var a,s,l,p=t&c.F,d=t&c.G,v=t&c.S,y=t&c.P,h=t&c.B,b=t&c.W,x=d?o:o[n]||(o[n]={}),m=x[f],g=d?r:v?r[n]:(r[n]||{})[f];d&&(e=n);for(a in e)s=!p&&g&&void 0!==g[a],s&&a in x||(l=s?g[a]:e[a],x[a]=d&&"function"!=typeof g[a]?e[a]:h&&s?i(l,r):b&&g[a]==l?function(t){var n=function(n,e,r){if(this instanceof t){switch(arguments.length){case 0:return new t;case 1:return new t(n);case 2:return new t(n,e)}return new t(n,e,r)}return t.apply(this,arguments)};return n[f]=t[f],n}(l):y&&"function"==typeof l?i(Function.call,l):l,y&&((x.virtual||(x.virtual={}))[a]=l,t&c.R&&m&&!m[a]&&u(m,a,l)))};c.F=1,c.G=2,c.S=4,c.P=8,c.B=16,c.W=32,c.U=64,c.R=128,t.exports=c},function(t,n){var e={}.toString;t.exports=function(t){return e.call(t).slice(8,-1)}},function(t,n,e){var r=e(11),o=e(1).document,i=r(o)&&r(o.createElement);t.exports=function(t){return i?o.createElement(t):{}}},function(t,n,e){t.exports=!e(4)&&!e(8)(function(){return 7!=Object.defineProperty(e(29)("div"),"a",{get:function(){return 7}}).a})},function(t,n,e){"use strict";var r=e(18),o=e(27),i=e(36),u=e(5),f=e(2),c=e(17),a=e(51),s=e(20),l=e(58),p=e(7)("iterator"),d=!([].keys&&"next"in[].keys()),v="@@iterator",y="keys",h="values",b=function(){return this};t.exports=function(t,n,e,x,m,g,w){a(e,n,x);var O,S,_,j=function(t){if(!d&&t in A)return A[t];switch(t){case y:return function(){return new e(this,t)};case h:return function(){return new e(this,t)}}return function(){return new e(this,t)}},P=n+" Iterator",E=m==h,M=!1,A=t.prototype,T=A[p]||A[v]||m&&A[m],L=T||j(m),N=m?E?j("entries"):L:void 0,C="Array"==n?A.entries||T:T;if(C&&(_=l(C.call(new t)),_!==Object.prototype&&(s(_,P,!0),r||f(_,p)||u(_,p,b))),E&&T&&T.name!==h&&(M=!0,L=function(){return T.call(this)}),r&&!w||!d&&!M&&A[p]||u(A,p,L),c[n]=L,c[P]=b,m)if(O={values:E?L:j(h),keys:g?L:j(y),entries:N},w)for(S in O)S in A||i(A,S,O[S]);else o(o.P+o.F*(d||M),n,O);return O}},function(t,n,e){var r=e(10),o=e(55),i=e(16),u=e(21)("IE_PROTO"),f=function(){},c="prototype",a=function(){var t,n=e(29)("iframe"),r=i.length,o="<",u=">";for(n.style.display="none",e(48).appendChild(n),n.src="javascript:",t=n.contentWindow.document,t.open(),t.write(o+"script"+u+"document.F=Object"+o+"/script"+u),t.close(),a=t.F;r--;)delete a[c][i[r]];return a()};t.exports=Object.create||function(t,n){var e;return null!==t?(f[c]=r(t),e=new f,f[c]=null,e[u]=t):e=a(),void 0===n?e:o(e,n)}},function(t,n,e){var r=e(35),o=e(16).concat("length","prototype");n.f=Object.getOwnPropertyNames||function(t){return r(t,o)}},function(t,n){n.f=Object.getOwnPropertySymbols},function(t,n,e){var r=e(2),o=e(3),i=e(45)(!1),u=e(21)("IE_PROTO");t.exports=function(t,n){var e,f=o(t),c=0,a=[];for(e in f)e!=u&&r(f,e)&&a.push(e);for(;n.length>c;)r(f,e=n[c++])&&(~i(a,e)||a.push(e));return a}},function(t,n,e){t.exports=e(5)},function(t,n,e){var r=e(15);t.exports=function(t){return Object(r(t))}},function(t,n,e){t.exports={default:e(41),__esModule:!0}},function(t,n,e){t.exports={default:e(42),__esModule:!0}},function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}n.__esModule=!0;var o=e(39),i=r(o),u=e(38),f=r(u),c="function"==typeof f.default&&"symbol"==typeof i.default?function(t){return typeof t}:function(t){return t&&"function"==typeof f.default&&t.constructor===f.default&&t!==f.default.prototype?"symbol":typeof t};n.default="function"==typeof f.default&&"symbol"===c(i.default)?function(t){return"undefined"==typeof t?"undefined":c(t)}:function(t){return t&&"function"==typeof f.default&&t.constructor===f.default&&t!==f.default.prototype?"symbol":"undefined"==typeof t?"undefined":c(t)}},function(t,n,e){e(65),e(63),e(66),e(67),t.exports=e(14).Symbol},function(t,n,e){e(64),e(68),t.exports=e(26).f("iterator")},function(t,n){t.exports=function(t){if("function"!=typeof t)throw TypeError(t+" is not a function!");return t}},function(t,n){t.exports=function(){}},function(t,n,e){var r=e(3),o=e(61),i=e(60);t.exports=function(t){return function(n,e,u){var f,c=r(n),a=o(c.length),s=i(u,a);if(t&&e!=e){for(;a>s;)if(f=c[s++],f!=f)return!0}else for(;a>s;s++)if((t||s in c)&&c[s]===e)return t||s||0;return!t&&-1}}},function(t,n,e){var r=e(43);t.exports=function(t,n,e){if(r(t),void 0===n)return t;switch(e){case 1:return function(e){return t.call(n,e)};case 2:return function(e,r){return t.call(n,e,r)};case 3:return function(e,r,o){return t.call(n,e,r,o)}}return function(){return t.apply(n,arguments)}}},function(t,n,e){var r=e(9),o=e(34),i=e(19);t.exports=function(t){var n=r(t),e=o.f;if(e)for(var u,f=e(t),c=i.f,a=0;f.length>a;)c.call(t,u=f[a++])&&n.push(u);return n}},function(t,n,e){t.exports=e(1).document&&document.documentElement},function(t,n,e){var r=e(28);t.exports=Object("z").propertyIsEnumerable(0)?Object:function(t){return"String"==r(t)?t.split(""):Object(t)}},function(t,n,e){var r=e(28);t.exports=Array.isArray||function(t){return"Array"==r(t)}},function(t,n,e){"use strict";var r=e(32),o=e(12),i=e(20),u={};e(5)(u,e(7)("iterator"),function(){return this}),t.exports=function(t,n,e){t.prototype=r(u,{next:o(1,e)}),i(t,n+" Iterator")}},function(t,n){t.exports=function(t,n){return{value:n,done:!!t}}},function(t,n,e){var r=e(9),o=e(3);t.exports=function(t,n){for(var e,i=o(t),u=r(i),f=u.length,c=0;f>c;)if(i[e=u[c++]]===n)return e}},function(t,n,e){var r=e(13)("meta"),o=e(11),i=e(2),u=e(6).f,f=0,c=Object.isExtensible||function(){return!0},a=!e(8)(function(){return c(Object.preventExtensions({}))}),s=function(t){u(t,r,{value:{i:"O"+ ++f,w:{}}})},l=function(t,n){if(!o(t))return"symbol"==typeof t?t:("string"==typeof t?"S":"P")+t;if(!i(t,r)){if(!c(t))return"F";if(!n)return"E";s(t)}return t[r].i},p=function(t,n){if(!i(t,r)){if(!c(t))return!0;if(!n)return!1;s(t)}return t[r].w},d=function(t){return a&&v.NEED&&c(t)&&!i(t,r)&&s(t),t},v=t.exports={KEY:r,NEED:!1,fastKey:l,getWeak:p,onFreeze:d}},function(t,n,e){var r=e(6),o=e(10),i=e(9);t.exports=e(4)?Object.defineProperties:function(t,n){o(t);for(var e,u=i(n),f=u.length,c=0;f>c;)r.f(t,e=u[c++],n[e]);return t}},function(t,n,e){var r=e(19),o=e(12),i=e(3),u=e(24),f=e(2),c=e(30),a=Object.getOwnPropertyDescriptor;n.f=e(4)?a:function(t,n){if(t=i(t),n=u(n,!0),c)try{return a(t,n)}catch(t){}if(f(t,n))return o(!r.f.call(t,n),t[n])}},function(t,n,e){var r=e(3),o=e(33).f,i={}.toString,u="object"==typeof window&&window&&Object.getOwnPropertyNames?Object.getOwnPropertyNames(window):[],f=function(t){try{return o(t)}catch(t){return u.slice()}};t.exports.f=function(t){return u&&"[object Window]"==i.call(t)?f(t):o(r(t))}},function(t,n,e){var r=e(2),o=e(37),i=e(21)("IE_PROTO"),u=Object.prototype;t.exports=Object.getPrototypeOf||function(t){return t=o(t),r(t,i)?t[i]:"function"==typeof t.constructor&&t instanceof t.constructor?t.constructor.prototype:t instanceof Object?u:null}},function(t,n,e){var r=e(23),o=e(15);t.exports=function(t){return function(n,e){var i,u,f=String(o(n)),c=r(e),a=f.length;return c<0||c>=a?t?"":void 0:(i=f.charCodeAt(c),i<55296||i>56319||c+1===a||(u=f.charCodeAt(c+1))<56320||u>57343?t?f.charAt(c):i:t?f.slice(c,c+2):(i-55296<<10)+(u-56320)+65536)}}},function(t,n,e){var r=e(23),o=Math.max,i=Math.min;t.exports=function(t,n){return t=r(t),t<0?o(t+n,0):i(t,n)}},function(t,n,e){var r=e(23),o=Math.min;t.exports=function(t){return t>0?o(r(t),9007199254740991):0}},function(t,n,e){"use strict";var r=e(44),o=e(52),i=e(17),u=e(3);t.exports=e(31)(Array,"Array",function(t,n){this._t=u(t),this._i=0,this._k=n},function(){var t=this._t,n=this._k,e=this._i++;return!t||e>=t.length?(this._t=void 0,o(1)):"keys"==n?o(0,e):"values"==n?o(0,t[e]):o(0,[e,t[e]])},"values"),i.Arguments=i.Array,r("keys"),r("values"),r("entries")},function(t,n){},function(t,n,e){"use strict";var r=e(59)(!0);e(31)(String,"String",function(t){this._t=String(t),this._i=0},function(){var t,n=this._t,e=this._i;return e>=n.length?{value:void 0,done:!0}:(t=r(n,e),this._i+=t.length,{value:t,done:!1})})},function(t,n,e){"use strict";var r=e(1),o=e(2),i=e(4),u=e(27),f=e(36),c=e(54).KEY,a=e(8),s=e(22),l=e(20),p=e(13),d=e(7),v=e(26),y=e(25),h=e(53),b=e(47),x=e(50),m=e(10),g=e(3),w=e(24),O=e(12),S=e(32),_=e(57),j=e(56),P=e(6),E=e(9),M=j.f,A=P.f,T=_.f,L=r.Symbol,N=r.JSON,C=N&&N.stringify,k="prototype",F=d("_hidden"),q=d("toPrimitive"),I={}.propertyIsEnumerable,B=s("symbol-registry"),D=s("symbols"),W=s("op-symbols"),H=Object[k],K="function"==typeof L,R=r.QObject,J=!R||!R[k]||!R[k].findChild,U=i&&a(function(){return 7!=S(A({},"a",{get:function(){return A(this,"a",{value:7}).a}})).a})?function(t,n,e){var r=M(H,n);r&&delete H[n],A(t,n,e),r&&t!==H&&A(H,n,r)}:A,G=function(t){var n=D[t]=S(L[k]);return n._k=t,n},$=K&&"symbol"==typeof L.iterator?function(t){return"symbol"==typeof t}:function(t){return t instanceof L},z=function(t,n,e){return t===H&&z(W,n,e),m(t),n=w(n,!0),m(e),o(D,n)?(e.enumerable?(o(t,F)&&t[F][n]&&(t[F][n]=!1),e=S(e,{enumerable:O(0,!1)})):(o(t,F)||A(t,F,O(1,{})),t[F][n]=!0),U(t,n,e)):A(t,n,e)},Y=function(t,n){m(t);for(var e,r=b(n=g(n)),o=0,i=r.length;i>o;)z(t,e=r[o++],n[e]);return t},Q=function(t,n){return void 0===n?S(t):Y(S(t),n)},X=function(t){var n=I.call(this,t=w(t,!0));return!(this===H&&o(D,t)&&!o(W,t))&&(!(n||!o(this,t)||!o(D,t)||o(this,F)&&this[F][t])||n)},V=function(t,n){if(t=g(t),n=w(n,!0),t!==H||!o(D,n)||o(W,n)){var e=M(t,n);return!e||!o(D,n)||o(t,F)&&t[F][n]||(e.enumerable=!0),e}},Z=function(t){for(var n,e=T(g(t)),r=[],i=0;e.length>i;)o(D,n=e[i++])||n==F||n==c||r.push(n);return r},tt=function(t){for(var n,e=t===H,r=T(e?W:g(t)),i=[],u=0;r.length>u;)!o(D,n=r[u++])||e&&!o(H,n)||i.push(D[n]);return i};K||(L=function(){if(this instanceof L)throw TypeError("Symbol is not a constructor!");var t=p(arguments.length>0?arguments[0]:void 0),n=function(e){this===H&&n.call(W,e),o(this,F)&&o(this[F],t)&&(this[F][t]=!1),U(this,t,O(1,e))};return i&&J&&U(H,t,{configurable:!0,set:n}),G(t)},f(L[k],"toString",function(){return this._k}),j.f=V,P.f=z,e(33).f=_.f=Z,e(19).f=X,e(34).f=tt,i&&!e(18)&&f(H,"propertyIsEnumerable",X,!0),v.f=function(t){return G(d(t))}),u(u.G+u.W+u.F*!K,{Symbol:L});for(var nt="hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables".split(","),et=0;nt.length>et;)d(nt[et++]);for(var nt=E(d.store),et=0;nt.length>et;)y(nt[et++]);u(u.S+u.F*!K,"Symbol",{for:function(t){return o(B,t+="")?B[t]:B[t]=L(t)},keyFor:function(t){if($(t))return h(B,t);throw TypeError(t+" is not a symbol!")},useSetter:function(){J=!0},useSimple:function(){J=!1}}),u(u.S+u.F*!K,"Object",{create:Q,defineProperty:z,defineProperties:Y,getOwnPropertyDescriptor:V,getOwnPropertyNames:Z,getOwnPropertySymbols:tt}),N&&u(u.S+u.F*(!K||a(function(){var t=L();return"[null]"!=C([t])||"{}"!=C({a:t})||"{}"!=C(Object(t))})),"JSON",{stringify:function(t){if(void 0!==t&&!$(t)){for(var n,e,r=[t],o=1;arguments.length>o;)r.push(arguments[o++]);return n=r[1],"function"==typeof n&&(e=n),!e&&x(n)||(n=function(t,n){if(e&&(n=e.call(this,t,n)),!$(n))return n}),r[1]=n,C.apply(N,r)}}}),L[k][q]||e(5)(L[k],q,L[k].valueOf),l(L,"Symbol"),l(Math,"Math",!0),l(r.JSON,"JSON",!0)},function(t,n,e){e(25)("asyncIterator")},function(t,n,e){e(25)("observable")},function(t,n,e){e(62);for(var r=e(1),o=e(5),i=e(17),u=e(7)("toStringTag"),f=["NodeList","DOMTokenList","MediaList","StyleSheetList","CSSRuleList"],c=0;c<5;c++){var a=f[c],s=r[a],l=s&&s.prototype;l&&!l[u]&&o(l,u,a),i[a]=i.Array}},function(t,n){"use strict";var e={versions:function(){var t=window.navigator.userAgent;return{trident:t.indexOf("Trident")>-1,presto:t.indexOf("Presto")>-1,webKit:t.indexOf("AppleWebKit")>-1,gecko:t.indexOf("Gecko")>-1&&t.indexOf("KHTML")==-1,mobile:!!t.match(/AppleWebKit.*Mobile.*/),ios:!!t.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),android:t.indexOf("Android")>-1||t.indexOf("Linux")>-1,iPhone:t.indexOf("iPhone")>-1||t.indexOf("Mac")>-1,iPad:t.indexOf("iPad")>-1,webApp:t.indexOf("Safari")==-1,weixin:t.indexOf("MicroMessenger")==-1}}()};t.exports=e},function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}var o=e(40),i=r(o),u=function(){function t(t,n,e){return n||e?String.fromCharCode(n||e):o[t]||t}function n(t){return l[t]}var e=/&quot;|&lt;|&gt;|&amp;|&nbsp;|&apos;|&#(\d+);|&#(\d+)/g,r=/['<> "&]/g,o={"&quot;":'"',"&lt;":"<","&gt;":">","&amp;":"&","&nbsp;":" "},f=/\u00a0/g,c=/<br\s*\/?>/gi,a=/\r?\n/g,s=/\s/g,l={};for(var p in o)l[o[p]]=p;return o["&apos;"]="'",l["'"]="&#39;",{encode:function(t){return t?(""+t).replace(r,n).replace(a,"<br/>").replace(s,"&nbsp;"):""},decode:function(n){return n?(""+n).replace(c,"\n").replace(e,t).replace(f," "):""},encodeBase16:function(t){if(!t)return t;t+="";for(var n=[],e=0,r=t.length;r>e;e++)n.push(t.charCodeAt(e).toString(16).toUpperCase());return n.join("")},encodeBase16forJSON:function(t){if(!t)return t;t=t.replace(/[\u4E00-\u9FBF]/gi,function(t){return escape(t).replace("%u","\\u")});for(var n=[],e=0,r=t.length;r>e;e++)n.push(t.charCodeAt(e).toString(16).toUpperCase());return n.join("")},decodeBase16:function(t){if(!t)return t;t+="";for(var n=[],e=0,r=t.length;r>e;e+=2)n.push(String.fromCharCode("0x"+t.slice(e,e+2)));return n.join("")},encodeObject:function(t){if(t instanceof Array)for(var n=0,e=t.length;e>n;n++)t[n]=u.encodeObject(t[n]);else if("object"==("undefined"==typeof t?"undefined":(0,i.default)(t)))for(var r in t)t[r]=u.encodeObject(t[r]);else if("string"==typeof t)return u.encode(t);return t},loadScript:function(t){var n=document.createElement("script");document.getElementsByTagName("body")[0].appendChild(n),n.setAttribute("src",t)},addLoadEvent:function(t){var n=window.onload;"function"!=typeof window.onload?window.onload=t:window.onload=function(){n(),t()}}}}();t.exports=u},function(t,n){function e(t,n){t.classList?t.classList.add(n):t.className+=" "+n}t.exports=e},function(t,n){function e(t,n){if(t.classList)t.classList.remove(n);else{var e=new RegExp("(^|\\b)"+n.split(" ").join("|")+"(\\b|$)","gi");t.className=t.className.replace(e," ")}}t.exports=e},,,function(t,n){"use strict";function e(){var t=document.querySelector("#page-nav");if(t&&!document.querySelector("#page-nav .extend.prev")&&(t.innerHTML='<a class="extend prev disabled" rel="prev">&laquo; Prev</a>'+t.innerHTML),t&&!document.querySelector("#page-nav .extend.next")&&(t.innerHTML=t.innerHTML+'<a class="extend next disabled" rel="next">Next &raquo;</a>'),yiliaConfig&&yiliaConfig.open_in_new){var n=document.querySelectorAll(".article-entry a:not(.article-more-a)");n.forEach(function(t){t.setAttribute("target","_blank")})}var e=document.querySelector("#js-aboutme");e&&0!==e.length&&(e.innerHTML=e.innerText)}t.exports={init:e}},,,,,,,,,function(t,n){function e(t,n){if("string"==typeof n)return t.insertAdjacentHTML("afterend",n);var e=t.nextSibling;return e?t.parentNode.insertBefore(n,e):t.parentNode.appendChild(n)}t.exports=e}])</script><script src="/./main.2d7529.js"></script><script>!function(){var e=function(e){var t=document.createElement("script");document.getElementsByTagName("body")[0].appendChild(t),t.setAttribute("src",e)};e("/slider.885efe.js")}()</script>
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
 
+      
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
-</script>
-
-<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-    
-<div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
-  <div class="tools-nav header-menu">
-    
-    
       
-      
-      
-    
-      
-      
-      
-    
-      
-      
-      
-    
-    
-
-    <ul style="width: 70%">
-    
-    
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">  _SEARCH_   </a></li>
-      
-        
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">   _FRIENDS_   </a></li>
-      
-        
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">   _ABOUT_   </a></li>
-      
-        
-    </ul>
-  </div>
-  <div class="tools-wrap">
-    
-    	<section class="tools-section tools-section-all" q-show="innerArchive">
-        <div class="search-wrap">
-          <input class="search-ipt" q-model="search" type="text" placeholder="find something…">
-          <i class="icon-search icon" q-show="search|isEmptyStr"></i>
-          <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
-        </div>
-        <div class="widget tagcloud search-tag">
-          <p class="search-tag-wording">tag:</p>
-          <label class="search-switch">
-            <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
-          </label>
-          <ul class="article-tag-list" q-show="showTags">
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">后缀数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串问题</a>
-              </li>
-            
-            <div class="clearfix"></div>
-          </ul>
-        </div>
-        <ul class="search-ul">
-          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
-            2、在根目录_config.yml里添加配置：
-<pre style="font-size: 12px;" q-show="jsonFail">
-  jsonContent:
-    meta: false
-    pages: false
-    posts:
-      title: true
-      date: true
-      path: true
-      text: true
-      raw: false
-      content: false
-      slug: false
-      updated: false
-      comments: false
-      link: false
-      permalink: false
-      excerpt: false
-      categories: false
-      tags: true
-</pre>
-          </p>
-          <li class="search-li" q-repeat="items" q-show="isShow">
-            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
-            <p class="search-time">
-              <i class="icon-calendar icon"></i>
-              <span q-text="date|dateformat"></span>
-            </p>
-            <p class="search-tag">
-              <i class="icon-price-tags icon"></i>
-              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
-            </p>
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
           </li>
         </ul>
-    	</section>
-    
+      
 
-    
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-        <ul class="search-ul">
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://raw.githubusercontent.com/ProSTKhala/ProSTKhala.github.io/master/images/ST.jpg"
+               alt="ST" />
+          <p class="site-author-name" itemprop="name">ST</p>
+           
+              <p class="site-description motion-element" itemprop="description">每一个不曾起舞的日子，都是对于生命的辜负。</p>
           
-            <li class="search-li">
-              <a href="https://pb0207.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>我校大神</a>
-            </li>
+        </div>
+        <nav class="site-state motion-element">
+
           
-        </ul>
-  		
-    	</section>
-    
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
 
-    
-    	<section class="tools-section tools-section-me" q-show="aboutme">
-  	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">目前仍没有什么。</div>
-  	  	
-    	</section>
-    
-  </div>
-  
-</div>
-    <!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
 
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
+        </nav>
 
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
+        
+
+        <div class="links-of-author motion-element">
+          
         </div>
 
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
+        
+        
 
-            <div class="pswp__top-bar">
+        
+        
 
-                <!--  Controls are self-explanatory. Order can be changed. -->
+        
 
-                <div class="pswp__counter"></div>
 
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      </section>
 
-                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
 
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+            
+              
+            
 
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-命名规则"><span class="nav-number">1.</span> <span class="nav-text">1.    命名规则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-起个合适的名字"><span class="nav-number">1.1.</span> <span class="nav-text">1.1. 起个合适的名字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-1-类的名称（适用于C-）"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1.1.    类的名称（适用于C++）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-2-方法和函数的名称（适用于C-C-）"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.1.2.    方法和函数的名称（适用于C/C++）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-3-含有度量单位的名称（适用于C-C-）"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.1.3.   含有度量单位的名称（适用于C/C++）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-4-缩写名称不要全部大写（适用于C-C-）"><span class="nav-number">1.1.4.</span> <span class="nav-text">1.1.4.    缩写名称不要全部大写（适用于C/C++）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-类的命名（适用于C-）"><span class="nav-number">1.2.</span> <span class="nav-text">1.2.类的命名（适用于C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-类库（或程序库）命名-（适用于C-C-）"><span class="nav-number">1.3.</span> <span class="nav-text">1.3.类库（或程序库）命名 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-方法和函数的命名（适用于C-）"><span class="nav-number">1.4.</span> <span class="nav-text">1.4.方法和函数的命名（适用于C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-类属性的命名（适用于C-）"><span class="nav-number">1.5.</span> <span class="nav-text">1.5.类属性的命名（适用于C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-方法和函数参数的命名（适用于C-）"><span class="nav-number">1.6.</span> <span class="nav-text">1.6.方法和函数参数的命名（适用于C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7-局部变量的命名（适用于C-C-）"><span class="nav-number">1.7.</span> <span class="nav-text">1.7.局部变量的命名（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8-指针变量的命名前缀（适用于C-C-）"><span class="nav-number">1.8.</span> <span class="nav-text">1.8.指针变量的命名前缀（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-9-引用变量和返回引用函数的命名前缀（适用于C-）"><span class="nav-number">1.9.</span> <span class="nav-text">1.9.引用变量和返回引用函数的命名前缀（适用于C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-10-全局变量的命名前缀（适用于C-C-）"><span class="nav-number">1.10.</span> <span class="nav-text">1.10.   全局变量的命名前缀（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-11-全局常量的命名（适用于C-C-）"><span class="nav-number">1.11.</span> <span class="nav-text">1.11.   全局常量的命名（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-12-静态变量的命名前缀（适用于C-）"><span class="nav-number">1.12.</span> <span class="nav-text">1.12.   静态变量的命名前缀（适用于C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-13-自定义类型（typedef）的命名（适用于C-C-）"><span class="nav-number">1.13.</span> <span class="nav-text">1.13.   自定义类型（typedef）的命名（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-14-宏定义的命名（适用于C-C-）"><span class="nav-number">1.14.</span> <span class="nav-text">1.14.   宏定义的命名（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-15-C-函数的命名（适用于C-C-）"><span class="nav-number">1.15.</span> <span class="nav-text">1.15.   C 函数的命名（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-16-枚举的命名（适用于C-C-）"><span class="nav-number">1.16.</span> <span class="nav-text">1.16.   枚举的命名（适用于C/C++）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-排版规则"><span class="nav-number">2.</span> <span class="nav-text">2.    排版规则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-布局和模板"><span class="nav-number">2.1.</span> <span class="nav-text">2.1. 布局和模板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-1-类的布局模板-（适用于C-）"><span class="nav-number">2.1.1.</span> <span class="nav-text">2.1.1.    类的布局模板 （适用于C++）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-2-源文件格式（适用于C-）"><span class="nav-number">2.1.2.</span> <span class="nav-text">2.1.2.   源文件格式（适用于C++）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-3-保护头文件不被重复包含-（适用于C-C-）"><span class="nav-number">2.1.3.</span> <span class="nav-text">2.1.3.    保护头文件不被重复包含 （适用于C/C++）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-4-方法和函数的布局-（适用于C-C-）"><span class="nav-number">2.1.4.</span> <span class="nav-text">2.1.4.    方法和函数的布局 （适用于C/C++）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-缩进、制表符以及空格-（适用于C-C-）"><span class="nav-number">2.2.</span> <span class="nav-text">2.2. 缩进、制表符以及空格 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-尽量使一行不要超过78个字母-（适用于C-C-）"><span class="nav-number">2.3.</span> <span class="nav-text">2.3. 尽量使一行不要超过78个字母 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-保证一行只写一条语句-（适用于C-C-）"><span class="nav-number">2.4.</span> <span class="nav-text">2.4. 保证一行只写一条语句 （适用于C/C++）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-2-什么时候应使用花括号"><span class="nav-number">2.4.1.</span> <span class="nav-text">2.5.2.    什么时候应使用花括号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-3-在花括号结束的位置加上注释"><span class="nav-number">2.4.2.</span> <span class="nav-text">2.5.3.    在花括号结束的位置加上注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-4-注意屏幕大小"><span class="nav-number">2.4.3.</span> <span class="nav-text">2.5.4.    注意屏幕大小</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-圆括号-规则-（适用于C-C-）"><span class="nav-number">2.5.</span> <span class="nav-text">2.6.圆括号 () 规则 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-7-if-else-语句的格式-（适用于C-C-）"><span class="nav-number">2.6.</span> <span class="nav-text">2.7.if else 语句的格式 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-8-switch-格式-（适用于C-C-）"><span class="nav-number">2.7.</span> <span class="nav-text">2.8.switch 格式 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-9-使用goto-continue-break-和-（适用于C-C-）"><span class="nav-number">2.8.</span> <span class="nav-text">2.9. 使用goto,continue,break 和 ?: （适用于C/C++）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-9-1-Goto"><span class="nav-number">2.8.1.</span> <span class="nav-text">2.9.1.    Goto</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-9-2-Continue-and-Break"><span class="nav-number">2.8.2.</span> <span class="nav-text">2.9.2.    Continue and Break</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-9-3"><span class="nav-number">2.8.3.</span> <span class="nav-text">2.9.3.    ?:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-10-运算符号的规则-（适用于C-C-）"><span class="nav-number">2.9.</span> <span class="nav-text">2.10.   运算符号的规则 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-11-变量声明语句块-（适用于C-C-）"><span class="nav-number">2.10.</span> <span class="nav-text">2.11.    变量声明语句块 （适用于C/C++）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-文档及注释"><span class="nav-number">3.</span> <span class="nav-text">3.    文档及注释</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-文件或程序库的文档注释（适用于C-C-）"><span class="nav-number">3.1.</span> <span class="nav-text">3.1. 文件或程序库的文档注释（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-类文档注释（适用于C-C-）"><span class="nav-number">3.2.</span> <span class="nav-text">3.2. 类文档注释（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-函数文档注释（适用于C-C-）"><span class="nav-number">3.3.</span> <span class="nav-text">3.3. 函数文档注释（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-Include-语句注释-（适用于C-C-）"><span class="nav-number">3.4.</span> <span class="nav-text">3.4. Include 语句注释 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-语句块注释（适用于C-C-）"><span class="nav-number">3.5.</span> <span class="nav-text">3.5.语句块注释（适用于C/C++）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-编码要求"><span class="nav-number">4.</span> <span class="nav-text">4.    编码要求</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-不要忽略编译器的警告（适用于C-C-）"><span class="nav-number">4.1.</span> <span class="nav-text">4.1. 不要忽略编译器的警告（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-应使用源代码管理器（适用于C-C-）"><span class="nav-number">4.2.</span> <span class="nav-text">4.2. 应使用源代码管理器（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-固有的类方法成员（适用于C-）"><span class="nav-number">4.3.</span> <span class="nav-text">4.3. 固有的类方法成员（适用于C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-使用命名空间-（适用于C-）"><span class="nav-number">4.4.</span> <span class="nav-text">4.4. 使用命名空间 （适用于C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-初始化所有的变量-（适用于C-C-）"><span class="nav-number">4.5.</span> <span class="nav-text">4.5. 初始化所有的变量 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-6-保持函数短小精悍（适用于C-C-）"><span class="nav-number">4.6.</span> <span class="nav-text">4.6. 保持函数短小精悍（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-7-对空语句进行注释-（适用于C-C-）"><span class="nav-number">4.7.</span> <span class="nav-text">4.7.对空语句进行注释 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-8-不要用if语句的默认方法测试非零值（适用于C-C-）"><span class="nav-number">4.8.</span> <span class="nav-text">4.8. 不要用if语句的默认方法测试非零值（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-9-布尔类型-（适用于C-C-）"><span class="nav-number">4.9.</span> <span class="nav-text">4.9.布尔类型 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-10-避免在语句中内含赋值-（适用于C-C-）"><span class="nav-number">4.10.</span> <span class="nav-text">4.10.   避免在语句中内含赋值 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-11-正确的使用Const-（适用于C-C-）"><span class="nav-number">4.11.</span> <span class="nav-text">4.11.   正确的使用Const （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-12-不要在头文件定义数据（适用于C-C-）"><span class="nav-number">4.12.</span> <span class="nav-text">4.12.    不要在头文件定义数据（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-13-不要直接使用数字-（适用于C-C-）"><span class="nav-number">4.13.</span> <span class="nav-text">4.13.   不要直接使用数字 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-14-宏（适用于C-C-）"><span class="nav-number">4.14.</span> <span class="nav-text">4.14.    宏（适用于C/C++）</span></a></li></ol></li></ol></div>
+            
 
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
-                    </div>
-                </div>
-            </div>
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
         </div>
+      
 
     </div>
+  </aside>
 
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ST</span>
 </div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+    
   </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"prostkhala"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+  
+
 </body>
 </html>
