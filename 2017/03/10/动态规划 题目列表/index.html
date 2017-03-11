@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="决策单调性,动态规划,单调队列,斜率优化," />
+  <meta name="keywords" content="决策单调性,动态规划,单调队列,斜率优化,单调栈," />
 
 
 
@@ -87,25 +87,28 @@
 
 
 
-<meta name="description" content="[HNOI2008]玩具装箱toyBZOJ1010 COGS1330
-设$dp[i]$为处理前$i$个玩具的最小花费，a[i]为前i个玩具长度的前缀和。易得转移方程为$dp[i]=min(dp[j]+(i-j-1+a[i]-a[j]-l)^2)(0&amp;lt;=i&amp;lt;j&amp;lt;=n)$此方法时间复杂度为$O(n^2)$，只能水到20分。
-#include&amp;lt;cstdio&amp;gt;
-#includ">
+<meta name="description" content="单调队列优化dpBZOJ 1855、BZOJ 2442、BZOJ 2500、BZOJ 1047
+单调栈BZOJ 1057、BZOJ 1683、BZOJ 3956、BZOJ 3611
+状压DP+单调栈BZOJ 1879、BZOJ 1087、BZOJ 2669、BZOJ 3812
+斜率优化+单调栈BZOJ 1096、BZOJ 4518、BZOJ 1010、BZOJ  675
+dp+四边形不等式优化PO">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HNOI2008 玩具装箱Toy(详解)">
-<meta property="og:url" content="https://prostkhala.github.io/2017/03/10/玩具装箱toy/index.html">
+<meta property="og:title" content="动态规划优化 题目列表">
+<meta property="og:url" content="https://prostkhala.github.io/2017/03/10/动态规划 题目列表/index.html">
 <meta property="og:site_name" content="ST">
-<meta property="og:description" content="[HNOI2008]玩具装箱toyBZOJ1010 COGS1330
-设$dp[i]$为处理前$i$个玩具的最小花费，a[i]为前i个玩具长度的前缀和。易得转移方程为$dp[i]=min(dp[j]+(i-j-1+a[i]-a[j]-l)^2)(0&amp;lt;=i&amp;lt;j&amp;lt;=n)$此方法时间复杂度为$O(n^2)$，只能水到20分。
-#include&amp;lt;cstdio&amp;gt;
-#includ">
-<meta property="og:updated_time" content="2017-03-11T01:36:42.082Z">
+<meta property="og:description" content="单调队列优化dpBZOJ 1855、BZOJ 2442、BZOJ 2500、BZOJ 1047
+单调栈BZOJ 1057、BZOJ 1683、BZOJ 3956、BZOJ 3611
+状压DP+单调栈BZOJ 1879、BZOJ 1087、BZOJ 2669、BZOJ 3812
+斜率优化+单调栈BZOJ 1096、BZOJ 4518、BZOJ 1010、BZOJ  675
+dp+四边形不等式优化PO">
+<meta property="og:updated_time" content="2017-03-11T00:39:45.491Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HNOI2008 玩具装箱Toy(详解)">
-<meta name="twitter:description" content="[HNOI2008]玩具装箱toyBZOJ1010 COGS1330
-设$dp[i]$为处理前$i$个玩具的最小花费，a[i]为前i个玩具长度的前缀和。易得转移方程为$dp[i]=min(dp[j]+(i-j-1+a[i]-a[j]-l)^2)(0&amp;lt;=i&amp;lt;j&amp;lt;=n)$此方法时间复杂度为$O(n^2)$，只能水到20分。
-#include&amp;lt;cstdio&amp;gt;
-#includ">
+<meta name="twitter:title" content="动态规划优化 题目列表">
+<meta name="twitter:description" content="单调队列优化dpBZOJ 1855、BZOJ 2442、BZOJ 2500、BZOJ 1047
+单调栈BZOJ 1057、BZOJ 1683、BZOJ 3956、BZOJ 3611
+状压DP+单调栈BZOJ 1879、BZOJ 1087、BZOJ 2669、BZOJ 3812
+斜率优化+单调栈BZOJ 1096、BZOJ 4518、BZOJ 1010、BZOJ  675
+dp+四边形不等式优化PO">
 
 
 
@@ -133,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="https://prostkhala.github.io/2017/03/10/玩具装箱toy/"/>
+  <link rel="canonical" href="https://prostkhala.github.io/2017/03/10/动态规划 题目列表/"/>
 
 
 
 
 
-  <title> HNOI2008 玩具装箱Toy(详解) | ST </title>
+  <title> 动态规划优化 题目列表 | ST </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -352,7 +355,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://prostkhala.github.io/2017/03/10/玩具装箱toy/">
+    <link itemprop="mainEntityOfPage" href="https://prostkhala.github.io/2017/03/10/动态规划 题目列表/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ST">
@@ -373,7 +376,7 @@
             
             
               
-                HNOI2008 玩具装箱Toy(详解)
+                动态规划优化 题目列表
               
             
           </h2>
@@ -388,7 +391,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-10T22:02:35+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-10T22:12:24+08:00">
                 2017-03-10
               </time>
             
@@ -404,7 +407,7 @@
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2017-03-11T09:36:42+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2017-03-11T08:39:45+08:00">
                 2017-03-11
               </time>
             
@@ -441,8 +444,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/10/玩具装箱toy/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/10/玩具装箱toy/" itemprop="commentCount"></span>
+                <a href="/2017/03/10/动态规划 题目列表/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/10/动态规划 题目列表/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -468,106 +471,14 @@
       
 
       
-        <h1 id="HNOI2008-玩具装箱toy"><a href="#HNOI2008-玩具装箱toy" class="headerlink" title="[HNOI2008]玩具装箱toy"></a>[HNOI2008]玩具装箱toy</h1><h2 id="BZOJ1010-COGS1330"><a href="#BZOJ1010-COGS1330" class="headerlink" title="BZOJ1010 COGS1330"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1010" target="_blank" rel="external">BZOJ1010</a> <a href="http://cogs.pro/cogs/problem/problem.php?pid=1330" target="_blank" rel="external">COGS1330</a></h2><hr>
-<p>设$dp[i]$为处理前$i$个玩具的最小花费，a[i]为前i个玩具长度的前缀和。易得转移方程为$dp[i]=min(dp[j]+(i-j-1+a[i]-a[j]-l)^2)(0&lt;=i&lt;j&lt;=n)$此方法时间复杂度为$O(n^2)$，只能水到20分。</p>
-<pre><code>#include&lt;cstdio&gt;
-#include&lt;iostream&gt;
-#include&lt;cstring&gt;
-using namespace std;
+        <h1 id="单调队列优化dp"><a href="#单调队列优化dp" class="headerlink" title="单调队列优化dp"></a>单调队列优化dp</h1><p>BZOJ 1855、BZOJ 2442、BZOJ 2500、BZOJ 1047</p>
+<h1 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h1><p>BZOJ 1057、BZOJ 1683、BZOJ 3956、BZOJ 3611</p>
+<h1 id="状压DP-单调栈"><a href="#状压DP-单调栈" class="headerlink" title="状压DP+单调栈"></a>状压DP+单调栈</h1><p>BZOJ 1879、BZOJ 1087、BZOJ 2669、BZOJ 3812</p>
+<h1 id="斜率优化-单调栈"><a href="#斜率优化-单调栈" class="headerlink" title="斜率优化+单调栈"></a>斜率优化+单调栈</h1><p>BZOJ 1096、BZOJ 4518、BZOJ 1010、BZOJ  675</p>
+<h1 id="dp-四边形不等式优化"><a href="#dp-四边形不等式优化" class="headerlink" title="dp+四边形不等式优化"></a>dp+四边形不等式优化</h1><p>POJ1160 HDU2829 HDU3480 HDU3506 HDU3516<br><a href="http://blog.csdn.net/shiwei408/article/details/8791011" target="_blank" rel="external">http://blog.csdn.net/shiwei408/article/details/8791011</a></p>
+<h1 id="斜率优化DP和四边形不等式优化DP整理"><a href="#斜率优化DP和四边形不等式优化DP整理" class="headerlink" title="斜率优化DP和四边形不等式优化DP整理"></a>斜率优化DP和四边形不等式优化DP整理</h1><p><a href="http://blog.csdn.net/tomorrowtodie/article/details/52279807" target="_blank" rel="external">http://blog.csdn.net/tomorrowtodie/article/details/52279807</a></p>
+<p><a href="http://blog.csdn.net/u014800748/article/details/45750737" target="_blank" rel="external">http://blog.csdn.net/u014800748/article/details/45750737</a></p>
 
-const int N=50005;
-
-long long n,l,dp[N],a[N];
-
-int main()
-{
-//    freopen(&quot;bzoj_1010.in&quot;,&quot;r&quot;,stdin);
-//    freopen(&quot;bzoj_1010.out&quot;,&quot;w&quot;,stdout);
-    scanf(&quot;%lld%lld&quot;,&amp;n,&amp;l);
-    for(int i=1;i&lt;=n;i++)scanf(&quot;%lld&quot;,&amp;a[i]),a[i]+=a[i-1];
-    memset(dp,0x3f,sizeof(dp));
-    dp[0]=0;
-    for(int i=1;i&lt;=n;i++)
-    for(int j=0;j&lt;i;j++)
-    dp[i]=min(dp[i],dp[j]+(i-j-1+a[i]-a[j]-l)*(i-j-1+a[i]-a[j]-l));
-    printf(&quot;%lld&quot;,dp[n]);
-} 
-</code></pre><p>观察该题数据范围和状态只有一维的转移方程，我们可以尝试通过斜率优化将时间复杂度降到$O(n)$。</p>
-<p>斜率优化中涉及单调队列的使用，自然要求方程满足决策单调性，在某DP视频中，主讲人向同学们推荐了打出决策表的方法，对于此题来说，数据容易生成，可以尝试一下。</p>
-<pre><code>#include&lt;cstdio&gt;
-#include&lt;iostream&gt;
-#include&lt;cstring&gt;
-using namespace std;
-
-const int N=50005;
-
-long long n,l,dp[N],a[N],best[N];
-
-int main()
-{
-//    freopen(&quot;bzoj_1010.in&quot;,&quot;r&quot;,stdin);
-//    freopen(&quot;bzoj_1010.out&quot;,&quot;w&quot;,stdout);
-    scanf(&quot;%lld%lld&quot;,&amp;n,&amp;l);
-    for(int i=1;i&lt;=n;i++)scanf(&quot;%lld&quot;,&amp;a[i]),a[i]+=a[i-1];
-    memset(dp,0x3f,sizeof(dp));
-    dp[0]=0;
-    for(int i=1;i&lt;=n;i++)
-    for(int j=0;j&lt;i;j++)
-    dp[i]=min(dp[i],dp[j]+(i-j-1+a[i]-a[j]-l)*(i-j-1+a[i]-a[j]-l))，best[i]=j;
-    for(int i=1;i&lt;=n;i++)printf(&quot;%d&quot;,best[i]);//决策表
-    printf(&quot;%lld&quot;,dp[n]);
-} 
-</code></pre><p>易观察到best[i]单调不降，满足决策单调性。（证明见下文）</p>
-<p>则对于$dp[i]$，当其由$dp[k]$转移而来优于$dp[j]$时，有</p>
-<p>$dp[k]+(i-k-1+a[i]-a[k]-l)^2&lt;dp[j]+(i-j-1+a[i]-a[j]-l)^2$</p>
-<p>$dp[k]-dp[j]&lt;(i-j-1+a[i]-a[j]-l)^2-(i-k-1+a[i]-a[k]-l)^2$</p>
-<p>对于该方程，可设</p>
-<p>$b[i]=a[i]+i$;</p>
-<p>$l=l+1$</p>
-<p>则有</p>
-<p>$dp[k]-dp[j]&lt;(b[i]-b[j]-l)^2-(b[i]-b[k]-l)^2$</p>
-<p>化简得</p>
-<p>$((dp[k]+b[k]^2)-(dp[j]+b[j]^2))/(b[k]-b[j])&lt;2b[i]-2l$</p>
-<p>此时的形式为点斜式方程：</p>
-<p>$(yk-yj)/(xk-xj)&lt;ansi$</p>
-<p>已知b[i]为前缀和的形式，所以b[i]单调递增，可知斜率为单调递增。则适用决策单调性。</p>
-<p>设$g[k,j]=(yk-yj)/(xk-xj)$,则当且仅当$g[A1,A2]&lt;b[i]-2l$时，由$A1$转移而来优于$A2$。</p>
-<p>当$a&lt;b&lt;c$时，且$g[c,b]&lt;g[b,a]$,易证得b必不为最优决策。<br>当</p>
-<h3 id="1-g-c-b-lt-ansi"><a href="#1-g-c-b-lt-ansi" class="headerlink" title="1.$g[c,b]&lt;ansi$"></a>1.$g[c,b]&lt;ansi$</h3><p>此时c决策优于b，则b一定不为最优决策。</p>
-<h3 id="2-g-c-b-gt-ansi"><a href="#2-g-c-b-gt-ansi" class="headerlink" title="2.$g[c,b]&gt;=ansi$"></a>2.$g[c,b]&gt;=ansi$</h3><p>此时b决策优于c，但又有$g[b,a]&gt;g[c,b]&gt;=ansi$,此时b决策不优于a决策。</p>
-<p>综上所述，则可将所有满足$g[c,b]<g[b,a](a<b<c)$的决策b排除掉。此时函数满足上凸的性质，即有$g[c,b]>g<a href="a&lt;b&lt;c">b,a</a>$,斜率递减。</g[b,a](a<b<c)$的决策b排除掉。此时函数满足上凸的性质，即有$g[c,b]></p>
-<h4 id="以下我们便可以进行斜率优化（严格建立在决策单调性的基础上）："><a href="#以下我们便可以进行斜率优化（严格建立在决策单调性的基础上）：" class="headerlink" title="以下我们便可以进行斜率优化（严格建立在决策单调性的基础上）："></a>以下我们便可以进行斜率优化（严格建立在决策单调性的基础上）：</h4><h4 id="1：-用单调队列维护点集信息。"><a href="#1：-用单调队列维护点集信息。" class="headerlink" title="1： 用单调队列维护点集信息。"></a>1： 用单调队列维护点集信息。</h4><h4 id="2：-求解dp-i-可以从队首开始扫描，当g-head-1-head-lt-ansi时，可知head-1优于head，故继续扫描，直到不满足条件，此时bext-i-head-即使dp-i-最优的决策为队首。"><a href="#2：-求解dp-i-可以从队首开始扫描，当g-head-1-head-lt-ansi时，可知head-1优于head，故继续扫描，直到不满足条件，此时bext-i-head-即使dp-i-最优的决策为队首。" class="headerlink" title="2： 求解dp[i],可以从队首开始扫描，当g(head+1,head)&lt;ansi时，可知head+1优于head，故继续扫描，直到不满足条件，此时bext[i]=head,即使dp[i]最优的决策为队首。"></a>2： 求解dp[i],可以从队首开始扫描，当g(head+1,head)&lt;ansi时，可知head+1优于head，故继续扫描，直到不满足条件，此时bext[i]=head,即使dp[i]最优的决策为队首。</h4><h4 id="3：-当加入点i，我们要维护队列的上凸性质-即从队尾开始扫描，判断g-i-tail-是否小于g-tail，tail-1-，如果满足，则可删除tail，并继续扫描，直到不满足该条件，则i在此处入队，队列仍满足上凸性质。"><a href="#3：-当加入点i，我们要维护队列的上凸性质-即从队尾开始扫描，判断g-i-tail-是否小于g-tail，tail-1-，如果满足，则可删除tail，并继续扫描，直到不满足该条件，则i在此处入队，队列仍满足上凸性质。" class="headerlink" title="3： 当加入点i，我们要维护队列的上凸性质,即从队尾开始扫描，判断g(i,tail)是否小于g(tail，tail-1)，如果满足，则可删除tail，并继续扫描，直到不满足该条件，则i在此处入队，队列仍满足上凸性质。"></a>3： 当加入点i，我们要维护队列的上凸性质,即从队尾开始扫描，判断g(i,tail)是否小于g(tail，tail-1)，如果满足，则可删除tail，并继续扫描，直到不满足该条件，则i在此处入队，队列仍满足上凸性质。</h4><p>AC代码如下：</p>
-<pre><code>#include&lt;iostream&gt;
-#include&lt;cstdio&gt;
-#include&lt;cstring&gt;
-using namespace std;
-const int N = 50005;
-long long n,l,a[N],b[N],dp[N],q[N];
-double g(long long k,long long j)
-{
-    return ((dp[k]+b[k]*b[k])-(dp[j]+b[j]*b[j]))/(b[k]-b[j]);
-}
-int main()
-{
-//    freopen(&quot;bzoj_1010.in&quot;,&quot;r&quot;,stdin);
-//    freopen(&quot;bzoj_1010.out&quot;,&quot;w&quot;,stdout);
-    scanf(&quot;%lld%lld&quot;,&amp;n,&amp;l);
-    for(int i=1;i&lt;=n;++i)scanf(&quot;%lld&quot;,a+i),a[i]+=a[i-1];
-    for(int i=1;i&lt;=n;++i)b[i]=a[i]+i;
-    l++;
-    int head=1,tail=1;
-    q[1]=0;
-    for(int i=1;i&lt;=n;++i)
-    {
-        while(head&lt;tail&amp;&amp;g(q[head+1],q[head])&lt;2*b[i]-2*l)head++;
-        int j=q[head];
-        dp[i]=dp[j]+(b[i]-b[j]-l)*(b[i]-b[j]-l);
-        while(head&lt;tail&amp;&amp;g(i,q[tail])&lt;g(q[tail],q[tail-1]))tail--;
-        q[++tail]=i;
-    }
-    printf(&quot;%lld&quot;,dp[n]);
-}
-</code></pre>
       
     </div>
 
@@ -598,6 +509,8 @@ int main()
           
             <a href="/tags/斜率优化/" rel="tag"># 斜率优化</a>
           
+            <a href="/tags/单调栈/" rel="tag"># 单调栈</a>
+          
         </div>
       
 
@@ -619,8 +532,8 @@ int main()
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/08/后缀数组13题/" rel="next" title="后缀数组十三题">
-                <i class="fa fa-chevron-left"></i> 后缀数组十三题
+              <a href="/2017/03/10/玩具装箱toy/" rel="next" title="HNOI2008 玩具装箱Toy(详解)">
+                <i class="fa fa-chevron-left"></i> HNOI2008 玩具装箱Toy(详解)
               </a>
             
           </div>
@@ -629,8 +542,8 @@ int main()
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/10/动态规划 题目列表/" rel="prev" title="动态规划优化 题目列表">
-                动态规划优化 题目列表 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/11/股票交易/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -695,8 +608,8 @@ int main()
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/03/10/玩具装箱toy/"
-           data-title="HNOI2008 玩具装箱Toy(详解)" data-url="https://prostkhala.github.io/2017/03/10/玩具装箱toy/">
+      <div class="ds-thread" data-thread-key="2017/03/10/动态规划 题目列表/"
+           data-title="动态规划优化 题目列表" data-url="https://prostkhala.github.io/2017/03/10/动态规划 题目列表/">
       </div>
     
   </div>
@@ -813,7 +726,7 @@ int main()
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HNOI2008-玩具装箱toy"><span class="nav-number">1.</span> <span class="nav-text">[HNOI2008]玩具装箱toy</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#BZOJ1010-COGS1330"><span class="nav-number">1.1.</span> <span class="nav-text">BZOJ1010 COGS1330</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-g-c-b-lt-ansi"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.$g[c,b]<ansi$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-g-c-b-gt-ansi"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.$g[c,b]>=ansi$</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#以下我们便可以进行斜率优化（严格建立在决策单调性的基础上）："><span class="nav-number">1.1.2.1.</span> <span class="nav-text">以下我们便可以进行斜率优化（严格建立在决策单调性的基础上）：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1：-用单调队列维护点集信息。"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">1： 用单调队列维护点集信息。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2：-求解dp-i-可以从队首开始扫描，当g-head-1-head-lt-ansi时，可知head-1优于head，故继续扫描，直到不满足条件，此时bext-i-head-即使dp-i-最优的决策为队首。"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">2： 求解dp[i],可以从队首开始扫描，当g(head+1,head)<ansi时，可知head+1优于head，故继续扫描，直到不满足条件，此时bext[i]=head,即使dp[i]最优的决策为队首。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3：-当加入点i，我们要维护队列的上凸性质-即从队尾开始扫描，判断g-i-tail-是否小于g-tail，tail-1-，如果满足，则可删除tail，并继续扫描，直到不满足该条件，则i在此处入队，队列仍满足上凸性质。"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">3： 当加入点i，我们要维护队列的上凸性质,即从队尾开始扫描，判断g(i,tail)是否小于g(tail，tail-1)，如果满足，则可删除tail，并继续扫描，直到不满足该条件，则i在此处入队，队列仍满足上凸性质。</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#单调队列优化dp"><span class="nav-number">1.</span> <span class="nav-text">单调队列优化dp</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单调栈"><span class="nav-number">2.</span> <span class="nav-text">单调栈</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#状压DP-单调栈"><span class="nav-number">3.</span> <span class="nav-text">状压DP+单调栈</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#斜率优化-单调栈"><span class="nav-number">4.</span> <span class="nav-text">斜率优化+单调栈</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dp-四边形不等式优化"><span class="nav-number">5.</span> <span class="nav-text">dp+四边形不等式优化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#斜率优化DP和四边形不等式优化DP整理"><span class="nav-number">6.</span> <span class="nav-text">斜率优化DP和四边形不等式优化DP整理</span></a></li></ol></div>
             
 
           </div>
