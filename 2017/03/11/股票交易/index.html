@@ -87,16 +87,34 @@
 
 
 
-<meta name="description" content="每一个不曾起舞的日子，都是对于生命的辜负。">
+<meta name="description" content="[SCOI2010] 股票交易BZOJ1885 洛谷2569
+$O(n^2)$算法：#include&amp;lt;iostream&amp;gt;
+#include&amp;lt;cstdio&amp;gt;
+#include&amp;lt;cstring&amp;gt;
+using namespace std;
+const int N = 2017;
+int n,maxp,w,ap[N],bp[N],as[N],bs[N],dp[N][N]">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SCOI2010 股票交易">
 <meta property="og:url" content="https://prostkhala.github.io/2017/03/11/股票交易/index.html">
 <meta property="og:site_name" content="ST">
-<meta property="og:description" content="每一个不曾起舞的日子，都是对于生命的辜负。">
-<meta property="og:updated_time" content="2017-03-11T01:59:31.572Z">
+<meta property="og:description" content="[SCOI2010] 股票交易BZOJ1885 洛谷2569
+$O(n^2)$算法：#include&amp;lt;iostream&amp;gt;
+#include&amp;lt;cstdio&amp;gt;
+#include&amp;lt;cstring&amp;gt;
+using namespace std;
+const int N = 2017;
+int n,maxp,w,ap[N],bp[N],as[N],bs[N],dp[N][N]">
+<meta property="og:updated_time" content="2017-03-11T04:02:31.514Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SCOI2010 股票交易">
-<meta name="twitter:description" content="每一个不曾起舞的日子，都是对于生命的辜负。">
+<meta name="twitter:description" content="[SCOI2010] 股票交易BZOJ1885 洛谷2569
+$O(n^2)$算法：#include&amp;lt;iostream&amp;gt;
+#include&amp;lt;cstdio&amp;gt;
+#include&amp;lt;cstring&amp;gt;
+using namespace std;
+const int N = 2017;
+int n,maxp,w,ap[N],bp[N],as[N],bs[N],dp[N][N]">
 
 
 
@@ -395,7 +413,7 @@
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2017-03-11T09:59:31+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2017-03-11T12:02:31+08:00">
                 2017-03-11
               </time>
             
@@ -459,7 +477,36 @@
       
 
       
-        
+        <h1 id="SCOI2010-股票交易"><a href="#SCOI2010-股票交易" class="headerlink" title="[SCOI2010] 股票交易"></a>[SCOI2010] 股票交易</h1><h2 id="BZOJ1885-洛谷2569"><a href="#BZOJ1885-洛谷2569" class="headerlink" title="BZOJ1885 洛谷2569"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1855" target="_blank" rel="external">BZOJ1885</a> <a href="https://www.luogu.org/problem/show?pid=2569" target="_blank" rel="external">洛谷2569</a></h2><hr>
+<h2 id="O-n-2-算法："><a href="#O-n-2-算法：" class="headerlink" title="$O(n^2)$算法："></a>$O(n^2)$算法：</h2><pre><code>#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+using namespace std;
+const int N = 2017;
+int n,maxp,w,ap[N],bp[N],as[N],bs[N],dp[N][N];
+int main()
+{
+  scanf(&quot;%d%d%d&quot;,&amp;n,&amp;maxp,&amp;w);
+    for(int i=1;i&lt;=n;++i)scanf(&quot;%d%d%d%d&quot;,ap+i,bp+i,as+i,bs+i);
+  dp[0][0]=0;
+  memset(dp,-0x3f,sizeof(dp));
+  for(int i=1;i&lt;=n;++i)
+  {
+      for(int j=0;j&lt;=as[i];++j)dp[i][j]=max(dp[i][j],-ap[i]*j);
+      for(int j=0;j&lt;=maxp;++j)
+      {
+          dp[i][j]=max(dp[i-1][j],dp[i][j]);
+          if(i-w-1&gt;=0)
+          for(int k=j+1;k&lt;=min(j+bs[i],maxp);++k)
+          dp[i][j]=max(dp[i][j],dp[i-w-1][k]+(k-j)*bp[i]);
+          if(i-w-1&gt;=0)
+          for(int k=max(j-as[i],0);k&lt;j;++k)
+          dp[i][j]=max(dp[i][j],dp[i-w-1][k]-(j-k)*ap[i]);
+      }
+  }
+  printf(&quot;%d&quot;,dp[n][0]);
+}
+</code></pre><h2 id="O-n-算法-斜率优化-："><a href="#O-n-算法-斜率优化-：" class="headerlink" title="$O(n)$算法(斜率优化)："></a>$O(n)$算法(斜率优化)：</h2>
       
     </div>
 
@@ -608,8 +655,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://raw.githubusercontent.com/ProSTKhala/ProSTKhala.github.io/master/images/ST.jpg"
@@ -682,6 +738,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SCOI2010-股票交易"><span class="nav-number">1.</span> <span class="nav-text">[SCOI2010] 股票交易</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#BZOJ1885-洛谷2569"><span class="nav-number">1.1.</span> <span class="nav-text">BZOJ1885 洛谷2569</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#O-n-2-算法："><span class="nav-number">1.2.</span> <span class="nav-text">$O(n^2)$算法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#O-n-算法-斜率优化-："><span class="nav-number">1.3.</span> <span class="nav-text">$O(n)$算法(斜率优化)：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
