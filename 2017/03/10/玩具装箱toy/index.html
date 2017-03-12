@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="ST">
 <meta property="og:description" content="[HNOI2008]  玩具装箱toyBZOJ1010 COGS1330
 题目描述P教授要去看奥运，但是他舍不下他的玩具，于是他决定把所有的玩具运到北京。他使用自己的压缩器进行压缩，其可以将任意物品变成一堆，再放到一种特殊的一维容器中。P教授有编号为1…N的N件玩具，第i件玩具经过压缩后变成一维长度为Ci.为了方便整理，P教授要求在一个一维容器中的玩具编号是连续的。同时如果一个一维容器中有多个玩具">
-<meta property="og:updated_time" content="2017-03-12T02:38:31.899Z">
+<meta property="og:updated_time" content="2017-03-12T03:03:38.072Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HNOI2008     玩具装箱Toy(详解)">
 <meta name="twitter:description" content="[HNOI2008]  玩具装箱toyBZOJ1010 COGS1330
@@ -398,7 +398,7 @@
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2017-03-12T10:38:31+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2017-03-12T11:03:38+08:00">
                 2017-03-12
               </time>
             
@@ -475,29 +475,30 @@
 </code></pre><h4 id="输出样例-1："><a href="#输出样例-1：" class="headerlink" title="输出样例#1："></a>输出样例#1：</h4><pre><code>1
 </code></pre><hr>
 <p>设$dp[i]$为处理前$i$个玩具的最小花费，a[i]为前i个玩具长度的前缀和。易得转移方程为$dp[i]=min(dp[j]+(i-j-1+a[i]-a[j]-l)^2)(0&lt;=i&lt;j&lt;=n)$此方法时间复杂度为$O(n^2)$，只能水到20分。</p>
-<pre><code>#include&lt;cstdio&gt;
-#include&lt;iostream&gt;
-#include&lt;cstring&gt;
-using namespace std;
+<pre><code class="cpp">    #include&lt;cstdio&gt;
+    #include&lt;iostream&gt;
+    #include&lt;cstring&gt;
+    using namespace std;
 
-const int N=50005;
+    const int N=50005;
 
-long long n,l,dp[N],a[N];
+    long long n,l,dp[N],a[N];
 
-int main()
-{
-//    freopen(&quot;bzoj_1010.in&quot;,&quot;r&quot;,stdin);
-//    freopen(&quot;bzoj_1010.out&quot;,&quot;w&quot;,stdout);
-    scanf(&quot;%lld%lld&quot;,&amp;n,&amp;l);
-    for(int i=1;i&lt;=n;i++)scanf(&quot;%lld&quot;,&amp;a[i]),a[i]+=a[i-1];
-    memset(dp,0x3f,sizeof(dp));
-    dp[0]=0;
-    for(int i=1;i&lt;=n;i++)
-    for(int j=0;j&lt;i;j++)
-    dp[i]=min(dp[i],dp[j]+(i-j-1+a[i]-a[j]-l)*(i-j-1+a[i]-a[j]-l));
-    printf(&quot;%lld&quot;,dp[n]);
-} 
-</code></pre><p>观察该题数据范围和状态只有一维的转移方程，我们可以尝试通过斜率优化将时间复杂度降到$O(n)$。</p>
+    int main()
+    {
+    //    freopen(&quot;bzoj_1010.in&quot;,&quot;r&quot;,stdin);
+    //    freopen(&quot;bzoj_1010.out&quot;,&quot;w&quot;,stdout);
+        scanf(&quot;%lld%lld&quot;,&amp;n,&amp;l);
+        for(int i=1;i&lt;=n;i++)scanf(&quot;%lld&quot;,&amp;a[i]),a[i]+=a[i-1];
+        memset(dp,0x3f,sizeof(dp));
+        dp[0]=0;
+        for(int i=1;i&lt;=n;i++)
+        for(int j=0;j&lt;i;j++)
+        dp[i]=min(dp[i],dp[j]+(i-j-1+a[i]-a[j]-l)*(i-j-1+a[i]-a[j]-l));
+        printf(&quot;%lld&quot;,dp[n]);
+    }
+</code></pre>
+<p>观察该题数据范围和状态只有一维的转移方程，我们可以尝试通过斜率优化将时间复杂度降到$O(n)$。</p>
 <p>斜率优化中涉及单调队列的使用，自然要求方程满足决策单调性，在某DP视频中，主讲人向同学们推荐了打出决策表的方法，对于此题来说，数据容易生成，可以尝试一下。</p>
 <pre><code>#include&lt;cstdio&gt;
 #include&lt;iostream&gt;
