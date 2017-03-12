@@ -88,24 +88,18 @@
 
 
 <meta name="description" content="[HNOI2008]  玩具装箱toyBZOJ1010 COGS1330
-设$dp[i]$为处理前$i$个玩具的最小花费，a[i]为前i个玩具长度的前缀和。易得转移方程为$dp[i]=min(dp[j]+(i-j-1+a[i]-a[j]-l)^2)(0&amp;lt;=i&amp;lt;j&amp;lt;=n)$此方法时间复杂度为$O(n^2)$，只能水到20分。
-#include&amp;lt;cstdio&amp;gt;
-#incl">
+题目描述P教授要去看奥运，但是他舍不下他的玩具，于是他决定把所有的玩具运到北京。他使用自己的压缩器进行压缩，其可以将任意物品变成一堆，再放到一种特殊的一维容器中。P教授有编号为1…N的N件玩具，第i件玩具经过压缩后变成一维长度为Ci.为了方便整理，P教授要求在一个一维容器中的玩具编号是连续的。同时如果一个一维容器中有多个玩具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HNOI2008     玩具装箱Toy(详解)">
 <meta property="og:url" content="https://prostkhala.github.io/2017/03/10/玩具装箱toy/index.html">
 <meta property="og:site_name" content="ST">
 <meta property="og:description" content="[HNOI2008]  玩具装箱toyBZOJ1010 COGS1330
-设$dp[i]$为处理前$i$个玩具的最小花费，a[i]为前i个玩具长度的前缀和。易得转移方程为$dp[i]=min(dp[j]+(i-j-1+a[i]-a[j]-l)^2)(0&amp;lt;=i&amp;lt;j&amp;lt;=n)$此方法时间复杂度为$O(n^2)$，只能水到20分。
-#include&amp;lt;cstdio&amp;gt;
-#incl">
-<meta property="og:updated_time" content="2017-03-12T00:44:16.930Z">
+题目描述P教授要去看奥运，但是他舍不下他的玩具，于是他决定把所有的玩具运到北京。他使用自己的压缩器进行压缩，其可以将任意物品变成一堆，再放到一种特殊的一维容器中。P教授有编号为1…N的N件玩具，第i件玩具经过压缩后变成一维长度为Ci.为了方便整理，P教授要求在一个一维容器中的玩具编号是连续的。同时如果一个一维容器中有多个玩具">
+<meta property="og:updated_time" content="2017-03-12T02:31:39.123Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HNOI2008     玩具装箱Toy(详解)">
 <meta name="twitter:description" content="[HNOI2008]  玩具装箱toyBZOJ1010 COGS1330
-设$dp[i]$为处理前$i$个玩具的最小花费，a[i]为前i个玩具长度的前缀和。易得转移方程为$dp[i]=min(dp[j]+(i-j-1+a[i]-a[j]-l)^2)(0&amp;lt;=i&amp;lt;j&amp;lt;=n)$此方法时间复杂度为$O(n^2)$，只能水到20分。
-#include&amp;lt;cstdio&amp;gt;
-#incl">
+题目描述P教授要去看奥运，但是他舍不下他的玩具，于是他决定把所有的玩具运到北京。他使用自己的压缩器进行压缩，其可以将任意物品变成一堆，再放到一种特殊的一维容器中。P教授有编号为1…N的N件玩具，第i件玩具经过压缩后变成一维长度为Ci.为了方便整理，P教授要求在一个一维容器中的玩具编号是连续的。同时如果一个一维容器中有多个玩具">
 
 
 
@@ -404,7 +398,7 @@
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2017-03-12T08:44:16+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2017-03-12T10:31:39+08:00">
                 2017-03-12
               </time>
             
@@ -469,6 +463,17 @@
 
       
         <h1 id="HNOI2008-玩具装箱toy"><a href="#HNOI2008-玩具装箱toy" class="headerlink" title="[HNOI2008]  玩具装箱toy"></a>[HNOI2008]  玩具装箱toy</h1><h2 id="BZOJ1010-COGS1330"><a href="#BZOJ1010-COGS1330" class="headerlink" title="BZOJ1010 COGS1330"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1010" target="_blank" rel="external">BZOJ1010</a> <a href="http://cogs.pro/cogs/problem/problem.php?pid=1330" target="_blank" rel="external">COGS1330</a></h2><hr>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>P教授要去看奥运，但是他舍不下他的玩具，于是他决定把所有的玩具运到北京。他使用自己的压缩器进行压缩，其可以将任意物品变成一堆，再放到一种特殊的一维容器中。P教授有编号为1…N的N件玩具，第i件玩具经过压缩后变成一维长度为Ci.为了方便整理，P教授要求在一个一维容器中的玩具编号是连续的。同时如果一个一维容器中有多个玩具，那么两件玩具之间要加入一个单位长度的填充物，形式地说如果将第i件玩具到第j个玩具放到一个容器中，那么容器的长度将为 x=j-i+Sigma(Ck) i&lt;=K&lt;=j 制作容器的费用与容器的长度有关，根据教授研究，如果容器长度为x,其制作费用为(X-L)^2.其中L是一个常量。P教授不关心容器的数目，他可以制作出任意长度的容器，甚至超过L。但他希望费用最小.</p>
+<h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h4><p>第一行输入两个整数N，L.接下来N行输入Ci.1&lt;=N&lt;=50000,1&lt;=L,Ci&lt;=10^7</p>
+<h4 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h4><p>输出最小费用.</p>
+<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入样例-1："><a href="#输入样例-1：" class="headerlink" title="输入样例#1："></a>输入样例#1：</h4><pre><code>5 4
+3
+4
+2
+1
+4
+</code></pre><h4 id="输出样例-1："><a href="#输出样例-1：" class="headerlink" title="输出样例#1："></a>输出样例#1：</h4><pre><code>1
+</code></pre><hr>
 <p>设$dp[i]$为处理前$i$个玩具的最小花费，a[i]为前i个玩具长度的前缀和。易得转移方程为$dp[i]=min(dp[j]+(i-j-1+a[i]-a[j]-l)^2)(0&lt;=i&lt;j&lt;=n)$此方法时间复杂度为$O(n^2)$，只能水到20分。</p>
 <pre><code>#include&lt;cstdio&gt;
 #include&lt;iostream&gt;
@@ -532,11 +537,11 @@ int main()
 <p>$(yk-yj)/(xk-xj)&lt;ansi$</p>
 <p>已知b[i]为前缀和的形式，所以b[i]单调递增，可知斜率为单调递增。则适用决策单调性。</p>
 <p>设$g[k,j]=(yk-yj)/(xk-xj)$,则当且仅当$g[A1,A2]&lt;b[i]-2l$时，由$A1$转移而来优于$A2$。</p>
-<p>当$a&lt;b&lt;c$时，且$g[c,b]&lt;g[b,a]$,易证得b必不为最优决策。<br>当</p>
-<h3 id="1-g-c-b-lt-ansi"><a href="#1-g-c-b-lt-ansi" class="headerlink" title="1.$g[c,b]&lt;ansi$"></a>1.$g[c,b]&lt;ansi$</h3><p>此时c决策优于b，则b一定不为最优决策。</p>
+<p>当$a&lt;b&lt;c$时，且$g[c,b]&lt;g[b,a]$,易证得b必不为最优决策。</p>
+<h2 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h2><h3 id="1-g-c-b-lt-ansi"><a href="#1-g-c-b-lt-ansi" class="headerlink" title="1.$g[c,b]&lt;ansi$"></a>1.$g[c,b]&lt;ansi$</h3><p>此时c决策优于b，则b一定不为最优决策。</p>
 <h3 id="2-g-c-b-gt-ansi"><a href="#2-g-c-b-gt-ansi" class="headerlink" title="2.$g[c,b]&gt;=ansi$"></a>2.$g[c,b]&gt;=ansi$</h3><p>此时b决策优于c，但又有$g[b,a]&gt;g[c,b]&gt;=ansi$,此时b决策不优于a决策。</p>
 <p>综上所述，则可将所有满足$g[c,b]&lt;g<a href="a&lt;b&lt;c">b,a</a>$的决策b排除掉。此时函数满足上凸的性质，即有斜率递减。</p>
-<h4 id="以下我们便可以进行斜率优化（严格建立在决策单调性的基础上）："><a href="#以下我们便可以进行斜率优化（严格建立在决策单调性的基础上）：" class="headerlink" title="以下我们便可以进行斜率优化（严格建立在决策单调性的基础上）："></a>以下我们便可以进行斜率优化（严格建立在决策单调性的基础上）：</h4><h4 id="1：-用单调队列维护点集信息。"><a href="#1：-用单调队列维护点集信息。" class="headerlink" title="1： 用单调队列维护点集信息。"></a>1： 用单调队列维护点集信息。</h4><h4 id="2：-求解dp-i-可以从队首开始扫描，当g-head-1-head-lt-ansi时，可知head-1优于head，故继续扫描，直到不满足条件，此时bext-i-head-即使dp-i-最优的决策为队首。"><a href="#2：-求解dp-i-可以从队首开始扫描，当g-head-1-head-lt-ansi时，可知head-1优于head，故继续扫描，直到不满足条件，此时bext-i-head-即使dp-i-最优的决策为队首。" class="headerlink" title="2： 求解dp[i],可以从队首开始扫描，当g(head+1,head)&lt;ansi时，可知head+1优于head，故继续扫描，直到不满足条件，此时bext[i]=head,即使dp[i]最优的决策为队首。"></a>2： 求解dp[i],可以从队首开始扫描，当g(head+1,head)&lt;ansi时，可知head+1优于head，故继续扫描，直到不满足条件，此时bext[i]=head,即使dp[i]最优的决策为队首。</h4><h4 id="3：-当加入点i，我们要维护队列的上凸性质-即从队尾开始扫描，判断g-i-tail-是否小于g-tail，tail-1-，如果满足，则可删除tail，并继续扫描，直到不满足该条件，则i在此处入队，队列仍满足上凸性质。"><a href="#3：-当加入点i，我们要维护队列的上凸性质-即从队尾开始扫描，判断g-i-tail-是否小于g-tail，tail-1-，如果满足，则可删除tail，并继续扫描，直到不满足该条件，则i在此处入队，队列仍满足上凸性质。" class="headerlink" title="3： 当加入点i，我们要维护队列的上凸性质,即从队尾开始扫描，判断g(i,tail)是否小于g(tail，tail-1)，如果满足，则可删除tail，并继续扫描，直到不满足该条件，则i在此处入队，队列仍满足上凸性质。"></a>3： 当加入点i，我们要维护队列的上凸性质,即从队尾开始扫描，判断g(i,tail)是否小于g(tail，tail-1)，如果满足，则可删除tail，并继续扫描，直到不满足该条件，则i在此处入队，队列仍满足上凸性质。</h4><p>AC代码如下：</p>
+<h2 id="以下我们便可以进行斜率优化（严格建立在决策单调性的基础上）："><a href="#以下我们便可以进行斜率优化（严格建立在决策单调性的基础上）：" class="headerlink" title="以下我们便可以进行斜率优化（严格建立在决策单调性的基础上）："></a>以下我们便可以进行斜率优化（严格建立在决策单调性的基础上）：</h2><h3 id="1：-用单调队列维护点集信息。"><a href="#1：-用单调队列维护点集信息。" class="headerlink" title="1： 用单调队列维护点集信息。"></a>1： 用单调队列维护点集信息。</h3><h3 id="2：-求解dp-i-可以从队首开始扫描，当g-head-1-head-lt-ansi时，可知head-1优于head，故继续扫描，直到不满足条件，此时bext-i-head-即使dp-i-最优的决策为队首。"><a href="#2：-求解dp-i-可以从队首开始扫描，当g-head-1-head-lt-ansi时，可知head-1优于head，故继续扫描，直到不满足条件，此时bext-i-head-即使dp-i-最优的决策为队首。" class="headerlink" title="2： 求解dp[i],可以从队首开始扫描，当g(head+1,head)&lt;ansi时，可知head+1优于head，故继续扫描，直到不满足条件，此时bext[i]=head,即使dp[i]最优的决策为队首。"></a>2： 求解dp[i],可以从队首开始扫描，当g(head+1,head)&lt;ansi时，可知head+1优于head，故继续扫描，直到不满足条件，此时bext[i]=head,即使dp[i]最优的决策为队首。</h3><h2 id="3：-当加入点i，我们要维护队列的上凸性质-即从队尾开始扫描，判断g-i-tail-是否小于g-tail，tail-1-，如果满足，则可删除tail，并继续扫描，直到不满足该条件，则i在此处入队，队列仍满足上凸性质。"><a href="#3：-当加入点i，我们要维护队列的上凸性质-即从队尾开始扫描，判断g-i-tail-是否小于g-tail，tail-1-，如果满足，则可删除tail，并继续扫描，直到不满足该条件，则i在此处入队，队列仍满足上凸性质。" class="headerlink" title="3： 当加入点i，我们要维护队列的上凸性质,即从队尾开始扫描，判断g(i,tail)是否小于g(tail，tail-1)，如果满足，则可删除tail，并继续扫描，直到不满足该条件，则i在此处入队，队列仍满足上凸性质。"></a>3： 当加入点i，我们要维护队列的上凸性质,即从队尾开始扫描，判断g(i,tail)是否小于g(tail，tail-1)，如果满足，则可删除tail，并继续扫描，直到不满足该条件，则i在此处入队，队列仍满足上凸性质。</h2><p>AC代码如下：</p>
 <pre><code>#include&lt;iostream&gt;
 #include&lt;cstdio&gt;
 #include&lt;cstring&gt;
@@ -813,7 +818,7 @@ int main()
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HNOI2008-玩具装箱toy"><span class="nav-number">1.</span> <span class="nav-text">[HNOI2008]  玩具装箱toy</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#BZOJ1010-COGS1330"><span class="nav-number">1.1.</span> <span class="nav-text">BZOJ1010 COGS1330</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-g-c-b-lt-ansi"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.$g[c,b]<ansi$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-g-c-b-gt-ansi"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.$g[c,b]>=ansi$</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#以下我们便可以进行斜率优化（严格建立在决策单调性的基础上）："><span class="nav-number">1.1.2.1.</span> <span class="nav-text">以下我们便可以进行斜率优化（严格建立在决策单调性的基础上）：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1：-用单调队列维护点集信息。"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">1： 用单调队列维护点集信息。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2：-求解dp-i-可以从队首开始扫描，当g-head-1-head-lt-ansi时，可知head-1优于head，故继续扫描，直到不满足条件，此时bext-i-head-即使dp-i-最优的决策为队首。"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">2： 求解dp[i],可以从队首开始扫描，当g(head+1,head)<ansi时，可知head+1优于head，故继续扫描，直到不满足条件，此时bext[i]=head,即使dp[i]最优的决策为队首。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3：-当加入点i，我们要维护队列的上凸性质-即从队尾开始扫描，判断g-i-tail-是否小于g-tail，tail-1-，如果满足，则可删除tail，并继续扫描，直到不满足该条件，则i在此处入队，队列仍满足上凸性质。"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">3： 当加入点i，我们要维护队列的上凸性质,即从队尾开始扫描，判断g(i,tail)是否小于g(tail，tail-1)，如果满足，则可删除tail，并继续扫描，直到不满足该条件，则i在此处入队，队列仍满足上凸性质。</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HNOI2008-玩具装箱toy"><span class="nav-number">1.</span> <span class="nav-text">[HNOI2008]  玩具装箱toy</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#BZOJ1010-COGS1330"><span class="nav-number">1.1.</span> <span class="nav-text">BZOJ1010 COGS1330</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.2.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出格式"><span class="nav-number">1.2.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入格式："><span class="nav-number">1.2.1.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出格式："><span class="nav-number">1.2.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出样例"><span class="nav-number">1.2.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入样例-1："><span class="nav-number">1.2.2.1.</span> <span class="nav-text">输入样例#1：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出样例-1："><span class="nav-number">1.2.2.2.</span> <span class="nav-text">输出样例#1：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#证明"><span class="nav-number">1.3.</span> <span class="nav-text">证明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-g-c-b-lt-ansi"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.$g[c,b]<ansi$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-g-c-b-gt-ansi"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.$g[c,b]>=ansi$</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#以下我们便可以进行斜率优化（严格建立在决策单调性的基础上）："><span class="nav-number">1.4.</span> <span class="nav-text">以下我们便可以进行斜率优化（严格建立在决策单调性的基础上）：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1：-用单调队列维护点集信息。"><span class="nav-number">1.4.1.</span> <span class="nav-text">1： 用单调队列维护点集信息。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2：-求解dp-i-可以从队首开始扫描，当g-head-1-head-lt-ansi时，可知head-1优于head，故继续扫描，直到不满足条件，此时bext-i-head-即使dp-i-最优的决策为队首。"><span class="nav-number">1.4.2.</span> <span class="nav-text">2： 求解dp[i],可以从队首开始扫描，当g(head+1,head)<ansi时，可知head+1优于head，故继续扫描，直到不满足条件，此时bext[i]=head,即使dp[i]最优的决策为队首。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3：-当加入点i，我们要维护队列的上凸性质-即从队尾开始扫描，判断g-i-tail-是否小于g-tail，tail-1-，如果满足，则可删除tail，并继续扫描，直到不满足该条件，则i在此处入队，队列仍满足上凸性质。"><span class="nav-number">1.5.</span> <span class="nav-text">3： 当加入点i，我们要维护队列的上凸性质,即从队尾开始扫描，判断g(i,tail)是否小于g(tail，tail-1)，如果满足，则可删除tail，并继续扫描，直到不满足该条件，则i在此处入队，队列仍满足上凸性质。</span></a></li></ol></li></ol></div>
             
 
           </div>
