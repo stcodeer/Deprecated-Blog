@@ -99,7 +99,7 @@
 设$dp[i]$为处理前$i$个玩具的最小花费，a[i]为前i个玩具长度的前缀和。易得转移方程为$dp[i]=min(dp[j]+(i-j-1+a[i]-a[j]-l)^2)(0&amp;lt;=i&amp;lt;j&amp;lt;=n)$此方法时间复杂度为$O(n^2)$，只能水到20分。
 #include&amp;lt;cstdio&amp;gt;
 #incl">
-<meta property="og:updated_time" content="2017-03-11T04:02:02.161Z">
+<meta property="og:updated_time" content="2017-03-12T00:44:16.930Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HNOI2008     玩具装箱Toy(详解)">
 <meta name="twitter:description" content="[HNOI2008]  玩具装箱toyBZOJ1010 COGS1330
@@ -404,8 +404,8 @@
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2017-03-11T12:02:02+08:00">
-                2017-03-11
+              <time title="Post modified" itemprop="dateModified" datetime="2017-03-12T08:44:16+08:00">
+                2017-03-12
               </time>
             
           </span>
@@ -535,7 +535,7 @@ int main()
 <p>当$a&lt;b&lt;c$时，且$g[c,b]&lt;g[b,a]$,易证得b必不为最优决策。<br>当</p>
 <h3 id="1-g-c-b-lt-ansi"><a href="#1-g-c-b-lt-ansi" class="headerlink" title="1.$g[c,b]&lt;ansi$"></a>1.$g[c,b]&lt;ansi$</h3><p>此时c决策优于b，则b一定不为最优决策。</p>
 <h3 id="2-g-c-b-gt-ansi"><a href="#2-g-c-b-gt-ansi" class="headerlink" title="2.$g[c,b]&gt;=ansi$"></a>2.$g[c,b]&gt;=ansi$</h3><p>此时b决策优于c，但又有$g[b,a]&gt;g[c,b]&gt;=ansi$,此时b决策不优于a决策。</p>
-<p>综上所述，则可将所有满足$g[c,b]<g[b,a](a<b<c)$的决策b排除掉。此时函数满足上凸的性质，即有$g[c,b]>g<a href="a&lt;b&lt;c">b,a</a>$,斜率递减。</g[b,a](a<b<c)$的决策b排除掉。此时函数满足上凸的性质，即有$g[c,b]></p>
+<p>综上所述，则可将所有满足$g[c,b]&lt;g<a href="a&lt;b&lt;c">b,a</a>$的决策b排除掉。此时函数满足上凸的性质，即有斜率递减。</p>
 <h4 id="以下我们便可以进行斜率优化（严格建立在决策单调性的基础上）："><a href="#以下我们便可以进行斜率优化（严格建立在决策单调性的基础上）：" class="headerlink" title="以下我们便可以进行斜率优化（严格建立在决策单调性的基础上）："></a>以下我们便可以进行斜率优化（严格建立在决策单调性的基础上）：</h4><h4 id="1：-用单调队列维护点集信息。"><a href="#1：-用单调队列维护点集信息。" class="headerlink" title="1： 用单调队列维护点集信息。"></a>1： 用单调队列维护点集信息。</h4><h4 id="2：-求解dp-i-可以从队首开始扫描，当g-head-1-head-lt-ansi时，可知head-1优于head，故继续扫描，直到不满足条件，此时bext-i-head-即使dp-i-最优的决策为队首。"><a href="#2：-求解dp-i-可以从队首开始扫描，当g-head-1-head-lt-ansi时，可知head-1优于head，故继续扫描，直到不满足条件，此时bext-i-head-即使dp-i-最优的决策为队首。" class="headerlink" title="2： 求解dp[i],可以从队首开始扫描，当g(head+1,head)&lt;ansi时，可知head+1优于head，故继续扫描，直到不满足条件，此时bext[i]=head,即使dp[i]最优的决策为队首。"></a>2： 求解dp[i],可以从队首开始扫描，当g(head+1,head)&lt;ansi时，可知head+1优于head，故继续扫描，直到不满足条件，此时bext[i]=head,即使dp[i]最优的决策为队首。</h4><h4 id="3：-当加入点i，我们要维护队列的上凸性质-即从队尾开始扫描，判断g-i-tail-是否小于g-tail，tail-1-，如果满足，则可删除tail，并继续扫描，直到不满足该条件，则i在此处入队，队列仍满足上凸性质。"><a href="#3：-当加入点i，我们要维护队列的上凸性质-即从队尾开始扫描，判断g-i-tail-是否小于g-tail，tail-1-，如果满足，则可删除tail，并继续扫描，直到不满足该条件，则i在此处入队，队列仍满足上凸性质。" class="headerlink" title="3： 当加入点i，我们要维护队列的上凸性质,即从队尾开始扫描，判断g(i,tail)是否小于g(tail，tail-1)，如果满足，则可删除tail，并继续扫描，直到不满足该条件，则i在此处入队，队列仍满足上凸性质。"></a>3： 当加入点i，我们要维护队列的上凸性质,即从队尾开始扫描，判断g(i,tail)是否小于g(tail，tail-1)，如果满足，则可删除tail，并继续扫描，直到不满足该条件，则i在此处入队，队列仍满足上凸性质。</h4><p>AC代码如下：</p>
 <pre><code>#include&lt;iostream&gt;
 #include&lt;cstdio&gt;
