@@ -1,0 +1,1139 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="二分答案,贪心,线段树,二维线段树," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="NOIP 模拟赛-2017-3-12By HJWJBSR&amp;amp;duyege2016.9
+T1 Blue题目描述Blue 是个动物学家，不仅喜欢研究猫和老鼠，还喜欢研究青蛙。
+他最近开始研究青蛙过河的问题，可以简化成：数轴上 0 为岸边，L 为河对岸。(0,L)中间存在 n 个石子。已知青蛙一跳可以跳距离 D，而且不能沾水。求问能不能跳到河对岸。
+当然他觉得这个问题非常 naïve，于是在思考如">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NOIP模拟赛 2017 3 12">
+<meta property="og:url" content="https://prostkhala.github.io/2017/03/13/NOIP模拟赛 2017 3 12/index.html">
+<meta property="og:site_name" content="ST">
+<meta property="og:description" content="NOIP 模拟赛-2017-3-12By HJWJBSR&amp;amp;duyege2016.9
+T1 Blue题目描述Blue 是个动物学家，不仅喜欢研究猫和老鼠，还喜欢研究青蛙。
+他最近开始研究青蛙过河的问题，可以简化成：数轴上 0 为岸边，L 为河对岸。(0,L)中间存在 n 个石子。已知青蛙一跳可以跳距离 D，而且不能沾水。求问能不能跳到河对岸。
+当然他觉得这个问题非常 naïve，于是在思考如">
+<meta property="og:updated_time" content="2017-03-13T10:09:14.212Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NOIP模拟赛 2017 3 12">
+<meta name="twitter:description" content="NOIP 模拟赛-2017-3-12By HJWJBSR&amp;amp;duyege2016.9
+T1 Blue题目描述Blue 是个动物学家，不仅喜欢研究猫和老鼠，还喜欢研究青蛙。
+他最近开始研究青蛙过河的问题，可以简化成：数轴上 0 为岸边，L 为河对岸。(0,L)中间存在 n 个石子。已知青蛙一跳可以跳距离 D，而且不能沾水。求问能不能跳到河对岸。
+当然他觉得这个问题非常 naïve，于是在思考如">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '2QO73P8IRL',
+      apiKey: 'd708fdfc7728c0f4e49cf1d1dbfbc6f7',
+      indexName: 'ProSTKhala',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://prostkhala.github.io/2017/03/13/NOIP模拟赛 2017 3 12/"/>
+
+
+
+
+
+  <title> NOIP模拟赛 2017 3 12 | ST </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+	<div id="vk_api_transport"></div>
+	<script type="text/javascript">
+		window.vkAsyncInit = function() {
+			VK.init({
+				apiId: 
+			});
+
+			
+				VK.Widgets.Like("vk_like", {type: "mini", height: 20});
+			
+
+			
+				VK.Widgets.Comments("vk_comments", {limit: 10, attach: "*"});
+			
+		};
+		setTimeout(function() {
+			var el = document.createElement("script");
+			el.type = "text/javascript";
+			el.src = "//vk.com/js/api/openapi.js";
+			el.async = true;
+			document.getElementById("vk_api_transport").appendChild(el);
+		}, 0);
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ST</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">A HAOIER</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://prostkhala.github.io/2017/03/13/NOIP模拟赛 2017 3 12/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ST">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/ProSTKhala/ProSTKhala.github.io/master/images/ST.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ST">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                NOIP模拟赛 2017 3 12
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-13T18:01:11+08:00">
+                2017-03-13
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2017-03-13T18:09:14+08:00">
+                2017-03-13
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NOIP模拟赛/" itemprop="url" rel="index">
+                    <span itemprop="name">NOIP模拟赛</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/13/NOIP模拟赛 2017 3 12/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/13/NOIP模拟赛 2017 3 12/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="NOIP-模拟赛-2017-3-12"><a href="#NOIP-模拟赛-2017-3-12" class="headerlink" title="NOIP 模拟赛-2017-3-12"></a>NOIP 模拟赛-2017-3-12</h1><h2 id="By-HJWJBSR-amp-duyege"><a href="#By-HJWJBSR-amp-duyege" class="headerlink" title="By HJWJBSR&amp;duyege"></a>By HJWJBSR&amp;duyege</h2><h3 id="2016-9"><a href="#2016-9" class="headerlink" title="2016.9"></a>2016.9</h3><hr>
+<h2 id="T1-Blue"><a href="#T1-Blue" class="headerlink" title="T1 Blue"></a>T1 Blue</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>Blue 是个动物学家，不仅喜欢研究猫和老鼠，还喜欢研究青蛙。</p>
+<p>他最近开始研究青蛙过河的问题，可以简化成：数轴上 0 为岸边，L 为河对岸。(0,L)<br>中间存在 n 个石子。已知青蛙一跳可以跳距离 D，而且不能沾水。求问能不能跳到河对岸。</p>
+<p>当然他觉得这个问题非常 naïve，于是在思考如果青蛙有 m 个，且石头被踩过之后就<br>会沉下去，m 个青蛙还能不能依次安全过河。如果不能则问最多能有多少个过河。</p>
+<p>输入第一行为一个正整数 T 代表数据组数。每组数据第一行四个正整数：n、m、D、L。<br>第二行 n 个升序正整数 ai 代表第 i 个石子坐标为 ai。保证没有重复且都小于 L。</p>
+<p>输出 T 行”Excited”代表全部能过河或者一个整数代表有多少个能过河的。</p>
+<h4 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h4><pre><code>5
+10 9 16 30
+2 4 6 9 11 15 18 19 25 27 
+10 1 23 30
+10 11 13 14 15 16 18 26 27 29 
+10 7 28 30
+2 3 7 9 12 15 20 24 27 28 
+10 3 18 30
+1 6 9 14 18 19 22 27 28 29 
+10 7 10 30
+1 2 4 6 18 19 20 22 23 26 
+</code></pre><h4 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h4><pre><code>5
+Excited
+Excited
+Excited
+0
+</code></pre><h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>对于 10%的数据保证 $m=1$.</p>
+<p>对于另外 10%的数据保证 $D=L$.</p>
+<p>对于另外 10%的数据保证 $n=L-1$.</p>
+<p>对于另外 30%的数据保证 $n&lt;=100, L&lt;=10^5$.</p>
+<p>对于 100%的数据保证 $m&lt;=n&lt;=10^6,D&lt;=L&lt;=10^9$.<br>数据范围中的 n、m 皆代表题目描述中 n、m 的总和。</p>
+<hr>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>这题就是比较简单的二分答案+贪心，一开始想到了这种思路，但一直没有正确的贪心策略，后来开始尝试树状数组，看到$D&lt;=L&lt;=10^9$的数据范围后，又写了回离散化，然后又想到还要记录离散化的前的相对位置和d的关系，然后就掉进了深坑中无法自拔。最后半小时重新推了下贪心，（伪）A掉了这题。教训就是不要浮躁，做题要静下心来。</p>
+<p>具体的策略就是，每次针对不同答案进行贪心的时，记录一下这些青蛙的位置，然后就没了….</p>
+<hr>
+<h4 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h4><pre><code>#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+using namespace std;
+const int N =1e6+1;
+inline void read(int &amp;x)
+{
+    x=0;char ch=getchar();
+    while(ch&lt;&#39;0&#39;||ch&gt;&#39;9&#39;)ch=getchar();
+    while(ch&gt;=&#39;0&#39;&amp;&amp;ch&lt;=&#39;9&#39;){x=x*10+ch-&#39;0&#39;;ch=getchar();}
+}
+int tt,n,m,d,l,a[N],b[N];
+bool can(int ans)
+{
+    for(int i=1;i&lt;=ans;++i)b[i]=0;
+    int anss=0;
+    for(int now=1;now&lt;=n;++now)
+    {
+        if(a[now]-b[++anss]&lt;=d)b[anss]=a[now];
+        if(anss==ans)anss=0;
+    }
+    for(int i=1;i&lt;=ans;++i)
+    if(l-b[i]&gt;d)return 0;
+    return 1;
+}
+int main()
+{
+//    freopen(&quot;Blue.in&quot;,&quot;r&quot;,stdin);
+//    freopen(&quot;Blue.out&quot;,&quot;w&quot;,stdout);
+    read(tt);
+    while(tt--)
+    {
+        read(n),read(m),read(d),read(l);
+        for(int i=1;i&lt;=n;++i)read(a[i]);
+        int ll=0,rr=m,mid;
+        while(ll!=rr)
+        {
+            mid=ll+rr+1&gt;&gt;1;
+            if(can(mid))    ll=mid;
+            else            rr=mid-1;
+        }
+        if(rr==m)    printf(&quot;Excited\n&quot;);
+        else         printf(&quot;%d\n&quot;,rr);
+    }
+    return 0;
+}
+</code></pre><hr>
+<h2 id="T2-Weed"><a href="#T2-Weed" class="headerlink" title="T2 Weed"></a>T2 Weed</h2><h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><p>duyege的电脑上面已经长草了，经过辨认上面有金坷垃的痕迹。<br>为了查出真相，duyege 准备修好电脑之后再进行一次金坷垃的模拟实验。</p>
+<p>电脑上面有若干层金坷垃，每次只能在上面撒上一层高度为 vi 的金坷垃，或者除掉最<br>新 vi 层（不是量）撒的金坷垃。如果上面只留有不足 vi 层金坷垃，那么就相当于电脑上<br>面没有金坷垃了。</p>
+<p>duyege 非常严谨，一开始先给你 m 个上述操作要你依次完成。然后又对实验步骤进行<br>了 q 次更改，每次更改都会改变其中一个操作为另外一个操作。每次修改之后都会询问最<br>终金坷垃的量有多少。</p>
+<p>输入第一行为两个正整数 m、q，接下来 m 行每行 2 个整数 k、vi。k为 0 时撒金坷垃，<br>为 1 时除金坷垃。接下来 q 行每行 3 个整数 ci、k、vi，ci代表被更改的操作是第 ci 个，<br>后面 2 个数描述更改为这样的操作。</p>
+<p>输出 q 行代表每次金坷垃的量为多少</p>
+<h4 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入"></a>样例输入</h4><pre><code>10 5
+0 10
+1 5
+0 13
+0 18
+0 2
+1 1
+0 8
+0 9
+1 3
+0 7
+9 0 3
+10 1 7
+6 0 8
+10 0 5
+8 1 2
+</code></pre><h4 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出"></a>样例输出</h4><pre><code>58
+0
+0
+66
+41
+</code></pre><h4 id="数据范围-1"><a href="#数据范围-1" class="headerlink" title="数据范围"></a>数据范围</h4><p>对于 30%的数据，m&lt;=1000,q&lt;=1000.</p>
+<p>对于另外 20%的数据，每次 k=1 时都会将金坷垃清空。</p>
+<p>对于 100%的数据，m&lt;=2<em>10^5,q&lt;=2</em>10^5,vi&lt;=10^4.</p>
+<hr>
+<h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><p>由于该题涉及中间量的改变，所以要用线段树来记录，一开始想的是链表，每次操作修改一下链表中与更改操作相关的指针，然而最后也没有实现…</p>
+<p>题解还是挺巧妙，将每次操作依次进栈，对于每次更改，即为将被更改操作以上的所有操作出栈，将更改后的操作入栈，然后将其余出栈操作按原顺序入栈，我在考场时也仅止步于此，这样的时间复杂度太高，最后并没有尝试这样写。题解便巧妙在用线段树来记录每一段操作的三项信息：执行完这段操作后会删除多少金坷垃，会插入多少，一共又是多少。然后通过一个查找函数来依次向父亲节点更新。</p>
+<hr>
+<h3 id="CODE-1"><a href="#CODE-1" class="headerlink" title="CODE"></a>CODE</h3><pre><code>#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+using namespace std;
+inline void read(int &amp;x)
+{
+    x=0;int f=1;char ch=getchar();
+    while(ch&lt;&#39;0&#39;||ch&gt;&#39;9&#39;){if(ch==&#39;-&#39;)f=-1;ch=getchar();}
+    while(ch&gt;=&#39;0&#39;&amp;&amp;ch&lt;=&#39;9&#39;){x=x*10+ch-&#39;0&#39;;ch=getchar();}
+    x*=f;
+}
+const int N =2e5+7;
+struct build{int sum,in,out;}tr[8*N];
+int n,q,k,a[N],tot;
+int find(int x,int pot)
+{
+    if(pot&gt;=tr[x].in)            return 0;
+    if(!pot)                    return tr[x].sum;
+    if(pot&lt;=tr[x*2+1].in)
+    return tr[x].sum-tr[x*2+1].sum+find(x*2+1,pot);
+    return find(x*2,pot-tr[x*2+1].in+tr[x*2+1].out);
+}
+void update(int x)
+{
+    tr[x].in=tr[x*2+1].in+max(0,tr[x*2].in-tr[x*2+1].out);
+    tr[x].out=tr[x*2].out+max(0,tr[x*2+1].out-tr[x*2].in);
+    tr[x].sum=tr[x*2+1].sum+find(x*2,tr[x*2+1].out);
+}
+void build(int x,int l,int r)
+{
+    if(l==r)
+    {
+        if(a[l]&lt;0)    tr[x].out=-a[l];
+        else        tr[x].in=1,tr[x].sum=a[l];
+    }
+    else
+    {
+        int mid=l+r&gt;&gt;1;
+        build(x*2,l,mid);
+        build(x*2+1,mid+1,r);
+        update(x);
+    }
+}
+void change(int x,int pot,int w,int l,int r)
+{
+    if(l==r)
+    {
+        memset(&amp;tr[x],0,sizeof(tr[x]));
+        if(w&lt;0)        tr[x].out=-w;
+        else        tr[x].in=1,tr[x].sum=w;
+    }
+    else
+    {
+        int mid=l+r&gt;&gt;1;
+        if(pot&gt;mid)    change(x*2+1,pot,w,mid+1,r);
+        else        change(x*2,pot,w,l,mid);
+        update(x);
+    }
+}
+int main()
+{
+//    freopen(&quot;weed.in&quot;, &quot;r&quot;, stdin);
+//    freopen(&quot;weed.out&quot;, &quot;w&quot;, stdout);
+    read(n),read(q);
+    for(int i=1;i&lt;=n;++i)
+    {
+        read(k),read(a[i]);
+        if(k)a[i]*=-1;
+    }
+    build(1,1,n);
+    while(q--)
+    {
+        int x,w;
+        read(x);read(k);read(w);
+        if(k)w*=-1;
+        change(1,x,w,1,n);
+        printf(&quot;%d\n&quot;,tr[1].sum);
+    }
+}
+</code></pre><hr>
+<h2 id="T3-Drink"><a href="#T3-Drink" class="headerlink" title="T3 Drink"></a>T3 Drink</h2><h3 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h3><p>在一个遥远的国度有一个腰缠万贯的资本家 Link，每一个拜访他的人都可以得到一份<br>丰厚的赏赐。有一名穷困潦倒的旅行者毒液哥来到了 Link 家。Link 智商超群（不然也赚<br>不到这么多资本），所以决定用特殊的方法赏赐毒液哥。</p>
+<p>Link的藏宝库是一个N * M棋盘，每个格子里都有宝物。Link会对棋盘做Q次操作，<br>每次操作会选取棋盘内一个正方形，让其中的宝物顺时针转一圈（旋转90度）。<br>毒液哥不仅财富值被 Link 碾压，智商也同样被碾压（不然怎么会这么穷），但是贪财<br>的他想知道最后棋盘内所有的宝物价值以方便他挑选。</p>
+<p>作为建设中国特色社会主义道路上的一颗螺丝钉，你能帮助缩小无产阶级代表（毒液哥）<br>和资产阶级代表（Link）之间的贫富差距么。</p>
+<p>输入第一行三个数 N, M, Q 分别表示棋盘的行数、列数和操作个数。<br>接下来 N 行每行 M 个数表示一开始棋盘上宝物的价值。<br>接下来 Q 行每行 3 个数 x, y, c 表示操作区域为以第 x 行第 y列为左上角的边长为 c<br>的正方形。</p>
+<p>输出一个 N * M 的矩阵表示最后的棋盘。</p>
+<h4 id="样例输入-2"><a href="#样例输入-2" class="headerlink" title="样例输入"></a>样例输入</h4><pre><code>4 4 3
+1 2 3 4
+5 6 7 8
+1 2 3 4
+5 6 7 8
+1 1 3
+3 3 2
+2 2 2
+</code></pre><h4 id="样例输出-2"><a href="#样例输出-2" class="headerlink" title="样例输出"></a>样例输出</h4><pre><code>1 5 1 4 
+2 7 6 8 
+3 7 2 3 
+5 6 8 4 
+</code></pre><h4 id="数据范围-2"><a href="#数据范围-2" class="headerlink" title="数据范围"></a>数据范围</h4><p>对于 30%的数据，N, M, Q &lt;= 100.</p>
+<p>对于另外 30%的数据，保证所有 Q 个正方形两两之间不相交或相等。</p>
+<p>对于 100%的数据, N, M, Q &lt;= 1000.所有数取值都为 0~9.</p>
+<hr>
+<h3 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h3><p>以前写过类似的模拟题，便套用了之前的思路，即对于每个点，记录其前后左右的点，然后将所有点的朝向初始化为朝前（p=0），每次旋转，更改一下最外围点的前后左右点，对于内圈的点，其前后左右的点没有改变，只需要将所有被旋转的点的朝向旋转一下（p=(p+1)%4），这一步操作通过二维线段树来实现（然而并不会写）。题解的大体思路相近，只是在处理朝向那里更加巧妙，且也没有用二维数组存储每个点的相对位置，而是用一维数组操作，其他的还有许多处理上的技巧。</p>
+<h3 id="CODE-2"><a href="#CODE-2" class="headerlink" title="CODE"></a>CODE</h3>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/二分答案/" rel="tag"># 二分答案</a>
+          
+            <a href="/tags/贪心/" rel="tag"># 贪心</a>
+          
+            <a href="/tags/线段树/" rel="tag"># 线段树</a>
+          
+            <a href="/tags/二维线段树/" rel="tag"># 二维线段树</a>
+          
+        </div>
+      
+
+      
+        
+          <div class="social-like">
+            
+              <div class="vk_like">
+                <span id="vk_like"></span>
+              </div>
+            
+
+            
+          </div>
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/11/股票交易/" rel="next" title="SCOI2010 股票交易">
+                <i class="fa fa-chevron-left"></i> SCOI2010 股票交易
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/13/NOIP模拟赛 2017 3 12/"
+           data-title="NOIP模拟赛 2017 3 12" data-url="https://prostkhala.github.io/2017/03/13/NOIP模拟赛 2017 3 12/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://raw.githubusercontent.com/ProSTKhala/ProSTKhala.github.io/master/images/ST.jpg"
+               alt="ST" />
+          <p class="site-author-name" itemprop="name">ST</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://pb0207.github.io/" target="_blank" title="我校大神%%%">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  我校大神%%%
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NOIP-模拟赛-2017-3-12"><span class="nav-number">1.</span> <span class="nav-text">NOIP 模拟赛-2017-3-12</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#By-HJWJBSR-amp-duyege"><span class="nav-number">1.1.</span> <span class="nav-text">By HJWJBSR&duyege</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2016-9"><span class="nav-number">1.1.1.</span> <span class="nav-text">2016.9</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T1-Blue"><span class="nav-number">1.2.</span> <span class="nav-text">T1 Blue</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述"><span class="nav-number">1.2.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输入"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输出"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">样例输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据范围"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解"><span class="nav-number">1.2.2.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CODE"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T2-Weed"><span class="nav-number">1.3.</span> <span class="nav-text">T2 Weed</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输入-1"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输出-1"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">样例输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据范围-1"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-1"><span class="nav-number">1.3.2.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE-1"><span class="nav-number">1.3.3.</span> <span class="nav-text">CODE</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T3-Drink"><span class="nav-number">1.4.</span> <span class="nav-text">T3 Drink</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-2"><span class="nav-number">1.4.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输入-2"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输出-2"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">样例输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据范围-2"><span class="nav-number">1.4.1.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-2"><span class="nav-number">1.4.2.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE-2"><span class="nav-number">1.4.3.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ST</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"prostkhala"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+  
+
+</body>
+</html>
