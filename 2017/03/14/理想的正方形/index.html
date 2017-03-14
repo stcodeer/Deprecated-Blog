@@ -101,7 +101,7 @@
 输入输出格式输入格式：第一行为3个整数，分别表示a,b,n的值
 第二行至第a+1行每行为b个非负整数，表示矩阵中相应位置上的数。每行相邻两数之间用一空格分隔。
 输出格式：仅一个整数，为ab矩阵中所有“nn正方形区域中">
-<meta property="og:updated_time" content="2017-03-14T07:50:03.964Z">
+<meta property="og:updated_time" content="2017-03-14T07:54:11.036Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HAOI2006 理想的正方形">
 <meta name="twitter:description" content="[HAOI2006] 理想的正方形BZOJ1047 洛谷2216
@@ -407,7 +407,7 @@
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2017-03-14T15:50:03+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2017-03-14T15:54:11+08:00">
                 2017-03-14
               </time>
             
@@ -487,7 +487,7 @@
 <p>20%的数据2&lt;=a,b&lt;=100,n&lt;=a,n&lt;=b,n&lt;=10</p>
 <p>100%的数据2&lt;=a,b&lt;=1000,n&lt;=a,n&lt;=b,n&lt;=100</p>
 <hr>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>二维滑动窗口，先对每一行建立双端队列，记录每一个1<em>n的长方体中的极值，<br>将二维矩阵压缩成b-n+1列的矩阵，再对每一列依次建立双端队列，记录n</em>1的长方体(在原矩阵中为n<em>n的正方形)中的极值(in(max)y[i][t]存储的是以map[i][t]为右下角端点的n</em>n正方形的极值信息)，枚举即可。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>二维滑动窗口，先对每一行建立双端队列，记录每一个$1<em>n$的长方体中的极值，<br>将二维矩阵压缩成$a$行$b-n+1$列的矩阵，再对每一列依次建立双端队列，记录$n</em>1$的长方体(在原矩阵中为n<em>n的正方形)中的极值(in(max)y[i][t]存储的是以map[i][t]为右下角端点的n</em>n正方形的极值信息)，枚举即可。</p>
 <hr>
 <h3 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h3><pre><code>#include&lt;iostream&gt;
 #include&lt;cstdio&gt;
