@@ -97,7 +97,7 @@
 <meta property="og:description" content="T1 计算几何
 题目描述花花对计算几何有着浓厚的兴趣。他经常对着平面直角坐标系发呆，思考一些有趣的问题。今天，他想到了一个十分有意思的题目：
 首先，花花会在 x 轴正半轴和 y 轴正半轴分别挑选 n 个点。随后，他将 x 轴的点与 y 轴的点一一连接，形成 n 条线段，并保证任意两条线段不相交。花花确定这种连接方式有且仅有一种。最后，花花会给出 m 个询问。对于每个询问，将会给定一个点 P($x_">
-<meta property="og:updated_time" content="2017-03-17T12:51:56.251Z">
+<meta property="og:updated_time" content="2017-03-17T12:54:05.125Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NOIP模拟赛 2017 3 17">
 <meta name="twitter:description" content="T1 计算几何
@@ -385,7 +385,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-17T18:50:23+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-17T20:50:23+08:00">
                 2017-03-17
               </time>
             
@@ -401,7 +401,7 @@
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2017-03-17T20:51:56+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2017-03-17T20:54:05+08:00">
                 2017-03-17
               </time>
             
@@ -568,7 +568,7 @@ int main()
 <p>对于 100% 的数据：n,m,q ≤ 10 5 ,w i ≤ 10000,1 ≤ v i ,k i ≤ n。</p>
 <hr>
 <h2 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h2><p>树形动态规划。设$f[i]$为从$i$到根节点的最小花费，则可以得到状态转移方程：<br>$f[y] = min ( f[x] + w[y][i] )( find(y) = x &amp;&amp; dep[x] - dep[y] &gt; = k[y][i] ) $</p>
-<p>先进行拓扑排序，顺序进行操作。对于寻找$min(f[x])$的操作，则可以通过树链剖分的维护实现。(要开 long long 不然会爆)</p>
+<p>先进行拓扑排序，顺序进行操作。对于寻找$min(f[x])$的操作，则可以通过LCA或树链剖分实现。(要开 long long 不然会爆)</p>
 <hr>
 <h3 id="CODE-1"><a href="#CODE-1" class="headerlink" title="CODE"></a>CODE</h3><pre><code>#include&lt;iostream&gt;
 #include&lt;algorithm&gt;
@@ -824,7 +824,7 @@ void init()
 
 int act()
 {
-    if (opreator==&#39;&lt;&#39;)         ll(move());
+    if(opreator==&#39;&lt;&#39;)         ll(move());
     if(opreator==&#39;&gt;&#39;)         rl(move());
     if(opreator==&#39;I&#39;)
     {
@@ -910,8 +910,8 @@ int main()
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/17/AC自动机 模板/" rel="next" title="病毒侵袭">
-                <i class="fa fa-chevron-left"></i> 病毒侵袭
+              <a href="/2017/03/17/NOIP模拟赛 2017 3 16/" rel="next" title="NOIP模拟赛 2017 3 16">
+                <i class="fa fa-chevron-left"></i> NOIP模拟赛 2017 3 16
               </a>
             
           </div>
@@ -1032,7 +1032,7 @@ int main()
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1054,7 +1054,7 @@ int main()
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
