@@ -109,7 +109,7 @@
 查询排名为x的数
 求x的前驱(前驱定义为小于x，且最大的数)
 求x的后继(后继定义为大于x，且最小的数)输入输出格式输入格式：第一行为n，表示操作的个数,下面">
-<meta property="og:updated_time" content="2017-03-19T13:33:00.401Z">
+<meta property="og:updated_time" content="2017-03-20T12:39:46.113Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="普通平衡树">
 <meta name="twitter:description" content="普通平衡树BZOJ3224 COGS1829
@@ -419,8 +419,8 @@
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2017-03-19T21:33:00+08:00">
-                2017-03-19
+              <time title="Post modified" itemprop="dateModified" datetime="2017-03-20T20:39:46+08:00">
+                2017-03-20
               </time>
             
           </span>
@@ -679,6 +679,125 @@ int main()
     }
     return 0;
 }    
+</code></pre><hr>
+<h3 id="CODE-V2"><a href="#CODE-V2" class="headerlink" title="CODE V2"></a>CODE V2</h3><pre><code> #include&lt;cstdio&gt;
+ #include&lt;iostream&gt;
+const int N=1e5+5;
+int tot,root,size[N],num[N],key[N],fa[N],son[N][2];
+void pushup(int x)
+{
+    size[x]=size[son[x][0]]+size[son[x][1]]+num[x];
+}
+void zg(int x)
+{
+    //push_down(fa[x]);push_down(x); 
+    int y=fa[x],z=fa[y],t=(son[y][0]==x);
+    if(z) son[z][son[z][1]==y]=x;fa[x]=z;
+    son[y][!t]=son[x][t];fa[son[y][!t]]=y;
+    son[x][t]=y;fa[y]=x;
+    pushup(y);pushup(x);
+}
+void splay(int x,int f)
+{
+    while(fa[x]!=f)
+    {
+        int y=fa[x],z=fa[y];
+        if(z!=f)
+        {
+            if(son[z][0]==y^son[y][0]==x) zg(x);
+            else zg(y);
+        } 
+        zg(x);    
+    }
+    if(!f) root=x;
+}
+void insert(int &amp;x,int v,int f)
+{
+    if(!x)
+    {
+        x=++tot;
+        son[x][0]=son[x][1]=0;
+        size[x]=num[x]=1;
+        key[x]=v;fa[x]=f;
+        splay(x,0);
+        return;
+    }
+    if(v==key[x])
+    {
+        num[x]++;size[x]++;
+        splay(x,0);
+        return;
+    }
+    insert(son[x][v&gt;key[x]],v,x);
+    pushup(x);
+}
+int get(int v)
+{
+    int x=root;
+    while(x&amp;&amp;v!=key[x]) x=son[x][v&gt;key[x]];
+    return x;
+}
+void delet(int x)
+{
+    x=get(x);if(!x) return;
+    splay(x,0);
+    if(num[x]&gt;1) {num[x]--;size[x]--;return;}
+    if(!son[x][0]||!son[x][1]) root=son[x][0]+son[x][1];
+    else
+    {
+        int y=son[x][1];while(son[y][0]) y=son[y][0];
+        splay(y,x);
+        son[y][0]=son[x][0];fa[son[y][0]]=y;
+        root=y;
+    }
+    fa[root]=0;
+    pushup(root);
+}
+int getrank(int v)
+{
+    insert(root,v,0);
+    int ans=size[son[root][0]]+1;
+    delet(v);
+    return ans;
+}
+int kth(int x)
+{
+    int y=root;
+    while(x&lt;=size[son[y][0]]||x&gt;size[son[y][0]]+num[y])
+    {
+        if(x&lt;=size[son[y][0]]) y=son[y][0];
+        else x-=size[son[y][0]]+num[y],y=son[y][1];
+    }
+    return key[y];
+}
+int pre(int v)
+{
+    insert(root,v,0);
+    int x=son[root][0];while(son[x][1]) x=son[x][1];
+    delet(v);
+    return key[x];
+}
+int ne(int v)
+{
+    insert(root,v,0);
+    int x=son[root][1];while(son[x][0]) x=son[x][0];
+    delet(v);
+    return key[x];
+}
+int main()
+{
+    int n;
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=1,x,y;i&lt;=n;++i)
+    {
+        if(x==1)         insert(root,y,0);
+        if(x==2)         delet(y);
+        if(x==3)         printf(&quot;%d\n&quot;,getrank(y));
+        if(x==4)         printf(&quot;%d\n&quot;,kth(y));
+        if(x==5)         printf(&quot;%d\n&quot;,pre(y));
+        if(x==6)        printf(&quot;%d\n&quot;,ne(y));
+    }
+}
 </code></pre>
       
     </div>
@@ -946,7 +1065,7 @@ int main()
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#普通平衡树"><span class="nav-number">1.</span> <span class="nav-text">普通平衡树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#BZOJ3224-COGS1829"><span class="nav-number">1.1.</span> <span class="nav-text">BZOJ3224 COGS1829</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.2.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出格式"><span class="nav-number">1.2.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入格式："><span class="nav-number">1.2.1.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出格式："><span class="nav-number">1.2.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出样例"><span class="nav-number">1.2.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入样例："><span class="nav-number">1.2.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出样例："><span class="nav-number">1.2.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据范围"><span class="nav-number">1.2.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解"><span class="nav-number">1.3.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE"><span class="nav-number">1.3.1.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#普通平衡树"><span class="nav-number">1.</span> <span class="nav-text">普通平衡树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#BZOJ3224-COGS1829"><span class="nav-number">1.1.</span> <span class="nav-text">BZOJ3224 COGS1829</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.2.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出格式"><span class="nav-number">1.2.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入格式："><span class="nav-number">1.2.1.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出格式："><span class="nav-number">1.2.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出样例"><span class="nav-number">1.2.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入样例："><span class="nav-number">1.2.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出样例："><span class="nav-number">1.2.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据范围"><span class="nav-number">1.2.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解"><span class="nav-number">1.3.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE"><span class="nav-number">1.3.1.</span> <span class="nav-text">CODE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE-V2"><span class="nav-number">1.3.2.</span> <span class="nav-text">CODE V2</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
