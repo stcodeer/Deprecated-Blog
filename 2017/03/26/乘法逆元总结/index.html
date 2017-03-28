@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="动态规划,决策单调性,单调队列,斜率优化,单调栈," />
+  <meta name="keywords" content="数论,逆元,线性筛法,扩展欧几里得," />
 
 
 
@@ -87,28 +87,25 @@
 
 
 
-<meta name="description" content="单调队列优化dpBZOJ 1855!、BZOJ 2442!、BZOJ 2500?、BZOJ 1047!
-单调栈BZOJ 1057!、BZOJ 1683、BZOJ 3956、BZOJ 3611
-状压DPBZOJ 1879!、BZOJ 1087!、BZOJ 2669!、BZOJ 3812
-斜率优化BZOJ 1096!、BZOJ 4518!、BZOJ 1010、BZOJ 675
-dp+四边形不等式优化P">
+<meta name="description" content="逆元的定义若$ax≡1 (mod p)$, 则称a关于模p的乘法逆元为x。也可表示为$ax≡1(mod p)$。
+当a与p互质时，a关于模p的乘法逆元有解。如果不互质，则无解。如果p为质数，则从1到p-1的任意数都与p互质，即在1到p-1之间都恰好有一个关于模p的乘法逆元。且1到p-1中的所有数的逆元对应1到p-1中的所有数，既是单射也是满射。
+
+逆元的求解扩展欧几里得算法逆元一般通过EXGCD求">
 <meta property="og:type" content="article">
-<meta property="og:title" content="动态规划优化 题目列表">
-<meta property="og:url" content="https://prostkhala.github.io/2017/03/10/动态规划 题目列表/index.html">
+<meta property="og:title" content="逆元总结">
+<meta property="og:url" content="https://prostkhala.github.io/2017/03/26/乘法逆元总结/index.html">
 <meta property="og:site_name" content="ST">
-<meta property="og:description" content="单调队列优化dpBZOJ 1855!、BZOJ 2442!、BZOJ 2500?、BZOJ 1047!
-单调栈BZOJ 1057!、BZOJ 1683、BZOJ 3956、BZOJ 3611
-状压DPBZOJ 1879!、BZOJ 1087!、BZOJ 2669!、BZOJ 3812
-斜率优化BZOJ 1096!、BZOJ 4518!、BZOJ 1010、BZOJ 675
-dp+四边形不等式优化P">
-<meta property="og:updated_time" content="2017-03-16T04:05:49.008Z">
+<meta property="og:description" content="逆元的定义若$ax≡1 (mod p)$, 则称a关于模p的乘法逆元为x。也可表示为$ax≡1(mod p)$。
+当a与p互质时，a关于模p的乘法逆元有解。如果不互质，则无解。如果p为质数，则从1到p-1的任意数都与p互质，即在1到p-1之间都恰好有一个关于模p的乘法逆元。且1到p-1中的所有数的逆元对应1到p-1中的所有数，既是单射也是满射。
+
+逆元的求解扩展欧几里得算法逆元一般通过EXGCD求">
+<meta property="og:updated_time" content="2017-03-27T03:05:57.469Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="动态规划优化 题目列表">
-<meta name="twitter:description" content="单调队列优化dpBZOJ 1855!、BZOJ 2442!、BZOJ 2500?、BZOJ 1047!
-单调栈BZOJ 1057!、BZOJ 1683、BZOJ 3956、BZOJ 3611
-状压DPBZOJ 1879!、BZOJ 1087!、BZOJ 2669!、BZOJ 3812
-斜率优化BZOJ 1096!、BZOJ 4518!、BZOJ 1010、BZOJ 675
-dp+四边形不等式优化P">
+<meta name="twitter:title" content="逆元总结">
+<meta name="twitter:description" content="逆元的定义若$ax≡1 (mod p)$, 则称a关于模p的乘法逆元为x。也可表示为$ax≡1(mod p)$。
+当a与p互质时，a关于模p的乘法逆元有解。如果不互质，则无解。如果p为质数，则从1到p-1的任意数都与p互质，即在1到p-1之间都恰好有一个关于模p的乘法逆元。且1到p-1中的所有数的逆元对应1到p-1中的所有数，既是单射也是满射。
+
+逆元的求解扩展欧几里得算法逆元一般通过EXGCD求">
 
 
 
@@ -136,13 +133,13 @@ dp+四边形不等式优化P">
 
 
 
-  <link rel="canonical" href="https://prostkhala.github.io/2017/03/10/动态规划 题目列表/"/>
+  <link rel="canonical" href="https://prostkhala.github.io/2017/03/26/乘法逆元总结/"/>
 
 
 
 
 
-  <title> 动态规划优化 题目列表 | ST </title>
+  <title> 逆元总结 | ST </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -355,7 +352,7 @@ dp+四边形不等式优化P">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://prostkhala.github.io/2017/03/10/动态规划 题目列表/">
+    <link itemprop="mainEntityOfPage" href="https://prostkhala.github.io/2017/03/26/乘法逆元总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ST">
@@ -376,7 +373,7 @@ dp+四边形不等式优化P">
             
             
               
-                动态规划优化 题目列表
+                逆元总结
               
             
           </h2>
@@ -391,8 +388,8 @@ dp+四边形不等式优化P">
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-10T22:12:24+08:00">
-                2017-03-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-26T20:44:23+08:00">
+                2017-03-26
               </time>
             
 
@@ -407,8 +404,8 @@ dp+四边形不等式优化P">
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2017-03-16T12:05:49+08:00">
-                2017-03-16
+              <time title="Post modified" itemprop="dateModified" datetime="2017-03-27T11:05:57+08:00">
+                2017-03-27
               </time>
             
           </span>
@@ -426,8 +423,8 @@ dp+四边形不等式优化P">
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/动态规划/" itemprop="url" rel="index">
-                    <span itemprop="name">动态规划</span>
+                  <a href="/categories/数论/" itemprop="url" rel="index">
+                    <span itemprop="name">数论</span>
                   </a>
                 </span>
 
@@ -444,8 +441,8 @@ dp+四边形不等式优化P">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/10/动态规划 题目列表/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/10/动态规划 题目列表/" itemprop="commentCount"></span>
+                <a href="/2017/03/26/乘法逆元总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/26/乘法逆元总结/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -471,13 +468,54 @@ dp+四边形不等式优化P">
       
 
       
-        <h1 id="单调队列优化dp"><a href="#单调队列优化dp" class="headerlink" title="单调队列优化dp"></a>单调队列优化dp</h1><p>BZOJ 1855!、BZOJ 2442!、BZOJ 2500?、BZOJ 1047!</p>
-<h1 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h1><p>BZOJ 1057!、BZOJ 1683、BZOJ 3956、BZOJ 3611</p>
-<h1 id="状压DP"><a href="#状压DP" class="headerlink" title="状压DP"></a>状压DP</h1><p>BZOJ 1879!、BZOJ 1087!、BZOJ 2669!、BZOJ 3812</p>
-<h1 id="斜率优化"><a href="#斜率优化" class="headerlink" title="斜率优化"></a>斜率优化</h1><p>BZOJ 1096!、BZOJ 4518!、BZOJ 1010、BZOJ 675</p>
-<h1 id="dp-四边形不等式优化"><a href="#dp-四边形不等式优化" class="headerlink" title="dp+四边形不等式优化"></a>dp+四边形不等式优化</h1><p>POJ1160! HDU2829! HDU3480 HDU3506 HDU3516<br><a href="http://blog.csdn.net/shiwei408/article/details/8791011" target="_blank" rel="external">http://blog.csdn.net/shiwei408/article/details/8791011</a></p>
-<h1 id="斜率优化DP和四边形不等式优化DP整理"><a href="#斜率优化DP和四边形不等式优化DP整理" class="headerlink" title="斜率优化DP和四边形不等式优化DP整理"></a>斜率优化DP和四边形不等式优化DP整理</h1><p><a href="http://blog.csdn.net/tomorrowtodie/article/details/52279807" target="_blank" rel="external">http://blog.csdn.net/tomorrowtodie/article/details/52279807</a></p>
-<p><a href="http://blog.csdn.net/u014800748/article/details/45750737" target="_blank" rel="external">http://blog.csdn.net/u014800748/article/details/45750737</a></p>
+        <h1 id="逆元的定义"><a href="#逆元的定义" class="headerlink" title="逆元的定义"></a>逆元的定义</h1><p>若$ax≡1 (mod p)$, 则称a关于模p的乘法逆元为x。也可表示为$ax≡1(mod p)$。</p>
+<p>当a与p互质时，a关于模p的乘法逆元有解。如果不互质，则无解。如果p为质数，则从1到p-1的任意数都与p互质，即在1到p-1之间都恰好有一个关于模p的乘法逆元。且1到p-1中的所有数的逆元对应1到p-1中的所有数，既是单射也是满射。</p>
+<hr>
+<h1 id="逆元的求解"><a href="#逆元的求解" class="headerlink" title="逆元的求解"></a>逆元的求解</h1><h2 id="扩展欧几里得算法"><a href="#扩展欧几里得算法" class="headerlink" title="扩展欧几里得算法"></a>扩展欧几里得算法</h2><p>逆元一般通过EXGCD求解，该方法的时间复杂度为$O(logn)$。</p>
+<pre><code>int x, y;//NOIP 同余方程    
+int extgcd(int a, int b, int &amp;x, int &amp;y)    
+{    
+    if (b == 0)
+    {    
+        x = 1;    
+        y = 0;    
+        return a;    
+    }    
+    int gcd = exgcd(b, a % b, x, y);    
+    int tmp = x;    
+    x = y;    
+    y = tmp - (a/b) * y;    
+    return gcd;    
+}    //inv[n]=(x%p+x)%p;
+</code></pre><hr>
+<h2 id="费马小定理"><a href="#费马小定理" class="headerlink" title="费马小定理"></a>费马小定理</h2><p>当$n$为质数时，同样可以通过费马小定理求解。<br>已知$n^{p-1}≡ 1(mod p)$(费马小定理)<br> 那么$inv[n]=n^{p-2} (mod p)$。该方法的时间复杂度为$O(logn)$（快速幂）。</p>
+<hr>
+<h2 id="线性求前-n-项的逆元"><a href="#线性求前-n-项的逆元" class="headerlink" title="线性求前$n$项的逆元"></a>线性求前$n$项的逆元</h2><p> 该方法时间复杂度为$O(n)$，可以同时处理前$n$个数在$modp$意义下的逆元。</p>
+<p> 递推式：</p>
+<p> $inv[1] = 1$</p>
+<p> $inv[n] = inv [ p(mod n)]*(p-p/n)(modp)（n&gt;1）$</p>
+<h3 id="证明："><a href="#证明：" class="headerlink" title="证明："></a>证明：</h3><p> 设$t=p/n$，$k=p(modn)$</p>
+<p>则有</p>
+<p>$t*n+k≡0(modp)$</p>
+<p>$-t*n≡k(modp)$</p>
+<p>对原式除以$i*k$，得到</p>
+<p>$-t*inv[k]≡inv<a href="modp">n</a>$</p>
+<p>即</p>
+<p>$-p/n*inv[p(modn)]≡inv<a href="modp">n</a>$</p>
+<p>$inv[n] = inv [ p(mod n)]*(p-p/n)(modp)$</p>
+<p>得证。</p>
+<hr>
+<h1 id="相关习题"><a href="#相关习题" class="headerlink" title="相关习题"></a>相关习题</h1><h2 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h2><p>已知 $\sum_{i=1}^{p-1}{1/i}$ $=A/B$,其中$p$为奇质数，求证$A≡0(modp)$</p>
+<h3 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h3><p>设$T=lcm(1,2,…,p-1)$</p>
+<p>则有</p>
+<p>$\sum_{i=1}^{p-1}{1/i}$ $= (T/1+T/2+…+T/(p-1))/T$</p>
+<p>此时只需证明</p>
+<p>$T/1+T/2+…+T/(p-1)≡0(modp)$</p>
+<p>根据性质（见上）我们可以知道，1到p-1中所有数的逆元对应1到p-1中的所有数，则原式可以化简为</p>
+<p>$1+2+…+(p-1)≡0(modp)$</p>
+<p>$p*(p-1)≡0(modp)$</p>
+<p>得证。</p>
+<hr>
 
       
     </div>
@@ -501,15 +539,13 @@ dp+四边形不等式优化P">
       
         <div class="post-tags">
           
-            <a href="/tags/动态规划/" rel="tag"># 动态规划</a>
+            <a href="/tags/数论/" rel="tag"># 数论</a>
           
-            <a href="/tags/决策单调性/" rel="tag"># 决策单调性</a>
+            <a href="/tags/逆元/" rel="tag"># 逆元</a>
           
-            <a href="/tags/单调队列/" rel="tag"># 单调队列</a>
+            <a href="/tags/线性筛法/" rel="tag"># 线性筛法</a>
           
-            <a href="/tags/斜率优化/" rel="tag"># 斜率优化</a>
-          
-            <a href="/tags/单调栈/" rel="tag"># 单调栈</a>
+            <a href="/tags/扩展欧几里得/" rel="tag"># 扩展欧几里得</a>
           
         </div>
       
@@ -532,8 +568,8 @@ dp+四边形不等式优化P">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/10/玩具装箱toy/" rel="next" title="HNOI2008     玩具装箱Toy(详解)">
-                <i class="fa fa-chevron-left"></i> HNOI2008     玩具装箱Toy(详解)
+              <a href="/2017/03/21/维护队列/" rel="next" title="NOI2005 维修数列">
+                <i class="fa fa-chevron-left"></i> NOI2005 维修数列
               </a>
             
           </div>
@@ -542,8 +578,8 @@ dp+四边形不等式优化P">
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/11/股票交易/" rel="prev" title="SCOI2010 股票交易">
-                SCOI2010 股票交易 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/28/逆元详解/" rel="prev" title="乘法逆元总结">
+                乘法逆元总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -608,8 +644,8 @@ dp+四边形不等式优化P">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/03/10/动态规划 题目列表/"
-           data-title="动态规划优化 题目列表" data-url="https://prostkhala.github.io/2017/03/10/动态规划 题目列表/">
+      <div class="ds-thread" data-thread-key="2017/03/26/乘法逆元总结/"
+           data-title="逆元总结" data-url="https://prostkhala.github.io/2017/03/26/乘法逆元总结/">
       </div>
     
   </div>
@@ -753,7 +789,7 @@ dp+四边形不等式优化P">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#单调队列优化dp"><span class="nav-number">1.</span> <span class="nav-text">单调队列优化dp</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单调栈"><span class="nav-number">2.</span> <span class="nav-text">单调栈</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#状压DP"><span class="nav-number">3.</span> <span class="nav-text">状压DP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#斜率优化"><span class="nav-number">4.</span> <span class="nav-text">斜率优化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dp-四边形不等式优化"><span class="nav-number">5.</span> <span class="nav-text">dp+四边形不等式优化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#斜率优化DP和四边形不等式优化DP整理"><span class="nav-number">6.</span> <span class="nav-text">斜率优化DP和四边形不等式优化DP整理</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#逆元的定义"><span class="nav-number">1.</span> <span class="nav-text">逆元的定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#逆元的求解"><span class="nav-number">2.</span> <span class="nav-text">逆元的求解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展欧几里得算法"><span class="nav-number">2.1.</span> <span class="nav-text">扩展欧几里得算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#费马小定理"><span class="nav-number">2.2.</span> <span class="nav-text">费马小定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性求前-n-项的逆元"><span class="nav-number">2.3.</span> <span class="nav-text">线性求前$n$项的逆元</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#证明："><span class="nav-number">2.3.1.</span> <span class="nav-text">证明：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关习题"><span class="nav-number">3.</span> <span class="nav-text">相关习题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#T1"><span class="nav-number">3.1.</span> <span class="nav-text">T1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#证明"><span class="nav-number">3.1.1.</span> <span class="nav-text">证明</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
