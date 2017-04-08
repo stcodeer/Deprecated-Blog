@@ -1,3 +1,3 @@
+https://prostkhala.github.io/2017/04/08/同构/
+https://prostkhala.github.io/2017/03/28/裴蜀定理总结/
 https://prostkhala.github.io/2017/03/28/欧拉函数总结/
-https://prostkhala.github.io/2017/03/28/乘法逆元总结/
-https://prostkhala.github.io/2017/03/21/维护队列/
