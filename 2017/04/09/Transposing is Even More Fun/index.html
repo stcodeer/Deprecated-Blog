@@ -97,7 +97,7 @@
 <meta property="og:description" content="Transposing is Even More FunCOGS1608
 题目描述给你一个$2^a*2^b$的矩阵，在内存中的存放方式是先存第一行的，再存第二行的……每行也是从左到右存放。现在你想把它变成它的转置矩阵（也是一样的储存方式），但是只能用交换操作（即交换两个储存单元的内容），至少需要交换多少步？ 
 输入输出格式输入格式： 第1行数数据组数$c(1&amp;lt;=c&amp;lt;=400000)$.">
-<meta property="og:updated_time" content="2017-04-09T13:43:36.875Z">
+<meta property="og:updated_time" content="2017-04-09T13:51:19.977Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Transposing Is Even More Fun">
 <meta name="twitter:description" content="Transposing is Even More FunCOGS1608
@@ -401,7 +401,7 @@
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2017-04-09T21:43:36+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2017-04-09T21:51:19+08:00">
                 2017-04-09
               </time>
             
@@ -507,7 +507,7 @@
 101 - 011
 110 - 101
 111 - 111
-</code></pre><p>不难发现该转置操作中所有元素的二进制数皆循环右移了$a$位（也可以说循环左移了b位），我们也可以稍微推算一下，对于矩阵元素$（i，j）$来说，转置使其变为了$（j，i）$，将其表示为队列，则从第$(i-1)<em>2^a+j$位转置为第$(j-1)</em>2^b+i$位，即对应二进制的循环右移。那么可以将问题转化为一个polya定理的经典问题，即项链染色问题。将二进制的表示看为一种染色方案，长度为a+b，颜色为 0,1 两种，循环右移左移即对应项链的旋转。</p>
+</code></pre><p>不难发现该转置操作中所有元素的二进制数皆循环右移了$a$位（也可以说循环左移了b位），我们也可以稍微推算一下，对于矩阵元素$（i，j）$来说，转置使其变为了$（j，i）$，将其表示为队列，则从第 $(i-1)<em>2^a+j$ 位转置为第 $(j-1)</em>2^b+i$ 位，即对应二进制的循环右移。那么可以将问题转化为一个polya定理的经典问题，即项链染色问题。将二进制的表示看为一种染色方案，长度为a+b，颜色为 0,1 两种，循环右移左移即对应项链的旋转。</p>
 <pre><code>以a=2，b=4为例。
 
 则项链为
