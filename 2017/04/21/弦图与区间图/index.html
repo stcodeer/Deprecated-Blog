@@ -109,7 +109,7 @@
 弦图：一个无向图称为弦图当且仅当图中任意长度大于3的环都至少有一个弦。
 单纯点：设N(v)表示与点v相邻的点集。一个点称为单纯点当{v} + N(v)的诱导子图为一个团。
 完美消除序列">
-<meta property="og:updated_time" content="2017-04-21T03:09:27.544Z">
+<meta property="og:updated_time" content="2017-04-21T03:17:29.826Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="弦图与区间图">
 <meta name="twitter:description" content="论文 弦图与区间图-陈丹琦
@@ -419,7 +419,7 @@
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2017-04-21T11:09:27+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2017-04-21T11:17:29+08:00">
                 2017-04-21
               </time>
             
@@ -508,7 +508,7 @@
 <h4 id="最大独立集："><a href="#最大独立集：" class="headerlink" title="最大独立集："></a>最大独立集：</h4><p>最大的一个点集使任意两个点不相邻，$α(G)$为其点数。</p>
 <h4 id="最小团覆盖："><a href="#最小团覆盖：" class="headerlink" title="最小团覆盖："></a>最小团覆盖：</h4><p>用最少个数的团覆盖所有的点，$κ(G)$为其团数。</p>
 <hr>
-<h1 id="求解"><a href="#求解" class="headerlink" title="求解"></a>求解</h1><h4 id="完美消除序列：-1"><a href="#完美消除序列：-1" class="headerlink" title="完美消除序列："></a>完美消除序列：</h4><p>可通过最大势算法求解完美消除序列，维护每个点的势（初始化为零），每次将势最大的点从图中删除，并加入到完美消除序列中，然后将所有与其相连的点的势加一，直到图为空为止。时间复杂度为$O(n^2+m)$,可以用桶优化到$O(n+m)$（并不会）。</p>
+<h1 id="求解"><a href="#求解" class="headerlink" title="求解"></a>求解</h1><h4 id="完美消除序列：-1"><a href="#完美消除序列：-1" class="headerlink" title="完美消除序列："></a>完美消除序列：</h4><p>可通过最大势算法求解完美消除序列，维护每个点的势（初始化为零），每次将势最大的点从图中删除，并加入到完美消除序列中，然后将所有与其相连的点的势加一，直到图为空为止。时间复杂度为$O(n^2+m)$,可以用桶优化到$O(n+m)$（并不会）(但是可以用堆优化)。</p>
 <h4 id="最小色数的求解："><a href="#最小色数的求解：" class="headerlink" title="最小色数的求解："></a>最小色数的求解：</h4><p>简单的贪心策略，遍历完美消除队列，将当前点染为可行的最小编号颜色，最大的编号即为答案。</p>
 <h4 id="最大独立集的求解："><a href="#最大独立集的求解：" class="headerlink" title="最大独立集的求解："></a>最大独立集的求解：</h4><p>仍然是贪心，遍历完美消除队列，如果当前点的所有相邻的点不在独立集中，则将该点加入独立集。</p>
 <h4 id="最小团覆盖的求解："><a href="#最小团覆盖的求解：" class="headerlink" title="最小团覆盖的求解："></a>最小团覆盖的求解：</h4><h5 id="最小团覆盖数-最大独立集数"><a href="#最小团覆盖数-最大独立集数" class="headerlink" title="最小团覆盖数=最大独立集数"></a>最小团覆盖数=最大独立集数</h5><p>（以上一切都不会证）</p>
