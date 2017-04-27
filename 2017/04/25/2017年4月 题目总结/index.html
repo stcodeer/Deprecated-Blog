@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="AC自动机,KMP,计算几何,动态规划,SPLAY,弦图与区间图,Polya定理&Burnside引理,高斯消元,高精度算法,网络流,HASH,purfer序列,BITSET,莫队算法,并查集,分块," />
+  <meta name="keywords" content="高斯消元,高精度算法,网络流,动态规划,Polya定理&Burnside引理,弦图与区间图,计算几何,AC自动机,KMP,SPLAY,HASH,purfer序列,BITSET,莫队算法,并查集,分块," />
 
 
 
@@ -101,7 +101,7 @@ BZOJ1003 ZJOI2006 物流运输一道DP题，转移方程为$f[">
 BZOJ1002 FJOI2007 轮状病毒最简单的方法是打表找规律，进阶一点是动态规划。其实这题跟基尔霍夫矩阵有关，然而还是找规律。（要加上高精度）
 
 BZOJ1003 ZJOI2006 物流运输一道DP题，转移方程为$f[">
-<meta property="og:updated_time" content="2017-04-27T09:16:15.261Z">
+<meta property="og:updated_time" content="2017-04-27T10:45:28.582Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2017年4月 题目总结">
 <meta name="twitter:description" content="BZOJ1001 BeiJing2006 狼抓兔子网络流裸题，考虑到边为双向边，建图时应同样将反向边赋值。同时也应加上反向弧优化（当流量为零时直接将点标记为不可达到即可）
@@ -407,7 +407,7 @@ BZOJ1003 ZJOI2006 物流运输一道DP题，转移方程为$f[">
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2017-04-27T17:16:15+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2017-04-27T18:45:28+08:00">
                 2017-04-27
               </time>
             
@@ -551,6 +551,18 @@ BZOJ1003 ZJOI2006 物流运输一道DP题，转移方程为$f[">
 <h3 id="BZOJ1049-HAOI2006-数字序列"><a href="#BZOJ1049-HAOI2006-数字序列" class="headerlink" title="BZOJ1049 HAOI2006 数字序列"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1049" target="_blank" rel="external">BZOJ1049</a> HAOI2006 数字序列</h3><p>很像暴力的动规，对于第一问，需要用到补集转化的思想（<a href="https://wenku.baidu.com/view/31a907020740be1e650e9aad.html" target="_blank" rel="external">浅谈补集转化思想在统计问题中的应用</a>），设$f[i]$为前$i$位的最多不变元素，那么$f[i]$能由$f[j]$转化而来当且仅当$a[i]-a[j]&gt;=i-j$,即修改两者之间的$i-j-1$个数使其严格递增，即两者之间只有1个元素不变，那么有<br>$$f[i]=max(f[i],f[j]+1)(a[i]-a[j]&gt;=i-j)$$<br>时间复杂度为$O(n^2)$,无法通过全部数据点，考虑进行优化，观察状态转移方程，易知可以通过减标号的方法转化成LIS问题，即可在$O(nlogn)$的时间内求解。</p>
 <p>对于第二问，为了简化问题，可以先设$w(i,j)$为将从$i$到$j$的所有元素进行修改的最小代价，设$g[i]$为前$i$位的最小答案。那么根据第一问有，<br>$$g[i]=min(g[i],g[j]+w(j+1,i))(f[i]=f[j]+1)$$</p>
 <p>对于$w$的求解，可以记录每一个需要修改的元素的下一个和上一个不需要修改元素的位置，模拟即可。</p>
+<hr>
+<h3 id="「Codefores286E」-Ladies’-Shop"><a href="#「Codefores286E」-Ladies’-Shop" class="headerlink" title="「Codefores286E」 Ladies’ Shop"></a>「Codefores286E」 Ladies’ Shop</h3><p>根据题目所给条件，</p>
+<p>可知要求的$p$个数一定在给定的$n$个数中。（1）</p>
+<p>那么可以根据多项式乘法系数相乘，指数相加的特点，构造生成函数，并求出这$n$个数可以组成的所有情况。已知某个$n$集合中数 $a$ 可以由 $b$ + $c$ + $d$ 生成，那么根据题目中所给条件，可知一定有 $e$ 由$c$ + $d$ 生成，那么可以将 $a$ 看作由 $b$ + $e$  生成。</p>
+<p>根据数学归纳法，易证条件一: </p>
+<p>$p$个数可以选出一些集合（相同的数可重复选），其和可以组成所有给定的$n$个数。</p>
+<p> 与以下结论等价：</p>
+<p>$p$个数可以选出任何两个元素（相同的数可重复选），其和可以组成所有给定的$n$个数。 （2）</p>
+<p>那么生成函数的构造就显而易见了。（将幂作为权值，系数作为出现的次数，并将该生成函数与自身相乘，可以通过FFT优化）</p>
+<p>对于第三个条件（满足$|p|$的阶最小），可以结合以贪心的策略。如果生成函数中某项系数大于1且在给定集合$|n|$中，则该元素一定可以由另外两个元素组成，那么就不将其加入集合$|p|$中，否则将其加入集合$|p|$中。</p>
+<p>至于无解的判断，易知其等价于：</p>
+<p>生成函数中某项系数不为零且该元素不在给定集合中。</p>
 
       
     </div>
@@ -574,25 +586,25 @@ BZOJ1003 ZJOI2006 物流运输一道DP题，转移方程为$f[">
       
         <div class="post-tags">
           
-            <a href="/tags/AC自动机/" rel="tag"># AC自动机</a>
-          
-            <a href="/tags/KMP/" rel="tag"># KMP</a>
-          
-            <a href="/tags/计算几何/" rel="tag"># 计算几何</a>
-          
-            <a href="/tags/动态规划/" rel="tag"># 动态规划</a>
-          
-            <a href="/tags/SPLAY/" rel="tag"># SPLAY</a>
-          
-            <a href="/tags/弦图与区间图/" rel="tag"># 弦图与区间图</a>
-          
-            <a href="/tags/Polya定理-Burnside引理/" rel="tag"># Polya定理&Burnside引理</a>
-          
             <a href="/tags/高斯消元/" rel="tag"># 高斯消元</a>
           
             <a href="/tags/高精度算法/" rel="tag"># 高精度算法</a>
           
             <a href="/tags/网络流/" rel="tag"># 网络流</a>
+          
+            <a href="/tags/动态规划/" rel="tag"># 动态规划</a>
+          
+            <a href="/tags/Polya定理-Burnside引理/" rel="tag"># Polya定理&Burnside引理</a>
+          
+            <a href="/tags/弦图与区间图/" rel="tag"># 弦图与区间图</a>
+          
+            <a href="/tags/计算几何/" rel="tag"># 计算几何</a>
+          
+            <a href="/tags/AC自动机/" rel="tag"># AC自动机</a>
+          
+            <a href="/tags/KMP/" rel="tag"># KMP</a>
+          
+            <a href="/tags/SPLAY/" rel="tag"># SPLAY</a>
           
             <a href="/tags/HASH/" rel="tag"># HASH</a>
           
@@ -775,7 +787,7 @@ BZOJ1003 ZJOI2006 物流运输一道DP题，转移方程为$f[">
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-count">44</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -844,7 +856,7 @@ BZOJ1003 ZJOI2006 物流运输一道DP题，转移方程为$f[">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1001-BeiJing2006-狼抓兔子"><span class="nav-number">1.</span> <span class="nav-text">BZOJ1001 BeiJing2006 狼抓兔子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1002-FJOI2007-轮状病毒"><span class="nav-number">2.</span> <span class="nav-text">BZOJ1002 FJOI2007 轮状病毒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1003-ZJOI2006-物流运输"><span class="nav-number">3.</span> <span class="nav-text">BZOJ1003 ZJOI2006 物流运输</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1004-HNOI2008-Cards"><span class="nav-number">4.</span> <span class="nav-text">BZOJ1004 HNOI2008 Cards</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1005-HNOI2008-明明的烦恼"><span class="nav-number">5.</span> <span class="nav-text">BZOJ1005     HNOI2008 明明的烦恼</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1006-HNOI2008-神奇的国度"><span class="nav-number">6.</span> <span class="nav-text">BZOJ1006     HNOI2008 神奇的国度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1007-HNOI2008-水平可见直线"><span class="nav-number">7.</span> <span class="nav-text">BZOJ1007     HNOI2008 水平可见直线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1008-HNOI2008-越狱"><span class="nav-number">8.</span> <span class="nav-text">BZOJ1008     HNOI2008 越狱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1009-HNOI2008-GT考试"><span class="nav-number">9.</span> <span class="nav-text">BZOJ1009     HNOI2008 GT考试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1011-HNOI2008-遥远的行星"><span class="nav-number">10.</span> <span class="nav-text">BZOJ1011     HNOI2008 遥远的行星</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1012-JSOI2008-最大数"><span class="nav-number">11.</span> <span class="nav-text">BZOJ1012     JSOI2008 最大数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1013-JSOI2008-球形空间产生器"><span class="nav-number">12.</span> <span class="nav-text">BZOJ1013     JSOI2008 球形空间产生器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ4801-BZOJ4月月赛-打牌"><span class="nav-number">13.</span> <span class="nav-text">BZOJ4801     BZOJ4月月赛 打牌</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ4810-YNOI2017-由乃的玉米田"><span class="nav-number">14.</span> <span class="nav-text">BZOJ4810     YNOI2017 由乃的玉米田</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#洛谷3708-洛谷四月月赛-koishi的数学题"><span class="nav-number">15.</span> <span class="nav-text">洛谷3708 洛谷四月月赛 koishi的数学题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1015-JSOI2008-星球大战"><span class="nav-number">16.</span> <span class="nav-text">BZOJ1015 JSOI2008 星球大战</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1018-SHOI2008-堵塞的交通"><span class="nav-number">17.</span> <span class="nav-text">BZOJ1018     SHOI2008 堵塞的交通</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1019-SHOI2008汉诺塔"><span class="nav-number">18.</span> <span class="nav-text">BZOJ1019 SHOI2008汉诺塔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1020-SHOI2008-安全的航线（MARK）"><span class="nav-number">19.</span> <span class="nav-text">BZOJ1020 SHOI2008 安全的航线（MARK）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1021-SHOI2008-循环的债务"><span class="nav-number">20.</span> <span class="nav-text">BZOJ1021  SHOI2008 循环的债务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#洛谷3704-SDOI2017-数字表格"><span class="nav-number">21.</span> <span class="nav-text">洛谷3704  SDOI2017 数字表格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1049-HAOI2006-数字序列"><span class="nav-number">22.</span> <span class="nav-text">BZOJ1049 HAOI2006 数字序列</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1001-BeiJing2006-狼抓兔子"><span class="nav-number">1.</span> <span class="nav-text">BZOJ1001 BeiJing2006 狼抓兔子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1002-FJOI2007-轮状病毒"><span class="nav-number">2.</span> <span class="nav-text">BZOJ1002 FJOI2007 轮状病毒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1003-ZJOI2006-物流运输"><span class="nav-number">3.</span> <span class="nav-text">BZOJ1003 ZJOI2006 物流运输</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1004-HNOI2008-Cards"><span class="nav-number">4.</span> <span class="nav-text">BZOJ1004 HNOI2008 Cards</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1005-HNOI2008-明明的烦恼"><span class="nav-number">5.</span> <span class="nav-text">BZOJ1005     HNOI2008 明明的烦恼</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1006-HNOI2008-神奇的国度"><span class="nav-number">6.</span> <span class="nav-text">BZOJ1006     HNOI2008 神奇的国度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1007-HNOI2008-水平可见直线"><span class="nav-number">7.</span> <span class="nav-text">BZOJ1007     HNOI2008 水平可见直线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1008-HNOI2008-越狱"><span class="nav-number">8.</span> <span class="nav-text">BZOJ1008     HNOI2008 越狱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1009-HNOI2008-GT考试"><span class="nav-number">9.</span> <span class="nav-text">BZOJ1009     HNOI2008 GT考试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1011-HNOI2008-遥远的行星"><span class="nav-number">10.</span> <span class="nav-text">BZOJ1011     HNOI2008 遥远的行星</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1012-JSOI2008-最大数"><span class="nav-number">11.</span> <span class="nav-text">BZOJ1012     JSOI2008 最大数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1013-JSOI2008-球形空间产生器"><span class="nav-number">12.</span> <span class="nav-text">BZOJ1013     JSOI2008 球形空间产生器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ4801-BZOJ4月月赛-打牌"><span class="nav-number">13.</span> <span class="nav-text">BZOJ4801     BZOJ4月月赛 打牌</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ4810-YNOI2017-由乃的玉米田"><span class="nav-number">14.</span> <span class="nav-text">BZOJ4810     YNOI2017 由乃的玉米田</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#洛谷3708-洛谷四月月赛-koishi的数学题"><span class="nav-number">15.</span> <span class="nav-text">洛谷3708 洛谷四月月赛 koishi的数学题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1015-JSOI2008-星球大战"><span class="nav-number">16.</span> <span class="nav-text">BZOJ1015 JSOI2008 星球大战</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1018-SHOI2008-堵塞的交通"><span class="nav-number">17.</span> <span class="nav-text">BZOJ1018     SHOI2008 堵塞的交通</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1019-SHOI2008汉诺塔"><span class="nav-number">18.</span> <span class="nav-text">BZOJ1019 SHOI2008汉诺塔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1020-SHOI2008-安全的航线（MARK）"><span class="nav-number">19.</span> <span class="nav-text">BZOJ1020 SHOI2008 安全的航线（MARK）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1021-SHOI2008-循环的债务"><span class="nav-number">20.</span> <span class="nav-text">BZOJ1021  SHOI2008 循环的债务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#洛谷3704-SDOI2017-数字表格"><span class="nav-number">21.</span> <span class="nav-text">洛谷3704  SDOI2017 数字表格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1049-HAOI2006-数字序列"><span class="nav-number">22.</span> <span class="nav-text">BZOJ1049 HAOI2006 数字序列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#「Codefores286E」-Ladies’-Shop"><span class="nav-number">23.</span> <span class="nav-text">「Codefores286E」 Ladies’ Shop</span></a></li></ol></div>
             
 
           </div>
@@ -1157,6 +1169,26 @@ BZOJ1003 ZJOI2006 物流运输一道DP题，转移方程为$f[">
 
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
