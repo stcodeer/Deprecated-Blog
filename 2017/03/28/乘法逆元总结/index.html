@@ -99,13 +99,15 @@
 当a与p互质时，a关于模p的乘法逆元有解。如果不互质，则无解。如果p为质数，则从1到p-1的任意数都与p互质，即在1到p-1之间都恰好有一个关于模p的乘法逆元。且1到p-1中的所有数的逆元对应1到p-1中的所有数，既是单射也是满射。
 
 逆元的求解1 . 扩展欧几里得算法逆元一般通过">
-<meta property="og:updated_time" content="2017-04-09T13:44:20.186Z">
+<meta property="og:image" content="http://i2.muimg.com/567571/a0936082ab04d10e.png">
+<meta property="og:updated_time" content="2017-04-27T08:30:33.196Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="乘法逆元总结">
 <meta name="twitter:description" content="乘法逆元的定义若$ax≡1 (mod p)$, 则称a关于模p的乘法逆元为x。也可表示为$ax≡1(mod p)$。
 当a与p互质时，a关于模p的乘法逆元有解。如果不互质，则无解。如果p为质数，则从1到p-1的任意数都与p互质，即在1到p-1之间都恰好有一个关于模p的乘法逆元。且1到p-1中的所有数的逆元对应1到p-1中的所有数，既是单射也是满射。
 
 逆元的求解1 . 扩展欧几里得算法逆元一般通过">
+<meta name="twitter:image" content="http://i2.muimg.com/567571/a0936082ab04d10e.png">
 
 
 
@@ -404,8 +406,8 @@
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2017-04-09T21:44:20+08:00">
-                2017-04-09
+              <time title="Post modified" itemprop="dateModified" datetime="2017-04-27T16:30:33+08:00">
+                2017-04-27
               </time>
             
           </span>
@@ -525,20 +527,7 @@ int extgcd(int a, int b, int &amp;x, int &amp;y)
 </code></pre><hr>
 <h2 id="2-费马小定理"><a href="#2-费马小定理" class="headerlink" title="2 . 费马小定理"></a>2 . 费马小定理</h2><p>当$n$为质数时，同样可以通过费马小定理求解。<br>已知$n^{p-1}≡ 1(mod p)$(费马小定理)<br> 那么$inv[n]=n^{p-2} (mod p)$。该方法的时间复杂度为$O(logn)$（快速幂）。</p>
 <hr>
-<h2 id="3-线性求前-n-项的逆元"><a href="#3-线性求前-n-项的逆元" class="headerlink" title="3 . 线性求前$n$项的逆元"></a>3 . 线性求前$n$项的逆元</h2><p> 该方法时间复杂度为$O(n)$，可以同时处理前$n$个数在$modp$意义下的逆元。</p>
-<p> 递推式：</p>
-<p> $inv[1] = 1$</p>
-<p> $inv[n] = inv [ p(mod n)]*(p-p/n)(modp)（n&gt;1）$</p>
-<h3 id="证明："><a href="#证明：" class="headerlink" title="证明："></a>证明：</h3><p> 设$t=p/n$，$k=p(modn)$</p>
-<p>则有</p>
-<p>$t*n+k≡0(modp)$</p>
-<p>$-t*n≡k(modp)$</p>
-<p>对原式除以$i*k$，得到</p>
-<p>$-t*inv[k]≡inv<a href="modp">n</a>$</p>
-<p>即</p>
-<p>$-p/n*inv[p(modn)]≡inv<a href="modp">n</a>$</p>
-<p>$inv[n] = inv [ p(mod n)]*(p-p/n)(modp)$</p>
-<p>得证。</p>
+<h2 id="3-线性求前-n-项的逆元"><a href="#3-线性求前-n-项的逆元" class="headerlink" title="3 . 线性求前$n$项的逆元"></a>3 . 线性求前$n$项的逆元</h2><p><img src="http://i2.muimg.com/567571/a0936082ab04d10e.png" alt=""></p>
 <hr>
 <h2 id="4-利用阶乘递推求前-n-项的逆元"><a href="#4-利用阶乘递推求前-n-项的逆元" class="headerlink" title="4 . 利用阶乘递推求前$n$项的逆元"></a>4 . 利用阶乘递推求前$n$项的逆元</h2><p>该方法较简单易懂，理论复杂度是方法3的3倍。据说在某些奇怪的时刻会跑的比上面快。(因为数组的连续访问)</p>
 <pre><code>//fac为阶乘，rev为阶乘的逆元。
@@ -882,7 +871,7 @@ int main()
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#乘法逆元的定义"><span class="nav-number">1.</span> <span class="nav-text">乘法逆元的定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#逆元的求解"><span class="nav-number">2.</span> <span class="nav-text">逆元的求解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-扩展欧几里得算法"><span class="nav-number">2.1.</span> <span class="nav-text">1 . 扩展欧几里得算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-费马小定理"><span class="nav-number">2.2.</span> <span class="nav-text">2 . 费马小定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-线性求前-n-项的逆元"><span class="nav-number">2.3.</span> <span class="nav-text">3 . 线性求前$n$项的逆元</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#证明："><span class="nav-number">2.3.1.</span> <span class="nav-text">证明：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-利用阶乘递推求前-n-项的逆元"><span class="nav-number">2.4.</span> <span class="nav-text">4 . 利用阶乘递推求前$n$项的逆元</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关习题"><span class="nav-number">3.</span> <span class="nav-text">相关习题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#T1"><span class="nav-number">3.1.</span> <span class="nav-text">T1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#证明"><span class="nav-number">3.1.1.</span> <span class="nav-text">证明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T2-SDOI2008-沙拉公主的困惑"><span class="nav-number">3.2.</span> <span class="nav-text">T2 SDOI2008 沙拉公主的困惑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述"><span class="nav-number">3.2.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出格式"><span class="nav-number">3.2.2.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入格式"><span class="nav-number">3.2.2.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出格式"><span class="nav-number">3.2.2.2.</span> <span class="nav-text">输出格式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出样例"><span class="nav-number">3.2.3.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入样例"><span class="nav-number">3.2.3.1.</span> <span class="nav-text">输入样例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出样例"><span class="nav-number">3.2.3.2.</span> <span class="nav-text">输出样例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据范围"><span class="nav-number">3.2.4.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解"><span class="nav-number">3.2.5.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE"><span class="nav-number">3.2.6.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#乘法逆元的定义"><span class="nav-number">1.</span> <span class="nav-text">乘法逆元的定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#逆元的求解"><span class="nav-number">2.</span> <span class="nav-text">逆元的求解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-扩展欧几里得算法"><span class="nav-number">2.1.</span> <span class="nav-text">1 . 扩展欧几里得算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-费马小定理"><span class="nav-number">2.2.</span> <span class="nav-text">2 . 费马小定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-线性求前-n-项的逆元"><span class="nav-number">2.3.</span> <span class="nav-text">3 . 线性求前$n$项的逆元</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-利用阶乘递推求前-n-项的逆元"><span class="nav-number">2.4.</span> <span class="nav-text">4 . 利用阶乘递推求前$n$项的逆元</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关习题"><span class="nav-number">3.</span> <span class="nav-text">相关习题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#T1"><span class="nav-number">3.1.</span> <span class="nav-text">T1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#证明"><span class="nav-number">3.1.1.</span> <span class="nav-text">证明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T2-SDOI2008-沙拉公主的困惑"><span class="nav-number">3.2.</span> <span class="nav-text">T2 SDOI2008 沙拉公主的困惑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述"><span class="nav-number">3.2.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出格式"><span class="nav-number">3.2.2.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入格式"><span class="nav-number">3.2.2.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出格式"><span class="nav-number">3.2.2.2.</span> <span class="nav-text">输出格式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出样例"><span class="nav-number">3.2.3.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入样例"><span class="nav-number">3.2.3.1.</span> <span class="nav-text">输入样例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出样例"><span class="nav-number">3.2.3.2.</span> <span class="nav-text">输出样例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据范围"><span class="nav-number">3.2.4.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解"><span class="nav-number">3.2.5.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE"><span class="nav-number">3.2.6.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
