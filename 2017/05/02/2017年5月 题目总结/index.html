@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="动态规划,仙人掌图,Tarjan,数位动态规划,凸包," />
+  <meta name="keywords" content="仙人掌图,Tarjan,动态规划,数位动态规划,凸包," />
 
 
 
@@ -97,7 +97,7 @@ BZOJ1024 SCOI2009 生日快乐搜索，考虑切成n块后面积是一样的，�
 <meta property="og:description" content="BZOJ1023 SHOI2008 cactus仙人掌图题意为求仙人掌图的直径。这题看起来完全没思路，最后看的题解。get了一种Tarjan的用法，先用其求出DFS树，用dp更新树边的直径最大值，考虑将其他非树边以环形dp更新，由于边的权值均为1，所以可以进行单调队列优化。其中利用到了仙人掌的一些性质。
 
 BZOJ1024 SCOI2009 生日快乐搜索，考虑切成n块后面积是一样的，那么实际上对于">
-<meta property="og:updated_time" content="2017-05-02T03:00:37.612Z">
+<meta property="og:updated_time" content="2017-05-02T12:42:19.064Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2017年5月 题目总结">
 <meta name="twitter:description" content="BZOJ1023 SHOI2008 cactus仙人掌图题意为求仙人掌图的直径。这题看起来完全没思路，最后看的题解。get了一种Tarjan的用法，先用其求出DFS树，用dp更新树边的直径最大值，考虑将其他非树边以环形dp更新，由于边的权值均为1，所以可以进行单调队列优化。其中利用到了仙人掌的一些性质。
@@ -401,7 +401,7 @@ BZOJ1024 SCOI2009 生日快乐搜索，考虑切成n块后面积是一样的，�
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2017-05-02T11:00:37+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2017-05-02T20:42:19+08:00">
                 2017-05-02
               </time>
             
@@ -527,7 +527,11 @@ BZOJ1024 SCOI2009 生日快乐搜索，考虑切成n块后面积是一样的，�
 <hr>
 <h3 id="BZOJ1030-JSOI2007-文本生成器"><a href="#BZOJ1030-JSOI2007-文本生成器" class="headerlink" title="BZOJ1030 JSOI2007 文本生成器"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1030" target="_blank" rel="external">BZOJ1030</a> JSOI2007 文本生成器</h3><p>AC自动机模板题，见<a href="https://prostkhala.github.io/2017/03/18/DNA%20Sequence/#more">DNA Sequence</a>,不过这题$m$范围很小，而子串的长度更大，所以不需要矩阵快速幂（会TLE），直接DP即可。</p>
 <hr>
-<h3 id="BZOJ1031-JSOI2007-字符加密Cipher"><a href="#BZOJ1031-JSOI2007-字符加密Cipher" class="headerlink" title="BZOJ1031 JSOI2007 字符加密Cipher"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1031" target="_blank" rel="external">BZOJ1031</a> JSOI2007 字符加密Cipher</h3><p>后缀数组模板题，利用后缀的性质将条件串接到自己后面，这样就包换了所有情况，求sa即可。</p>
+<h3 id="BZOJ1031-JSOI2007-字符加密"><a href="#BZOJ1031-JSOI2007-字符加密" class="headerlink" title="BZOJ1031 JSOI2007 字符加密"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1031" target="_blank" rel="external">BZOJ1031</a> JSOI2007 字符加密</h3><p>后缀数组模板题，利用后缀的性质将条件串接到自己后面，这样就包换了所有情况，求sa即可。</p>
+<hr>
+<h3 id="BZOJ1032-JSOI2007-祖码"><a href="#BZOJ1032-JSOI2007-祖码" class="headerlink" title="BZOJ1032 JSOI2007 祖码"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1032" target="_blank" rel="external">BZOJ1032</a> JSOI2007 祖码</h3><p>区间DP，标程没有考虑到连续消除的问题，导致数据都错了。</p>
+<hr>
+<h3 id="BZOJ1034-ZJOI2008-泡泡堂"><a href="#BZOJ1034-ZJOI2008-泡泡堂" class="headerlink" title="BZOJ1034 ZJOI2008 泡泡堂"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1034" target="_blank" rel="external">BZOJ1034</a> ZJOI2008 泡泡堂</h3><p>贪心，对于最好情况，先将对手实力值与ZJ实力值排序，如果ZJ最低的实力值比对手最低的实力值大，那么为了战胜对手，将两者比试的代价最小，如果ZJ最高的实力值比对手最高的实力值大时，那么为了战胜对手，此时只要ZJ取一个比对手该实力值高的元素即可，为了方便，可以取最后一个。当两者均不满足时，则与对手实力值最高的元素比试总不能获胜，为了代价最小，将ZJ实力值最小的元素与其进行比试。</p>
 
       
     </div>
@@ -551,11 +555,11 @@ BZOJ1024 SCOI2009 生日快乐搜索，考虑切成n块后面积是一样的，�
       
         <div class="post-tags">
           
-            <a href="/tags/动态规划/" rel="tag"># 动态规划</a>
-          
             <a href="/tags/仙人掌图/" rel="tag"># 仙人掌图</a>
           
             <a href="/tags/Tarjan/" rel="tag"># Tarjan</a>
+          
+            <a href="/tags/动态规划/" rel="tag"># 动态规划</a>
           
             <a href="/tags/数位动态规划/" rel="tag"># 数位动态规划</a>
           
@@ -591,6 +595,10 @@ BZOJ1024 SCOI2009 生日快乐搜索，考虑切成n块后面积是一样的，�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/07/123/" rel="prev" title="主席树总结">
+                主席树总结 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -704,7 +712,7 @@ BZOJ1024 SCOI2009 生日快乐搜索，考虑切成n块后面积是一样的，�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -715,7 +723,7 @@ BZOJ1024 SCOI2009 生日快乐搜索，考虑切成n块后面积是一样的，�
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -726,7 +734,7 @@ BZOJ1024 SCOI2009 生日快乐搜索，考虑切成n块后面积是一样的，�
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-count">49</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -795,7 +803,7 @@ BZOJ1024 SCOI2009 生日快乐搜索，考虑切成n块后面积是一样的，�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1023-SHOI2008-cactus仙人掌图"><span class="nav-number">1.</span> <span class="nav-text">BZOJ1023 SHOI2008 cactus仙人掌图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1024-SCOI2009-生日快乐"><span class="nav-number">2.</span> <span class="nav-text">BZOJ1024 SCOI2009 生日快乐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1025-SCOI2009-游戏"><span class="nav-number">3.</span> <span class="nav-text">BZOJ1025 SCOI2009 游戏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1026-SCOI2009-windy数"><span class="nav-number">4.</span> <span class="nav-text">BZOJ1026 SCOI2009 windy数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1027-JSOI2007-合金"><span class="nav-number">5.</span> <span class="nav-text">BZOJ1027 JSOI2007 合金</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1028-JSOI2007-麻将"><span class="nav-number">6.</span> <span class="nav-text">BZOJ1028 JSOI2007 麻将</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1029-JSOI2007-建筑抢修"><span class="nav-number">7.</span> <span class="nav-text">BZOJ1029 JSOI2007 建筑抢修</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1030-JSOI2007-文本生成器"><span class="nav-number">8.</span> <span class="nav-text">BZOJ1030 JSOI2007 文本生成器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1031-JSOI2007-字符加密Cipher"><span class="nav-number">9.</span> <span class="nav-text">BZOJ1031 JSOI2007 字符加密Cipher</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1023-SHOI2008-cactus仙人掌图"><span class="nav-number">1.</span> <span class="nav-text">BZOJ1023 SHOI2008 cactus仙人掌图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1024-SCOI2009-生日快乐"><span class="nav-number">2.</span> <span class="nav-text">BZOJ1024 SCOI2009 生日快乐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1025-SCOI2009-游戏"><span class="nav-number">3.</span> <span class="nav-text">BZOJ1025 SCOI2009 游戏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1026-SCOI2009-windy数"><span class="nav-number">4.</span> <span class="nav-text">BZOJ1026 SCOI2009 windy数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1027-JSOI2007-合金"><span class="nav-number">5.</span> <span class="nav-text">BZOJ1027 JSOI2007 合金</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1028-JSOI2007-麻将"><span class="nav-number">6.</span> <span class="nav-text">BZOJ1028 JSOI2007 麻将</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1029-JSOI2007-建筑抢修"><span class="nav-number">7.</span> <span class="nav-text">BZOJ1029 JSOI2007 建筑抢修</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1030-JSOI2007-文本生成器"><span class="nav-number">8.</span> <span class="nav-text">BZOJ1030 JSOI2007 文本生成器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1031-JSOI2007-字符加密"><span class="nav-number">9.</span> <span class="nav-text">BZOJ1031 JSOI2007 字符加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1032-JSOI2007-祖码"><span class="nav-number">10.</span> <span class="nav-text">BZOJ1032 JSOI2007 祖码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BZOJ1034-ZJOI2008-泡泡堂"><span class="nav-number">11.</span> <span class="nav-text">BZOJ1034 ZJOI2008 泡泡堂</span></a></li></ol></div>
             
 
           </div>
