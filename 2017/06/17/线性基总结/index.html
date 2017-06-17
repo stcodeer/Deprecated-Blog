@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="弦图与区间图,图论," />
+  <meta name="keywords" content="线性基," />
 
 
 
@@ -87,40 +87,45 @@
 
 
 
-<meta name="description" content="论文 弦图与区间图-陈丹琦
+<meta name="description" content="概念张成对于一个集合$S$，其张成定义为其中所有子集的异或和，记为$span(S)$。
+根据异或的性质，易知其张成满足或存在：
 
-定义团：图G的一个子图$G′=(V′,E′)$，$G′$为关于$V′$的完全图。
-极大团：一个团是极大团当它不是其它团的子集。
-最大团：点数最多的团。
-弦：连接环中不相邻的两个点的边。
-弦图：一个无向图称为弦图当且仅当图中任意长度大于3的环都至少有一个弦。
-单纯点：设N(v)表示与点v相邻的点集。一个点称为单纯点当{v} + N(v)的诱导子图为一个团。
-完美消除序列">
+封闭性：对于任何两个元素，其异或和唯一。
+结合律：$(a \ xor \ b) \ xor \  c=a \ xor \ (b \ xor \  c)$。
+单位元：$e=0 $且$e \ xor \ a=a$。
+逆元:$a \ xor \ a = e$。
+
+则$span">
 <meta property="og:type" content="article">
-<meta property="og:title" content="弦图与区间图">
-<meta property="og:url" content="https://prostkhala.github.io/2017/04/21/弦图与区间图/index.html">
+<meta property="og:title" content="线性基总结">
+<meta property="og:url" content="https://prostkhala.github.io/2017/06/17/线性基总结/index.html">
 <meta property="og:site_name" content="ST">
-<meta property="og:description" content="论文 弦图与区间图-陈丹琦
+<meta property="og:description" content="概念张成对于一个集合$S$，其张成定义为其中所有子集的异或和，记为$span(S)$。
+根据异或的性质，易知其张成满足或存在：
 
-定义团：图G的一个子图$G′=(V′,E′)$，$G′$为关于$V′$的完全图。
-极大团：一个团是极大团当它不是其它团的子集。
-最大团：点数最多的团。
-弦：连接环中不相邻的两个点的边。
-弦图：一个无向图称为弦图当且仅当图中任意长度大于3的环都至少有一个弦。
-单纯点：设N(v)表示与点v相邻的点集。一个点称为单纯点当{v} + N(v)的诱导子图为一个团。
-完美消除序列">
-<meta property="og:updated_time" content="2017-04-21T03:17:29.826Z">
+封闭性：对于任何两个元素，其异或和唯一。
+结合律：$(a \ xor \ b) \ xor \  c=a \ xor \ (b \ xor \  c)$。
+单位元：$e=0 $且$e \ xor \ a=a$。
+逆元:$a \ xor \ a = e$。
+
+则$span">
+<meta property="og:image" content="http://cogs.pro/upload/image/20170425/20170425110608_53125.png">
+<meta property="og:image" content="http://cogs.pro/upload/image/20170425/20170425110628_17349.png">
+<meta property="og:image" content="http://cogs.pro/upload/image/20170425/20170425110642_17321.png">
+<meta property="og:image" content="http://cogs.pro/upload/image/20170425/20170425110728_24299.png">
+<meta property="og:updated_time" content="2017-06-17T07:47:34.609Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="弦图与区间图">
-<meta name="twitter:description" content="论文 弦图与区间图-陈丹琦
+<meta name="twitter:title" content="线性基总结">
+<meta name="twitter:description" content="概念张成对于一个集合$S$，其张成定义为其中所有子集的异或和，记为$span(S)$。
+根据异或的性质，易知其张成满足或存在：
 
-定义团：图G的一个子图$G′=(V′,E′)$，$G′$为关于$V′$的完全图。
-极大团：一个团是极大团当它不是其它团的子集。
-最大团：点数最多的团。
-弦：连接环中不相邻的两个点的边。
-弦图：一个无向图称为弦图当且仅当图中任意长度大于3的环都至少有一个弦。
-单纯点：设N(v)表示与点v相邻的点集。一个点称为单纯点当{v} + N(v)的诱导子图为一个团。
-完美消除序列">
+封闭性：对于任何两个元素，其异或和唯一。
+结合律：$(a \ xor \ b) \ xor \  c=a \ xor \ (b \ xor \  c)$。
+单位元：$e=0 $且$e \ xor \ a=a$。
+逆元:$a \ xor \ a = e$。
+
+则$span">
+<meta name="twitter:image" content="http://cogs.pro/upload/image/20170425/20170425110608_53125.png">
 
 
 
@@ -148,13 +153,13 @@
 
 
 
-  <link rel="canonical" href="https://prostkhala.github.io/2017/04/21/弦图与区间图/"/>
+  <link rel="canonical" href="https://prostkhala.github.io/2017/06/17/线性基总结/"/>
 
 
 
 
 
-  <title> 弦图与区间图 | ST </title>
+  <title> 线性基总结 | ST </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -367,7 +372,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://prostkhala.github.io/2017/04/21/弦图与区间图/">
+    <link itemprop="mainEntityOfPage" href="https://prostkhala.github.io/2017/06/17/线性基总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ST">
@@ -388,7 +393,7 @@
             
             
               
-                弦图与区间图
+                线性基总结
               
             
           </h2>
@@ -403,8 +408,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-21T10:33:21+08:00">
-                2017-04-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-17T11:21:12+08:00">
+                2017-06-17
               </time>
             
 
@@ -419,8 +424,8 @@
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2017-04-21T11:17:29+08:00">
-                2017-04-21
+              <time title="Post modified" itemprop="dateModified" datetime="2017-06-17T15:47:34+08:00">
+                2017-06-17
               </time>
             
           </span>
@@ -438,19 +443,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/图论/" itemprop="url" rel="index">
-                    <span itemprop="name">图论</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/图论/弦图与区间图/" itemprop="url" rel="index">
-                    <span itemprop="name">弦图与区间图</span>
+                  <a href="/categories/线性基/" itemprop="url" rel="index">
+                    <span itemprop="name">线性基</span>
                   </a>
                 </span>
 
@@ -467,8 +461,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/21/弦图与区间图/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/21/弦图与区间图/" itemprop="commentCount"></span>
+                <a href="/2017/06/17/线性基总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/17/线性基总结/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -529,81 +523,335 @@
       
 
       
-        <h1 id="论文"><a href="#论文" class="headerlink" title="论文"></a>论文</h1><p> <a href="https://wenku.baidu.com/view/6f9f2223dd36a32d73758126.html" target="_blank" rel="external">弦图与区间图-陈丹琦</a></p>
+        <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><h2 id="张成"><a href="#张成" class="headerlink" title="张成"></a>张成</h2><p>对于一个集合$S$，其张成定义为其中所有子集的异或和，记为$span(S)$。</p>
+<p>根据异或的性质，易知其张成满足或存在：</p>
+<ul>
+<li>封闭性：对于任何两个元素，其异或和唯一。</li>
+<li>结合律：$(a \ xor \ b) \ xor \  c=a \ xor \ (b \ xor \  c)$。</li>
+<li>单位元：$e=0 $且$e \ xor \ a=a$。</li>
+<li>逆元:$a \ xor \ a = e$。</li>
+</ul>
+<p>则$span(S)$构成一个群。</p>
+<h2 id="线性相关"><a href="#线性相关" class="headerlink" title="线性相关"></a>线性相关</h2><p>对于一个集合 $S$，如果存在一个元素 $S_j$，使得$S$ 在去除这个元素后得到的集合 $ S’ $ 的张成不变，则称集合$S$线性相关，相应的，如果不存在这样的元素，则集合$S$线性无关。</p>
+<h2 id="线性基"><a href="#线性基" class="headerlink" title="线性基"></a>线性基</h2><p>对于一个集合$S$，其线性基定义为满足线性无关的情况下的$span(S)$最小的子集，可以记为$span(S)’$，则有$span(span(S)’)$与 $span(S)$等价。</p>
 <hr>
-<h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><h4 id="团："><a href="#团：" class="headerlink" title="团："></a>团：</h4><p>图G的一个子图$G′=(V′,E′)$，$G′$为关于$V′$的完全图。</p>
-<h4 id="极大团："><a href="#极大团：" class="headerlink" title="极大团："></a>极大团：</h4><p>一个团是极大团当它不是其它团的子集。</p>
-<h4 id="最大团："><a href="#最大团：" class="headerlink" title="最大团："></a>最大团：</h4><p>点数最多的团。</p>
-<h4 id="弦："><a href="#弦：" class="headerlink" title="弦："></a>弦：</h4><p>连接环中不相邻的两个点的边。</p>
-<h4 id="弦图："><a href="#弦图：" class="headerlink" title="弦图："></a>弦图：</h4><p>一个无向图称为弦图当且仅当图中任意长度大于3的环都至少有一个弦。</p>
-<h4 id="单纯点："><a href="#单纯点：" class="headerlink" title="单纯点："></a>单纯点：</h4><p>设N(v)表示与点v相邻的点集。一个点称为单纯点当{v} + N(v)的诱导子图为一个团。</p>
-<h4 id="完美消除序列："><a href="#完美消除序列：" class="headerlink" title="完美消除序列："></a>完美消除序列：</h4><p>这是一个序列${v_i}$，它满足$v<em>i$在${v</em>{1…n}}$的诱导子图中为单纯点。</p>
-<h4 id="弦图的判定："><a href="#弦图的判定：" class="headerlink" title="弦图的判定："></a>弦图的判定：</h4><p>存在完美消除序列的图为弦图。</p>
-<h4 id="最小色数："><a href="#最小色数：" class="headerlink" title="最小色数："></a>最小色数：</h4><p>用最少的颜色给点染色使相邻点颜色不同，$χ(G)$为其色数。</p>
-<h4 id="最大独立集："><a href="#最大独立集：" class="headerlink" title="最大独立集："></a>最大独立集：</h4><p>最大的一个点集使任意两个点不相邻，$α(G)$为其点数。</p>
-<h4 id="最小团覆盖："><a href="#最小团覆盖：" class="headerlink" title="最小团覆盖："></a>最小团覆盖：</h4><p>用最少个数的团覆盖所有的点，$κ(G)$为其团数。</p>
+<h1 id="线性基的构造"><a href="#线性基的构造" class="headerlink" title="线性基的构造"></a>线性基的构造</h1><p>线性基的构造可以通过高斯消元或者一种类似贪心的算法完成，后者支持动态操作，所以在此处着重介绍。</p>
+<p>已知集合 $S$ 中最大的数在二进制意义下有 $L$ 位，我们使用一个 $a[0…L]$来储存线性基，则该线性基的元素个数为$L$。</p>
+<p>对于$a$数组，需要保证一下性质：</p>
+<h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2><h3 id="a-i-0"><a href="#a-i-0" class="headerlink" title="$a_i=0$"></a>$a_i=0$</h3><ul>
+<li>则只有满足 $j&gt;i$的$a_j$的第$i$个二进制位可能为$1$；（性质一）</li>
+</ul>
+<h3 id="ai≠0"><a href="#ai≠0" class="headerlink" title="$ai≠0$"></a>$ai≠0$</h3><ul>
+<li>整个$a$数组中只有$a_i$的第$i$个二进制位为$1$；（性质二）</li>
+<li>$a_i$更高的二进制位一定为$0$；（性质三）</li>
+<li>$a_i$ 更低的二进制位可能为$1$；</li>
+</ul>
+<p>对于异或最大和的问题，我们可以通过贪心求解，即从高位到低位枚举是否有元素的二进制当前位为$1$，如果有，则亦或上该元素，而该构造方法则可以类比于上述操作中将该元素记录下来，而下文中构造的操作，同样保证了每一个元素均可以由线性基构造出来。</p>
+<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><p>对于每个新加入的元素$t$，从$L$枚举其二进制每一位$i$</p>
+<h3 id="a-i≠0"><a href="#a-i≠0" class="headerlink" title="$a_i≠0$"></a>$a_i≠0$</h3><p>那么将$t$异或上$a_i$（根据群的性质，可知该操作在保证张成不变的情况下使得$t$为$1$的位数尽可能少，并满足以上性质一以及性质二，且如果新插入一个元素已经在当前线性基的张成中，则在该操作后元素变为$0$）</p>
+<h3 id="a-i-0-1"><a href="#a-i-0-1" class="headerlink" title="$a_i=0$"></a>$a_i=0$</h3><p>那么将$a$数组中每一个下标大于$i$且第$i$位为$1$的元素异或上$t$。将$t$异或上$a$数组中每一个下标小于$i$且第$i$位为$1$的元素。并将$t$插入$a_i$（根据群的性质，可知该操作在保证张成不变的情况下使得数组中二进制$1$的个数尽可能少）</p>
 <hr>
-<h1 id="求解"><a href="#求解" class="headerlink" title="求解"></a>求解</h1><h4 id="完美消除序列：-1"><a href="#完美消除序列：-1" class="headerlink" title="完美消除序列："></a>完美消除序列：</h4><p>可通过最大势算法求解完美消除序列，维护每个点的势（初始化为零），每次将势最大的点从图中删除，并加入到完美消除序列中，然后将所有与其相连的点的势加一，直到图为空为止。时间复杂度为$O(n^2+m)$,可以用桶优化到$O(n+m)$（并不会）(但是可以用堆优化)。</p>
-<h4 id="最小色数的求解："><a href="#最小色数的求解：" class="headerlink" title="最小色数的求解："></a>最小色数的求解：</h4><p>简单的贪心策略，遍历完美消除队列，将当前点染为可行的最小编号颜色，最大的编号即为答案。</p>
-<h4 id="最大独立集的求解："><a href="#最大独立集的求解：" class="headerlink" title="最大独立集的求解："></a>最大独立集的求解：</h4><p>仍然是贪心，遍历完美消除队列，如果当前点的所有相邻的点不在独立集中，则将该点加入独立集。</p>
-<h4 id="最小团覆盖的求解："><a href="#最小团覆盖的求解：" class="headerlink" title="最小团覆盖的求解："></a>最小团覆盖的求解：</h4><h5 id="最小团覆盖数-最大独立集数"><a href="#最小团覆盖数-最大独立集数" class="headerlink" title="最小团覆盖数=最大独立集数"></a>最小团覆盖数=最大独立集数</h5><p>（以上一切都不会证）</p>
-<hr>
-<h1 id="HNOI2008-神奇的国度"><a href="#HNOI2008-神奇的国度" class="headerlink" title="HNOI2008 神奇的国度"></a>HNOI2008 神奇的国度</h1><h2 id="BZOJ1006-COGS1830"><a href="#BZOJ1006-COGS1830" class="headerlink" title="BZOJ1006 COGS1830"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1006" target="_blank" rel="external">BZOJ1006</a> <a href="http://cogs.pro/cogs/problem/problem.php?pid=1830" target="_blank" rel="external">COGS1830</a></h2><hr>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>K国是一个热衷三角形的国度,连人的交往也只喜欢三角原则.他们认为三角关系:即AB相互认识,BC相互认识,CA相互认识,是简洁高效的.为了巩固三角关系,K国禁止四边关系,五边关系等等的存在.所谓N边关系,是指N个人 A1A2…An之间仅存在N对认识关系:(A1A2)(A2A3)…(AnA1),而没有其它认识关系.比如四边关系指ABCD四个人 AB,BC,CD,DA相互认识,而AC,BD不认识.全民比赛时,为了防止做弊，规定任意一对相互认识的人不得在一队，国王相知道，最少可以分多少支队。 </p>
-<h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h4><p>第一行两个整数N，M。表示有N个人，M对认识关系. 接下来M行每行输入一对朋友关系 。</p>
-<h4 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h4><p>输出一个整数，最少可以分多少队 。</p>
-<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><pre><code>4 5
-1 2
-1 4
-2 4
-2 3
-3 4
-</code></pre><h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><pre><code>3
-(1,3)(2)(4)为一种可行方案 
-</code></pre><h3 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h3><p>$1&lt;=N&lt;=10000,1&lt;=M&lt;=1000000$</p>
-<hr>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>根据题目所给条件可知，任何点数大于三的环都存在弦，可知该图为弦图，直接求解最小染色数即可。（该题数据范围较小，不需要桶优化）</p>
-<hr>
-<h3 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h3><pre><code>#include&lt;iostream&gt;
-#include&lt;cstdio&gt;
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="最大异或和"><a href="#最大异或和" class="headerlink" title="最大异或和"></a>最大异或和</h3><h4 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h4><p>直接套用线性基即可，如上所述，线性基实际上将贪心求解异或最大值的过程记录了下来，那么直接异或上线性基数组的值即可。<br>、</p>
+<h4 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h4><pre><code>#include &lt;cstdio&gt;
+#include &lt;vector&gt;
 using namespace std;
-const int N =1e5+1;
-const int inf = 0x7fffffff;
-struct nd{int ne,to;}e[20*N];
-int head[N],cnt,tot,vis[N],p[N],q[N],n,m,ans,c[N];
-bool use[N];
-void in(int x,int y)
+typedef long long ll;
+const int MAXN=55;
+ll B[MAXN];
+int n,m;
+
+vector&lt;ll&gt; V;
+
+inline void insert(ll x)
 {
-    e[++cnt].ne=head[x];
-    e[cnt].to=y;
-    head[x]=cnt;
-    return;
+    for(int i=MAXN-1;i&gt;=0;--i)
+    {
+        if((x&amp;(1LL&lt;&lt;i))==0) continue;
+        if(B[i]) x^=B[i];
+        else
+        {
+            for(int j=0;j&lt;i;++j)
+            {
+                if(x&amp;(1LL&lt;&lt;j))
+                    x^=B[j];
+            }
+            for(int j=i+1;j&lt;MAXN;++j)
+            {
+                if(B[j]&amp;(1LL&lt;&lt;i))
+                    B[j]^=x;
+            }
+            B[i]^=x;
+            return;
+        }
+    }
+}
+
+inline ll qry(ll x)
+{
+    ll s=0;
+    for(int i=0;i&lt;V.size();++i)
+    {
+        if(x&amp;(1LL&lt;&lt;i))
+            s^=V[i];
+    }
+    return s;
+}
+
+int main()
+{
+    scanf(&quot;%d&quot;,&amp;n);
+    ll x;
+    for(int i=1;i&lt;=n;++i)
+    scanf(&quot;%lld&quot;,&amp;x),insert(x);
+    ll cnt=0;
+    for(int i=0;i&lt;MAXN;++i)
+    if(B[i])V.push_back(B[i]);
+    for(int i=0;i&lt;V.size();++i)cnt^=V[i];
+    printf(&quot;%d\n&quot;,cnt);
+    return 0;
+}
+</code></pre><hr>
+<h3 id="K小异或和"><a href="#K小异或和" class="headerlink" title="K小异或和"></a>K小异或和</h3><h4 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h4><p> 对于第K大的线性基，易知其为将原数组的张成中的元素的来源线性基先内部排序再先按顺序排列后的第K个。</p>
+<p>以下分别表示所有的异或和的可能性，按以上顺序排序($L=3$,以下数字表示$a$数组的下标)</p>
+<p>（易知其张成的阶为$2^{span(span(S)’}-1$）</p>
+<pre><code>                            二进制表示
+
+ 1              第1小            1
+
+ 2                第2小            10
+
+ 1  xor  2        第3小            11
+
+ 3                第4小            100
+
+ 1  xor  3        第5小            101
+
+ 2  xor  3        第6小            110
+
+ 1  xor  2  xor  3    第7小        111
+</code></pre><p>  观察可知，$K$小异或和即为$K$的二进制分解中为$1$的位置在$a$中作为下标的线性基的异或和</p>
+<p>  如$5=101(2)$，则有第$5$小为 $1 \ xor \ 3$（第一位，第三位均为$1$）</p>
+<h4 id="CODE-1"><a href="#CODE-1" class="headerlink" title="CODE"></a>CODE</h4><pre><code>#include &lt;cstdio&gt;
+#include &lt;vector&gt;
+using namespace std;
+typedef long long ll;
+const int MAXN=55;
+ll B[MAXN];
+int n,m;
+
+vector&lt;ll&gt; V;
+
+inline void insert(ll x)
+{
+    for(int i=MAXN-1;i&gt;=0;--i)
+    {
+        if((x&amp;(1LL&lt;&lt;i))==0) continue;
+        if(B[i]) x^=B[i];
+        else
+        {
+            for(int j=0;j&lt;i;++j)
+            {
+                if(x&amp;(1LL&lt;&lt;j))
+                    x^=B[j];
+            }
+            for(int j=i+1;j&lt;MAXN;++j)
+            {
+                if(B[j]&amp;(1LL&lt;&lt;i))
+                    B[j]^=x;
+            }
+            B[i]^=x;
+            return;
+        }
+    }
+}
+
+inline ll qry(ll x)
+{
+    ll s=0;
+    for(int i=0;i&lt;V.size();++i)
+    {
+        if(x&amp;(1LL&lt;&lt;i))
+            s^=V[i];
+    }
+    return s;
+}
+
+int main()
+{
+    scanf(&quot;%d&quot;,&amp;n);
+    ll x;
+    for(int i=1;i&lt;=n;++i)
+    scanf(&quot;%lld&quot;,&amp;x),insert(x);
+    ll cnt=0;
+    for(int i=0;i&lt;MAXN;++i)
+    if(B[i])V.push_back(B[i]);
+    scanf(&quot;%d&quot;,&amp;m);
+    for(int i=1;i&lt;=m;++i)
+    {
+        scanf(&quot;%lld&quot;,&amp;x);
+        if(V.size()!=n) --x;
+        if(x&gt;=(1LL&lt;&lt;V.size())) 
+                printf(&quot;-1\n&quot;);
+        else     printf(&quot;%lld\n&quot;,qry(x));
+    }
+    return 0;
+}
+</code></pre><hr>
+<h3 id="HAOI2017-八纵八横"><a href="#HAOI2017-八纵八横" class="headerlink" title="HAOI2017 八纵八横"></a>HAOI2017 八纵八横</h3><h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p><img src="http://cogs.pro/upload/image/20170425/20170425110608_53125.png" alt=""></p>
+<h5 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h5><p><img src="http://cogs.pro/upload/image/20170425/20170425110628_17349.png" alt=""></p>
+<h5 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h5><p><img src="http://cogs.pro/upload/image/20170425/20170425110642_17321.png" alt=""></p>
+<h5 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h5><pre><code>4 4 3
+1 2 1110
+1 3 10
+2 4 1110
+2 3 100
+Add 3 4 11
+Change 1 101
+Cancel 1
+</code></pre><h5 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h5><pre><code>1000
+1001
+1111
+1000
+</code></pre><h5 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h5><p><img src="http://cogs.pro/upload/image/20170425/20170425110728_24299.png" alt=""></p>
+<h4 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h4><h4 id="CODE-2"><a href="#CODE-2" class="headerlink" title="CODE"></a>CODE</h4><pre><code>#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;bitset&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+const int N = 1e3+1;
+bitset&lt;1024&gt;a,e2[N],v[N],M[N],mat[N],dis[N];
+int n,m,Q,head[N],cnt,cnt1,fa[N],e1[N][2],now,huan[N];
+char opt[N],ch[N];
+bitset&lt;1024&gt; readb()
+{
+    bitset&lt;1024&gt;t;t.reset();
+    scanf(&quot;%s&quot;,ch);
+    int len=strlen(ch);
+    for(int i=0;i&lt;len;++i)
+    t[len-i-1]=ch[i]-&#39;0&#39;;
+    return t;
+}
+struct nd{int ne,to;bitset&lt;1024&gt;w;}e[N*2];
+void in(int x,int y,bitset&lt;1024&gt;w)
+{e[++cnt].to=y;e[cnt].w=w;e[cnt].ne=head[x];head[x]=cnt;return;}
+int gf(int x){return fa[x]==x?x:fa[x]=gf(fa[x]);}
+void dfs(int x,int f)
+{
+    for(int i=head[x];i;i=e[i].ne)
+    if(e[i].to!=f)
+    {
+        dis[e[i].to]=dis[x]^e[i].w;  
+        dfs(e[i].to,x);
+    }
+}
+int update(int x,bitset&lt;1024&gt;y)
+{
+    now=0;
+    for(int i=0;i&lt;N;++i)
+    if(M[i][x]&amp;&amp;mat[i].none())
+    {
+        now=i;
+        break;
+    }
+    if(!now)
+
+    for(int i=0;i&lt;N;++i)
+    if(M[huan[i]][x]&amp;&amp;huan[i]!=0)
+    {
+        now=huan[i];
+        huan[i]=0;
+        break;
+    }
+    for(int i=0;i&lt;N;++i)
+    if(now!=i&amp;&amp;M[i][x])
+    {
+        mat[i]=mat[i]^mat[now];
+        M[i]=M[i]^M[now];
+    }
+    mat[now]^=y;
+    for(int i=N;i&gt;=0;--i)
+    if(mat[now][i])
+    {
+        if(!huan[i]){huan[i]=now;break;}
+        else mat[now]=mat[now]^mat[huan[i]],M[now]=M[now]^M[huan[i]];
+    }
+    return 0;
+}
+void put()
+{
+    bitset&lt;1024&gt;ans;
+    ans.reset();
+    for(int i=N-1;i&gt;=0;--i)
+    if(ans[i]==0&amp;&amp;huan[i])
+    ans^=mat[huan[i]];
+    char *tmp,tong[N];
+    if(ans.none()) puts(&quot;0&quot;);
+    else
+    {
+        tmp=tong;
+        for(int i=N-1;i&gt;=0;--i)
+        if(ans[i])
+        {
+            for(int j=i;j&gt;=0;--j)
+            *(tmp++)=ans[j]+&#39;0&#39;;
+            break;
+        }
+        *(tmp++)=&#39;\0&#39;;  
+        puts(tong);
+    }
 }
 int main()
 {
-//    freopen(&quot;bzoj_1006.in&quot;,&quot;r&quot;,stdin);
-//    freopen(&quot;bzoj_1006.out&quot;,&quot;w&quot;,stdout);
-    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
-    for(int i=1,x,y;i&lt;=m;++i)scanf(&quot;%d%d&quot;,&amp;x,&amp;y),in(x,y),in(y,x);
-    int x=1;
-    while(tot!=n)
+    freopen(&quot;eights.in&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;eights.out&quot;,&quot;w&quot;,stdout);
+    scanf(&quot;%d%d%d&quot;,&amp;n,&amp;m,&amp;Q);
+    for(int i=1;i&lt;=n;++i)fa[i]=i;
+    for(int i=1;i&lt;N;++i)M[i][i]=1;
+    for(int i=1,x,y;i&lt;=m;++i)
     {
-        for(int i=1;i&lt;=n;++i)if(p[i]&gt;p[x]&amp;&amp;!vis[i])x=i;
-        vis[x]=1;q[++tot]=x;
-        for(int i=head[x];i;i=e[i].ne)p[e[i].to]++;
-        x=inf;
+        scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+        a=readb();
+        if(gf(x)==gf(y))
+        {
+            e1[++cnt1][0]=x;
+            e1[cnt1][1]=y;
+            v[cnt1]=a;
+        }
+        else
+        fa[gf(x)]=gf(y),in(x,y,a),in(y,x,a);
     }
-    for(int t=1;t&lt;=n;++t)
+    dfs(1,-1);
+    int cntn=cnt1;
+    for(int i=1;i&lt;=cnt1;++i)
+    update(i,dis[e1[i][0]]^dis[e1[i][1]]^v[i]);
+    put();
+    for(int i=1,x,y;i&lt;=Q;++i)
     {
-        int x=q[t];
-        for(int i=1;i&lt;=ans;++i)use[i]=0;
-        for(int i=head[x];i;i=e[i].ne)use[c[e[i].to]]=true;
-        int now=1;
-        while(use[now])now++;
-        c[x]=now;
-        if(now&gt;ans)ans=now;
+        scanf(&quot;%s&quot;,opt);
+        if(opt[1]==&#39;d&#39;)
+        {
+            scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+            a=readb();
+            e1[++cnt1][0]=x;e1[cnt1][1]=y,e2[cnt]=a;
+            v[cnt1]=a;
+            update(cnt1,dis[e1[cnt1][0]]^dis[e1[cnt1][1]]^v[cnt1]);
+        }
+        if(opt[1]==&#39;h&#39;)
+        {
+            scanf(&quot;%d&quot;,&amp;x);
+            a=readb();
+            update(x+cntn,v[x+cntn]^a);
+            v[x+cntn]=a;
+        }
+        if(opt[1]==&#39;a&#39;)
+        {
+            scanf(&quot;%d&quot;,&amp;x);
+            update(x+cntn,dis[e1[x+cntn][0]]^dis[e1[x+cntn][1]]^v[x+cntn]);
+            v[x+cntn]=0;
+        }
+        put();
     }
-    printf(&quot;%d&quot;,ans);
 }
 </code></pre>
       
@@ -628,9 +876,7 @@ int main()
       
         <div class="post-tags">
           
-            <a href="/tags/弦图与区间图/" rel="tag"># 弦图与区间图</a>
-          
-            <a href="/tags/图论/" rel="tag"># 图论</a>
+            <a href="/tags/线性基/" rel="tag"># 线性基</a>
           
         </div>
       
@@ -653,8 +899,8 @@ int main()
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/10/组合数学总结/" rel="next" title="组合数学总结">
-                <i class="fa fa-chevron-left"></i> 组合数学总结
+              <a href="/2017/06/08/Codeforces811E/" rel="next" title="Codeforces811E Vladik and Entertaining Flags">
+                <i class="fa fa-chevron-left"></i> Codeforces811E Vladik and Entertaining Flags
               </a>
             
           </div>
@@ -662,10 +908,6 @@ int main()
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/25/2017年4月 题目总结/" rel="prev" title="2017年4月 题目总结">
-                2017年4月 题目总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -729,8 +971,8 @@ int main()
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/04/21/弦图与区间图/"
-           data-title="弦图与区间图" data-url="https://prostkhala.github.io/2017/04/21/弦图与区间图/">
+      <div class="ds-thread" data-thread-key="2017/06/17/线性基总结/"
+           data-title="线性基总结" data-url="https://prostkhala.github.io/2017/06/17/线性基总结/">
       </div>
     
   </div>
@@ -870,7 +1112,7 @@ int main()
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#论文"><span class="nav-number">1.</span> <span class="nav-text">论文</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#定义"><span class="nav-number">2.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#团："><span class="nav-number">2.0.0.1.</span> <span class="nav-text">团：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#极大团："><span class="nav-number">2.0.0.2.</span> <span class="nav-text">极大团：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最大团："><span class="nav-number">2.0.0.3.</span> <span class="nav-text">最大团：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#弦："><span class="nav-number">2.0.0.4.</span> <span class="nav-text">弦：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#弦图："><span class="nav-number">2.0.0.5.</span> <span class="nav-text">弦图：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单纯点："><span class="nav-number">2.0.0.6.</span> <span class="nav-text">单纯点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#完美消除序列："><span class="nav-number">2.0.0.7.</span> <span class="nav-text">完美消除序列：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#弦图的判定："><span class="nav-number">2.0.0.8.</span> <span class="nav-text">弦图的判定：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最小色数："><span class="nav-number">2.0.0.9.</span> <span class="nav-text">最小色数：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最大独立集："><span class="nav-number">2.0.0.10.</span> <span class="nav-text">最大独立集：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最小团覆盖："><span class="nav-number">2.0.0.11.</span> <span class="nav-text">最小团覆盖：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#求解"><span class="nav-number">3.</span> <span class="nav-text">求解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#完美消除序列：-1"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">完美消除序列：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最小色数的求解："><span class="nav-number">3.0.0.2.</span> <span class="nav-text">最小色数的求解：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最大独立集的求解："><span class="nav-number">3.0.0.3.</span> <span class="nav-text">最大独立集的求解：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最小团覆盖的求解："><span class="nav-number">3.0.0.4.</span> <span class="nav-text">最小团覆盖的求解：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#最小团覆盖数-最大独立集数"><span class="nav-number">3.0.0.4.1.</span> <span class="nav-text">最小团覆盖数=最大独立集数</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HNOI2008-神奇的国度"><span class="nav-number">4.</span> <span class="nav-text">HNOI2008 神奇的国度</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#BZOJ1006-COGS1830"><span class="nav-number">4.1.</span> <span class="nav-text">BZOJ1006 COGS1830</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">4.2.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出格式"><span class="nav-number">4.2.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入格式："><span class="nav-number">4.2.1.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出格式："><span class="nav-number">4.2.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出样例"><span class="nav-number">4.2.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入样例："><span class="nav-number">4.2.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出样例："><span class="nav-number">4.2.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据范围"><span class="nav-number">4.2.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解"><span class="nav-number">4.3.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE"><span class="nav-number">4.3.1.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#张成"><span class="nav-number">1.1.</span> <span class="nav-text">张成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性相关"><span class="nav-number">1.2.</span> <span class="nav-text">线性相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性基"><span class="nav-number">1.3.</span> <span class="nav-text">线性基</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线性基的构造"><span class="nav-number">2.</span> <span class="nav-text">线性基的构造</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#性质"><span class="nav-number">2.1.</span> <span class="nav-text">性质</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a-i-0"><span class="nav-number">2.1.1.</span> <span class="nav-text">$a_i=0$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ai≠0"><span class="nav-number">2.1.2.</span> <span class="nav-text">$ai≠0$</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程"><span class="nav-number">2.2.</span> <span class="nav-text">流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a-i≠0"><span class="nav-number">2.2.1.</span> <span class="nav-text">$a_i≠0$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#a-i-0-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">$a_i=0$</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">2.3.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最大异或和"><span class="nav-number">2.3.1.</span> <span class="nav-text">最大异或和</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题解"><span class="nav-number">2.3.1.1.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CODE"><span class="nav-number">2.3.1.2.</span> <span class="nav-text">CODE</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K小异或和"><span class="nav-number">2.3.2.</span> <span class="nav-text">K小异或和</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题解-1"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CODE-1"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">CODE</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HAOI2017-八纵八横"><span class="nav-number">2.3.3.</span> <span class="nav-text">HAOI2017 八纵八横</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目描述"><span class="nav-number">2.3.3.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入格式"><span class="nav-number">2.3.3.1.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出格式"><span class="nav-number">2.3.3.1.2.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#样例输入"><span class="nav-number">2.3.3.1.3.</span> <span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#样例输出"><span class="nav-number">2.3.3.1.4.</span> <span class="nav-text">样例输出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据范围"><span class="nav-number">2.3.3.1.5.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解-2"><span class="nav-number">2.3.3.2.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CODE-2"><span class="nav-number">2.3.3.3.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
