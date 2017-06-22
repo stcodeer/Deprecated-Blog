@@ -87,37 +87,46 @@
 
 
 
-<meta name="description" content="欧拉函数的定义 $\varphi(n)$ 定义为1到n中与n互质的数的个数。
+<meta name="description" content="欧拉函数的定义
+$\varphi(n)$ 定义为1到n中与n互质的数的个数。
 
-欧拉函数的求解1 . 通项公式 $ \varphi(n)=n(1-1/p_1)(1-1/p2)…(1-1/p{tot}) $ (其中p为n的质因子，tot为质因子个数)
+欧拉函数的求解
+1 . 通项公式
+$ \varphi(n)=n(1-1/p_1)(1-1/p_2)...(1-1/p_{tot}) $ (其中p为n的质因子，tot为质因子个数)
 int euler_phi(int n)
 {
     int m=(int)sqrt(n);
     int ans=n;
-    for(int i">
+    for(">
 <meta property="og:type" content="article">
 <meta property="og:title" content="欧拉函数总结">
 <meta property="og:url" content="https://prostkhala.github.io/2017/03/28/欧拉函数总结/index.html">
 <meta property="og:site_name" content="ST">
-<meta property="og:description" content="欧拉函数的定义 $\varphi(n)$ 定义为1到n中与n互质的数的个数。
+<meta property="og:description" content="欧拉函数的定义
+$\varphi(n)$ 定义为1到n中与n互质的数的个数。
 
-欧拉函数的求解1 . 通项公式 $ \varphi(n)=n(1-1/p_1)(1-1/p2)…(1-1/p{tot}) $ (其中p为n的质因子，tot为质因子个数)
+欧拉函数的求解
+1 . 通项公式
+$ \varphi(n)=n(1-1/p_1)(1-1/p_2)...(1-1/p_{tot}) $ (其中p为n的质因子，tot为质因子个数)
 int euler_phi(int n)
 {
     int m=(int)sqrt(n);
     int ans=n;
-    for(int i">
+    for(">
 <meta property="og:updated_time" content="2017-03-28T06:49:01.205Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="欧拉函数总结">
-<meta name="twitter:description" content="欧拉函数的定义 $\varphi(n)$ 定义为1到n中与n互质的数的个数。
+<meta name="twitter:description" content="欧拉函数的定义
+$\varphi(n)$ 定义为1到n中与n互质的数的个数。
 
-欧拉函数的求解1 . 通项公式 $ \varphi(n)=n(1-1/p_1)(1-1/p2)…(1-1/p{tot}) $ (其中p为n的质因子，tot为质因子个数)
+欧拉函数的求解
+1 . 通项公式
+$ \varphi(n)=n(1-1/p_1)(1-1/p_2)...(1-1/p_{tot}) $ (其中p为n的质因子，tot为质因子个数)
 int euler_phi(int n)
 {
     int m=(int)sqrt(n);
     int ans=n;
-    for(int i">
+    for(">
 
 
 
@@ -515,9 +524,12 @@ int euler_phi(int n)
       
 
       
-        <h1 id="欧拉函数的定义"><a href="#欧拉函数的定义" class="headerlink" title="欧拉函数的定义"></a>欧拉函数的定义</h1><p> $\varphi(n)$ 定义为1到n中与n互质的数的个数。</p>
+        <h1>欧拉函数的定义</h1>
+<p>$\varphi(n)$ 定义为1到n中与n互质的数的个数。</p>
 <hr>
-<h1 id="欧拉函数的求解"><a href="#欧拉函数的求解" class="headerlink" title="欧拉函数的求解"></a>欧拉函数的求解</h1><h2 id="1-通项公式"><a href="#1-通项公式" class="headerlink" title="1 . 通项公式"></a>1 . 通项公式</h2><p> $ \varphi(n)=n(1-1/p_1)(1-1/p<em>2)…(1-1/p</em>{tot}) $ (其中p为n的质因子，tot为质因子个数)</p>
+<h1>欧拉函数的求解</h1>
+<h2>1 . 通项公式</h2>
+<p>$ \varphi(n)=n(1-1/p_1)(1-1/p_2)...(1-1/p_{tot}) $ (其中p为n的质因子，tot为质因子个数)</p>
 <pre><code>int euler_phi(int n)
 {
     int m=(int)sqrt(n);
@@ -533,7 +545,9 @@ int euler_phi(int n)
     if(n&gt;1) ans=ans/n*(n-1);
     return ans;
 }
-</code></pre><h2 id="2-线性筛法"><a href="#2-线性筛法" class="headerlink" title="2 . 线性筛法"></a>2 . 线性筛法</h2><p>逆元一般通过线性筛法求解，该方法的时间复杂度为$O(n)$，可以预处理出前n项欧拉函数。</p>
+</code></pre>
+<h2>2 . 线性筛法</h2>
+<p>逆元一般通过线性筛法求解，该方法的时间复杂度为$O(n)$，可以预处理出前n项欧拉函数。</p>
 <pre><code>int prime[2*sqrt(N)+1],phi[N];
 
 bool vis[N];
@@ -556,30 +570,47 @@ int getprime()
         }
     }
 }
-</code></pre><hr>
-<h1 id="相关习题"><a href="#相关习题" class="headerlink" title="相关习题"></a>相关习题</h1><h2 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h2><p>已知 $\sum_{i=1}^{p-1}{1/i}$ $=A/B$,其中$p$为奇质数，求证$A≡0(modp)$</p>
-<h3 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h3><p>设$T=lcm(1,2,…,p-1)$</p>
+</code></pre>
+<hr>
+<h1>相关习题</h1>
+<h2>T1</h2>
+<p>已知 $\sum_{i=1}^{p-1}{1/i}$ $=A/B$,其中$p$为奇质数，求证$A≡0(modp)$</p>
+<h3>证明</h3>
+<p>设$T=lcm(1,2,...,p-1)$</p>
 <p>则有</p>
-<p>$\sum_{i=1}^{p-1}{1/i}$ $= (T/1+T/2+…+T/(p-1))/T$</p>
+<p>$\sum_{i=1}^{p-1}{1/i}$ $= (T/1+T/2+...+T/(p-1))/T$</p>
 <p>此时只需证明</p>
-<p>$T/1+T/2+…+T/(p-1)≡0(modp)$</p>
+<p>$T/1+T/2+...+T/(p-1)≡0(modp)$</p>
 <p>根据性质（见上）我们可以知道，1到p-1中所有数的逆元对应1到p-1中的所有数，则原式可以化简为</p>
-<p>$1+2+…+(p-1)≡0(modp)$</p>
+<p>$1+2+...+(p-1)≡0(modp)$</p>
 <p>$p*(p-1)≡0(modp)$</p>
 <p>得证。</p>
 <hr>
-<h2 id="T1-SDOI2008-沙拉公主的困惑"><a href="#T1-SDOI2008-沙拉公主的困惑" class="headerlink" title="T1 SDOI2008 沙拉公主的困惑"></a>T1 SDOI2008 沙拉公主的困惑</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>大富翁国因为通货膨胀，以及假钞泛滥，政府决定推出一项新的政策：现有钞票编号范围为1到N的阶乘，但是，政府只发行编号与M!互质的钞票。房地产第一大户沙拉公主决定预测一下大富翁国现在所有真钞票的数量。现在，请你帮助沙拉公主解决这个问题，由于可能张数非常大，你只需计算出对R取模后的答案即可。R是一个质数。</p>
-<h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行为两个整数T，R。R&lt;=10^9+10，T&lt;=10000，表示该组中测试数据数目，R为模 后面T行，每行一对整数N，M，见题目描述 m&lt;=n</p>
-<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>共T行，对于每一对N，M，输出1至N！中与M！素质的数的数量对R取模后的值</p>
-<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h4><pre><code>1 11
+<h2>T1 SDOI2008 沙拉公主的困惑</h2>
+<h3>题目描述</h3>
+<p>大富翁国因为通货膨胀，以及假钞泛滥，政府决定推出一项新的政策：现有钞票编号范围为1到N的阶乘，但是，政府只发行编号与M!互质的钞票。房地产第一大户沙拉公主决定预测一下大富翁国现在所有真钞票的数量。现在，请你帮助沙拉公主解决这个问题，由于可能张数非常大，你只需计算出对R取模后的答案即可。R是一个质数。</p>
+<h3>输入输出格式</h3>
+<h4>输入格式</h4>
+<p>第一行为两个整数T，R。R&lt;=10^9+10，T&lt;=10000，表示该组中测试数据数目，R为模 后面T行，每行一对整数N，M，见题目描述 m&lt;=n</p>
+<h4>输出格式</h4>
+<p>共T行，对于每一对N，M，输出1至N！中与M！素质的数的数量对R取模后的值</p>
+<h3>输入输出样例</h3>
+<h4>输入样例</h4>
+<pre><code>1 11
 4 2
-</code></pre><h4 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h4><pre><code>1
-</code></pre><h3 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h3><p>对于100%的数据，1 &lt; = N , M &lt; = 10000000</p>
+</code></pre>
+<h4>输出样例</h4>
+<pre><code>1
+</code></pre>
+<h3>数据范围</h3>
+<p>对于100%的数据，1 &lt; = N , M &lt; = 10000000</p>
 <hr>
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>题意明确$n&gt;=m$,且易知$m!|n!$那么只需要算出$\varphi(m!)$即可，根据欧几里得算法可知最后的答案即为$\varphi(m!)*n!/m!(modp)$</p>
+<h3>题解</h3>
+<p>题意明确$n&gt;=m$,且易知$m!|n!$那么只需要算出$\varphi(m!)$即可，根据欧几里得算法可知最后的答案即为$\varphi(m!)*n!/m!(modp)$</p>
 <p>对于$\varphi(m!)$来说，m!的值过大，只能利用通项公式来求解，易知m!的所有质因数即为1到m中所有的质数，由于通项公式中涉及模运算下的除法，所以应先处理一下逆元。</p>
 <hr>
-<h3 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h3><pre><code>#include&lt;cstdio&gt;
+<h3>CODE</h3>
+<pre><code>#include&lt;cstdio&gt;
 #include&lt;iostream&gt;
 const int M = 1e6+1;
 using namespace std;
@@ -607,8 +638,8 @@ int main()
     ans[1]=1;
     for(int i=2;i&lt;=M;i++)
     {
-        if(!vis[i])    ans[i]=ans[i-1]*(i-1)%p*rev[i%p]%p;
-        else                ans[i]=ans[i-1];
+        if(!vis[i])	ans[i]=ans[i-1]*(i-1)%p*rev[i%p]%p;
+        else				ans[i]=ans[i-1];
     }
     while(T--)
     {
@@ -617,6 +648,7 @@ int main()
     }
 }
 </code></pre>
+
       
     </div>
 
@@ -666,8 +698,8 @@ int main()
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/28/乘法逆元总结/" rel="next" title="乘法逆元总结">
-                <i class="fa fa-chevron-left"></i> 乘法逆元总结
+              <a href="/2017/03/21/维护队列/" rel="next" title="NOI2005 维修数列">
+                <i class="fa fa-chevron-left"></i> NOI2005 维修数列
               </a>
             
           </div>
@@ -676,8 +708,8 @@ int main()
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/28/裴蜀定理总结/" rel="prev" title="裴蜀定理总结">
-                裴蜀定理总结 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/28/乘法逆元总结/" rel="prev" title="乘法逆元总结">
+                乘法逆元总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -792,7 +824,7 @@ int main()
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -883,7 +915,7 @@ int main()
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#欧拉函数的定义"><span class="nav-number">1.</span> <span class="nav-text">欧拉函数的定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#欧拉函数的求解"><span class="nav-number">2.</span> <span class="nav-text">欧拉函数的求解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-通项公式"><span class="nav-number">2.1.</span> <span class="nav-text">1 . 通项公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-线性筛法"><span class="nav-number">2.2.</span> <span class="nav-text">2 . 线性筛法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关习题"><span class="nav-number">3.</span> <span class="nav-text">相关习题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#T1"><span class="nav-number">3.1.</span> <span class="nav-text">T1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#证明"><span class="nav-number">3.1.1.</span> <span class="nav-text">证明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T1-SDOI2008-沙拉公主的困惑"><span class="nav-number">3.2.</span> <span class="nav-text">T1 SDOI2008 沙拉公主的困惑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述"><span class="nav-number">3.2.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出格式"><span class="nav-number">3.2.2.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入格式"><span class="nav-number">3.2.2.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出格式"><span class="nav-number">3.2.2.2.</span> <span class="nav-text">输出格式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出样例"><span class="nav-number">3.2.3.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入样例"><span class="nav-number">3.2.3.1.</span> <span class="nav-text">输入样例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出样例"><span class="nav-number">3.2.3.2.</span> <span class="nav-text">输出样例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据范围"><span class="nav-number">3.2.4.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解"><span class="nav-number">3.2.5.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE"><span class="nav-number">3.2.6.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">欧拉函数的定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">欧拉函数的求解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">1 . 通项公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">2 . 线性筛法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">相关习题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">T1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.1.</span> <span class="nav-text">证明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.</span> <span class="nav-text">T1 SDOI2008 沙拉公主的困惑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.2.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.2.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.2.2.</span> <span class="nav-text">输出格式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.3.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.3.1.</span> <span class="nav-text">输入样例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.3.2.</span> <span class="nav-text">输出样例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.4.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.5.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.6.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

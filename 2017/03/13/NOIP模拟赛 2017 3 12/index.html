@@ -87,22 +87,34 @@
 
 
 
-<meta name="description" content="T1 Blue题目描述Blue 是个动物学家，不仅喜欢研究猫和老鼠，还喜欢研究青蛙。
-他最近开始研究青蛙过河的问题，可以简化成：数轴上 0 为岸边，L 为河对岸。(0,L)中间存在 n 个石子。已知青蛙一跳可以跳距离 D，而且不能沾水。求问能不能跳到河对岸。
-当然他觉得这个问题非常 naïve，于是在思考如果青蛙有 m 个，且石头被踩过之后就会沉下去，m 个青蛙还能不能依次安全过河。如果不能则问最">
+<meta name="description" content="T1 Blue
+题目描述
+Blue 是个动物学家，不仅喜欢研究猫和老鼠，还喜欢研究青蛙。
+他最近开始研究青蛙过河的问题，可以简化成：数轴上 0 为岸边，L 为河对岸。(0,L)
+中间存在 n 个石子。已知青蛙一跳可以跳距离 D，而且不能沾水。求问能不能跳到河对岸。
+当然他觉得这个问题非常 naïve，于是在思考如果青蛙有 m 个，且石头被踩过之后就
+会沉下去，m 个青蛙还能不能依次安全过河。如果不">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NOIP模拟赛 2017 3 12">
 <meta property="og:url" content="https://prostkhala.github.io/2017/03/13/NOIP模拟赛 2017 3 12/index.html">
 <meta property="og:site_name" content="ST">
-<meta property="og:description" content="T1 Blue题目描述Blue 是个动物学家，不仅喜欢研究猫和老鼠，还喜欢研究青蛙。
-他最近开始研究青蛙过河的问题，可以简化成：数轴上 0 为岸边，L 为河对岸。(0,L)中间存在 n 个石子。已知青蛙一跳可以跳距离 D，而且不能沾水。求问能不能跳到河对岸。
-当然他觉得这个问题非常 naïve，于是在思考如果青蛙有 m 个，且石头被踩过之后就会沉下去，m 个青蛙还能不能依次安全过河。如果不能则问最">
+<meta property="og:description" content="T1 Blue
+题目描述
+Blue 是个动物学家，不仅喜欢研究猫和老鼠，还喜欢研究青蛙。
+他最近开始研究青蛙过河的问题，可以简化成：数轴上 0 为岸边，L 为河对岸。(0,L)
+中间存在 n 个石子。已知青蛙一跳可以跳距离 D，而且不能沾水。求问能不能跳到河对岸。
+当然他觉得这个问题非常 naïve，于是在思考如果青蛙有 m 个，且石头被踩过之后就
+会沉下去，m 个青蛙还能不能依次安全过河。如果不">
 <meta property="og:updated_time" content="2017-03-17T11:59:53.075Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NOIP模拟赛 2017 3 12">
-<meta name="twitter:description" content="T1 Blue题目描述Blue 是个动物学家，不仅喜欢研究猫和老鼠，还喜欢研究青蛙。
-他最近开始研究青蛙过河的问题，可以简化成：数轴上 0 为岸边，L 为河对岸。(0,L)中间存在 n 个石子。已知青蛙一跳可以跳距离 D，而且不能沾水。求问能不能跳到河对岸。
-当然他觉得这个问题非常 naïve，于是在思考如果青蛙有 m 个，且石头被踩过之后就会沉下去，m 个青蛙还能不能依次安全过河。如果不能则问最">
+<meta name="twitter:description" content="T1 Blue
+题目描述
+Blue 是个动物学家，不仅喜欢研究猫和老鼠，还喜欢研究青蛙。
+他最近开始研究青蛙过河的问题，可以简化成：数轴上 0 为岸边，L 为河对岸。(0,L)
+中间存在 n 个石子。已知青蛙一跳可以跳距离 D，而且不能沾水。求问能不能跳到河对岸。
+当然他觉得这个问题非常 naïve，于是在思考如果青蛙有 m 个，且石头被踩过之后就
+会沉下去，m 个青蛙还能不能依次安全过河。如果不">
 
 
 
@@ -500,12 +512,18 @@
       
 
       
-        <h2 id="T1-Blue"><a href="#T1-Blue" class="headerlink" title="T1 Blue"></a>T1 Blue</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>Blue 是个动物学家，不仅喜欢研究猫和老鼠，还喜欢研究青蛙。</p>
-<p>他最近开始研究青蛙过河的问题，可以简化成：数轴上 0 为岸边，L 为河对岸。(0,L)<br>中间存在 n 个石子。已知青蛙一跳可以跳距离 D，而且不能沾水。求问能不能跳到河对岸。</p>
-<p>当然他觉得这个问题非常 naïve，于是在思考如果青蛙有 m 个，且石头被踩过之后就<br>会沉下去，m 个青蛙还能不能依次安全过河。如果不能则问最多能有多少个过河。</p>
-<p>输入第一行为一个正整数 T 代表数据组数。每组数据第一行四个正整数：n、m、D、L。<br>第二行 n 个升序正整数 ai 代表第 i 个石子坐标为 ai。保证没有重复且都小于 L。</p>
+        <h2>T1 Blue</h2>
+<h3>题目描述</h3>
+<p>Blue 是个动物学家，不仅喜欢研究猫和老鼠，还喜欢研究青蛙。</p>
+<p>他最近开始研究青蛙过河的问题，可以简化成：数轴上 0 为岸边，L 为河对岸。(0,L)
+中间存在 n 个石子。已知青蛙一跳可以跳距离 D，而且不能沾水。求问能不能跳到河对岸。</p>
+<p>当然他觉得这个问题非常 naïve，于是在思考如果青蛙有 m 个，且石头被踩过之后就
+会沉下去，m 个青蛙还能不能依次安全过河。如果不能则问最多能有多少个过河。</p>
+<p>输入第一行为一个正整数 T 代表数据组数。每组数据第一行四个正整数：n、m、D、L。
+第二行 n 个升序正整数 ai 代表第 i 个石子坐标为 ai。保证没有重复且都小于 L。</p>
 <p>输出 T 行”Excited”代表全部能过河或者一个整数代表有多少个能过河的。</p>
-<h4 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h4><pre><code>5
+<h4>样例输入</h4>
+<pre><code>5
 10 9 16 30
 2 4 6 9 11 15 18 19 25 27 
 10 1 23 30
@@ -516,21 +534,28 @@
 1 6 9 14 18 19 22 27 28 29 
 10 7 10 30
 1 2 4 6 18 19 20 22 23 26 
-</code></pre><h4 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h4><pre><code>5
+</code></pre>
+<h4>样例输出</h4>
+<pre><code>5
 Excited
 Excited
 Excited
 0
-</code></pre><h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>对于 10%的数据保证 $m=1$.</p>
+</code></pre>
+<h4>数据范围</h4>
+<p>对于 10%的数据保证 $m=1$.</p>
 <p>对于另外 10%的数据保证 $D=L$.</p>
 <p>对于另外 10%的数据保证 $n=L-1$.</p>
 <p>对于另外 30%的数据保证 $n&lt;=100, L&lt;=10^5$.</p>
-<p>对于 100%的数据保证 $m&lt;=n&lt;=10^6,D&lt;=L&lt;=10^9$.<br>数据范围中的 n、m 皆代表题目描述中 n、m 的总和。</p>
+<p>对于 100%的数据保证 $m&lt;=n&lt;=10^6,D&lt;=L&lt;=10^9$.
+数据范围中的 n、m 皆代表题目描述中 n、m 的总和。</p>
 <hr>
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>这题就是比较简单的二分答案+贪心，一开始想到了这种思路，但一直没有正确的贪心策略，后来开始尝试树状数组，看到$D&lt;=L&lt;=10^9$的数据范围后，又写了回离散化，然后又想到还要记录离散化的前的相对位置和d的关系，然后就掉进了深坑中无法自拔。最后半小时重新推了下贪心，（伪）A掉了这题。教训就是不要浮躁，做题要静下心来。</p>
-<p>具体的策略就是，每次针对不同答案进行贪心的时，记录一下这些青蛙的位置，然后就没了….</p>
+<h3>题解</h3>
+<p>这题就是比较简单的二分答案+贪心，一开始想到了这种思路，但一直没有正确的贪心策略，后来开始尝试树状数组，看到$D&lt;=L&lt;=10^9$的数据范围后，又写了回离散化，然后又想到还要记录离散化的前的相对位置和d的关系，然后就掉进了深坑中无法自拔。最后半小时重新推了下贪心，（伪）A掉了这题。教训就是不要浮躁，做题要静下心来。</p>
+<p>具体的策略就是，每次针对不同答案进行贪心的时，记录一下这些青蛙的位置，然后就没了....</p>
 <hr>
-<h4 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h4><pre><code>#include&lt;iostream&gt;
+<h4>CODE</h4>
+<pre><code>#include&lt;iostream&gt;
 #include&lt;cstdio&gt;
 #include&lt;cstring&gt;
 using namespace std;
@@ -538,8 +563,8 @@ const int N =1e6+1;
 inline void read(int &amp;x)
 {
     x=0;char ch=getchar();
-    while(ch&lt;&#39;0&#39;||ch&gt;&#39;9&#39;)ch=getchar();
-    while(ch&gt;=&#39;0&#39;&amp;&amp;ch&lt;=&#39;9&#39;){x=x*10+ch-&#39;0&#39;;ch=getchar();}
+    while(ch&lt;'0'||ch&gt;'9')ch=getchar();
+    while(ch&gt;='0'&amp;&amp;ch&lt;='9'){x=x*10+ch-'0';ch=getchar();}
 }
 int tt,n,m,d,l,a[N],b[N];
 bool can(int ans)
@@ -568,21 +593,32 @@ int main()
         while(ll!=rr)
         {
             mid=ll+rr+1&gt;&gt;1;
-            if(can(mid))    ll=mid;
-            else            rr=mid-1;
+            if(can(mid))	ll=mid;
+            else			rr=mid-1;
         }
-        if(rr==m)    printf(&quot;Excited\n&quot;);
-        else         printf(&quot;%d\n&quot;,rr);
+        if(rr==m)	printf(&quot;Excited\n&quot;);
+        else 		printf(&quot;%d\n&quot;,rr);
     }
     return 0;
 }
-</code></pre><hr>
-<h2 id="T2-Weed"><a href="#T2-Weed" class="headerlink" title="T2 Weed"></a>T2 Weed</h2><h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><p>duyege的电脑上面已经长草了，经过辨认上面有金坷垃的痕迹。<br>为了查出真相，duyege 准备修好电脑之后再进行一次金坷垃的模拟实验。</p>
-<p>电脑上面有若干层金坷垃，每次只能在上面撒上一层高度为 vi 的金坷垃，或者除掉最<br>新 vi 层（不是量）撒的金坷垃。如果上面只留有不足 vi 层金坷垃，那么就相当于电脑上<br>面没有金坷垃了。</p>
-<p>duyege 非常严谨，一开始先给你 m 个上述操作要你依次完成。然后又对实验步骤进行<br>了 q 次更改，每次更改都会改变其中一个操作为另外一个操作。每次修改之后都会询问最<br>终金坷垃的量有多少。</p>
-<p>输入第一行为两个正整数 m、q，接下来 m 行每行 2 个整数 k、vi。k为 0 时撒金坷垃，<br>为 1 时除金坷垃。接下来 q 行每行 3 个整数 ci、k、vi，ci代表被更改的操作是第 ci 个，<br>后面 2 个数描述更改为这样的操作。</p>
+</code></pre>
+<hr>
+<h2>T2 Weed</h2>
+<h3>题目描述</h3>
+<p>duyege的电脑上面已经长草了，经过辨认上面有金坷垃的痕迹。
+为了查出真相，duyege 准备修好电脑之后再进行一次金坷垃的模拟实验。</p>
+<p>电脑上面有若干层金坷垃，每次只能在上面撒上一层高度为 vi 的金坷垃，或者除掉最
+新 vi 层（不是量）撒的金坷垃。如果上面只留有不足 vi 层金坷垃，那么就相当于电脑上
+面没有金坷垃了。</p>
+<p>duyege 非常严谨，一开始先给你 m 个上述操作要你依次完成。然后又对实验步骤进行
+了 q 次更改，每次更改都会改变其中一个操作为另外一个操作。每次修改之后都会询问最
+终金坷垃的量有多少。</p>
+<p>输入第一行为两个正整数 m、q，接下来 m 行每行 2 个整数 k、vi。k为 0 时撒金坷垃，
+为 1 时除金坷垃。接下来 q 行每行 3 个整数 ci、k、vi，ci代表被更改的操作是第 ci 个，
+后面 2 个数描述更改为这样的操作。</p>
 <p>输出 q 行代表每次金坷垃的量为多少</p>
-<h4 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入"></a>样例输入</h4><pre><code>10 5
+<h4>样例输入</h4>
+<pre><code>10 5
 0 10
 1 5
 0 13
@@ -598,27 +634,33 @@ int main()
 6 0 8
 10 0 5
 8 1 2
-</code></pre><h4 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出"></a>样例输出</h4><pre><code>58
+</code></pre>
+<h4>样例输出</h4>
+<pre><code>58
 0
 0
 66
 41
-</code></pre><h4 id="数据范围-1"><a href="#数据范围-1" class="headerlink" title="数据范围"></a>数据范围</h4><p>对于 30%的数据，m&lt;=1000,q&lt;=1000.</p>
+</code></pre>
+<h4>数据范围</h4>
+<p>对于 30%的数据，m&lt;=1000,q&lt;=1000.</p>
 <p>对于另外 20%的数据，每次 k=1 时都会将金坷垃清空。</p>
 <p>对于 100%的数据，m&lt;=2<em>10^5,q&lt;=2</em>10^5,vi&lt;=10^4.</p>
 <hr>
-<h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><p>由于该题涉及中间量的改变，所以要用线段树来记录，一开始想的是链表，每次操作修改一下链表中与更改操作相关的指针，然而最后也没有实现…</p>
+<h3>题解</h3>
+<p>由于该题涉及中间量的改变，所以要用线段树来记录，一开始想的是链表，每次操作修改一下链表中与更改操作相关的指针，然而最后也没有实现...</p>
 <p>题解还是挺巧妙，将每次操作依次进栈，对于每次更改，即为将被更改操作以上的所有操作出栈，将更改后的操作入栈，然后将其余出栈操作按原顺序入栈，我在考场时也仅止步于此，这样的时间复杂度太高，最后并没有尝试这样写。题解便巧妙在用线段树来记录每一段操作的三项信息：执行完这段操作后会删除多少金坷垃，会插入多少，一共又是多少。然后通过一个查找函数来依次向父亲节点更新。</p>
 <hr>
-<h3 id="CODE-1"><a href="#CODE-1" class="headerlink" title="CODE"></a>CODE</h3><pre><code>#include&lt;iostream&gt;
+<h3>CODE</h3>
+<pre><code>#include&lt;iostream&gt;
 #include&lt;cstdio&gt;
 #include&lt;cstring&gt;
 using namespace std;
 inline void read(int &amp;x)
 {
     x=0;int f=1;char ch=getchar();
-    while(ch&lt;&#39;0&#39;||ch&gt;&#39;9&#39;){if(ch==&#39;-&#39;)f=-1;ch=getchar();}
-    while(ch&gt;=&#39;0&#39;&amp;&amp;ch&lt;=&#39;9&#39;){x=x*10+ch-&#39;0&#39;;ch=getchar();}
+    while(ch&lt;'0'||ch&gt;'9'){if(ch=='-')f=-1;ch=getchar();}
+    while(ch&gt;='0'&amp;&amp;ch&lt;='9'){x=x*10+ch-'0';ch=getchar();}
     x*=f;
 }
 const int N =2e5+7;
@@ -626,8 +668,8 @@ struct build{int sum,in,out;}tr[8*N];
 int n,q,k,a[N],tot;
 int find(int x,int pot)
 {
-    if(pot&gt;=tr[x].in)            return 0;
-    if(!pot)                    return tr[x].sum;
+    if(pot&gt;=tr[x].in)			return 0;
+    if(!pot)					return tr[x].sum;
     if(pot&lt;=tr[x*2+1].in)
     return tr[x].sum-tr[x*2+1].sum+find(x*2+1,pot);
     return find(x*2,pot-tr[x*2+1].in+tr[x*2+1].out);
@@ -642,8 +684,8 @@ void build(int x,int l,int r)
 {
     if(l==r)
     {
-        if(a[l]&lt;0)    tr[x].out=-a[l];
-        else        tr[x].in=1,tr[x].sum=a[l];
+        if(a[l]&lt;0)	tr[x].out=-a[l];
+        else		tr[x].in=1,tr[x].sum=a[l];
     }
     else
     {
@@ -658,14 +700,14 @@ void change(int x,int pot,int w,int l,int r)
     if(l==r)
     {
         memset(&amp;tr[x],0,sizeof(tr[x]));
-        if(w&lt;0)        tr[x].out=-w;
-        else        tr[x].in=1,tr[x].sum=w;
+        if(w&lt;0)		tr[x].out=-w;
+        else		tr[x].in=1,tr[x].sum=w;
     }
     else
     {
         int mid=l+r&gt;&gt;1;
-        if(pot&gt;mid)    change(x*2+1,pot,w,mid+1,r);
-        else        change(x*2,pot,w,l,mid);
+        if(pot&gt;mid)	change(x*2+1,pot,w,mid+1,r);
+        else		change(x*2,pot,w,l,mid);
         update(x);
     }
 }
@@ -689,13 +731,26 @@ int main()
         printf(&quot;%d\n&quot;,tr[1].sum);
     }
 }
-</code></pre><hr>
-<h2 id="T3-Drink"><a href="#T3-Drink" class="headerlink" title="T3 Drink"></a>T3 Drink</h2><h3 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h3><p>在一个遥远的国度有一个腰缠万贯的资本家 Link，每一个拜访他的人都可以得到一份<br>丰厚的赏赐。有一名穷困潦倒的旅行者毒液哥来到了 Link 家。Link 智商超群（不然也赚<br>不到这么多资本），所以决定用特殊的方法赏赐毒液哥。</p>
-<p>Link的藏宝库是一个N * M棋盘，每个格子里都有宝物。Link会对棋盘做Q次操作，<br>每次操作会选取棋盘内一个正方形，让其中的宝物顺时针转一圈（旋转90度）。<br>毒液哥不仅财富值被 Link 碾压，智商也同样被碾压（不然怎么会这么穷），但是贪财<br>的他想知道最后棋盘内所有的宝物价值以方便他挑选。</p>
-<p>作为建设中国特色社会主义道路上的一颗螺丝钉，你能帮助缩小无产阶级代表（毒液哥）<br>和资产阶级代表（Link）之间的贫富差距么。</p>
-<p>输入第一行三个数 N, M, Q 分别表示棋盘的行数、列数和操作个数。<br>接下来 N 行每行 M 个数表示一开始棋盘上宝物的价值。<br>接下来 Q 行每行 3 个数 x, y, c 表示操作区域为以第 x 行第 y列为左上角的边长为 c<br>的正方形。</p>
+</code></pre>
+<hr>
+<h2>T3 Drink</h2>
+<h3>题目描述</h3>
+<p>在一个遥远的国度有一个腰缠万贯的资本家 Link，每一个拜访他的人都可以得到一份
+丰厚的赏赐。有一名穷困潦倒的旅行者毒液哥来到了 Link 家。Link 智商超群（不然也赚
+不到这么多资本），所以决定用特殊的方法赏赐毒液哥。</p>
+<p>Link的藏宝库是一个N * M棋盘，每个格子里都有宝物。Link会对棋盘做Q次操作，
+每次操作会选取棋盘内一个正方形，让其中的宝物顺时针转一圈（旋转90度）。
+毒液哥不仅财富值被 Link 碾压，智商也同样被碾压（不然怎么会这么穷），但是贪财
+的他想知道最后棋盘内所有的宝物价值以方便他挑选。</p>
+<p>作为建设中国特色社会主义道路上的一颗螺丝钉，你能帮助缩小无产阶级代表（毒液哥）
+和资产阶级代表（Link）之间的贫富差距么。</p>
+<p>输入第一行三个数 N, M, Q 分别表示棋盘的行数、列数和操作个数。
+接下来 N 行每行 M 个数表示一开始棋盘上宝物的价值。
+接下来 Q 行每行 3 个数 x, y, c 表示操作区域为以第 x 行第 y列为左上角的边长为 c
+的正方形。</p>
 <p>输出一个 N * M 的矩阵表示最后的棋盘。</p>
-<h4 id="样例输入-2"><a href="#样例输入-2" class="headerlink" title="样例输入"></a>样例输入</h4><pre><code>4 4 3
+<h4>样例输入</h4>
+<pre><code>4 4 3
 1 2 3 4
 5 6 7 8
 1 2 3 4
@@ -703,16 +758,22 @@ int main()
 1 1 3
 3 3 2
 2 2 2
-</code></pre><h4 id="样例输出-2"><a href="#样例输出-2" class="headerlink" title="样例输出"></a>样例输出</h4><pre><code>1 5 1 4 
+</code></pre>
+<h4>样例输出</h4>
+<pre><code>1 5 1 4 
 2 7 6 8 
 3 7 2 3 
 5 6 8 4 
-</code></pre><h4 id="数据范围-2"><a href="#数据范围-2" class="headerlink" title="数据范围"></a>数据范围</h4><p>对于 30%的数据，N, M, Q &lt;= 100.</p>
+</code></pre>
+<h4>数据范围</h4>
+<p>对于 30%的数据，N, M, Q &lt;= 100.</p>
 <p>对于另外 30%的数据，保证所有 Q 个正方形两两之间不相交或相等。</p>
 <p>对于 100%的数据, N, M, Q &lt;= 1000.所有数取值都为 0~9.</p>
 <hr>
-<h3 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h3><p>以前写过类似的模拟题，便套用了之前的思路，即对于每个点，记录其前后左右的点，然后将所有点的朝向初始化为朝前（p=0），每次旋转，更改一下最外围点的前后左右点，对于内圈的点，其前后左右的点没有改变，只需要将所有被旋转的点的朝向旋转一下（p=(p+1)%4），这一步操作通过二维线段树来实现（然而并不会写）。题解的大体思路相近，只是在处理朝向那里更加巧妙，且也没有用二维数组存储每个点的相对位置，而是用一维数组操作，其他的还有许多处理上的技巧。</p>
-<h3 id="CODE-2"><a href="#CODE-2" class="headerlink" title="CODE"></a>CODE</h3><pre><code>/*
+<h3>题解</h3>
+<p>以前写过类似的模拟题，便套用了之前的思路，即对于每个点，记录其前后左右的点，然后将所有点的朝向初始化为朝前（p=0），每次旋转，更改一下最外围点的前后左右点，对于内圈的点，其前后左右的点没有改变，只需要将所有被旋转的点的朝向旋转一下（p=(p+1)%4），这一步操作通过二维线段树来实现（然而并不会写）。题解的大体思路相近，只是在处理朝向那里更加巧妙，且也没有用二维数组存储每个点的相对位置，而是用一维数组操作，其他的还有许多处理上的技巧。</p>
+<h3>CODE</h3>
+<pre><code>/*
 * @Author: 閫搁棽
 * @Date:   2016-09-25 13:04:44
 * @Last Modified by:   閫搁棽
@@ -742,16 +803,16 @@ inline int Get_Int()
     do
     {
         ch = getchar();
-        if(ch == &#39;-&#39;)
+        if(ch == '-')
             Flag = -Flag;
     }
-    while(ch &lt; &#39;0&#39; || ch &gt; &#39;9&#39;);
+    while(ch &lt; '0' || ch &gt; '9');
     do
     {
-        Num = Num * 10 + ch - &#39;0&#39;;
+        Num = Num * 10 + ch - '0';
         ch = getchar();
     }
-    while(ch &gt;= &#39;0&#39; &amp;&amp; ch &lt;= &#39;9&#39;);
+    while(ch &gt;= '0' &amp;&amp; ch &lt;= '9');
     return Num * Flag;
 }
 
@@ -768,8 +829,8 @@ inline void Move(int &amp;Direction, int &amp;Now, int j)
 int main()
 {
 #ifndef ONLINE_JUDGE
-//    freopen(&quot;drink.in&quot;, &quot;r&quot;, stdin);
-//    freopen(&quot;drink.out&quot;, &quot;w&quot;, stdout);
+//	freopen(&quot;drink.in&quot;, &quot;r&quot;, stdin);
+//	freopen(&quot;drink.out&quot;, &quot;w&quot;, stdout);
 #endif
     cin &gt;&gt; N &gt;&gt; M &gt;&gt; Q;
     for(int i = 1; i &lt;= N; ++i)
@@ -827,6 +888,7 @@ int main()
     return 0;
 }
 </code></pre>
+
       
     </div>
 
@@ -1004,7 +1066,7 @@ int main()
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1095,7 +1157,7 @@ int main()
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#T1-Blue"><span class="nav-number">1.</span> <span class="nav-text">T1 Blue</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输入"><span class="nav-number">1.1.1.</span> <span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输出"><span class="nav-number">1.1.2.</span> <span class="nav-text">样例输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据范围"><span class="nav-number">1.1.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解"><span class="nav-number">1.2.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CODE"><span class="nav-number">1.2.1.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T2-Weed"><span class="nav-number">2.</span> <span class="nav-text">T2 Weed</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-1"><span class="nav-number">2.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输入-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输出-1"><span class="nav-number">2.1.2.</span> <span class="nav-text">样例输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据范围-1"><span class="nav-number">2.1.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-1"><span class="nav-number">2.2.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE-1"><span class="nav-number">2.3.</span> <span class="nav-text">CODE</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T3-Drink"><span class="nav-number">3.</span> <span class="nav-text">T3 Drink</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-2"><span class="nav-number">3.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输入-2"><span class="nav-number">3.1.1.</span> <span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输出-2"><span class="nav-number">3.1.2.</span> <span class="nav-text">样例输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据范围-2"><span class="nav-number">3.1.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-2"><span class="nav-number">3.2.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE-2"><span class="nav-number">3.3.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">T1 Blue</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.1.</span> <span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.2.</span> <span class="nav-text">样例输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">T2 Weed</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.1.</span> <span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.2.</span> <span class="nav-text">样例输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">CODE</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">T3 Drink</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.1.</span> <span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.2.</span> <span class="nav-text">样例输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.3.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></div>
             
 
           </div>

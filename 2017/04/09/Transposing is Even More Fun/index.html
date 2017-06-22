@@ -87,23 +87,38 @@
 
 
 
-<meta name="description" content="Transposing is Even More FunCOGS1608
-题目描述给你一个$2^a*2^b$的矩阵，在内存中的存放方式是先存第一行的，再存第二行的……每行也是从左到右存放。现在你想把它变成它的转置矩阵（也是一样的储存方式），但是只能用交换操作（即交换两个储存单元的内容），至少需要交换多少步？ 
-输入输出格式输入格式： 第1行数数据组数$c(1&amp;lt;=c&amp;lt;=400000)$.">
+<meta name="description" content="Transposing is Even More Fun
+COGS1608
+
+题目描述
+给你一个$2^a*2^b$的矩阵，在内存中的存放方式是先存第一行的，再存第二行的……每行也是从左到右存放。现在你想把它变成它的转置矩阵（也是一样的储存方式），但是只能用交换操作（即交换两个储存单元的内容），至少需要交换多少步？
+输入输出格式
+输入格式：
+第1行数数据组数$c(1&amp;lt;=c&amp;lt;=400000">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Transposing Is Even More Fun">
 <meta property="og:url" content="https://prostkhala.github.io/2017/04/09/Transposing is Even More Fun/index.html">
 <meta property="og:site_name" content="ST">
-<meta property="og:description" content="Transposing is Even More FunCOGS1608
-题目描述给你一个$2^a*2^b$的矩阵，在内存中的存放方式是先存第一行的，再存第二行的……每行也是从左到右存放。现在你想把它变成它的转置矩阵（也是一样的储存方式），但是只能用交换操作（即交换两个储存单元的内容），至少需要交换多少步？ 
-输入输出格式输入格式： 第1行数数据组数$c(1&amp;lt;=c&amp;lt;=400000)$.">
+<meta property="og:description" content="Transposing is Even More Fun
+COGS1608
+
+题目描述
+给你一个$2^a*2^b$的矩阵，在内存中的存放方式是先存第一行的，再存第二行的……每行也是从左到右存放。现在你想把它变成它的转置矩阵（也是一样的储存方式），但是只能用交换操作（即交换两个储存单元的内容），至少需要交换多少步？
+输入输出格式
+输入格式：
+第1行数数据组数$c(1&amp;lt;=c&amp;lt;=400000">
 <meta property="og:image" content="http://i4.buimg.com/567571/dab5972c63da0312.png">
 <meta property="og:updated_time" content="2017-04-27T08:33:38.421Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Transposing Is Even More Fun">
-<meta name="twitter:description" content="Transposing is Even More FunCOGS1608
-题目描述给你一个$2^a*2^b$的矩阵，在内存中的存放方式是先存第一行的，再存第二行的……每行也是从左到右存放。现在你想把它变成它的转置矩阵（也是一样的储存方式），但是只能用交换操作（即交换两个储存单元的内容），至少需要交换多少步？ 
-输入输出格式输入格式： 第1行数数据组数$c(1&amp;lt;=c&amp;lt;=400000)$.">
+<meta name="twitter:description" content="Transposing is Even More Fun
+COGS1608
+
+题目描述
+给你一个$2^a*2^b$的矩阵，在内存中的存放方式是先存第一行的，再存第二行的……每行也是从左到右存放。现在你想把它变成它的转置矩阵（也是一样的储存方式），但是只能用交换操作（即交换两个储存单元的内容），至少需要交换多少步？
+输入输出格式
+输入格式：
+第1行数数据组数$c(1&amp;lt;=c&amp;lt;=400000">
 <meta name="twitter:image" content="http://i4.buimg.com/567571/dab5972c63da0312.png">
 
 
@@ -502,40 +517,58 @@
       
 
       
-        <h1 id="Transposing-is-Even-More-Fun"><a href="#Transposing-is-Even-More-Fun" class="headerlink" title="Transposing is Even More Fun"></a>Transposing is Even More Fun</h1><h2 id="COGS1608"><a href="#COGS1608" class="headerlink" title="COGS1608"></a><a href="http://cogs.pro/cogs/problem/problem.php?pid=1608" target="_blank" rel="external">COGS1608</a></h2><hr>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个$2^a*2^b$的矩阵，在内存中的存放方式是先存第一行的，再存第二行的……每行也是从左到右存放。现在你想把它变成它的转置矩阵（也是一样的储存方式），但是只能用交换操作（即交换两个储存单元的内容），至少需要交换多少步？ </p>
-<h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h4><p> 第1行数数据组数$c(1&lt;=c&lt;=400000)$.</p>
-<p>接下来有c行，每行一组测试数据：两个整数$a,b(0&lt;=a+b&lt;=1000000)$。 </p>
-<h4 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h4><p>对每组数据输出一个整数，即转置矩阵需要的最少交换次数。因为这个次数可能很大，你只需要输出它模$1000003$的值（没错，这是个素数）。 </p>
-<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><pre><code>3
+        <h1>Transposing is Even More Fun</h1>
+<h2><a href="http://cogs.pro/cogs/problem/problem.php?pid=1608" target="_blank" rel="external">COGS1608</a></h2>
+<hr>
+<h2>题目描述</h2>
+<p>给你一个$2^a*2^b$的矩阵，在内存中的存放方式是先存第一行的，再存第二行的……每行也是从左到右存放。现在你想把它变成它的转置矩阵（也是一样的储存方式），但是只能用交换操作（即交换两个储存单元的内容），至少需要交换多少步？</p>
+<h3>输入输出格式</h3>
+<h4>输入格式：</h4>
+<p>第1行数数据组数$c(1&lt;=c&lt;=400000)$.</p>
+<p>接下来有c行，每行一组测试数据：两个整数$a,b(0&lt;=a+b&lt;=1000000)$。</p>
+<h4>输出格式：</h4>
+<p>对每组数据输出一个整数，即转置矩阵需要的最少交换次数。因为这个次数可能很大，你只需要输出它模$1000003$的值（没错，这是个素数）。</p>
+<h3>输入输出样例</h3>
+<h4>输入样例：</h4>
+<pre><code>3
 
 1 1
 
 2 2
 
 5 7 
-</code></pre><h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><pre><code>1
+</code></pre>
+<h4>输出样例：</h4>
+<pre><code>1
 
 6
 
 3744
-</code></pre><hr>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>该题所求的是最小步数不是计数，但仍可以通过polya定理求解。将矩阵表示成在内存中的存储方式，并将转置考虑为一种置换。<br>以$2^1 * 2^2$为例，则置换为</p>
+</code></pre>
+<hr>
+<h2>题解</h2>
+<p>该题所求的是最小步数不是计数，但仍可以通过polya定理求解。将矩阵表示成在内存中的存储方式，并将转置考虑为一种置换。
+以$2^1 * 2^2$为例，则置换为</p>
 <pre><code>0  1  
 2  3 
 4  5
 6  7
-</code></pre><p>到</p>
+</code></pre>
+<p>到</p>
 <pre><code>0  2  4  6
 1  3  5  7
-</code></pre><p>表示为</p>
+</code></pre>
+<p>表示为</p>
 <pre><code>/ 0 1 2 3 4 5 6 7 \
 \ 0 2 4 6 1 3 5 7 /
-</code></pre><p>亦或</p>
+</code></pre>
+<p>亦或</p>
 <pre><code>（1）（1 2 4）（3 6 5）（7）    
-</code></pre><p>考虑在任意一个循环节中，需要交换的次数即为 （ 循环节的长度 - 1 ） 次，且已知所有循环节长度为矩阵中元素的总个数（即为$2^{a+b}$个），则有</p>
+</code></pre>
+<p>考虑在任意一个循环节中，需要交换的次数即为 （ 循环节的长度 - 1 ） 次，且已知所有循环节长度为矩阵中元素的总个数（即为$2^{a+b}$个），则有</p>
 <p>$Ans=2^{a+b}-循环节个数$</p>
-<p>现在的问题就转换成了求解循环节的个数，已知$c(1&lt;=c&lt;=400000)$且$(0&lt;=a+b&lt;=1000000)$，则循环节的个数显然不能通过暴力求解。考虑这种置换对应矩阵中的转置，有一定的规律可循，不妨将元素转换为二进制进行观察。<br>则置换为</p>
+<p>现在的问题就转换成了求解循环节的个数，已知$c(1&lt;=c&lt;=400000)$且$(0&lt;=a+b&lt;=1000000)$，则循环节的个数显然不能通过暴力求解。考虑这种置换对应矩阵中的转置，有一定的规律可循，不妨将元素转换为二进制进行观察。
+则置换为</p>
 <pre><code>000 - 000
 001 - 010
 010 - 100
@@ -544,7 +577,8 @@
 101 - 011
 110 - 101
 111 - 111
-</code></pre><p>不难发现该转置操作中所有元素的二进制数皆循环右移了$a$位（也可以说循环左移了b位），我们也可以稍微推算一下，对于矩阵元素$（i，j）$来说，转置使其变为了$（j，i）$，将其表示为队列，则从第 $(i-1)<em>2^a+j$ 位转置为第 $(j-1)</em>2^b+i$ 位，即对应二进制的循环右移。那么可以将问题转化为一个polya定理的经典问题，即项链染色问题。将二进制的表示看为一种染色方案，长度为a+b，颜色为 0,1 两种，循环右移左移即对应项链的旋转。</p>
+</code></pre>
+<p>不难发现该转置操作中所有元素的二进制数皆循环右移了$a$位（也可以说循环左移了b位），我们也可以稍微推算一下，对于矩阵元素$（i，j）$来说，转置使其变为了$（j，i）$，将其表示为队列，则从第 $(i-1)*2^a+j$ 位转置为第 $(j-1)*2^b+i$ 位，即对应二进制的循环右移。那么可以将问题转化为一个polya定理的经典问题，即项链染色问题。将二进制的表示看为一种染色方案，长度为a+b，颜色为 0,1 两种，循环右移左移即对应项链的旋转。</p>
 <pre><code>以a=2，b=4为例。
 
 则项链为
@@ -556,19 +590,22 @@
     a5   a3
      \  /
       a4   
-</code></pre><p>但该题的置换群$G=${$不动，循环右移a位 $ } $ $，显然与原问题不同，那么不妨将项链压缩一下，根据前面的推理，可知循环右移$a$位与左移$b$位是一种操作，那么不妨将$gcd(a，b)$个点压为一个点。则例图转化为</p>
-<pre><code>     a1,2
+</code></pre>
+<p>但该题的置换群$G=${$不动，循环右移a位 $ } $ $，显然与原问题不同，那么不妨将项链压缩一下，根据前面的推理，可知循环右移$a$位与左移$b$位是一种操作，那么不妨将$gcd(a，b)$个点压为一个点。则例图转化为</p>
+<pre><code>	 a1,2
      /  \
  a5,6 -- a3,4
  此时对于任意一个点有2^gcd(a,b)中染色方案。
-</code></pre><p><img src="http://i4.buimg.com/567571/dab5972c63da0312.png" alt=""></p>
+</code></pre>
+<p><img src="http://i4.buimg.com/567571/dab5972c63da0312.png" alt=""></p>
 <p>则</p>
 <p>$Ans=2^{a+b}-(\sum_{d|n}k^{d}\varphi(n/d))/n$</p>
 <p>原式中</p>
 <p>$n=(a+b)/gcd(a,b),k=2^{gcd(a,b)}$</p>
 <p>由于原式需要取模，则需要求n的逆元，已知$a+b&lt;=1e6$,模数为$1e6+3$（为质数），易知两者互质，则可通过费马小定理求逆。</p>
 <hr>
-<h3 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h3><pre><code>#include&lt;iostream&gt;
+<h3>CODE</h3>
+<pre><code>#include&lt;iostream&gt;
 #include&lt;cstdio&gt;
 #include&lt;algorithm&gt;
 #include&lt;cmath&gt;
@@ -583,15 +620,15 @@ int gcd(int a,int b){return b?gcd(b,a%b):a;}
 void get(int &amp;x)
 {
     x=0;char ch=getchar();
-    while(ch&lt;&#39;0&#39;||ch&gt;&#39;9&#39;)ch=getchar();
-    while(ch&gt;=&#39;0&#39;&amp;&amp;ch&lt;=&#39;9&#39;){x=x*10+ch-&#39;0&#39;;ch=getchar();}
+    while(ch&lt;'0'||ch&gt;'9')ch=getchar();
+    while(ch&gt;='0'&amp;&amp;ch&lt;='9'){x=x*10+ch-'0';ch=getchar();}
 }
 void put(int x)
 {  
     int num = 0; char c[15];
     while(x) c[++num] = (x%10)+48, x /= 10;
     while(num) putchar(c[num--]);
-    putchar(&#39;\n&#39;); 
+    putchar('\n'); 
 }
 int qpow(int a,int b)
 {
@@ -623,8 +660,8 @@ int getprime()
 
 int main()
 {
-//    freopen(&quot;transp2.in&quot;,&quot;r&quot;,stdin);
-//    freopen(&quot;transp2.out&quot;,&quot;w&quot;,stdout);
+//	freopen(&quot;transp2.in&quot;,&quot;r&quot;,stdin);
+//	freopen(&quot;transp2.out&quot;,&quot;w&quot;,stdout);
     int T;
     getprime();
     scanf(&quot;%d&quot;,&amp;T);
@@ -645,8 +682,8 @@ int main()
         }
         put(((ll)pow2[a+b]-lin*inv%mod+mod)%mod);
     }
-}
-</code></pre>
+}</code></pre>
+
       
     </div>
 
@@ -830,7 +867,7 @@ int main()
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -921,7 +958,7 @@ int main()
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Transposing-is-Even-More-Fun"><span class="nav-number">1.</span> <span class="nav-text">Transposing is Even More Fun</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#COGS1608"><span class="nav-number">1.1.</span> <span class="nav-text">COGS1608</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.2.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出格式"><span class="nav-number">1.2.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入格式："><span class="nav-number">1.2.1.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出格式："><span class="nav-number">1.2.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出样例"><span class="nav-number">1.2.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入样例："><span class="nav-number">1.2.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出样例："><span class="nav-number">1.2.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解"><span class="nav-number">1.3.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE"><span class="nav-number">1.3.1.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Transposing is Even More Fun</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">COGS1608</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.1.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

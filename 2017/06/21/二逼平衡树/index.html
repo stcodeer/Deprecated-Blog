@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="仙人掌图,Tarjan,动态规划,数位动态规划,凸包," />
+  <meta name="keywords" content="SPLAY,线段树,二分答案,TREAP," />
 
 
 
@@ -87,28 +87,52 @@
 
 
 
-<meta name="description" content="BZOJ1023 SHOI2008 cactus仙人掌图
-题意为求仙人掌图的直径。这题看起来完全没思路，最后看的题解。get了一种Tarjan的用法，先用其求出DFS树，用dp更新树边的直径最大值，考虑将其他非树边以环形dp更新，由于边的权值均为1，所以可以进行单调队列优化。其中利用到了仙人掌的一些性质。
+<meta name="description" content="TYVJ1730 二逼平衡树
+COGS1594
 
-BZOJ1024 SCOI2009 生日快乐
-搜索，考虑切成n块后面积是一样的，那么实际上">
+题目描述
+您需要写一种数据结构（可参考题目标题），来维护一个有序数列，其中需要提供以下操作：
+1.查询k在区间内的排名
+2.查询区间内排名为k的值
+3.修改某一位值上的数值
+4.查询k在区间内的前驱(前驱定义为小于x，且最大的数)
+5.查询k在区间内的后继(后继定义为大于x，且最小的数)
+输入输出格式
+输入格式：
+第一行两个数 n,m 表示长度为n">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2017年5月 题目总结">
-<meta property="og:url" content="https://prostkhala.github.io/2017/05/02/2017年5月 题目总结/index.html">
+<meta property="og:title" content="二逼平衡树">
+<meta property="og:url" content="https://prostkhala.github.io/2017/06/21/二逼平衡树/index.html">
 <meta property="og:site_name" content="ST">
-<meta property="og:description" content="BZOJ1023 SHOI2008 cactus仙人掌图
-题意为求仙人掌图的直径。这题看起来完全没思路，最后看的题解。get了一种Tarjan的用法，先用其求出DFS树，用dp更新树边的直径最大值，考虑将其他非树边以环形dp更新，由于边的权值均为1，所以可以进行单调队列优化。其中利用到了仙人掌的一些性质。
+<meta property="og:description" content="TYVJ1730 二逼平衡树
+COGS1594
 
-BZOJ1024 SCOI2009 生日快乐
-搜索，考虑切成n块后面积是一样的，那么实际上">
-<meta property="og:updated_time" content="2017-05-02T12:42:19.064Z">
+题目描述
+您需要写一种数据结构（可参考题目标题），来维护一个有序数列，其中需要提供以下操作：
+1.查询k在区间内的排名
+2.查询区间内排名为k的值
+3.修改某一位值上的数值
+4.查询k在区间内的前驱(前驱定义为小于x，且最大的数)
+5.查询k在区间内的后继(后继定义为大于x，且最小的数)
+输入输出格式
+输入格式：
+第一行两个数 n,m 表示长度为n">
+<meta property="og:updated_time" content="2017-06-22T00:26:34.309Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2017年5月 题目总结">
-<meta name="twitter:description" content="BZOJ1023 SHOI2008 cactus仙人掌图
-题意为求仙人掌图的直径。这题看起来完全没思路，最后看的题解。get了一种Tarjan的用法，先用其求出DFS树，用dp更新树边的直径最大值，考虑将其他非树边以环形dp更新，由于边的权值均为1，所以可以进行单调队列优化。其中利用到了仙人掌的一些性质。
+<meta name="twitter:title" content="二逼平衡树">
+<meta name="twitter:description" content="TYVJ1730 二逼平衡树
+COGS1594
 
-BZOJ1024 SCOI2009 生日快乐
-搜索，考虑切成n块后面积是一样的，那么实际上">
+题目描述
+您需要写一种数据结构（可参考题目标题），来维护一个有序数列，其中需要提供以下操作：
+1.查询k在区间内的排名
+2.查询区间内排名为k的值
+3.修改某一位值上的数值
+4.查询k在区间内的前驱(前驱定义为小于x，且最大的数)
+5.查询k在区间内的后继(后继定义为大于x，且最小的数)
+输入输出格式
+输入格式：
+第一行两个数 n,m 表示长度为n">
 
 
 
@@ -136,13 +160,13 @@ BZOJ1024 SCOI2009 生日快乐
 
 
 
-  <link rel="canonical" href="https://prostkhala.github.io/2017/05/02/2017年5月 题目总结/"/>
+  <link rel="canonical" href="https://prostkhala.github.io/2017/06/21/二逼平衡树/"/>
 
 
 
 
 
-  <title> 2017年5月 题目总结 | ST </title>
+  <title> 二逼平衡树 | ST </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -355,7 +379,7 @@ BZOJ1024 SCOI2009 生日快乐
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://prostkhala.github.io/2017/05/02/2017年5月 题目总结/">
+    <link itemprop="mainEntityOfPage" href="https://prostkhala.github.io/2017/06/21/二逼平衡树/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ST">
@@ -376,7 +400,7 @@ BZOJ1024 SCOI2009 生日快乐
             
             
               
-                2017年5月 题目总结
+                二逼平衡树
               
             
           </h2>
@@ -391,8 +415,8 @@ BZOJ1024 SCOI2009 生日快乐
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-02T08:04:05+08:00">
-                2017-05-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-21T15:15:11+08:00">
+                2017-06-21
               </time>
             
 
@@ -407,8 +431,8 @@ BZOJ1024 SCOI2009 生日快乐
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2017-05-02T20:42:19+08:00">
-                2017-05-02
+              <time title="Post modified" itemprop="dateModified" datetime="2017-06-22T08:26:34+08:00">
+                2017-06-22
               </time>
             
           </span>
@@ -426,8 +450,19 @@ BZOJ1024 SCOI2009 生日快乐
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/总结/" itemprop="url" rel="index">
-                    <span itemprop="name">总结</span>
+                  <a href="/categories/平衡树/" itemprop="url" rel="index">
+                    <span itemprop="name">平衡树</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/平衡树/SPLAY/" itemprop="url" rel="index">
+                    <span itemprop="name">SPLAY</span>
                   </a>
                 </span>
 
@@ -444,8 +479,8 @@ BZOJ1024 SCOI2009 生日快乐
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/05/02/2017年5月 题目总结/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/02/2017年5月 题目总结/" itemprop="commentCount"></span>
+                <a href="/2017/06/21/二逼平衡树/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/21/二逼平衡树/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -506,53 +541,272 @@ BZOJ1024 SCOI2009 生日快乐
       
 
       
-        <h3><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1023" target="_blank" rel="external">BZOJ1023</a> SHOI2008 cactus仙人掌图</h3>
-<p>题意为求仙人掌图的直径。这题看起来完全没思路，最后看的题解。get了一种Tarjan的用法，先用其求出DFS树，用dp更新树边的直径最大值，考虑将其他非树边以环形dp更新，由于边的权值均为1，所以可以进行单调队列优化。其中利用到了仙人掌的一些性质。</p>
+        <h1>TYVJ1730 二逼平衡树</h1>
+<h2><a href="http://cogs.pro/cogs/problem/problem.php?pid=1594" target="_blank" rel="external">COGS1594</a></h2>
 <hr>
-<h3><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1024" target="_blank" rel="external">BZOJ1024</a> SCOI2009 生日快乐</h3>
-<p>搜索，考虑切成n块后面积是一样的，那么实际上对于每一个切割后的蛋糕，需要继续处理的操作数的一定的，深搜即可。核心代码如下：</p>
-<pre><code>double work(double x,double y,int k)//x，y为长与宽，k为对于该块蛋糕剩余操作个数。
+<h2>题目描述</h2>
+<p>您需要写一种数据结构（可参考题目标题），来维护一个有序数列，其中需要提供以下操作：
+1.查询k在区间内的排名
+2.查询区间内排名为k的值
+3.修改某一位值上的数值
+4.查询k在区间内的前驱(前驱定义为小于x，且最大的数)
+5.查询k在区间内的后继(后继定义为大于x，且最小的数)</p>
+<h3>输入输出格式</h3>
+<h4>输入格式：</h4>
+<p>第一行两个数 n,m 表示长度为n的有序序列和m个操作
+第二行有n个数，表示有序序列
+下面有m行，opt表示操作标号
+若opt=1 则为操作1，之后有三个数l,r,k 表示查询k在区间[l,r]的排名
+若opt=2 则为操作2，之后有三个数l,r,k 表示查询区间[l,r]内排名为k的数
+若opt=3 则为操作3，之后有两个数pos,k 表示将pos位置的数修改为k
+若opt=4 则为操作4，之后有三个数l,r,k 表示查询区间[l,r]内k的前驱
+若opt=5 则为操作5，之后有三个数l,r,k 表示查询区间[l,r]内k的后继</p>
+<h4>输出格式：</h4>
+<p>对于操作1,2,4,5各输出一行，表示查询结果</p>
+<h3>输入输出样例</h3>
+<h4>输入样例：</h4>
+<pre><code>9 6
+4 2 2 1 9 4 0 1 1
+2 1 4 3
+3 4 10
+2 1 4 3
+1 2 5 9
+4 3 9 5
+5 2 8 5
+</code></pre>
+<h4>输出样例：</h4>
+<pre><code>2
+4
+3
+4
+9
+</code></pre>
+<h3>数据范围</h3>
+<p>$n,m&lt;=50000$   保证有序序列所有值在任何时刻满足$[0,10^8]$</p>
+<hr>
+<h2>题解</h2>
+<p>本题正解有很多种，较常见的为树状数组套主席树，SPLAY套线段树，TREAP套线段树，其中实际时间复杂度最低的是树状数组套主席树和用归并进行可持久化的SPLAY套线段树，而较容易实现的是SPLAY套线段树。</p>
+<p>此处只介绍SPLAY套线段树和树状数组套主席树的方法。</p>
+<h3>SPLAY套线段树</h3>
+<p>对于每个线段树中代表区间的节点建一颗SPLAY树，存储原数列中下标在该节点包含的区间内的信息，对于每一个下标，需要在$logn$个节点中存储，则实际的SPLAY空间只需要$2nlogn$的大小。对于大多数操作，均可以利用归并的的思想求解，而对于操作二，可以二分答案，找到最小的满足数列中$A[mid]$的排名为$k$的值。</p>
+<p>对于SPLAY来说，其中寻找前驱后继和排名的操作如果每次插入新点的话，将会导致时间复杂度大大提高。</p>
+<h3>树状数组套主席树</h3>
+<p>区间K大，修改数值都是树状数组套主席树所支持的基本操作，而对于操作二，同样可以通过二分答案实现，对于需要前驱后继的操作，可以通过操作一，二结合实现，即先找到该数值的排名$K$，在寻找排名$K-1$或$K+1$的数值，对于重复的问题需要根据题目进行特殊判断。</p>
+<hr>
+<h3>CODE</h3>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#define pd(i) (i&gt;='0'&amp;&amp;i&lt;='9')
+using namespace std;
+const int N = 5e4+1;
+const int inf = 0x7fffffff;
+const int M = N*40;
+
+int son[M][2],n,m,fa[M],w[M],s[M],L[M],R[M],num[M],root[M],tot,a[N];
+
+int in()
 {
-    if (k==1)return max(x,y)/min(x,y);
-    double ans=inf;
-    for(int i=1;i&lt;k;++i)
-    ans=min(ans,max(work(x,y/k*i,i),work(x,y/k*(k-i),k-i)));
-    //取min是因为答案要求最小值，取max是因为属于同一块蛋糕。
-    for(int i=1;i&lt;k;++i)
-    ans=min(ans,max(work(x/k*i,y,i),work(x/k*(k-i),y,k-i)));
-    return ans;
+    int t=0,f=1;
+    char ch=getchar();
+    while (!pd(ch))
+    {
+        if (ch=='-') f=-1;
+        ch=getchar();
+    }
+    while (pd(ch)) t=(t&lt;&lt;3)+(t&lt;&lt;1)+ch-'0',ch=getchar();
+    return f*t;
+}
+
+void up(int x){s[x]=s[son[x][0]]+s[son[x][1]]+num[x];}
+
+void rotate(int x)
+{
+    int y=fa[x],z=fa[y],t=son[y][0]==x;
+    fa[y]=x;fa[x]=z;
+    if(z)son[z][son[z][1]==y]=x;
+    son[y][!t]=son[x][t];fa[son[x][t]]=y;
+    son[x][t]=y;
+    up(y);up(x);
+}
+
+void splay(int i,int x,int f)
+{
+    while(fa[x]!=f)
+    {
+        int y=fa[x],z=fa[y];
+        if(z!=f)
+        {
+            if(son[y][0]==x^son[z][0]==y)rotate(x);
+            else                        rotate(y);
+        }
+        rotate(x);
+    }
+    if(!f)root[i]=x;
+}
+
+void insert(int i,int &amp;x,int f,int val)
+{
+    if(!x)
+    {
+        x=++tot;fa[x]=f;
+        son[x][0]=son[x][1]=0;
+        w[x]=val;s[x]=num[x]=1;
+        splay(i,x,0);
+        return;
+    }
+    if(w[x]==val){s[x]++;num[x]++;splay(i,x,0);return;}
+    insert(i,son[x][val&gt;w[x]],x,val);
+    up(x);
+}
+
+int get(int i,int val)
+{
+    int x=root[i];
+    while(x&amp;&amp;w[x]!=val)x=son[x][val&gt;w[x]];
+    return x;
+}
+
+void delet(int i,int x)
+{
+    x=get(i,x);splay(i,x,0);
+    if(num[x]&gt;1){num[x]--;s[x]--;return;}
+    if(son[x][0]*son[x][1]==0)root[i]=son[x][0]+son[x][1];
+    else
+    {
+        int y=son[x][1];while(son[y][0])y=son[y][0];
+        splay(i,y,x);
+        fa[son[x][0]]=y;
+        son[y][0]=son[x][0];
+        root[i]=y;
+        son[x][0]=son[x][1]=0;
+    }
+    fa[root[i]]=0;
+    up(root[i]);
+}
+
+void build(int now,int l,int r,int x,int val)
+{
+    L[now]=l;R[now]=r;
+    insert(now,root[now],0,val);
+    if(l==r)return;
+    int mid=l+r&gt;&gt;1;
+    if(x&lt;=mid) 	build(now*2,l,mid,x,val);
+    else		build(now*2+1,mid+1,r,x,val);
+    return;
+}
+
+int rk(int i,int val)
+{
+    int x=root[i],ret=0;
+    while(x)
+    {
+        if(w[x]&lt;val)ret+=s[son[x][0]]+num[x],x=son[x][1];
+        else	x=son[x][0];
+    }
+    return ret;
+}
+
+int getrk(int now,int x,int y,int k)
+{
+    int l=L[now],r=R[now];
+    if(x&lt;=l&amp;&amp;r&lt;=y)return rk(now,k);
+    int mid=l+r&gt;&gt;1;int ret=0;
+    if(x&lt;=mid)	ret+=getrk(now*2,x,y,k);
+    if(y&gt;mid)	ret+=getrk(now*2+1,x,y,k);
+    return ret;
+}
+
+int kth(int x,int y,int k)
+{
+    int l=0,r=inf;
+    while(l!=r)
+    {
+        int mid=l+r+1&gt;&gt;1;
+        if(getrk(1,x,y,mid)+1&lt;=k)
+                l=mid;
+        else	r=mid-1;
+    }
+    return l;
+}
+
+void change(int now,int x,int val,int __val)
+{
+    int l=L[now],r=R[now];
+    delet(now,__val);insert(now,root[now],0,val);
+    if(l==r)return;
+    int mid=l+r&gt;&gt;1;
+    if(x&lt;=mid)	change(now*2,x,val,__val);
+    else		change(now*2+1,x,val,__val);
+    return;
+}
+
+int pre(int i,int val)
+{
+    int x=root[i],ret=-inf;
+    while(x)
+    {
+        if(w[x]&gt;=val)x=son[x][0];
+        else	ret=max(ret,w[x]),x=son[x][1];
+    }
+    return ret;
+}
+
+int ne(int i,int val)
+{
+    int x=root[i],ret=inf;
+    while(x)
+    {
+        if(w[x]&gt;val)ret=min(ret,w[x]),x=son[x][0];
+        else	x=son[x][1];
+    }
+    return ret;
+}
+
+int getpre(int now,int x,int y,int val)
+{
+    int l=L[now],r=R[now];
+    if(x&lt;=l&amp;&amp;r&lt;=y)return pre(now,val);
+    int mid=l+r&gt;&gt;1,ret=-inf;
+    if(x&lt;=mid) 	ret=max(ret,getpre(now*2,x,y,val));
+    if(y&gt;mid)	ret=max(ret,getpre(now*2+1,x,y,val));
+    return ret;
+}
+
+int getne(int now,int x,int y,int val)
+{
+    int l=L[now],r=R[now];
+    if(x&lt;=l&amp;&amp;r&lt;=y)return ne(now,val);
+    int mid=l+r&gt;&gt;1,ret=inf;
+    if(x&lt;=mid)	ret=min(ret,getne(now*2,x,y,val));
+    if(y&gt;mid)	ret=min(ret,getne(now*2+1,x,y,val));
+    return ret;
+}
+
+int main()
+{
+    freopen(&quot;psh.in&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;psh.out&quot;,&quot;w&quot;,stdout);
+    n=in();m=in();
+    for(int i=1;i&lt;=n;++i)
+    {
+        a[i]=in();
+        build(1,1,n,i,a[i]);
+    }
+    for(int i=1,op,x,y,k,pos;i&lt;=m;++i)
+    {
+        op=in();
+        switch(op)
+        {
+            case 1:x=in();y=in();k=in();printf(&quot;%d\n&quot;,getrk(1,x,y,k)+1);break;
+            case 2:x=in();y=in();k=in();printf(&quot;%d\n&quot;,kth(x,y,k));break;
+            case 3:pos=in();k=in();change(1,pos,k,a[pos]);a[pos]=k;break;
+            case 4:x=in();y=in();k=in();printf(&quot;%d\n&quot;,getpre(1,x,y,k));break;
+            case 5:x=in();y=in();k=in();printf(&quot;%d\n&quot;,getne(1,x,y,k));break;
+        }
+    }
 }
 </code></pre>
-<hr>
-<h3><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1025" target="_blank" rel="external">BZOJ1025</a> SCOI2009 游戏</h3>
-<p>题意为给定$n$个元素，求在$n$的全排列的置换中的周期（即为各个循环节的公倍数），等价于$n$的整数拆分中的最小公倍数数量，直接枚举显然会超时，不妨用dp处理，枚举质因子以及幂即可。</p>
-<hr>
-<h3><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1025" target="_blank" rel="external">BZOJ1026</a> SCOI2009 windy数</h3>
-<p>数位DP（一般是求在$[L,R]$之间有多少满足条件的数，然而并没有学过，膜的题解），先预处理有$k$位时，最高位为$i$时的
-答案，通过交集，并集的关系求一下即可。</p>
-<hr>
-<h3><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1027" target="_blank" rel="external">BZOJ1027</a> JSOI2007 合金</h3>
-<p>构造题，已知$a+b+c=1$，可将第三维浓度去掉，那么目标浓度可由条件浓度转化而来，当且仅当$min(a_{condition})&lt;a_{target}&lt;max(a_{condition})$
-$min(b_{condition})&lt;b_{target}&lt;max(b_{condition})$
-那么可以将其转化为二维平面的凸包问题，给定可选点，要求用最少的点使其凸包包含所有目标点。</p>
-<hr>
-<h3><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1028" target="_blank" rel="external">BZOJ1028</a> JSOI2007 麻将</h3>
-<p>观察$n,m$的范围，可知贪心就能过。</p>
-<hr>
-<h3><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1029" target="_blank" rel="external">BZOJ1029</a> JSOI2007 建筑抢修</h3>
-<p>还是贪心，涨自信题。</p>
-<hr>
-<h3><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1030" target="_blank" rel="external">BZOJ1030</a> JSOI2007 文本生成器</h3>
-<p>AC自动机模板题，见<a href="https://prostkhala.github.io/2017/03/18/DNA%20Sequence/#more">DNA Sequence</a>,不过这题$m$范围很小，而子串的长度更大，所以不需要矩阵快速幂（会TLE），直接DP即可。</p>
-<hr>
-<h3><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1031" target="_blank" rel="external">BZOJ1031</a> JSOI2007 字符加密</h3>
-<p>后缀数组模板题，利用后缀的性质将条件串接到自己后面，这样就包换了所有情况，求sa即可。</p>
-<hr>
-<h3><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1032" target="_blank" rel="external">BZOJ1032</a> JSOI2007 祖码</h3>
-<p>区间DP，标程没有考虑到连续消除的问题，导致数据都错了。</p>
-<hr>
-<h3><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1034" target="_blank" rel="external">BZOJ1034</a> ZJOI2008 泡泡堂</h3>
-<p>贪心，对于最好情况，先将对手实力值与ZJ实力值排序，如果ZJ最低的实力值比对手最低的实力值大，那么为了战胜对手，将两者比试的代价最小，如果ZJ最高的实力值比对手最高的实力值大时，那么为了战胜对手，此时只要ZJ取一个比对手该实力值高的元素即可，为了方便，可以取最后一个。当两者均不满足时，则与对手实力值最高的元素比试总不能获胜，为了代价最小，将ZJ实力值最小的元素与其进行比试。</p>
 
       
     </div>
@@ -576,15 +830,13 @@ $min(b_{condition})&lt;b_{target}&lt;max(b_{condition})$
       
         <div class="post-tags">
           
-            <a href="/tags/仙人掌图/" rel="tag"># 仙人掌图</a>
+            <a href="/tags/SPLAY/" rel="tag"># SPLAY</a>
           
-            <a href="/tags/Tarjan/" rel="tag"># Tarjan</a>
+            <a href="/tags/线段树/" rel="tag"># 线段树</a>
           
-            <a href="/tags/动态规划/" rel="tag"># 动态规划</a>
+            <a href="/tags/二分答案/" rel="tag"># 二分答案</a>
           
-            <a href="/tags/数位动态规划/" rel="tag"># 数位动态规划</a>
-          
-            <a href="/tags/凸包/" rel="tag"># 凸包</a>
+            <a href="/tags/TREAP/" rel="tag"># TREAP</a>
           
         </div>
       
@@ -607,8 +859,8 @@ $min(b_{condition})&lt;b_{target}&lt;max(b_{condition})$
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/27/SDOI2017 数字表格/" rel="next" title="SDOI2017 数字表格">
-                <i class="fa fa-chevron-left"></i> SDOI2017 数字表格
+              <a href="/2017/06/19/动态树总结/" rel="next" title="动态树总结">
+                <i class="fa fa-chevron-left"></i> 动态树总结
               </a>
             
           </div>
@@ -616,10 +868,6 @@ $min(b_{condition})&lt;b_{target}&lt;max(b_{condition})$
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/07/主席树总结/" rel="prev" title="主席树总结">
-                主席树总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -683,8 +931,8 @@ $min(b_{condition})&lt;b_{target}&lt;max(b_{condition})$
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/05/02/2017年5月 题目总结/"
-           data-title="2017年5月 题目总结" data-url="https://prostkhala.github.io/2017/05/02/2017年5月 题目总结/">
+      <div class="ds-thread" data-thread-key="2017/06/21/二逼平衡树/"
+           data-title="二逼平衡树" data-url="https://prostkhala.github.io/2017/06/21/二逼平衡树/">
       </div>
     
   </div>
@@ -824,7 +1072,7 @@ $min(b_{condition})&lt;b_{target}&lt;max(b_{condition})$
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">BZOJ1023 SHOI2008 cactus仙人掌图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">BZOJ1024 SCOI2009 生日快乐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">BZOJ1025 SCOI2009 游戏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">BZOJ1026 SCOI2009 windy数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">BZOJ1027 JSOI2007 合金</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">BZOJ1028 JSOI2007 麻将</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">BZOJ1029 JSOI2007 建筑抢修</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">8.</span> <span class="nav-text">BZOJ1030 JSOI2007 文本生成器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">9.</span> <span class="nav-text">BZOJ1031 JSOI2007 字符加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">10.</span> <span class="nav-text">BZOJ1032 JSOI2007 祖码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">11.</span> <span class="nav-text">BZOJ1034 ZJOI2008 泡泡堂</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">TYVJ1730 二逼平衡树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">COGS1594</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.1.</span> <span class="nav-text">SPLAY套线段树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.2.</span> <span class="nav-text">树状数组套主席树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.3.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

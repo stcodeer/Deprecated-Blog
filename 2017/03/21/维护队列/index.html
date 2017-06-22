@@ -87,34 +87,43 @@
 
 
 
-<meta name="description" content="NOI2005 维护数列洛谷2042 COGS339
-题目描述 请写一个程序，要求维护一个数列，支持以下 6 种操作：（请注意，格式栏 中的下划线‘ _ ’表示实际输入文件中的空格）
-操作编号    输入文件中的格式    说明
+<meta name="description" content="NOI2005 维护数列
+洛谷2042 COGS339
+
+题目描述
+请写一个程序，要求维护一个数列，支持以下 6 种操作：（请注意，格式栏 中的下划线‘ _ ’表示实际输入文件中的空格）
+操作编号	输入文件中的格式	说明
 
 
-1.  插入    INSERT_posi_tot_c1_c2_..._ctot
-在当前数列的第 posi 个数字后插入 tot个数字：c1, c2, …, ctot">
+1.  插入	INSERT_posi_tot_c1_c2_..._ctot
+在当前数列的第 posi 个数字后插入 tot个数字：c1, c2, …, ctot；若在数列首插">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NOI2005 维修数列">
 <meta property="og:url" content="https://prostkhala.github.io/2017/03/21/维护队列/index.html">
 <meta property="og:site_name" content="ST">
-<meta property="og:description" content="NOI2005 维护数列洛谷2042 COGS339
-题目描述 请写一个程序，要求维护一个数列，支持以下 6 种操作：（请注意，格式栏 中的下划线‘ _ ’表示实际输入文件中的空格）
-操作编号    输入文件中的格式    说明
+<meta property="og:description" content="NOI2005 维护数列
+洛谷2042 COGS339
+
+题目描述
+请写一个程序，要求维护一个数列，支持以下 6 种操作：（请注意，格式栏 中的下划线‘ _ ’表示实际输入文件中的空格）
+操作编号	输入文件中的格式	说明
 
 
-1.  插入    INSERT_posi_tot_c1_c2_..._ctot
-在当前数列的第 posi 个数字后插入 tot个数字：c1, c2, …, ctot">
+1.  插入	INSERT_posi_tot_c1_c2_..._ctot
+在当前数列的第 posi 个数字后插入 tot个数字：c1, c2, …, ctot；若在数列首插">
 <meta property="og:updated_time" content="2017-03-22T11:22:14.332Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NOI2005 维修数列">
-<meta name="twitter:description" content="NOI2005 维护数列洛谷2042 COGS339
-题目描述 请写一个程序，要求维护一个数列，支持以下 6 种操作：（请注意，格式栏 中的下划线‘ _ ’表示实际输入文件中的空格）
-操作编号    输入文件中的格式    说明
+<meta name="twitter:description" content="NOI2005 维护数列
+洛谷2042 COGS339
+
+题目描述
+请写一个程序，要求维护一个数列，支持以下 6 种操作：（请注意，格式栏 中的下划线‘ _ ’表示实际输入文件中的空格）
+操作编号	输入文件中的格式	说明
 
 
-1.  插入    INSERT_posi_tot_c1_c2_..._ctot
-在当前数列的第 posi 个数字后插入 tot个数字：c1, c2, …, ctot">
+1.  插入	INSERT_posi_tot_c1_c2_..._ctot
+在当前数列的第 posi 个数字后插入 tot个数字：c1, c2, …, ctot；若在数列首插">
 
 
 
@@ -523,33 +532,42 @@
       
 
       
-        <h1 id="NOI2005-维护数列"><a href="#NOI2005-维护数列" class="headerlink" title="NOI2005 维护数列"></a>NOI2005 维护数列</h1><h2 id="洛谷2042-COGS339"><a href="#洛谷2042-COGS339" class="headerlink" title="洛谷2042 COGS339"></a><a href="https://www.luogu.org/problem/show?pid=2042" target="_blank" rel="external">洛谷2042</a> <a href="http://cogs.pro/cogs/problem/problem.php?pid=339" target="_blank" rel="external">COGS339</a></h2><hr>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p> 请写一个程序，要求维护一个数列，支持以下 6 种操作：（请注意，格式栏 中的下划线‘ _ ’表示实际输入文件中的空格）</p>
-<pre><code>操作编号    输入文件中的格式    说明
+        <h1>NOI2005 维护数列</h1>
+<h2><a href="https://www.luogu.org/problem/show?pid=2042" target="_blank" rel="external">洛谷2042</a> <a href="http://cogs.pro/cogs/problem/problem.php?pid=339" target="_blank" rel="external">COGS339</a></h2>
+<hr>
+<h2>题目描述</h2>
+<p>请写一个程序，要求维护一个数列，支持以下 6 种操作：（请注意，格式栏 中的下划线‘ _ ’表示实际输入文件中的空格）</p>
+<pre><code>操作编号	输入文件中的格式	说明
 
 
-1.  插入    INSERT_posi_tot_c1_c2_..._ctot
+1.  插入	INSERT_posi_tot_c1_c2_..._ctot
 在当前数列的第 posi 个数字后插入 tot个数字：c1, c2, …, ctot；若在数列首插入，则 posi 为 0
 
-2.  删除    DELETE_posi_tot
+2.  删除	DELETE_posi_tot
 从当前数列的第 posi 个数字开始连续删除 tot 个数字
 
-3.  修改    MAKE-SAME_posi_tot_c
+3.  修改	MAKE-SAME_posi_tot_c
  将当前数列的第 posi 个数字开始的连续 tot 个数字统一修改为 c
 
-4.  翻转    REVERSE_posi_tot
- 取出从当前数列的第 posi 个数字开始的 tot 个数字，翻转后放入原来的位置
+4.  翻转	REVERSE_posi_tot
+取出从当前数列的第 posi 个数字开始的 tot 个数字，翻转后放入原来的位置
 
-5.  求和    GET-SUM_posi_tot
+5.  求和	GET-SUM_posi_tot
 计算从当前数列开始的第 posi 个数字开始的 tot 个数字的和并输出
 
-6.  求和最大的子列    MAX-SUM
+6.  求和最大的子列	MAX-SUM
 求出当前数列中和最大的一段子列，并输出最大和 
-</code></pre><h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h4><p> 输入文件的第 1 行包含两个数 N 和 M，N 表示初始时数列中数的个数，M表示要进行的操作数目。</p>
+</code></pre>
+<h3>输入输出格式</h3>
+<h4>输入格式：</h4>
+<p>输入文件的第 1 行包含两个数 N 和 M，N 表示初始时数列中数的个数，M表示要进行的操作数目。</p>
 <p>第 2 行包含 N 个数字，描述初始时的数列。</p>
-<p>以下 M 行，每行一条命令，格式参见问题描述中的表格。 </p>
-<h4 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h4><p>对于输入数据中的 GET-SUM 和 MAX-SUM 操作，向输出文件依次打印结果，每个答案（数字）占一行。 </p>
-<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><pre><code>9 8
+<p>以下 M 行，每行一条命令，格式参见问题描述中的表格。</p>
+<h4>输出格式：</h4>
+<p>对于输入数据中的 GET-SUM 和 MAX-SUM 操作，向输出文件依次打印结果，每个答案（数字）占一行。</p>
+<h3>输入输出样例</h3>
+<h4>输入样例：</h4>
+<pre><code>9 8
 2 -6 3 5 1 -5 -3 6 3
 GET-SUM 5 4
 MAX-SUM INSERT 8 3 -5 7 2
@@ -558,24 +576,30 @@ MAKE-SAME 3 3 2
 REVERSE 3 6
 GET-SUM 5 4
 MAX-SUM
-</code></pre><h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><pre><code>-1
+</code></pre>
+<h4>输出样例：</h4>
+<pre><code>-1
 10
 1
 10
-</code></pre><h3 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h3><p>你可以认为在任何时刻，数列中至少有 1 个数。</p>
+</code></pre>
+<h3>数据范围</h3>
+<p>你可以认为在任何时刻，数列中至少有 1 个数。</p>
 <p>输入数据一定是正确的，即指定位置的数在数列中一定存在。</p>
 <p>50%的数据中，任何时刻数列中最多含有 30 000 个数；</p>
 <p>100%的数据中，任何时刻数列中最多含有 500 000 个数。</p>
 <p>100%的数据中，任何时刻数列中任何一个数字均在[-1 000, 1 000]内。</p>
 <p>100%的数据中，M ≤20 000，插入的数字总数不超过 4 000 000 个，输入文件大小不超过 20MBytes。</p>
 <hr>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>对于删除操作和插入操作，应将删除区间左边一位的端点旋转到根，再将区间右边一位的端点旋转到根的右儿子（对于插入操作则为将插入位置前一位旋转到根，后一位旋转到其右儿子），需要注意的是，插入元素时应按顺序建立二分搜索树，而不应直接插入，否则会导致时间复杂度过高，同时操作后也要注意更新信息。</p>
+<h2>题解</h2>
+<p>对于删除操作和插入操作，应将删除区间左边一位的端点旋转到根，再将区间右边一位的端点旋转到根的右儿子（对于插入操作则为将插入位置前一位旋转到根，后一位旋转到其右儿子），需要注意的是，插入元素时应按顺序建立二分搜索树，而不应直接插入，否则会导致时间复杂度过高，同时操作后也要注意更新信息。</p>
 <p>对于修改操作和反转操作，可以借鉴线段树的懒人标记，在进行形如删除操作的旋转后，将操作区间打上标记，将深度最浅的节点进行操作，然后在待该子树变动时再下传标记。</p>
 <p>对于求和操作，具体实现与线段树相同。</p>
 <p>对于求最大子串和的操作，可以其具体实现与动规相同，只是在其他操作中实时更新，这样便可以做到$O(1)$查询。</p>
 <p>（一开始写了个几近暴力的实现，后两个操作都是遍历一遍后才能得到答案。数据范围中虽然说明最多会插入4e6个元素，但同时也说明队列中最多只有5e5个元素，对此可以进行空间上的优化，将被删除元素的下标标记下来，添加时重新使用。）</p>
 <hr>
-<h3 id="CODE-V1（暴力）"><a href="#CODE-V1（暴力）" class="headerlink" title="CODE V1（暴力）"></a>CODE V1（暴力）</h3><pre><code>#include&lt;iostream&gt;
+<h3>CODE V1（暴力）</h3>
+<pre><code>#include&lt;iostream&gt;
 #include&lt;cstdio&gt;
 const int N = 4e6+5;
 const int inf = 0x7fffffff;
@@ -615,7 +639,7 @@ void splay(int x,int f)
             if(son[z][0]==y^son[y][0]==x) zg(x);
             else zg(y);
         } 
-        zg(x);    
+        zg(x);	
     }
     if(!f) root=x;
 }
@@ -666,15 +690,15 @@ int inordermax(int x)
         max1=max(max1,a[w[x]]);
         sum1+=a[w[x]]*num[x];
         if(sum1&gt;0)ans1=max(ans1,sum1);
-        else    sum1=0;
+        else	sum1=0;
     }
     if(son[x][1])inordermax(son[x][1]);
 }
 
 int main()
 {
-//    freopen(&quot;seq2005.in&quot;,&quot;r&quot;,stdin);
-//    freopen(&quot;seq2005.out&quot;,&quot;w&quot;,stdout);
+//	freopen(&quot;seq2005.in&quot;,&quot;r&quot;,stdin);
+//	freopen(&quot;seq2005.out&quot;,&quot;w&quot;,stdout);
     int n,m,tmp;
     scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
     insert(root,-inf,0);insert(root,inf,0);
@@ -684,7 +708,7 @@ int main()
     for(int i=1,pos,tt,x;i&lt;=m;++i)
     {
         scanf(&quot;%s&quot;,op);
-        if(op[0]==&#39;I&#39;)
+        if(op[0]=='I')
         {
             scanf(&quot;%d%d&quot;,&amp;pos,&amp;tt);
             int now=find(root,pos+1),ne=find(root,pos+2);
@@ -693,7 +717,7 @@ int main()
             for(int i=1;i&lt;=tt;++i)scanf(&quot;%d&quot;,&amp;a[++tmp]),insert(son[ne][0],tmp,ne);
             update(root),update(son[root][1]);
         }
-        if(op[0]==&#39;D&#39;)
+        if(op[0]=='D')
         {
             scanf(&quot;%d%d&quot;,&amp;pos,&amp;tt);
             int now=find(root,pos),ne=find(root,pos+tt+1);
@@ -702,13 +726,13 @@ int main()
             son[ne][0]=0;
             update(ne);update(now);
         }
-        if(op[0]==&#39;M&#39;&amp;&amp;op[2]==&#39;K&#39;)
+        if(op[0]=='M'&amp;&amp;op[2]=='K')
         {
             scanf(&quot;%d%d%d&quot;,&amp;pos,&amp;tt,&amp;x);
             for(int t=pos+1;t&lt;=pos+tt;++t)
             a[w[find(root,t)]]=x;
         }
-        if(op[0]==&#39;R&#39;)
+        if(op[0]=='R')
         {
             scanf(&quot;%d%d&quot;,&amp;pos,&amp;tt);
             int now=find(root,pos),ne=find(root,pos+tt+1);
@@ -717,7 +741,7 @@ int main()
             int s=son[ne][0];
             rev[s]^=1;
         }
-        if(op[0]==&#39;G&#39;)
+        if(op[0]=='G')
         {
             scanf(&quot;%d%d&quot;,&amp;pos,&amp;tt);
             int sum=0;
@@ -725,17 +749,19 @@ int main()
             sum+=a[find(root,pos+t)-2];
             printf(&quot;%d\n&quot;,sum);
         }
-        if(op[0]==&#39;M&#39;&amp;&amp;op[2]==&#39;X&#39;)
+        if(op[0]=='M'&amp;&amp;op[2]=='X')
         {
             sum1=ans1=0;max1=-0x7fffffff;
             inordermax(root);
             printf(&quot;%d\n&quot;,ans1==0?max1:ans1);
         }
     }
-    //    inorder(root);
+    //	inorder(root);
 }
-</code></pre><hr>
-<h3 id="CODE-V2"><a href="#CODE-V2" class="headerlink" title="CODE V2"></a>CODE V2</h3><pre><code>#include&lt;iostream&gt;
+</code></pre>
+<hr>
+<h3>CODE V2</h3>
+<pre><code>#include&lt;iostream&gt;
 #include&lt;cstdio&gt;
 #include&lt;cstring&gt;
 #include&lt;algorithm&gt;
@@ -746,8 +772,8 @@ const int N = 1e6+1;
 inline int read()
 {
     int x=0,f=1;char ch=getchar();
-    while(ch&lt;&#39;0&#39;||ch&gt;&#39;9&#39;){if(ch==&#39;-&#39;)f=-1;ch=getchar();}
-    while(ch&gt;=&#39;0&#39;&amp;&amp;ch&lt;=&#39;9&#39;){x=x*10+ch-&#39;0&#39;;ch=getchar();}
+    while(ch&lt;'0'||ch&gt;'9'){if(ch=='-')f=-1;ch=getchar();}
+    while(ch&gt;='0'&amp;&amp;ch&lt;='9'){x=x*10+ch-'0';ch=getchar();}
     return x*f;
 }
 int n,m,root,cnt;
@@ -898,8 +924,8 @@ void insert(int k,int tt)
 }
 int main()
 {
-//    freopen(&quot;seq2005.in&quot;,&quot;r&quot;,stdin);
-//    freopen(&quot;seq2005.out&quot;,&quot;w&quot;,stdout);
+//	freopen(&quot;seq2005.in&quot;,&quot;r&quot;,stdin);
+//	freopen(&quot;seq2005.out&quot;,&quot;w&quot;,stdout);
     scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
     mx[0]=a[1]=a[n+2]=-inf;
     for(int i=2;i&lt;=n+1;i++)a[i]=read();
@@ -911,16 +937,17 @@ int main()
     for(int i=1;i&lt;=m;++i)
     {
         scanf(&quot;%s&quot;,op);
-        if(op[0]==&#39;I&#39;)k=read(),tt=read(),insert(k,tt);
-        if(op[0]==&#39;D&#39;)k=read(),tt=read(),delet(k,tt);
-        if(op[0]==&#39;M&#39;&amp;&amp;op[2]==&#39;X&#39;)printf(&quot;%d\n&quot;,mx[root]);
-        if(op[0]==&#39;M&#39;&amp;&amp;op[2]==&#39;K&#39;)k=read(),tt=read(),val=read(),modify(k,tt,val);
-        if(op[0]==&#39;R&#39;)k=read(),tt=read(),rever(k,tt);
-        if(op[0]==&#39;G&#39;){k=read(),tt=read();printf(&quot;%d\n&quot;,sum[split(k,tt)]);}
+        if(op[0]=='I')k=read(),tt=read(),insert(k,tt);
+        if(op[0]=='D')k=read(),tt=read(),delet(k,tt);
+        if(op[0]=='M'&amp;&amp;op[2]=='X')printf(&quot;%d\n&quot;,mx[root]);
+        if(op[0]=='M'&amp;&amp;op[2]=='K')k=read(),tt=read(),val=read(),modify(k,tt,val);
+        if(op[0]=='R')k=read(),tt=read(),rever(k,tt);
+        if(op[0]=='G'){k=read(),tt=read();printf(&quot;%d\n&quot;,sum[split(k,tt)]);}
     }
-//        inorder(root);
+//		inorder(root);
 }
 </code></pre>
+
       
     </div>
 
@@ -976,8 +1003,8 @@ int main()
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/28/乘法逆元总结/" rel="prev" title="乘法逆元总结">
-                乘法逆元总结 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/28/欧拉函数总结/" rel="prev" title="欧拉函数总结">
+                欧拉函数总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1092,7 +1119,7 @@ int main()
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1183,7 +1210,7 @@ int main()
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NOI2005-维护数列"><span class="nav-number">1.</span> <span class="nav-text">NOI2005 维护数列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#洛谷2042-COGS339"><span class="nav-number">1.1.</span> <span class="nav-text">洛谷2042 COGS339</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.2.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出格式"><span class="nav-number">1.2.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入格式："><span class="nav-number">1.2.1.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出格式："><span class="nav-number">1.2.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出样例"><span class="nav-number">1.2.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入样例："><span class="nav-number">1.2.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出样例："><span class="nav-number">1.2.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据范围"><span class="nav-number">1.2.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解"><span class="nav-number">1.3.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE-V1（暴力）"><span class="nav-number">1.3.1.</span> <span class="nav-text">CODE V1（暴力）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE-V2"><span class="nav-number">1.3.2.</span> <span class="nav-text">CODE V2</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">NOI2005 维护数列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">洛谷2042 COGS339</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.1.</span> <span class="nav-text">CODE V1（暴力）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.2.</span> <span class="nav-text">CODE V2</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
