@@ -87,26 +87,23 @@
 
 
 
-<meta name="description" content="概略
-主席树又称可持久化线段树，相对与普通的线段树，其解决的是各种不适用于结合律的区间问题，诸如区间第K大，区间种类个数等。
+<meta name="description" content="概略主席树又称可持久化线段树，相对与普通的线段树，其解决的是各种不适用于结合律的区间问题，诸如区间第K大，区间种类个数等。
 线段树的每个结点，保存的是这个区间含有的数字的性质的结合。
-主席树的每个结点，保存的元素以元素大小为第一维位置，同时保证以区间为第二维位置，直接实现是$O（n^2logn）$的时间空间复杂度，即每一个区间都要建一棵树，考虑每颗线段树的大小和形态是一样的，那么我们便可以利用主">
+主席树的每个结点，保存的元素以元素大小为第一维位置，同时保证以区间为第二维位置，直接实现是$O（n^2logn）$的时间空间复杂度，即每一个区间都要建一棵树，考虑每颗线段树的大小和形态是一样的，那么我们便可以利用主席">
 <meta property="og:type" content="article">
 <meta property="og:title" content="主席树总结">
 <meta property="og:url" content="https://prostkhala.github.io/2017/06/07/主席树总结/index.html">
 <meta property="og:site_name" content="ST">
-<meta property="og:description" content="概略
-主席树又称可持久化线段树，相对与普通的线段树，其解决的是各种不适用于结合律的区间问题，诸如区间第K大，区间种类个数等。
+<meta property="og:description" content="概略主席树又称可持久化线段树，相对与普通的线段树，其解决的是各种不适用于结合律的区间问题，诸如区间第K大，区间种类个数等。
 线段树的每个结点，保存的是这个区间含有的数字的性质的结合。
-主席树的每个结点，保存的元素以元素大小为第一维位置，同时保证以区间为第二维位置，直接实现是$O（n^2logn）$的时间空间复杂度，即每一个区间都要建一棵树，考虑每颗线段树的大小和形态是一样的，那么我们便可以利用主">
+主席树的每个结点，保存的元素以元素大小为第一维位置，同时保证以区间为第二维位置，直接实现是$O（n^2logn）$的时间空间复杂度，即每一个区间都要建一棵树，考虑每颗线段树的大小和形态是一样的，那么我们便可以利用主席">
 <meta property="og:image" content="http://i1.piimg.com/1949/8785d9d077857f7c.png">
 <meta property="og:updated_time" content="2017-06-07T07:55:10.538Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="主席树总结">
-<meta name="twitter:description" content="概略
-主席树又称可持久化线段树，相对与普通的线段树，其解决的是各种不适用于结合律的区间问题，诸如区间第K大，区间种类个数等。
+<meta name="twitter:description" content="概略主席树又称可持久化线段树，相对与普通的线段树，其解决的是各种不适用于结合律的区间问题，诸如区间第K大，区间种类个数等。
 线段树的每个结点，保存的是这个区间含有的数字的性质的结合。
-主席树的每个结点，保存的元素以元素大小为第一维位置，同时保证以区间为第二维位置，直接实现是$O（n^2logn）$的时间空间复杂度，即每一个区间都要建一棵树，考虑每颗线段树的大小和形态是一样的，那么我们便可以利用主">
+主席树的每个结点，保存的元素以元素大小为第一维位置，同时保证以区间为第二维位置，直接实现是$O（n^2logn）$的时间空间复杂度，即每一个区间都要建一棵树，考虑每颗线段树的大小和形态是一样的，那么我们便可以利用主席">
 <meta name="twitter:image" content="http://i1.piimg.com/1949/8785d9d077857f7c.png">
 
 
@@ -505,49 +502,33 @@
       
 
       
-        <h1>概略</h1>
-<p>主席树又称可持久化线段树，相对与普通的线段树，其解决的是各种不适用于结合律的区间问题，诸如区间第K大，区间种类个数等。</p>
+        <h1 id="概略"><a href="#概略" class="headerlink" title="概略"></a>概略</h1><p>主席树又称可持久化线段树，相对与普通的线段树，其解决的是各种不适用于结合律的区间问题，诸如区间第K大，区间种类个数等。</p>
 <p>线段树的每个结点，保存的是这个区间含有的数字的性质的结合。</p>
 <p>主席树的每个结点，保存的元素以元素大小为第一维位置，同时保证以区间为第二维位置，直接实现是$O（n^2logn）$的时间空间复杂度，即每一个区间都要建一棵树，考虑每颗线段树的大小和形态是一样的，那么我们便可以利用主席树之间相互进行加减运算的性质，进行可持久化建树。</p>
-<p>具体过程是按区间位置进行建树，每次插入新的数，只需要重新插入一条链，因为对于那些性质没有改变的前缀（如插入元素的大小是$3$，那么节点： $ [\ 1\ ,\ 2\ ]\ $ 就没有必要改变），只需要重新调用皆可，否则利用原节点建一个新的节点（如插入元素的大小是$3$，那么节点： $ [\ 3\ ,\ 4\ ]\ $ 的性质一定发生了改变，但又要保证原区间的该节点性质不变，那么便可以先将该节点粘过来，再在此基础上建一个新的节点，插入在当前根节点下），这样时间空间复杂度均降到了$O(nlog^2n)$（可持久化线段树按权值建树，其时间复杂度实际与权值范围有关（所以要离散化），本文全部以$n$代替）。</p>
+<p>具体过程是按区间位置进行建树，每次插入新的数，只需要重新插入一条链，因为对于那些性质没有改变的前缀（如插入元素的大小是$3$，那么节点： $ [ 1 , 2 ] $ 就没有必要改变），只需要重新调用皆可，否则利用原节点建一个新的节点（如插入元素的大小是$3$，那么节点： $ [ 3 , 4 ] $ 的性质一定发生了改变，但又要保证原区间的该节点性质不变，那么便可以先将该节点粘过来，再在此基础上建一个新的节点，插入在当前根节点下），这样时间空间复杂度均降到了$O(nlog^2n)$（可持久化线段树按权值建树，其时间复杂度实际与权值范围有关（所以要离散化），本文全部以$n$代替）。</p>
 <p>当然，这样实现也会导致整个数据结构实际上完全不是一棵树了，但是却仍满足每个节点最多有两个后继的限制，因此查询时只要调用$l-1$，$r$两个根节点即可。</p>
 <p>如图，</p>
-<p>$n=3，a=[\ 1\ ,\ 3\ ,\ 2\ ]$</p>
+<p>$n=3，a=[ 1 , 3 , 2 ]$</p>
 <p><img src="http://i1.piimg.com/1949/8785d9d077857f7c.png" alt=""></p>
-<h1>题目</h1>
-<h2>区间第K大</h2>
-<h3><a href="http://cogs.pro/cogs/problem/problem.php?pid=1534" target="_blank" rel="external">COGS1534</a></h3>
-<hr>
-<h3>题目描述</h3>
-<p>区间第$K$大。</p>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="区间第K大"><a href="#区间第K大" class="headerlink" title="区间第K大"></a>区间第K大</h2><h3 id="COGS1534"><a href="#COGS1534" class="headerlink" title="COGS1534"></a><a href="http://cogs.pro/cogs/problem/problem.php?pid=1534" target="_blank" rel="external">COGS1534</a></h3><hr>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>区间第$K$大。</p>
 <p>给出一个长度为$n$的序列$a1~an$，有$m$次询问$(x,y,k)$，每次询问$a[x]~a[y]$内的第$K$小数。</p>
-<h4>输入输出格式</h4>
-<h5>输入格式：</h5>
-<p>输入第一行为$n,m$，第二行为$a1~an$，接下来$m$行是$m$个$(x,y,k)$。</p>
-<p>由于数据较大，请使用C风格的输入输出。</p>
-<h5>输出格式：</h5>
-<p>对于每次询问输出一行要求的K小数。</p>
-<h4>输入输出样例</h4>
-<h5>输入样例：</h5>
-<pre><code>7 3
+<h4 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h4><h5 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h5><p>输入第一行为$n,m$，第二行为$a1~an$，接下来$m$行是$m$个$(x,y,k)$。</p>
+<p>由于数据较大，请使用C风格的输入输出。 </p>
+<h5 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h5><p>对于每次询问输出一行要求的K小数。</p>
+<h4 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h4><h5 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h5><pre><code>7 3
 1 5 2 6 3 7 4
 2 5 3
 4 4 1
 1 7 3 
-</code></pre>
-<h5>输出样例：</h5>
-<pre><code>5
+</code></pre><h5 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h5><pre><code>5
 6
 3
-</code></pre>
-<h4>数据范围</h4>
-<p>$1&lt;=n&lt;=100000,1&lt;=m&lt;=5000$</p>
+</code></pre><h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>$1&lt;=n&lt;=100000,1&lt;=m&lt;=5000$ </p>
 <hr>
-<h3>题解</h3>
-<p>实现与按权值维护的平衡树类似，直接递归查询即可。</p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>实现与按权值维护的平衡树类似，直接递归查询即可。</p>
 <hr>
-<h3>CODE</h3>
-<pre><code>#include&lt;algorithm&gt;
+<h3 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h3><pre><code>#include&lt;algorithm&gt;
 #include&lt;cstdio&gt;
 using namespace std;
 const int N = 1e5+1;
@@ -560,21 +541,21 @@ void insert(int l,int r,int x,int &amp;y,int v)
     t[y]=t[x];t[y].sum+=1;
     if(l==r)return;
     int mid=l+r&gt;&gt;1;
-    if(v&lt;=mid) 	insert(l,mid,t[x].ls,t[y].ls,v);
-    else 		insert(mid+1,r,t[x].rs,t[y].rs,v);
+    if(v&lt;=mid)     insert(l,mid,t[x].ls,t[y].ls,v);
+    else         insert(mid+1,r,t[x].rs,t[y].rs,v);
 }
 int get(int l,int r,int x,int y,int k)
 {
     if(l==r)return l;
     int mid=(l+r)&gt;&gt;1;
-	int v=t[t[y].ls].sum-t[t[x].ls].sum;
-    if(v&gt;=k) 	return get(l,mid,t[x].ls,t[y].ls,k);
-    else 		return get(mid+1,r,t[x].rs,t[y].rs,k-v);
+    int v=t[t[y].ls].sum-t[t[x].ls].sum;
+    if(v&gt;=k)     return get(l,mid,t[x].ls,t[y].ls,k);
+    else         return get(mid+1,r,t[x].rs,t[y].rs,k-v);
 }
 int main()
 {
-//	freopen(&quot;kthnumber.in&quot;,&quot;r&quot;,stdin);
-//	freopen(&quot;kthnumber.out&quot;,&quot;w&quot;,stdout);
+//    freopen(&quot;kthnumber.in&quot;,&quot;r&quot;,stdin);
+//    freopen(&quot;kthnumber.out&quot;,&quot;w&quot;,stdout);
     scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
     for(int i=1;i&lt;=n;i++)scanf(&quot;%d&quot;,&amp;a[i]),b[i]=a[i];
     sort(b+1,b+n+1);
@@ -585,50 +566,28 @@ int main()
       scanf(&quot;%d%d%d&quot;,&amp;x,&amp;y,&amp;z),
       printf(&quot;%d\n&quot;,b[get(1,totn,root[x-1],root[y],z)]);
 }
-</code></pre>
-<hr>
-<h2>HH的项链</h2>
-<h3><a href="http://cogs.pro/cogs/problem/problem.php?pid=421" target="_blank" rel="external">COGS421</a></h3>
-<hr>
-<h3>题目描述</h3>
-<p>区间种类个数。</p>
-<p>HH有一串由各种漂亮的贝壳组成的项链。HH相信不同的贝壳会带来好运，所以每次散步
-完后，他都会随意取出一段贝壳，思考它们所表达的含义。HH不断地收集新的贝壳，因此，
-他的项链变得越来越长。有一天，他突然提出了一个问题：某一段贝壳中，包含了多少种不同
-的贝壳？这个问题很难回答。。。因为项链实在是太长了。于是，他只好求助睿智的你，来解
-决这个问题。</p>
-<h4>输入输出格式</h4>
-<h5>输入格式：</h5>
-<p>第一行：一个整数$N$，表示项链的长度。
-第二行：$N$个整数，表示依次表示项链中贝壳的编号（编号为$0$到$1000000$之间的整数）。
-第三行：一个整数$M$，表示HH询问的个数。
-接下来$M$行：每行两个整数，$L$和$R（1 ≤ L ≤ R ≤ N）$，表示询问的区间。</p>
-<h5>输出格式：</h5>
-<p>$M$行，每行一个整数，依次表示询问对应的答案。</p>
-<h4>输入输出样例</h4>
-<h5>输入样例：</h5>
-<pre><code>6
+</code></pre><hr>
+<h2 id="HH的项链"><a href="#HH的项链" class="headerlink" title="HH的项链"></a>HH的项链</h2><h3 id="COGS421"><a href="#COGS421" class="headerlink" title="COGS421"></a><a href="http://cogs.pro/cogs/problem/problem.php?pid=421" target="_blank" rel="external">COGS421</a></h3><hr>
+<h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><p>区间种类个数。</p>
+<p>HH有一串由各种漂亮的贝壳组成的项链。HH相信不同的贝壳会带来好运，所以每次散步<br>完后，他都会随意取出一段贝壳，思考它们所表达的含义。HH不断地收集新的贝壳，因此，<br>他的项链变得越来越长。有一天，他突然提出了一个问题：某一段贝壳中，包含了多少种不同<br>的贝壳？这个问题很难回答。。。因为项链实在是太长了。于是，他只好求助睿智的你，来解<br>决这个问题。</p>
+<h4 id="输入输出格式-1"><a href="#输入输出格式-1" class="headerlink" title="输入输出格式"></a>输入输出格式</h4><h5 id="输入格式：-1"><a href="#输入格式：-1" class="headerlink" title="输入格式："></a>输入格式：</h5><p>第一行：一个整数$N$，表示项链的长度。<br>第二行：$N$个整数，表示依次表示项链中贝壳的编号（编号为$0$到$1000000$之间的整数）。<br>第三行：一个整数$M$，表示HH询问的个数。<br>接下来$M$行：每行两个整数，$L$和$R（1 ≤ L ≤ R ≤ N）$，表示询问的区间。 </p>
+<h5 id="输出格式：-1"><a href="#输出格式：-1" class="headerlink" title="输出格式："></a>输出格式：</h5><p>$M$行，每行一个整数，依次表示询问对应的答案。</p>
+<h4 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例"></a>输入输出样例</h4><h5 id="输入样例：-1"><a href="#输入样例：-1" class="headerlink" title="输入样例："></a>输入样例：</h5><pre><code>6
 1 2 3 4 3 5
 3
 1 2
 3 5
 2 6
-</code></pre>
-<h5>输出样例：</h5>
-<pre><code>2
+</code></pre><h5 id="输出样例：-1"><a href="#输出样例：-1" class="headerlink" title="输出样例："></a>输出样例：</h5><pre><code>2
 2
 4
-</code></pre>
-<h4>数据范围</h4>
-<p>对于20%的数据，$N ≤ 100，M ≤ 1000$；</p>
+</code></pre><h4 id="数据范围-1"><a href="#数据范围-1" class="headerlink" title="数据范围"></a>数据范围</h4><p>对于20%的数据，$N ≤ 100，M ≤ 1000$；</p>
 <p>对于40%的数据，$N ≤ 3000，M ≤ 200000$；</p>
 <p>对于100%的数据，$N ≤ 50000，M ≤ 200000$。</p>
 <hr>
-<h3>题解</h3>
-<p>对于每一个元素，记录其在数列内下一个种类相同的元素的位置（以 $to$ 数组表示），那么问题就转化为了求区间内有多少个元素的 $to$ 值大于查询的右区间位置，将 $to$ 数组插入到主席树中，直接建树求解即可。</p>
+<h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><p>对于每一个元素，记录其在数列内下一个种类相同的元素的位置（以 $to$ 数组表示），那么问题就转化为了求区间内有多少个元素的 $to$ 值大于查询的右区间位置，将 $to$ 数组插入到主席树中，直接建树求解即可。</p>
 <hr>
-<h3>CODE</h3>
-<pre><code>#include&lt;iostream&gt;
+<h3 id="CODE-1"><a href="#CODE-1" class="headerlink" title="CODE"></a>CODE</h3><pre><code>#include&lt;iostream&gt;
 #include&lt;cstdio&gt;
 #include&lt;cstring&gt;
 #include&lt;algorithm&gt;
@@ -643,8 +602,8 @@ void insert(int l,int r,int x,int &amp;y,int k)
     t[y].sum++;
     if(l==r)return;
     int mid=l+r&gt;&gt;1;
-    if(k&lt;=mid)	insert(l,mid,t[x].ls,t[y].ls,k);
-    else		insert(mid+1,r,t[x].rs,t[y].rs,k);
+    if(k&lt;=mid)    insert(l,mid,t[x].ls,t[y].ls,k);
+    else        insert(mid+1,r,t[x].rs,t[y].rs,k);
 }
 
 int get(int l,int r,int x,int y,int v)
@@ -677,28 +636,17 @@ int main()
     }
 
 }
-</code></pre>
-<hr>
-<h2>动态排名系统</h2>
-<h3><a href="http://cogs.pro/cogs/problem/problem.php?pid=257" target="_blank" rel="external">COGS257</a></h3>
-<hr>
-<h3>题目描述</h3>
-<p>带修改的区间第K大。</p>
-<p>给定一个长度为N的已知序列A<a href="1%3C=i%3C=N">i</a>，要求维护这个序列，能够支持以下两种操作：
-1、查询A[i],A[i+1],A[i+2],...,A<a href="1%3C=i%3C=j%3C=N">j</a>中，升序排列后排名第k的数。
-2、修改A[i]的值为j。</p>
+</code></pre><hr>
+<h2 id="动态排名系统"><a href="#动态排名系统" class="headerlink" title="动态排名系统"></a>动态排名系统</h2><h3 id="COGS257"><a href="#COGS257" class="headerlink" title="COGS257"></a><a href="http://cogs.pro/cogs/problem/problem.php?pid=257" target="_blank" rel="external">COGS257</a></h3><hr>
+<h3 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h3><p>带修改的区间第K大。</p>
+<p>给定一个长度为N的已知序列A<a href="1&lt;=i&lt;=N">i</a>，要求维护这个序列，能够支持以下两种操作：<br>1、查询A[i],A[i+1],A[i+2],…,A<a href="1&lt;=i&lt;=j&lt;=N">j</a>中，升序排列后排名第k的数。<br>2、修改A[i]的值为j。</p>
 <p>所谓排名第k，指一些数按照升序排列后，第k位的数。例如序列{6,1,9,6,6}，排名第3的数是6，排名第5的数是9。</p>
-<h4>输入输出格式</h4>
-<h5>输入格式：</h5>
-<p>第一行包含一个整数$D(0&lt;=D&lt;=4)$，表示测试数据的数目。接下来有$D$组测试数据，每组测试数据中，首先是两个整数$N$，表示序列的长度为$N$，有$M$个操作。接下来的$N$个不大于$1,000,000,000$正整数，第$i$个表示序列$A[i]$的初始值。然后的$M$行，每行为一个操作</p>
+<h4 id="输入输出格式-2"><a href="#输入输出格式-2" class="headerlink" title="输入输出格式"></a>输入输出格式</h4><h5 id="输入格式：-2"><a href="#输入格式：-2" class="headerlink" title="输入格式："></a>输入格式：</h5><p>第一行包含一个整数$D(0&lt;=D&lt;=4)$，表示测试数据的数目。接下来有$D$组测试数据，每组测试数据中，首先是两个整数$N$，表示序列的长度为$N$，有$M$个操作。接下来的$N$个不大于$1,000,000,000$正整数，第$i$个表示序列$A[i]$的初始值。然后的$M$行，每行为一个操作</p>
 <p>$Q i j k $或者</p>
 <p>$C i j$</p>
-<p>分别表示查询$A[i],A[i+1],A[i+2],...,A<a href="1%3C=i%3C=j%3C=N">j</a>$中，升序排列后排名第k的数，和修改$A[i]$的值为$j$。</p>
-<h5>输出格式：</h5>
-<p>对于每个查询，输出一行整数，为查询的结果。测试数据之间不应有空行。</p>
-<h4>输入输出样例</h4>
-<h5>输入样例：</h5>
-<pre><code>2
+<p>分别表示查询$A[i],A[i+1],A[i+2],…,A<a href="1&lt;=i&lt;=j&lt;=N">j</a>$中，升序排列后排名第k的数，和修改$A[i]$的值为$j$。</p>
+<h5 id="输出格式：-2"><a href="#输出格式：-2" class="headerlink" title="输出格式："></a>输出格式：</h5><p>对于每个查询，输出一行整数，为查询的结果。测试数据之间不应有空行。</p>
+<h4 id="输入输出样例-2"><a href="#输入输出样例-2" class="headerlink" title="输入输出样例"></a>输入输出样例</h4><h5 id="输入样例：-2"><a href="#输入样例：-2" class="headerlink" title="输入样例："></a>输入样例：</h5><pre><code>2
 5 3
 3 2 1 4 7
 Q 1 4 3
@@ -709,21 +657,15 @@ Q 2 5 3
 Q 1 4 3
 C 2 6
 Q 2 5 3
-</code></pre>
-<h5>输出样例：</h5>
-<pre><code>3
+</code></pre><h5 id="输出样例：-2"><a href="#输出样例：-2" class="headerlink" title="输出样例："></a>输出样例：</h5><pre><code>3
 6
 3
 6
-</code></pre>
-<h4>数据范围</h4>
-<p>$N(1&lt;=N&lt;=50000),M(1&lt;=M&lt;=10000)$</p>
+</code></pre><h4 id="数据范围-2"><a href="#数据范围-2" class="headerlink" title="数据范围"></a>数据范围</h4><p>$N(1&lt;=N&lt;=50000),M(1&lt;=M&lt;=10000)$</p>
 <hr>
-<h3>题解</h3>
-<p>本题为裸的带修改区间第K大，如果直接在例1的基础上修改，则会导致超时，因为每次修改都要修改$nlogn$个节点，即最坏情况下每一个根都要修改$log$个没有指向前面节点的节点。那么可以考虑，主席树维护的实际上是数列的前缀的性质，可以利用树状数组优化，即将原先的对于每一个新元素的前缀建树，改为对于树状数组中的前缀建树，那么修改时只要修改$log^2n$个节点即可。</p>
+<h3 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h3><p>本题为裸的带修改区间第K大，如果直接在例1的基础上修改，则会导致超时，因为每次修改都要修改$nlogn$个节点，即最坏情况下每一个根都要修改$log$个没有指向前面节点的节点。那么可以考虑，主席树维护的实际上是数列的前缀的性质，可以利用树状数组优化，即将原先的对于每一个新元素的前缀建树，改为对于树状数组中的前缀建树，那么修改时只要修改$log^2n$个节点即可。</p>
 <hr>
-<h3>CODE</h3>
-<pre><code>#include&lt;iostream&gt;
+<h3 id="CODE-2"><a href="#CODE-2" class="headerlink" title="CODE"></a>CODE</h3><pre><code>#include&lt;iostream&gt;
 #include&lt;cstdio&gt;
 #include&lt;cstring&gt;
 #include&lt;algorithm&gt;
@@ -735,99 +677,90 @@ int T,n,m,A[N],B[N],C[N],b[N],a[N],X[N],Y[N],root[N],totx,toty,totn,tot;
 char s[3];
 void insert(int l,int r,int x,int &amp;y,int k,int v)
 {
-	y=++tot;
-	t[y]=t[x];
-	t[y].sum+=v;
-	if(l==r)return;
-	int mid=l+r&gt;&gt;1;
-	if(k&lt;=mid)	insert(l,mid,t[x].ls,t[y].ls,k,v);
-	else		insert(mid+1,r,t[x].rs,t[y].rs,k,v);
-	return;
+    y=++tot;
+    t[y]=t[x];
+    t[y].sum+=v;
+    if(l==r)return;
+    int mid=l+r&gt;&gt;1;
+    if(k&lt;=mid)    insert(l,mid,t[x].ls,t[y].ls,k,v);
+    else        insert(mid+1,r,t[x].rs,t[y].rs,k,v);
+    return;
 }
- 
- 
+
+
 void add(int x,int v)
 {
-	int k=lower_bound(b+1,b+totn+1,a[x])-b;
-	for(int i=x;i&lt;=n;i+=lowbit(i))
-	insert(1,totn,root[i],root[i],k,v);
+    int k=lower_bound(b+1,b+totn+1,a[x])-b;
+    for(int i=x;i&lt;=n;i+=lowbit(i))
+    insert(1,totn,root[i],root[i],k,v);
 }
 int query(int l,int r,int k)
 {
-	int sum=0,mid=l+r&gt;&gt;1;
-	if(l==r)return l;
-	for(int i=1;i&lt;=totx;++i)sum-=t[t[X[i]].ls].sum;
-	for(int i=1;i&lt;=toty;++i)sum+=t[t[Y[i]].ls].sum;
-	if(k&lt;=sum)
-	{
-		for(int i=1;i&lt;=totx;++i)X[i]=t[X[i]].ls;
-		for(int i=1;i&lt;=toty;++i)Y[i]=t[Y[i]].ls;
-		return query(l,mid,k);
-	}
-	else
-	{
-		for(int i=1;i&lt;=totx;++i)X[i]=t[X[i]].rs;
-		for(int i=1;i&lt;=toty;++i)Y[i]=t[Y[i]].rs;
-		return query(mid+1,r,k-sum);
-	}
+    int sum=0,mid=l+r&gt;&gt;1;
+    if(l==r)return l;
+    for(int i=1;i&lt;=totx;++i)sum-=t[t[X[i]].ls].sum;
+    for(int i=1;i&lt;=toty;++i)sum+=t[t[Y[i]].ls].sum;
+    if(k&lt;=sum)
+    {
+        for(int i=1;i&lt;=totx;++i)X[i]=t[X[i]].ls;
+        for(int i=1;i&lt;=toty;++i)Y[i]=t[Y[i]].ls;
+        return query(l,mid,k);
+    }
+    else
+    {
+        for(int i=1;i&lt;=totx;++i)X[i]=t[X[i]].rs;
+        for(int i=1;i&lt;=toty;++i)Y[i]=t[Y[i]].rs;
+        return query(mid+1,r,k-sum);
+    }
 }
- 
- 
- 
+
+
+
 int main()
 {
-	freopen(&quot;dynrank.in&quot;,&quot;r&quot;,stdin);
-	freopen(&quot;dynrank.out&quot;,&quot;w&quot;,stdout);
-	scanf(&quot;%d&quot;,&amp;T);
-	while(T--)
-	{
-		memset(root,0,sizeof(root));
-		memset(C,0,sizeof(C));
-		totn=tot=0;
-		scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
-		for(int i=1;i&lt;=n;++i)
-		scanf(&quot;%d&quot;,a+i),b[++totn]=a[i];
-		for(int i=1;i&lt;=m;++i)
-		{
-			scanf(&quot;%s%d%d&quot;,s,A+i,B+i);
-			if(s[0]=='Q')	scanf(&quot;%d&quot;,C+i);
-			else			b[++totn]=B[i];
-		}
-		sort(b+1,b+totn+1);
-		totn=unique(b+1,b+totn+1)-b-1;
-		for(int i=1;i&lt;=n;++i)add(i,1);
-		for(int i=1;i&lt;=m;++i)
-		if(C[i])
-		{
-			totx=toty=0;
-			for(int j=A[i]-1;j;j-=lowbit(j))X[++totx]=root[j];
-			for(int j=B[i];j;j-=lowbit(j))	Y[++toty]=root[j];
-			printf(&quot;%d\n&quot;,b[query(1,totn,C[i])]);
-		}
-		else
-		{
-			add(A[i],-1);
-			a[A[i]]=B[i];
-			add(A[i],1);
-		}
-	}
+    freopen(&quot;dynrank.in&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;dynrank.out&quot;,&quot;w&quot;,stdout);
+    scanf(&quot;%d&quot;,&amp;T);
+    while(T--)
+    {
+        memset(root,0,sizeof(root));
+        memset(C,0,sizeof(C));
+        totn=tot=0;
+        scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+        for(int i=1;i&lt;=n;++i)
+        scanf(&quot;%d&quot;,a+i),b[++totn]=a[i];
+        for(int i=1;i&lt;=m;++i)
+        {
+            scanf(&quot;%s%d%d&quot;,s,A+i,B+i);
+            if(s[0]==&#39;Q&#39;)    scanf(&quot;%d&quot;,C+i);
+            else            b[++totn]=B[i];
+        }
+        sort(b+1,b+totn+1);
+        totn=unique(b+1,b+totn+1)-b-1;
+        for(int i=1;i&lt;=n;++i)add(i,1);
+        for(int i=1;i&lt;=m;++i)
+        if(C[i])
+        {
+            totx=toty=0;
+            for(int j=A[i]-1;j;j-=lowbit(j))X[++totx]=root[j];
+            for(int j=B[i];j;j-=lowbit(j))    Y[++toty]=root[j];
+            printf(&quot;%d\n&quot;,b[query(1,totn,C[i])]);
+        }
+        else
+        {
+            add(A[i],-1);
+            a[A[i]]=B[i];
+            add(A[i],1);
+        }
+    }
 }
-</code></pre>
-<hr>
-<h2>国家集训队2011 数颜色</h2>
-<h3><a href="http://cogs.pro/cogs/problem/problem.php?pid=1901" target="_blank" rel="external">COGS1901</a> <a href="http://www.lydsy.com/JudgeOnline/problem.php?id=2120" target="_blank" rel="external">BZOJ2120</a></h3>
-<hr>
-<h3>题目描述</h3>
-<p>带修改的区间种类个数。</p>
+</code></pre><hr>
+<h2 id="国家集训队2011-数颜色"><a href="#国家集训队2011-数颜色" class="headerlink" title="国家集训队2011 数颜色"></a>国家集训队2011 数颜色</h2><h3 id="COGS1901-BZOJ2120"><a href="#COGS1901-BZOJ2120" class="headerlink" title="COGS1901 BZOJ2120"></a><a href="http://cogs.pro/cogs/problem/problem.php?pid=1901" target="_blank" rel="external">COGS1901</a> <a href="http://www.lydsy.com/JudgeOnline/problem.php?id=2120" target="_blank" rel="external">BZOJ2120</a></h3><hr>
+<h3 id="题目描述-3"><a href="#题目描述-3" class="headerlink" title="题目描述"></a>题目描述</h3><p>带修改的区间种类个数。</p>
 <p>墨墨购买了一套N支彩色画笔（其中有些颜色可能相同），摆成一排，你需要回答墨墨的提问。墨墨会像你发布如下指令： 1、 Q L R代表询问你从第L支画笔到第R支画笔中共有几种不同颜色的画笔。 2、 R P Col 把第P支画笔替换为颜色Col。为了满足墨墨的要求，你知道你需要干什么了吗？</p>
-<h4>输入输出格式</h4>
-<h5>输入格式：</h5>
-<p>第1行两个整数N，M，分别代表初始画笔的数量以及墨墨会做的事情的个数。第2行N个整数，分别代表初始画笔排中第i支画笔的颜色。第3行到第2+M行，每行分别代表墨墨会做的一件事情，格式见题干部分。</p>
-<h5>输出格式：</h5>
-<p>对于每一个Query的询问，你需要在对应的行中给出一个数字，代表第L支画笔到第R支画笔中共有几种不同颜色的画笔。</p>
-<h4>输入输出样例</h4>
-<h5>输入样例：</h5>
-<pre><code>6 5
+<h4 id="输入输出格式-3"><a href="#输入输出格式-3" class="headerlink" title="输入输出格式"></a>输入输出格式</h4><h5 id="输入格式：-3"><a href="#输入格式：-3" class="headerlink" title="输入格式："></a>输入格式：</h5><p>第1行两个整数N，M，分别代表初始画笔的数量以及墨墨会做的事情的个数。第2行N个整数，分别代表初始画笔排中第i支画笔的颜色。第3行到第2+M行，每行分别代表墨墨会做的一件事情，格式见题干部分。</p>
+<h5 id="输出格式：-3"><a href="#输出格式：-3" class="headerlink" title="输出格式："></a>输出格式：</h5><p>对于每一个Query的询问，你需要在对应的行中给出一个数字，代表第L支画笔到第R支画笔中共有几种不同颜色的画笔。</p>
+<h4 id="输入输出样例-3"><a href="#输入输出样例-3" class="headerlink" title="输入输出样例"></a>输入输出样例</h4><h5 id="输入样例：-3"><a href="#输入样例：-3" class="headerlink" title="输入样例："></a>输入样例：</h5><pre><code>6 5
 
 1 2 3 4 5 5
 
@@ -840,24 +773,18 @@ R 1 2
 Q 1 4
 
 Q 2 6
-</code></pre>
-<h5>输出样例：</h5>
-<pre><code>4
+</code></pre><h5 id="输出样例：-3"><a href="#输出样例：-3" class="headerlink" title="输出样例："></a>输出样例：</h5><pre><code>4
 
 4
 
 3
 
 4
-</code></pre>
-<h4>数据范围</h4>
-<p>对于100%的数据，N≤10000，M≤10000，修改操作不多于1000次，所有的输入数据中出现的所有整数均大于等于1且不超过10^6。</p>
+</code></pre><h4 id="数据范围-3"><a href="#数据范围-3" class="headerlink" title="数据范围"></a>数据范围</h4><p>对于100%的数据，N≤10000，M≤10000，修改操作不多于1000次，所有的输入数据中出现的所有整数均大于等于1且不超过10^6。</p>
 <hr>
-<h3>题解</h3>
-<p>同样是记录$to$数组，对于修改操作，可以暴力求出修改后该位置 $to$ 的变化，考虑一下可能造成的在该元素前的元素的 $to$ 指针的变化即可（注意同样要修改主席树），详见代码。（对于to数组的查询和修改可以用平衡树优化）</p>
+<h3 id="题解-3"><a href="#题解-3" class="headerlink" title="题解"></a>题解</h3><p>同样是记录$to$数组，对于修改操作，可以暴力求出修改后该位置 $to$ 的变化，考虑一下可能造成的在该元素前的元素的 $to$ 指针的变化即可（注意同样要修改主席树），详见代码。（对于to数组的查询和修改可以用平衡树优化）</p>
 <hr>
-<h3>CODE</h3>
-<pre><code>#include&lt;iostream&gt;
+<h3 id="CODE-3"><a href="#CODE-3" class="headerlink" title="CODE"></a>CODE</h3><pre><code>#include&lt;iostream&gt;
 #include&lt;cstdio&gt;
 #include&lt;algorithm&gt;
 #include&lt;cstring&gt;
@@ -876,8 +803,8 @@ void insert(ll l,ll r,ll x,ll &amp;y,ll k,ll v)
     t[y].sum+=v;
     if(l==r)return;
     ll mid=l+r&gt;&gt;1;
-    if(k&lt;=mid)	insert(l,mid,t[x].ls,t[y].ls,k,v);
-    else		insert(mid+1,r,t[x].rs,t[y].rs,k,v);
+    if(k&lt;=mid)    insert(l,mid,t[x].ls,t[y].ls,k,v);
+    else        insert(mid+1,r,t[x].rs,t[y].rs,k,v);
     return;
 }
 
@@ -929,10 +856,10 @@ int main()
     for(ll i=1;i&lt;=m;++i)
     {
         scanf(&quot;%s%d%d&quot;,s,A+i,B+i);
-        if(s[0]=='R');
+        if(s[0]==&#39;R&#39;);
         else C[i]=1;
     }
-//	sort(b+1,b+totn+1);
+//    sort(b+1,b+totn+1);
     for(ll i=1;i&lt;=n;++i)add(i,1);
     for(ll i=1;i&lt;=m;++i)
     {
@@ -941,8 +868,8 @@ int main()
         {
             memset(X,0,sizeof(X));
             memset(Y,0,sizeof(Y));
-            for(ll j=A[i]-1;j;j-=lowbit(j))	X[++totx]=root[j];
-            for(ll j=B[i];j;j-=lowbit(j))	Y[++toty]=root[j];
+            for(ll j=A[i]-1;j;j-=lowbit(j))    X[++totx]=root[j];
+            for(ll j=B[i];j;j-=lowbit(j))    Y[++toty]=root[j];
             printf(&quot;%d\n&quot;,get(1,n+1,B[i]+1));
         }
         else
@@ -984,8 +911,7 @@ R 3 2
 Q 1 3
 Q 1 2
 */
-</code></pre>
-<hr>
+</code></pre><hr>
 
       
     </div>
@@ -1253,7 +1179,7 @@ Q 1 2
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">概略</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">区间第K大</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.1.</span> <span class="nav-text">COGS1534</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.2.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.2.1.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.2.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.2.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.2.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.3.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.4.</span> <span class="nav-text">CODE</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">HH的项链</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.1.</span> <span class="nav-text">COGS421</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.2.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.2.1.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.2.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.2.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.2.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.2.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.3.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.4.</span> <span class="nav-text">CODE</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">动态排名系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.1.</span> <span class="nav-text">COGS257</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.2.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.2.1.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.2.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.2.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.2.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.2.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.3.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.4.</span> <span class="nav-text">CODE</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.</span> <span class="nav-text">国家集训队2011 数颜色</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.1.</span> <span class="nav-text">COGS1901 BZOJ2120</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.2.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.2.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.2.1.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.2.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.2.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.2.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.2.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.2.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.3.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.4.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概略"><span class="nav-number">1.</span> <span class="nav-text">概略</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">2.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#区间第K大"><span class="nav-number">2.1.</span> <span class="nav-text">区间第K大</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#COGS1534"><span class="nav-number">2.1.1.</span> <span class="nav-text">COGS1534</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述"><span class="nav-number">2.1.2.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出格式"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入格式："><span class="nav-number">2.1.2.1.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出格式："><span class="nav-number">2.1.2.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出样例"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入样例："><span class="nav-number">2.1.2.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出样例："><span class="nav-number">2.1.2.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据范围"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解"><span class="nav-number">2.1.3.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE"><span class="nav-number">2.1.4.</span> <span class="nav-text">CODE</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HH的项链"><span class="nav-number">2.2.</span> <span class="nav-text">HH的项链</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#COGS421"><span class="nav-number">2.2.1.</span> <span class="nav-text">COGS421</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出格式-1"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入格式：-1"><span class="nav-number">2.2.2.1.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出格式：-1"><span class="nav-number">2.2.2.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出样例-1"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入样例：-1"><span class="nav-number">2.2.2.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出样例：-1"><span class="nav-number">2.2.2.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据范围-1"><span class="nav-number">2.2.2.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-1"><span class="nav-number">2.2.3.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE-1"><span class="nav-number">2.2.4.</span> <span class="nav-text">CODE</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态排名系统"><span class="nav-number">2.3.</span> <span class="nav-text">动态排名系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#COGS257"><span class="nav-number">2.3.1.</span> <span class="nav-text">COGS257</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-2"><span class="nav-number">2.3.2.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出格式-2"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入格式：-2"><span class="nav-number">2.3.2.1.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出格式：-2"><span class="nav-number">2.3.2.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出样例-2"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入样例：-2"><span class="nav-number">2.3.2.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出样例：-2"><span class="nav-number">2.3.2.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据范围-2"><span class="nav-number">2.3.2.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-2"><span class="nav-number">2.3.3.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE-2"><span class="nav-number">2.3.4.</span> <span class="nav-text">CODE</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#国家集训队2011-数颜色"><span class="nav-number">2.4.</span> <span class="nav-text">国家集训队2011 数颜色</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#COGS1901-BZOJ2120"><span class="nav-number">2.4.1.</span> <span class="nav-text">COGS1901 BZOJ2120</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-3"><span class="nav-number">2.4.2.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出格式-3"><span class="nav-number">2.4.2.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入格式：-3"><span class="nav-number">2.4.2.1.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出格式：-3"><span class="nav-number">2.4.2.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出样例-3"><span class="nav-number">2.4.2.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入样例：-3"><span class="nav-number">2.4.2.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出样例：-3"><span class="nav-number">2.4.2.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据范围-3"><span class="nav-number">2.4.2.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-3"><span class="nav-number">2.4.3.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE-3"><span class="nav-number">2.4.4.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

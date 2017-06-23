@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="SPLAY,TREAP,模板," />
+  <meta name="keywords" content="SPLAY,模板,TREAP," />
 
 
 
@@ -87,61 +87,40 @@
 
 
 
-<meta name="description" content="普通平衡树
-BZOJ3224 COGS1829
-
-题目描述
-您需要写一种数据结构（可参考题目标题），来维护一些数，其中需要提供以下操作：
+<meta name="description" content="普通平衡树BZOJ3224 COGS1829
+题目描述您需要写一种数据结构（可参考题目标题），来维护一些数，其中需要提供以下操作：
 
 插入x数
 删除x数(若有多个相同的数，因只删除一个)
 查询x数的排名(若有多个相同的数，因输出最小的排名)
 查询排名为x的数
 求x的前驱(前驱定义为小于x，且最大的数)
-求x的后继(后继定义为大于x，且最小的数)
-
-输入输出格式
-输入格式：
-第一行为n，表示操">
+求x的后继(后继定义为大于x，且最小的数)输入输出格式输入格式：第一行为n，表示操作的个数,下面">
 <meta property="og:type" content="article">
 <meta property="og:title" content="普通平衡树">
 <meta property="og:url" content="https://prostkhala.github.io/2017/03/19/普通平衡树/index.html">
 <meta property="og:site_name" content="ST">
-<meta property="og:description" content="普通平衡树
-BZOJ3224 COGS1829
-
-题目描述
-您需要写一种数据结构（可参考题目标题），来维护一些数，其中需要提供以下操作：
+<meta property="og:description" content="普通平衡树BZOJ3224 COGS1829
+题目描述您需要写一种数据结构（可参考题目标题），来维护一些数，其中需要提供以下操作：
 
 插入x数
 删除x数(若有多个相同的数，因只删除一个)
 查询x数的排名(若有多个相同的数，因输出最小的排名)
 查询排名为x的数
 求x的前驱(前驱定义为小于x，且最大的数)
-求x的后继(后继定义为大于x，且最小的数)
-
-输入输出格式
-输入格式：
-第一行为n，表示操">
+求x的后继(后继定义为大于x，且最小的数)输入输出格式输入格式：第一行为n，表示操作的个数,下面">
 <meta property="og:updated_time" content="2017-03-21T12:46:58.069Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="普通平衡树">
-<meta name="twitter:description" content="普通平衡树
-BZOJ3224 COGS1829
-
-题目描述
-您需要写一种数据结构（可参考题目标题），来维护一些数，其中需要提供以下操作：
+<meta name="twitter:description" content="普通平衡树BZOJ3224 COGS1829
+题目描述您需要写一种数据结构（可参考题目标题），来维护一些数，其中需要提供以下操作：
 
 插入x数
 删除x数(若有多个相同的数，因只删除一个)
 查询x数的排名(若有多个相同的数，因输出最小的排名)
 查询排名为x的数
 求x的前驱(前驱定义为小于x，且最大的数)
-求x的后继(后继定义为大于x，且最小的数)
-
-输入输出格式
-输入格式：
-第一行为n，表示操">
+求x的后继(后继定义为大于x，且最小的数)输入输出格式输入格式：第一行为n，表示操作的个数,下面">
 
 
 
@@ -550,27 +529,18 @@ BZOJ3224 COGS1829
       
 
       
-        <h1>普通平衡树</h1>
-<h2><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=3224" target="_blank" rel="external">BZOJ3224</a> <a href="http://cogs.pro/cogs/problem/problem.php?pid=1829" target="_blank" rel="external">COGS1829</a></h2>
-<hr>
-<h2>题目描述</h2>
-<p>您需要写一种数据结构（可参考题目标题），来维护一些数，其中需要提供以下操作：</p>
+        <h1 id="普通平衡树"><a href="#普通平衡树" class="headerlink" title="普通平衡树"></a>普通平衡树</h1><h2 id="BZOJ3224-COGS1829"><a href="#BZOJ3224-COGS1829" class="headerlink" title="BZOJ3224 COGS1829"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=3224" target="_blank" rel="external">BZOJ3224</a> <a href="http://cogs.pro/cogs/problem/problem.php?pid=1829" target="_blank" rel="external">COGS1829</a></h2><hr>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>您需要写一种数据结构（可参考题目标题），来维护一些数，其中需要提供以下操作：</p>
 <ol>
 <li>插入x数</li>
 <li>删除x数(若有多个相同的数，因只删除一个)</li>
 <li>查询x数的排名(若有多个相同的数，因输出最小的排名)</li>
 <li>查询排名为x的数</li>
 <li>求x的前驱(前驱定义为小于x，且最大的数)</li>
-<li>求x的后继(后继定义为大于x，且最小的数)</li>
+<li>求x的后继(后继定义为大于x，且最小的数)<h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h4>第一行为n，表示操作的个数,下面n行每行有两个数opt和x，opt表示操作的序号$(1&lt;=opt&lt;=6)$</li>
 </ol>
-<h3>输入输出格式</h3>
-<h4>输入格式：</h4>
-<p>第一行为n，表示操作的个数,下面n行每行有两个数opt和x，opt表示操作的序号$(1&lt;=opt&lt;=6)$</p>
-<h4>输出格式：</h4>
-<p>对于操作3,4,5,6每行输出一个数，表示对应答案</p>
-<h3>输入输出样例</h3>
-<h4>输入样例：</h4>
-<pre><code>10
+<h4 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h4><p>对于操作3,4,5,6每行输出一个数，表示对应答案</p>
+<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><pre><code>10
 1 106465
 4 1
 1 317721
@@ -581,189 +551,182 @@ BZOJ3224 COGS1829
 6 81968
 1 492737
 5 493598
-</code></pre>
-<h4>输出样例：</h4>
-<pre><code>106465
+</code></pre><h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><pre><code>106465
 84185
 492737
-</code></pre>
-<h3>数据范围</h3>
-<p>1.n的数据范围：$n&lt;=100000$</p>
+</code></pre><h3 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h3><p>1.n的数据范围：$n&lt;=100000$</p>
 <p>2.每个数的数据范围：$[-1e7,1e7]$（BZOJ3224:$[-2e9,2e9]$）</p>
 <hr>
-<h2>题解</h2>
-<p>各种平衡树的模板题（然而只会SPLAY）</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>各种平衡树的模板题（然而只会SPLAY）</p>
 <hr>
-<h3>CODE</h3>
-<p>#include &lt;iostream&gt;
-	#include&lt;cstring&gt;
-	#include&lt;algorithm&gt;
-	#include&lt;cstdio&gt;
-	using namespace std;
-	const int inf = 0x7fffffff;
-	const int N = 1e5+1;
-	struct splay{int data,ls,rs,fa,size;}a[N];<br>
-	int q,root=0,tot=0;
-	void pushup(int x){a[x].size=a[a[x].ls].size+a[a[x].rs].size+1;}<br>
-	void zig(int x)<br>
-	{<br>
-	    int y=a[x].fa;
-	    int z=a[y].fa;
-	    a[y].fa=x;a[x].fa=z;<br>
-	    a[y].ls=a[x].rs;a[a[x].rs].fa=y;a[x].rs=y;<br>
-	    if(y==a[z].ls)	a[z].ls=x;
-	    else 			a[z].rs=x;
-	    pushup(y);
-	}
-	void zag(int x)
-	{
-	    int y=a[x].fa;<br>
-	    int z=a[y].fa;
-	    a[y].fa=x,a[x].fa=z;
-	    a[y].rs=a[x].ls;a[a[x].ls].fa=y;a[x].ls=y;
-	    if(y==a[z].ls) 	a[z].ls=x;
-	    else 			a[z].rs=x;
-	    pushup(y);
-	}
-	void splay(int x,int s)<br>
-	{<br>
-	    while (a[x].fa!=s)<br>
-	    {<br>
-	        int y=a[x].fa;<br>
-	        int z=a[y].fa;<br>
-	        if(z==s)<br>
-	        {
-	            if(x==a[y].ls) zig(x);<br>
-	            else 		  zag(x);<br>
-	            break;<br>
-	        }<br>
-	        if(y==a[z].ls)<br>
-	        {<br>
-	            if(x==a[y].ls) zig(y),zig(x);<br>
-	            else 		  zag(x),zig(x);<br>
-	        }<br>
-	        else
-	        {<br>
-	            if(x==a[y].rs) zag(y),zag(x);<br>
-	            else 		  zig(x),zag(x);<br>
-	        }<br>
-	    }
-	    pushup(x);<br>
-	    if (s==0) root=x;<br>
-	}<br>
-	int Search(int w)<br>
-	{<br>
-	    int p,x=root;<br>
-	    while (x)<br>
-	    {<br>
-	        p=x;<br>
-	        if (a[x].data&gt;w) x=a[x].ls;<br>
-	        else x=a[x].rs;<br>
-	    }<br>
-	    return p;<br>
-	}<br>
-	void newnode(int &amp;x,int fa,int key)<br>
-	{<br>
-	    x=++tot;<br>
-	    a[x].ls=a[x].rs=0;<br>
-	    a[x].fa=fa;<br>
-	    a[x].data=key;<br>
-	}<br>
-	void insert(int w)<br>
-	{<br>
-	    if (root==0)<br>
-	    {<br>
-	        newnode(root,0,w);<br>
-	        return;<br>
-	    }<br>
-	    int i=Search(w);<br>
-	    if (w&lt;a[i].data) newnode(a[i].ls,i,w);<br>
-	    else newnode(a[i].rs,i,w);
-	    splay(tot,0);<br>
-	}<br>
-	int get(int w)
-	{
-	    int x=root,ans=tot+1;<br>
-	    while(x)<br>
-	    {<br>
-	        if(a[x].data&gt;w){x=a[x].ls;continue;}<br>
-	        if(a[x].data&lt;w){x=a[x].rs;continue;}<br>
-	        if(a[x].data==w)<br>
-	        {<br>
-	            ans=x;
-	            x=a[x].ls;
-	        }<br>
-	    }<br>
-	    if(ans==tot+1) return -1;
-	    return ans;<br>
-	}
-	int getmax(int x){while(a[x].rs)x=a[x].rs;return x;}<br>
-	int getmin(int x){while (a[x].ls)x=a[x].ls;return x;}<br>
-	int getpre1(int x){return getmax(a[root].ls);}<br>
-	int getne1(int x){return getmin(a[root].rs);}
-	void delet(int w)<br>
-	{<br>
-	    int x=get(w);<br>
-	    splay(x,0);<br>
-	    int pp=getpre1(x),nn=getne1(x);<br>
-	    splay(pp,0);<br>
-	    splay(nn,root);<br>
-	    int y=a[x].fa;<br>
-	    a[x].fa=0;<br>
-	    if(x==a[y].ls) a[y].ls=0;
-	    else 		  a[x].ls=0;
-	    pushup(y);pushup(root);<br>
-	}<br>
-	int find(int w)<br>
-	{<br>
-	    int x=get(w);<br>
-	    splay(x,0);<br>
-	    return a[a[x].ls].size;<br>
-	}<br>
-	int findkth(int x,int k)<br>
-	{<br>
-	    int s=a[a[x].ls].size;<br>
-	    if (k==s+1) return a[x].data;<br>
-	    if (s&gt;=k) return findkth(a[x].ls,k);<br>
-	    else return findkth(a[x].rs,k-s-1);<br>
-	}<br>
-	int getpre(int w)
-	{<br>
-	    int y=get(w);<br>
-	    insert(w);<br>
-	    if(y!=-1)splay(y,0);<br>
-	    int ans=getmax(a[root].ls);<br>
-	    delet(w);<br>
-	    return a[ans].data;<br>
-	}<br>
-	int getne(int w)<br>
-	{<br>
-	    insert(w);
-	    int ans=getmin(a[root].rs);
-	    delet(w);
-	    return a[ans].data;
-	}
-	int main()
-	{
-	    root=tot=0;
-	    insert(-inf);insert(inf);
-	    scanf(&quot;%d&quot;,&amp;q);
-	    while(q--)
-	    {
-	        int x,k;
-	        scanf(&quot;%d%d&quot;,&amp;x,&amp;k);
-	        if(x==1) 	  insert(k);
-	        else if(x==2) delet(k);
-	        else if(x==3) printf(&quot;%d\n&quot;,find(k));
-	        else if(x==4) printf(&quot;%d\n&quot;,findkth(root,k+1));
-	        else if(x==5) printf(&quot;%d\n&quot;,getpre(k));
-	        else if(x==6) printf(&quot;%d\n&quot;,getne(k));
-	    }
-	    return 0;
-	}</p>
-<hr>
-<h3>CODE V2</h3>
-<pre><code> #include&lt;cstdio&gt;
+<h3 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h3><p>#include <iostream></iostream></p>
+<pre><code>#include&lt;cstring&gt;
+#include&lt;algorithm&gt;
+#include&lt;cstdio&gt;
+using namespace std;
+const int inf = 0x7fffffff;
+const int N = 1e5+1;
+struct splay{int data,ls,rs,fa,size;}a[N];  
+int q,root=0,tot=0;
+void pushup(int x){a[x].size=a[a[x].ls].size+a[a[x].rs].size+1;}  
+void zig(int x)  
+{  
+    int y=a[x].fa; 
+    int z=a[y].fa; 
+    a[y].fa=x;a[x].fa=z;  
+    a[y].ls=a[x].rs;a[a[x].rs].fa=y;a[x].rs=y;  
+    if(y==a[z].ls)    a[z].ls=x;
+    else             a[z].rs=x;
+    pushup(y);
+}
+void zag(int x)
+{
+    int y=a[x].fa;  
+    int z=a[y].fa;
+    a[y].fa=x,a[x].fa=z;
+    a[y].rs=a[x].ls;a[a[x].ls].fa=y;a[x].ls=y;
+    if(y==a[z].ls)     a[z].ls=x;
+    else             a[z].rs=x;
+    pushup(y);
+}
+void splay(int x,int s)  
+{  
+    while (a[x].fa!=s)  
+    {  
+        int y=a[x].fa;  
+        int z=a[y].fa;  
+        if(z==s)  
+        {
+            if(x==a[y].ls) zig(x);  
+            else           zag(x);  
+            break;  
+        }  
+        if(y==a[z].ls)  
+        {  
+            if(x==a[y].ls) zig(y),zig(x);  
+            else           zag(x),zig(x);  
+        }  
+        else 
+        {  
+            if(x==a[y].rs) zag(y),zag(x);  
+            else           zig(x),zag(x);  
+        }  
+    }
+    pushup(x);  
+    if (s==0) root=x;  
+}  
+int Search(int w)  
+{  
+    int p,x=root;  
+    while (x)  
+    {  
+        p=x;  
+        if (a[x].data&gt;w) x=a[x].ls;  
+        else x=a[x].rs;  
+    }  
+    return p;  
+}  
+void newnode(int &amp;x,int fa,int key)  
+{  
+    x=++tot;  
+    a[x].ls=a[x].rs=0;  
+    a[x].fa=fa;  
+    a[x].data=key;  
+}  
+void insert(int w)  
+{  
+    if (root==0)  
+    {  
+        newnode(root,0,w);  
+        return;  
+    }  
+    int i=Search(w);  
+    if (w&lt;a[i].data) newnode(a[i].ls,i,w);     
+    else newnode(a[i].rs,i,w);
+    splay(tot,0);  
+}  
+int get(int w)
+{
+    int x=root,ans=tot+1;  
+    while(x)  
+    {  
+        if(a[x].data&gt;w){x=a[x].ls;continue;}  
+        if(a[x].data&lt;w){x=a[x].rs;continue;}  
+        if(a[x].data==w)  
+        {  
+            ans=x;
+            x=a[x].ls; 
+        }  
+    }  
+    if(ans==tot+1) return -1;
+    return ans;  
+}
+int getmax(int x){while(a[x].rs)x=a[x].rs;return x;}  
+int getmin(int x){while (a[x].ls)x=a[x].ls;return x;}  
+int getpre1(int x){return getmax(a[root].ls);}  
+int getne1(int x){return getmin(a[root].rs);}
+void delet(int w)  
+{  
+    int x=get(w);  
+    splay(x,0);  
+    int pp=getpre1(x),nn=getne1(x);  
+    splay(pp,0);  
+    splay(nn,root);  
+    int y=a[x].fa;  
+    a[x].fa=0;  
+    if(x==a[y].ls) a[y].ls=0;
+    else           a[x].ls=0;
+    pushup(y);pushup(root);  
+}  
+int find(int w)  
+{  
+    int x=get(w);  
+    splay(x,0);  
+    return a[a[x].ls].size;  
+}  
+int findkth(int x,int k)  
+{  
+    int s=a[a[x].ls].size;  
+    if (k==s+1) return a[x].data;  
+    if (s&gt;=k) return findkth(a[x].ls,k);  
+    else return findkth(a[x].rs,k-s-1);  
+}  
+int getpre(int w) 
+{  
+    int y=get(w);  
+    insert(w);  
+    if(y!=-1)splay(y,0);  
+    int ans=getmax(a[root].ls);  
+    delet(w);  
+    return a[ans].data;  
+}  
+int getne(int w)  
+{  
+    insert(w);
+    int ans=getmin(a[root].rs);
+    delet(w);
+    return a[ans].data;
+}
+int main()
+{
+    root=tot=0;
+    insert(-inf);insert(inf);
+    scanf(&quot;%d&quot;,&amp;q);
+    while(q--)
+    {
+        int x,k;
+        scanf(&quot;%d%d&quot;,&amp;x,&amp;k);
+        if(x==1)       insert(k);
+        else if(x==2) delet(k);
+        else if(x==3) printf(&quot;%d\n&quot;,find(k));
+        else if(x==4) printf(&quot;%d\n&quot;,findkth(root,k+1));
+        else if(x==5) printf(&quot;%d\n&quot;,getpre(k));
+        else if(x==6) printf(&quot;%d\n&quot;,getne(k));
+    }
+    return 0;
+}    
+</code></pre><hr>
+<h3 id="CODE-V2"><a href="#CODE-V2" class="headerlink" title="CODE V2"></a>CODE V2</h3><pre><code> #include&lt;cstdio&gt;
  #include&lt;iostream&gt;
 const int N=1e5+5;
 int tot,root,size[N],num[N],key[N],fa[N],son[N][2];
@@ -790,7 +753,7 @@ void splay(int x,int f)
             if(son[z][0]==y^son[y][0]==x) zg(x);
             else zg(y);
         } 
-        zg(x);	
+        zg(x);    
     }
     if(!f) root=x;
 }
@@ -873,15 +836,15 @@ int main()
     scanf(&quot;%d&quot;,&amp;n);
     for(int i=1,x,y;i&lt;=n;++i)
     {
-        if(x==1) 		insert(root,y,0);
-        if(x==2) 		delet(y);
-        if(x==3) 		printf(&quot;%d\n&quot;,getrank(y));
-        if(x==4) 		printf(&quot;%d\n&quot;,kth(y));
-        if(x==5) 		printf(&quot;%d\n&quot;,pre(y));
-        if(x==6)		printf(&quot;%d\n&quot;,ne(y));
+        if(x==1)         insert(root,y,0);
+        if(x==2)         delet(y);
+        if(x==3)         printf(&quot;%d\n&quot;,getrank(y));
+        if(x==4)         printf(&quot;%d\n&quot;,kth(y));
+        if(x==5)         printf(&quot;%d\n&quot;,pre(y));
+        if(x==6)        printf(&quot;%d\n&quot;,ne(y));
     }
-}</code></pre>
-
+}
+</code></pre>
       
     </div>
 
@@ -906,9 +869,9 @@ int main()
           
             <a href="/tags/SPLAY/" rel="tag"># SPLAY</a>
           
-            <a href="/tags/TREAP/" rel="tag"># TREAP</a>
-          
             <a href="/tags/模板/" rel="tag"># 模板</a>
+          
+            <a href="/tags/TREAP/" rel="tag"># TREAP</a>
           
         </div>
       
@@ -1148,7 +1111,7 @@ int main()
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">普通平衡树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">BZOJ3224 COGS1829</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.1.</span> <span class="nav-text">CODE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.2.</span> <span class="nav-text">CODE V2</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#普通平衡树"><span class="nav-number">1.</span> <span class="nav-text">普通平衡树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#BZOJ3224-COGS1829"><span class="nav-number">1.1.</span> <span class="nav-text">BZOJ3224 COGS1829</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.2.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出格式"><span class="nav-number">1.2.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入格式："><span class="nav-number">1.2.1.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出格式："><span class="nav-number">1.2.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出样例"><span class="nav-number">1.2.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入样例："><span class="nav-number">1.2.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出样例："><span class="nav-number">1.2.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据范围"><span class="nav-number">1.2.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解"><span class="nav-number">1.3.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE"><span class="nav-number">1.3.1.</span> <span class="nav-text">CODE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE-V2"><span class="nav-number">1.3.2.</span> <span class="nav-text">CODE V2</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

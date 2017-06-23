@@ -602,16 +602,11 @@
     12不要在头文件定义数据适用于C++
     13不要直接使用数字 适用于C++
     14宏 适用于C++
-</code></pre>
-<p>&lt;!--more--&gt;</p>
-<h1>1.    命名规则</h1>
-<h2>1.1. 起个合适的名字</h2>
-<h3>1.1.1.    类的名称（适用于C++）</h3>
-<p>²  类的名称要能告诉我们，这个类是什么。因此，类的名称通常是名词。</p>
+</code></pre> <a id="more"></a> 
+<h1 id="1-命名规则"><a href="#1-命名规则" class="headerlink" title="1.    命名规则"></a>1.    命名规则</h1><h2 id="1-1-起个合适的名字"><a href="#1-1-起个合适的名字" class="headerlink" title="1.1. 起个合适的名字"></a>1.1. 起个合适的名字</h2><h3 id="1-1-1-类的名称（适用于C-）"><a href="#1-1-1-类的名称（适用于C-）" class="headerlink" title="1.1.1.    类的名称（适用于C++）"></a>1.1.1.    类的名称（适用于C++）</h3><p>²  类的名称要能告诉我们，这个类是什么。因此，类的名称通常是名词。</p>
 <p>²  类的名字不需要告诉我们，它从哪个类继承而来的。</p>
 <p>²  有时候加个后缀是很有用的。比如类是一个代理(Agents)时，起名叫DownloadAgent更能表达真实的意图。</p>
-<h3>1.1.2.    方法和函数的名称（适用于C/C++）</h3>
-<p>²  方法和函数通常都要执行某种行为，因此，名称要能清楚的说明它做什么：CheckForErrors() 而不是ErrorCheck(),DumpDataToFile() 而不是 DataFile()。 这样也可以很容易的区别函数和数据。</p>
+<h3 id="1-1-2-方法和函数的名称（适用于C-C-）"><a href="#1-1-2-方法和函数的名称（适用于C-C-）" class="headerlink" title="1.1.2.    方法和函数的名称（适用于C/C++）"></a>1.1.2.    方法和函数的名称（适用于C/C++）</h3><p>²  方法和函数通常都要执行某种行为，因此，名称要能清楚的说明它做什么：CheckForErrors() 而不是ErrorCheck(),DumpDataToFile() 而不是 DataFile()。 这样也可以很容易的区别函数和数据。</p>
 <p>²  函数名总以动词开头，后面跟随其它名称。这样看起来更自然些。</p>
 <p>²  可以加一些必要的后缀：</p>
 <p>Max – 表示取最大值</p>
@@ -623,59 +618,48 @@
 <p>Get – 用于获取一个值。</p>
 <p>Set – 用于设置一个值。</p>
 <p>例如：IsHitRetryLimit.</p>
-<h3>1.1.3.   含有度量单位的名称（适用于C/C++）</h3>
-<p>²  如果一个变量用于表示时间，重量或其它度量单位，应把度量单位添加到名称中，以便开发人员更早一步发现问题。</p>
+<h3 id="1-1-3-含有度量单位的名称（适用于C-C-）"><a href="#1-1-3-含有度量单位的名称（适用于C-C-）" class="headerlink" title="1.1.3.   含有度量单位的名称（适用于C/C++）"></a>1.1.3.   含有度量单位的名称（适用于C/C++）</h3><p>²  如果一个变量用于表示时间，重量或其它度量单位，应把度量单位添加到名称中，以便开发人员更早一步发现问题。</p>
 <p>例如：</p>
 <pre><code>uint32 mTimeoutMsecs;
 
 uint32 mMyWeightLbs;
-</code></pre>
-<h3>1.1.4.    缩写名称不要全部大写（适用于C/C++）</h3>
-<p>²  无论是什么缩写名称，我们总以一个大写字母开头，后面跟随的字母全部用小写。</p>
+</code></pre><h3 id="1-1-4-缩写名称不要全部大写（适用于C-C-）"><a href="#1-1-4-缩写名称不要全部大写（适用于C-C-）" class="headerlink" title="1.1.4.    缩写名称不要全部大写（适用于C/C++）"></a>1.1.4.    缩写名称不要全部大写（适用于C/C++）</h3><p>²  无论是什么缩写名称，我们总以一个大写字母开头，后面跟随的字母全部用小写。</p>
 <p>例如：</p>
 <pre><code>class FluidOz;            // 而不是 FluidOZ
 
 class NetworkAbcKey;      // 而不是 NetworkABCKey
-</code></pre>
-<h2>1.2.类的命名（适用于C++）</h2>
-<p>²  用大写字母作为单词的分隔，每个单词的首字母大写，其它字母均小写。</p>
+</code></pre><h2 id="1-2-类的命名（适用于C-）"><a href="#1-2-类的命名（适用于C-）" class="headerlink" title="1.2.类的命名（适用于C++）"></a>1.2.类的命名（适用于C++）</h2><p>²  用大写字母作为单词的分隔，每个单词的首字母大写，其它字母均小写。</p>
 <p>²  名字的第一个字母应大写</p>
-<p>²  不含有下划线 ('_')</p>
+<p>²  不含有下划线 (‘_’)</p>
 <p>例如：</p>
-<pre><code>class NameOneTwo; 
+<pre><code>   class NameOneTwo; 
 
-class Name;
-</code></pre>
-<h2>1.3.类库（或程序库）命名 （适用于C/C++）</h2>
-<p>²  使用命名空间防止名字冲突。</p>
+   class Name;
+</code></pre><h2 id="1-3-类库（或程序库）命名-（适用于C-C-）"><a href="#1-3-类库（或程序库）命名-（适用于C-C-）" class="headerlink" title="1.3.类库（或程序库）命名 （适用于C/C++）"></a>1.3.类库（或程序库）命名 （适用于C/C++）</h2><p>²  使用命名空间防止名字冲突。</p>
 <p>²  如果编译器没有实现命名空间，需要用前缀来避名名字冲突，不过前缀不要过长（2个字母比较好）。</p>
 <p>例如：</p>
 <p>John Johnson 完成了一个数据结构的库，它可以使用JJ作为库的前缀，所以类名就象下面这样：</p>
-<pre><code>class JjLinkList
+<pre><code>   class JjLinkList
 
-{
+   {
 
-}
-</code></pre>
-<h2>1.4.方法和函数的命名（适用于C++）</h2>
-<p>²  使用与类名相同的规则</p>
+   }
+</code></pre><h2 id="1-4-方法和函数的命名（适用于C-）"><a href="#1-4-方法和函数的命名（适用于C-）" class="headerlink" title="1.4.方法和函数的命名（适用于C++）"></a>1.4.方法和函数的命名（适用于C++）</h2><p>²  使用与类名相同的规则</p>
 <p>例如：</p>
-<pre><code>class NameOneTwo
+<pre><code>   class NameOneTwo
 
-{
+   {
 
-	public:
+       public:
 
   int     DoIt();
 
   void    HandleError();
 
-}
-</code></pre>
-<h2>1.5.类属性的命名（适用于C++）</h2>
-<p>²  属性（通常是非公有数据成员）名字以字母'm'开头。</p>
-<p>²  在 'm(m_)'  后面，使用与类名相同的规则。</p>
-<p>²  'm(m_)' 总是位于其它修饰符（如表示指针的 'p'）的前面。</p>
+   }
+</code></pre><h2 id="1-5-类属性的命名（适用于C-）"><a href="#1-5-类属性的命名（适用于C-）" class="headerlink" title="1.5.类属性的命名（适用于C++）"></a>1.5.类属性的命名（适用于C++）</h2><p>²  属性（通常是非公有数据成员）名字以字母’m’开头。</p>
+<p>²  在 ‘m(m_)’  后面，使用与类名相同的规则。</p>
+<p>²  ‘m(m_)’ 总是位于其它修饰符（如表示指针的 ‘p’）的前面。</p>
 <p>例如：</p>
 <pre><code>   class NameOneTwo
 
@@ -696,9 +680,7 @@ class Name;
       String*      mpName;
 
    }
-</code></pre>
-<h2>1.6.方法和函数参数的命名（适用于C++）</h2>
-<p>²  第一个字母必须小写。</p>
+</code></pre><h2 id="1-6-方法和函数参数的命名（适用于C-）"><a href="#1-6-方法和函数参数的命名（适用于C-）" class="headerlink" title="1.6.方法和函数参数的命名（适用于C++）"></a>1.6.方法和函数参数的命名（适用于C++）</h2><p>²  第一个字母必须小写。</p>
 <p>²  第一个字母后面的单词使用与类名相同的规则。</p>
 <p>例如：</p>
 <pre><code>   class NameOneTwo
@@ -713,11 +695,9 @@ class Name;
 
                           Engine&amp;rAnotherEngine);
 
-}
-</code></pre>
-<h2>1.7.局部变量的命名（适用于C/C++）</h2>
-<p>²  所有字母都用小写</p>
-<p>²  使用下划线 '_' 作为单词的分隔。</p>
+   }
+</code></pre><h2 id="1-7-局部变量的命名（适用于C-C-）"><a href="#1-7-局部变量的命名（适用于C-C-）" class="headerlink" title="1.7.局部变量的命名（适用于C/C++）"></a>1.7.局部变量的命名（适用于C/C++）</h2><p>²  所有字母都用小写</p>
+<p>²  使用下划线 ‘_’ 作为单词的分隔。</p>
 <p>例如：</p>
 <pre><code>   int
 
@@ -730,27 +710,22 @@ class Name;
   Time           time_of_error;
 
  ErrorProcessor error_processor;
-</code></pre>
-<p>}</p>
-<h2>1.8.指针变量的命名前缀（适用于C/C++）</h2>
-<p>²  指针变量多数情况应在前面加 'p'。</p>
-<p>²  星号 '*' 应靠近类型，而不是变量名。</p>
+</code></pre><p>   }</p>
+<h2 id="1-8-指针变量的命名前缀（适用于C-C-）"><a href="#1-8-指针变量的命名前缀（适用于C-C-）" class="headerlink" title="1.8.指针变量的命名前缀（适用于C/C++）"></a>1.8.指针变量的命名前缀（适用于C/C++）</h2><p>²  指针变量多数情况应在前面加 ‘p’。</p>
+<p>²  星号 ‘*’ 应靠近类型，而不是变量名。</p>
 <p>例如：</p>
-<pre><code>String* pName=new String;
-</code></pre>
-<p>特别的：String* pName, name; 应分成两行来写：</p>
-<pre><code>String* pName;
+<pre><code>  String* pName=new String;
+</code></pre><p>  特别的：String* pName, name; 应分成两行来写：</p>
+<pre><code>  String* pName;
 
-String  name;
-</code></pre>
-<h2>1.9.引用变量和返回引用函数的命名前缀（适用于C++）</h2>
-<p>²  引用必须用 'r'作前缀修饰。</p>
+  String  name;
+</code></pre><h2 id="1-9-引用变量和返回引用函数的命名前缀（适用于C-）"><a href="#1-9-引用变量和返回引用函数的命名前缀（适用于C-）" class="headerlink" title="1.9.引用变量和返回引用函数的命名前缀（适用于C++）"></a>1.9.引用变量和返回引用函数的命名前缀（适用于C++）</h2><p>²  引用必须用 ‘r’作前缀修饰。</p>
 <p>例如：</p>
-<pre><code>class Test
+<pre><code>   class Test
 
-{
+   {
 
-public:
+   public:
 
   void               DoSomething(StatusInfo&amp;rStatus);
 
@@ -762,26 +737,20 @@ public:
 
 
 
-private:
+   private:
 
- 	StatusInfo&amp;        mrStatus;
+     StatusInfo&amp;        mrStatus;
 
-}
-</code></pre>
-<h2>1.10.   全局变量的命名前缀（适用于C/C++）</h2>
-<p>²  全局变量总是以 'g(g_)' 作为前缀。</p>
+   }
+</code></pre><h2 id="1-10-全局变量的命名前缀（适用于C-C-）"><a href="#1-10-全局变量的命名前缀（适用于C-C-）" class="headerlink" title="1.10.   全局变量的命名前缀（适用于C/C++）"></a>1.10.   全局变量的命名前缀（适用于C/C++）</h2><p>²  全局变量总是以 ‘g(g_)’ 作为前缀。</p>
 <p>例如：</p>
 <pre><code>Logger g_Log;
 
 Logger* g_pLog;
-</code></pre>
-<h2>1.11.   全局常量的命名（适用于C/C++）</h2>
-<p>²  全局常量全部大写，并以下划线 '_' 分隔单词。</p>
+</code></pre><h2 id="1-11-全局常量的命名（适用于C-C-）"><a href="#1-11-全局常量的命名（适用于C-C-）" class="headerlink" title="1.11.   全局常量的命名（适用于C/C++）"></a>1.11.   全局常量的命名（适用于C/C++）</h2><p>²  全局常量全部大写，并以下划线 ‘_’ 分隔单词。</p>
 <p>例如：</p>
 <pre><code>const intA_GLOBAL_CONSTANT = 5;
-</code></pre>
-<h2>1.12.   静态变量的命名前缀（适用于C++）</h2>
-<p>²  静态变量以 's' 作为前缀。</p>
+</code></pre><h2 id="1-12-静态变量的命名前缀（适用于C-）"><a href="#1-12-静态变量的命名前缀（适用于C-）" class="headerlink" title="1.12.   静态变量的命名前缀（适用于C++）"></a>1.12.   静态变量的命名前缀（适用于C++）</h2><p>²  静态变量以 ‘s’ 作为前缀。</p>
 <p>例如：</p>
 <pre><code>   class Test
 
@@ -794,38 +763,30 @@ Logger* g_pLog;
       staticStatusInfo m_sStatus;
 
    }
-</code></pre>
-<h2>1.13.   自定义类型（typedef）的命名（适用于C/C++）</h2>
-<p>²  类型定义名称指的是用typedef定义的名称。</p>
+</code></pre><h2 id="1-13-自定义类型（typedef）的命名（适用于C-C-）"><a href="#1-13-自定义类型（typedef）的命名（适用于C-C-）" class="headerlink" title="1.13.   自定义类型（typedef）的命名（适用于C/C++）"></a>1.13.   自定义类型（typedef）的命名（适用于C/C++）</h2><p>²  类型定义名称指的是用typedef定义的名称。</p>
 <p>²  类型定义名称使用与类名相同的规则，并使用Type作为后缀。</p>
 <p>例如：</p>
 <pre><code>   typedefuint16  ModuleType;
 
    typedefuint32  SystemType;
-</code></pre>
-<h2>1.14.   宏定义的命名（适用于C/C++）</h2>
-<p>²  所有单词的字母都用大写，并使用下划线 '_' 分隔.</p>
+</code></pre><h2 id="1-14-宏定义的命名（适用于C-C-）"><a href="#1-14-宏定义的命名（适用于C-C-）" class="headerlink" title="1.14.   宏定义的命名（适用于C/C++）"></a>1.14.   宏定义的命名（适用于C/C++）</h2><p>²  所有单词的字母都用大写，并使用下划线 ‘_’ 分隔.</p>
 <p>例如：</p>
 <pre><code>#define MAX(a,b) blah
 
 #define IS_ERR(err) blah
-</code></pre>
-<h2>1.15.   C 函数的命名（适用于C/C++）</h2>
-<p>²  C++项目中，应尽量少用C函数。</p>
-<p>²  C函数使用GNU规范，所有字母都使用小写，并用下划线 '_' 作为单词的分隔。</p>
+</code></pre><h2 id="1-15-C-函数的命名（适用于C-C-）"><a href="#1-15-C-函数的命名（适用于C-C-）" class="headerlink" title="1.15.   C 函数的命名（适用于C/C++）"></a>1.15.   C 函数的命名（适用于C/C++）</h2><p>²  C++项目中，应尽量少用C函数。</p>
+<p>²  C函数使用GNU规范，所有字母都使用小写，并用下划线 ‘_’ 作为单词的分隔。</p>
 <p>例如：</p>
-<pre><code>int
+<pre><code>   int
 
-some_bloody_function()
+  some_bloody_function()
 
-{
+   {
 
-}
-</code></pre>
-<p>²  特别的，为了赚容C/C++，在必要的时候，在C++中应以下面的格式定义C函数：</p>
+   }
+</code></pre><p>²  特别的，为了赚容C/C++，在必要的时候，在C++中应以下面的格式定义C函数：</p>
 <pre><code>   extern “C” int some_bloody_function();
-</code></pre>
-<p>²  或在C/C++中推荐使用下面的格式：</p>
+</code></pre><p>²  或在C/C++中推荐使用下面的格式：</p>
 <pre><code>   #ifdef__cplusplus__
 
    extern “C”{
@@ -845,45 +806,39 @@ some_bloody_function()
    }
 
    #endif
-</code></pre>
-<h2>1.16.   枚举的命名（适用于C/C++）</h2>
-<p>²  所有字母都大写，并用下划线 '_' 作为单词分隔。</p>
+</code></pre><h2 id="1-16-枚举的命名（适用于C-C-）"><a href="#1-16-枚举的命名（适用于C-C-）" class="headerlink" title="1.16.   枚举的命名（适用于C/C++）"></a>1.16.   枚举的命名（适用于C/C++）</h2><p>²  所有字母都大写，并用下划线 ‘_’ 作为单词分隔。</p>
 <p>例如：</p>
-<pre><code>enumPinStateType
+<pre><code>   enumPinStateType
 
-{
+   {
 
-  	PIN_OFF,
+      PIN_OFF,
 
-  	PIN_ON
+      PIN_ON
 
-};
+   };
 
 enum { STATE_ERR, STATE_OPEN, STATE_RUNNING, STATE_DYING};
-</code></pre>
-<h1>2.    排版规则</h1>
-<h2>2.1. 布局和模板</h2>
-<h3>2.1.1.    类的布局模板 （适用于C++）</h3>
-<p>²  请使用下面的模板来创建一个新的类：</p>
+</code></pre><h1 id="2-排版规则"><a href="#2-排版规则" class="headerlink" title="2.    排版规则"></a>2.    排版规则</h1><h2 id="2-1-布局和模板"><a href="#2-1-布局和模板" class="headerlink" title="2.1. 布局和模板"></a>2.1. 布局和模板</h2><h3 id="2-1-1-类的布局模板-（适用于C-）"><a href="#2-1-1-类的布局模板-（适用于C-）" class="headerlink" title="2.1.1.    类的布局模板 （适用于C++）"></a>2.1.1.    类的布局模板 （适用于C++）</h3><p>²  请使用下面的模板来创建一个新的类：</p>
 <pre><code>/**     
 
-* 用一行来描述类
+ * 用一行来描述类
 
-*
+ *
 
-*#include &quot;XX.h&quot; &lt;BR&gt;
+ *#include &quot;XX.h&quot; &lt;BR&gt;
 
-*-llib
+ *-llib
 
-*
+ *
 
-* 类的详细说明
+ * 类的详细说明
 
-* 
+ * 
 
-* @seesomething
+ * @seesomething
 
-*/
+ */
 
 
 
@@ -919,307 +874,283 @@ enum { STATE_ERR, STATE_OPEN, STATE_RUNNING, STATE_DYING};
 
 
 
-	class XX
+    class XX
 
-	{
+    {
 
-	public:
+    public:
 
-	// 类的生命周期控制函数，如构造和析构，以及状态机
-
-
-
-		/**
-
-		*Default constructor.
-
-		*/
-
-		XX(void);
+    // 类的生命周期控制函数，如构造和析构，以及状态机
 
 
 
-		/**
+        /**
 
-		*Copy constructor.
+        *Default constructor.
 
-		*
+        */
 
-		*@param from The value to copy to this object.
-
-		*/
-
-		XX(const XX&amp; from);
+        XX(void);
 
 
 
-		/**
+        /**
 
-		*Destructor.
+        *Copy constructor.
 
-		*/
+        *
 
-	    virtual ~XX(void);
+        *@param from The value to copy to this object.
 
-	 
+        */
 
-	    // 在这里放置类的运算操作符
-
-	 
-
-	    /**
-
-	    *Assignment operator.
-
-	    *
-
-	    *@param from THe value to assign to this object.
-
-	    *
-
-	    *@return A reference to this object.
-
-	    */
-
-	    XX&amp;                     operator=(XX&amp;from); 
-
-	 
-
-	    // 在这里放置类的操作                      
-
-	    // 在这里放置属性存取
-
-	    // 在这里放置类的状态查询
-
-	 
-
-		protected:
-
-		private:
-
-		};
+        XX(const XX&amp; from);
 
 
 
-	// 内联方法定义
+        /**
 
-	//
+        *Destructor.
 
-	 
+        */
 
-	// 外部引用
+        virtual ~XX(void);
 
-	//
 
-	 
 
-	#endif  // SORUTION_PROJECT_CLASSNAME_H
-</code></pre>
-<p>²  定义的顺序是: public, protected, private</p>
+        // 在这里放置类的运算操作符
+
+
+
+        /**
+
+        *Assignment operator.
+
+        *
+
+        *@param from THe value to assign to this object.
+
+        *
+
+        *@return A reference to this object.
+
+        */
+
+        XX&amp;                     operator=(XX&amp;from); 
+
+
+
+        // 在这里放置类的操作                      
+
+        // 在这里放置属性存取
+
+        // 在这里放置类的状态查询
+
+
+
+        protected:
+
+        private:
+
+        };
+
+
+
+    // 内联方法定义
+
+    //
+
+
+
+    // 外部引用
+
+    //
+
+
+
+    #endif  // SORUTION_PROJECT_CLASSNAME_H
+</code></pre><p>²  定义的顺序是: public, protected, private</p>
 <p>²  要清楚public/protected/private都应该放置哪些东西</p>
-<h3>2.1.2.   源文件格式（适用于C++）</h3>
-<pre><code>	#include &quot;XX.h&quot;                               // class implemented
-</code></pre>
-<p>/////////////// PUBLIC///////////////////////</p>
+<h3 id="2-1-2-源文件格式（适用于C-）"><a href="#2-1-2-源文件格式（适用于C-）" class="headerlink" title="2.1.2.   源文件格式（适用于C++）"></a>2.1.2.   源文件格式（适用于C++）</h3><pre><code>    #include &quot;XX.h&quot;                               // class implemented
+</code></pre><p>/////////////// PUBLIC///////////////////////</p>
 <p>//================= 构造函数 ====================</p>
-<pre><code>	XX::XX()
+<pre><code>    XX::XX()
 
-	{
+    {
 
-	}// XX
+    }// XX
 
-	 
 
-	XX::XX(const XX&amp;)
 
-	{
+    XX::XX(const XX&amp;)
 
-	}// XX
+    {
 
-	 
+    }// XX
 
-	XX::~XX()
 
-	{
 
-	}// ~XX
-</code></pre>
-<p>//=============== 操作符=========================</p>
-<pre><code>	XX&amp;
+    XX::~XX()
 
-	XX::operator=(XX&amp;);
+    {
 
-	{
+    }// ~XX
+</code></pre><p>//=============== 操作符=========================</p>
+<pre><code>    XX&amp;
 
-	   return *this;
+    XX::operator=(XX&amp;);
 
-	 
+    {
 
-	}// =
-</code></pre>
-<p>//==============类的操作 =====================</p>
+       return *this;
+
+
+
+    }// =
+</code></pre><p>//==============类的操作 =====================</p>
 <p>//==============属性存取 =====================</p>
 <p>//==============状态查询   =====================</p>
 <p>///////////// PROTECTED  //////////////////</p>
 <p>///////////// PRIVATE    //////////////////</p>
-<h3>2.1.3.    保护头文件不被重复包含 （适用于C/C++）</h3>
-<p>²  应使用宏定义来保护头文件不被重复包含：</p>
-<pre><code>	#ifndef SORUTION_PROJECT_CLASSNAME_H
+<h3 id="2-1-3-保护头文件不被重复包含-（适用于C-C-）"><a href="#2-1-3-保护头文件不被重复包含-（适用于C-C-）" class="headerlink" title="2.1.3.    保护头文件不被重复包含 （适用于C/C++）"></a>2.1.3.    保护头文件不被重复包含 （适用于C/C++）</h3><p>²  应使用宏定义来保护头文件不被重复包含：</p>
+<pre><code>    #ifndef SORUTION_PROJECT_CLASSNAME_H
 
-	#define SORUTION_PROJECT_CLASSNAME_H
+    #define SORUTION_PROJECT_CLASSNAME_H
 
-	 
 
-	#endif // SORUTION_PROJECT_CLASSNAME_H
-</code></pre>
-<p>²  如果使用命名空间的时候，要把命名空间加到文件名前面：</p>
-<pre><code>	#ifndef SORUTION_PROJECT_NAMESPACE_CLASSNAME_H
 
-	#define SORUTION_PROJECT_NAMESPACE_CLASSNAME_H
-</code></pre>
-<p>#endif</p>
-<h3>2.1.4.    方法和函数的布局 （适用于C/C++）</h3>
-<p>²  对于有较多参数的函数的写法</p>
+    #endif // SORUTION_PROJECT_CLASSNAME_H
+</code></pre><p>²  如果使用命名空间的时候，要把命名空间加到文件名前面：</p>
+<pre><code>    #ifndef SORUTION_PROJECT_NAMESPACE_CLASSNAME_H
+
+    #define SORUTION_PROJECT_NAMESPACE_CLASSNAME_H
+</code></pre><p>#endif</p>
+<h3 id="2-1-4-方法和函数的布局-（适用于C-C-）"><a href="#2-1-4-方法和函数的布局-（适用于C-C-）" class="headerlink" title="2.1.4.    方法和函数的布局 （适用于C/C++）"></a>2.1.4.    方法和函数的布局 （适用于C/C++）</h3><p>²  对于有较多参数的函数的写法</p>
 <p>如果参数较多，一行写不下，我们应该分成几行来写，并且每个参数都另起一行对齐：</p>
-<pre><code>	   int AnyMethod(
+<pre><code>       int AnyMethod(
 
-	                 int  arg1, 
+                     int  arg1, 
 
-	                 int   arg2,
+                     int   arg2,
 
-	                 int   arg3,
+                     int   arg3,
 
-	                 int   arg4); 
-</code></pre>
-<p>或</p>
-<pre><code>	int AnyMethod( int   arg1 
+                     int   arg4); 
+</code></pre><p>或</p>
+<pre><code>    int AnyMethod( int   arg1 
 
-	               , int   arg2
+                   , int   arg2
 
-	               , int   arg3
+                   , int   arg3
 
-	               , int   arg4);
-</code></pre>
-<h2>2.2. 缩进、制表符以及空格 （适用于C/C++）</h2>
-<p>²  缩进的时候，每一层缩进3，4，或8个空格。（推荐使用4个空格）</p>
+                   , int   arg4);
+</code></pre><h2 id="2-2-缩进、制表符以及空格-（适用于C-C-）"><a href="#2-2-缩进、制表符以及空格-（适用于C-C-）" class="headerlink" title="2.2. 缩进、制表符以及空格 （适用于C/C++）"></a>2.2. 缩进、制表符以及空格 （适用于C/C++）</h2><p>²  缩进的时候，每一层缩进3，4，或8个空格。（推荐使用4个空格）</p>
 <p>²  不要使用TAB，用空格，大多数编辑器可以用空格代替TAB。TAB应固定4个空格，因为大多数编辑器都是这么设置的。</p>
 <p>²  虽然没有规定缩进的层次，但是4至5层是合适的。如果缩进的层次太多，你可能需要考虑是否进行代码重构了。</p>
 <p>例如：</p>
-<pre><code>	   void
+<pre><code>       void
 
-	   func()
+       func()
 
-	   {
+       {
 
-	      if (something bad)
+          if (something bad)
 
-	      {
+          {
 
-	          if (another thing bad)
+              if (another thing bad)
 
-	          {
+              {
 
-	              while (more input)
+                  while (more input)
 
-	              {
+                  {
 
-	              }
+                  }
 
-	          }
+              }
 
-	      }
+          }
 
-	   }
-</code></pre>
-<h2>2.3. 尽量使一行不要超过78个字母 （适用于C/C++）</h2>
-<p>²  有许多编辑器屏幕只有78个字母宽</p>
-<h2>2.4. 保证一行只写一条语句 （适用于C/C++）</h2>
-<p>²  一行最多只写一条语句</p>
+       }
+</code></pre><h2 id="2-3-尽量使一行不要超过78个字母-（适用于C-C-）"><a href="#2-3-尽量使一行不要超过78个字母-（适用于C-C-）" class="headerlink" title="2.3. 尽量使一行不要超过78个字母 （适用于C/C++）"></a>2.3. 尽量使一行不要超过78个字母 （适用于C/C++）</h2><p>²  有许多编辑器屏幕只有78个字母宽</p>
+<h2 id="2-4-保证一行只写一条语句-（适用于C-C-）"><a href="#2-4-保证一行只写一条语句-（适用于C-C-）" class="headerlink" title="2.4. 保证一行只写一条语句 （适用于C/C++）"></a>2.4. 保证一行只写一条语句 （适用于C/C++）</h2><p>²  一行最多只写一条语句</p>
 <p>²  一行只定义一个变量</p>
 <p>例如：</p>
 <p>不要象下面这样:</p>
-<pre><code>	char** a, *x;
+<pre><code>    char** a, *x;
 
-	 
 
-	int width, height; //widthand height of image
-</code></pre>
-<p>要象这样:</p>
-<pre><code>	char** a= 0;  // 文档说明
 
-	char*  x= 0;  // 文档说明
-	2.5. 花括号 {} 规则 （适用于C/C++）
-	2.5.1.    花括号的位置
-</code></pre>
-<p>²  在关键字的下一行单独放置括号，并且与关键字对齐，如：</p>
-<pre><code>	if (condition)       
+    int width, height; //widthand height of image
+</code></pre><p>要象这样:</p>
+<pre><code>    char** a= 0;  // 文档说明
 
-	{
+    char*  x= 0;  // 文档说明
+    2.5. 花括号 {} 规则 （适用于C/C++）
+    2.5.1.    花括号的位置
+</code></pre><p>²  在关键字的下一行单独放置括号，并且与关键字对齐，如：</p>
+<pre><code>    if (condition)       
 
-	    ...
+    {
 
-	}
+        ...
 
-	while (condition)
+    }
 
-	{
+    while (condition)
 
-	    …
+    {
 
-	}
-</code></pre>
-<h3>2.5.2.    什么时候应使用花括号</h3>
-<p>所有的 if, while 和 do 语句，要么用单行格式，要么使用花括号格式。</p>
+        …
+
+    }
+</code></pre><h3 id="2-5-2-什么时候应使用花括号"><a href="#2-5-2-什么时候应使用花括号" class="headerlink" title="2.5.2.    什么时候应使用花括号"></a>2.5.2.    什么时候应使用花括号</h3><p>所有的 if, while 和 do 语句，要么用单行格式，要么使用花括号格式。</p>
 <p>²  使用花括号格式：</p>
-<pre><code>	if (1 == somevalue)
+<pre><code>    if (1 == somevalue)
 
-	{
+    {
 
-	   somevalue = 2;
+       somevalue = 2;
 
-	}
+    }
 
-	²  单行格式：
+    ²  单行格式：
 
-	if (1 == somevalue) somevalue = 2;
+    if (1 == somevalue) somevalue = 2;
 
-	或下面这样（对于这种写法，建议使用花括号）：
+    或下面这样（对于这种写法，建议使用花括号）：
 
-	if (1 == somevalue)
+    if (1 == somevalue)
 
-	{
-	somevalue = 2;
+    {
+    somevalue = 2;
 
-	}
-</code></pre>
-<h3>2.5.3.    在花括号结束的位置加上注释</h3>
-<p>²  在花括号结束的位置加上注释是一个好习惯。假如前后花括号距离很远，注释就能帮你理解它是如何对应的。如：</p>
-<pre><code>	while(1)
+    }
+</code></pre><h3 id="2-5-3-在花括号结束的位置加上注释"><a href="#2-5-3-在花括号结束的位置加上注释" class="headerlink" title="2.5.3.    在花括号结束的位置加上注释"></a>2.5.3.    在花括号结束的位置加上注释</h3><p>²  在花括号结束的位置加上注释是一个好习惯。假如前后花括号距离很远，注释就能帮你理解它是如何对应的。如：</p>
+<pre><code>    while(1)
 
-	{
+    {
 
-	   if (valid)
+       if (valid)
 
-	   {
-
-	 
-
-	   } // if valid
-
-	   else
-
-	   {
-
-	   } // not valid
+       {
 
 
 
-	} // end forever
-</code></pre>
-<h3>2.5.4.    注意屏幕大小</h3>
-<p>²  一个语句块尽量不超过一个屏幕大小，这样，不要卷动屏幕就可以阅读代码。</p>
-<h2>2.6.圆括号 () 规则 （适用于C/C++）</h2>
-<p>²  圆括号与关键字之间应放一个空格。</p>
+       } // if valid
+
+       else
+
+       {
+
+       } // not valid
+
+
+
+    } // end forever
+</code></pre><h3 id="2-5-4-注意屏幕大小"><a href="#2-5-4-注意屏幕大小" class="headerlink" title="2.5.4.    注意屏幕大小"></a>2.5.4.    注意屏幕大小</h3><p>²  一个语句块尽量不超过一个屏幕大小，这样，不要卷动屏幕就可以阅读代码。</p>
+<h2 id="2-6-圆括号-规则-（适用于C-C-）"><a href="#2-6-圆括号-规则-（适用于C-C-）" class="headerlink" title="2.6.圆括号 () 规则 （适用于C/C++）"></a>2.6.圆括号 () 规则 （适用于C/C++）</h2><p>²  圆括号与关键字之间应放一个空格。</p>
 <p>²  圆括号与函数名之间不要有空格。</p>
 <p>²  Return 语句不要使用圆括号。</p>
 <p>例如：</p>
@@ -1229,7 +1160,7 @@ enum { STATE_ERR, STATE_OPEN, STATE_RUNNING, STATE_DYING};
 
     }
 
- 
+
 
     while(condition)
 
@@ -1237,304 +1168,258 @@ enum { STATE_ERR, STATE_OPEN, STATE_RUNNING, STATE_DYING};
 
     }
 
- 
+
 
     strcpy(s, s1);
 
 
 
-	return 1;
-</code></pre>
-<h2>2.7.if else 语句的格式 （适用于C/C++）</h2>
-<p>²  布局</p>
-<pre><code>	   if (条件)               // 注释
+    return 1;
+</code></pre><h2 id="2-7-if-else-语句的格式-（适用于C-C-）"><a href="#2-7-if-else-语句的格式-（适用于C-C-）" class="headerlink" title="2.7.if else 语句的格式 （适用于C/C++）"></a>2.7.if else 语句的格式 （适用于C/C++）</h2><p>²  布局</p>
+<pre><code>       if (条件)               // 注释
 
-	   {
+       {
 
-	   }
+       }
 
-	   else if (条件)           // 注释
+       else if (条件)           // 注释
 
-	   {
+       {
 
-	   }
+       }
 
-	   else                   // 注释
+       else                   // 注释
 
-	   {
+       {
 
-	   }
-</code></pre>
-<p>²  条件格式</p>
+       }
+</code></pre><p>²  条件格式</p>
 <p>总是把常量放在等号或不等于号的左边：</p>
-<pre><code>	if ( 6 == errorNum ) ...
-</code></pre>
-<p>一个很重要的理由是，假如漏写一个等号，这种写法会产生一个编译错误，有助于马上发现问题。</p>
+<pre><code>    if ( 6 == errorNum ) ...
+</code></pre><p>一个很重要的理由是，假如漏写一个等号，这种写法会产生一个编译错误，有助于马上发现问题。</p>
 <p>比如：</p>
-<pre><code>	if ( errorNum == 6) ...
-</code></pre>
-<p>错写成：</p>
-<pre><code>	if ( errorNum = 6) ... // 这是一个不容易发现的灾难
-</code></pre>
-<h2>2.8.switch 格式 （适用于C/C++）</h2>
-<p>²  直通的case语句，应该放置一条注释说明这个case语句是直通到下一个case语句的。</p>
+<pre><code>    if ( errorNum == 6) ...
+</code></pre><p>错写成：</p>
+<pre><code>    if ( errorNum = 6) ... // 这是一个不容易发现的灾难
+</code></pre><h2 id="2-8-switch-格式-（适用于C-C-）"><a href="#2-8-switch-格式-（适用于C-C-）" class="headerlink" title="2.8.switch 格式 （适用于C/C++）"></a>2.8.switch 格式 （适用于C/C++）</h2><p>²  直通的case语句，应该放置一条注释说明这个case语句是直通到下一个case语句的。</p>
 <p>²  总是要写default语句，不管是否是需要。</p>
 <p>²  在case中需要定义变量的时候，应把所有代码放在语句块中。</p>
 <p>例如：</p>
-<pre><code>	switch (...)
+<pre><code>    switch (...)
 
-	{
+    {
 
-	case 1:
+    case 1:
 
-	    ...
+        ...
 
-	        // 继续执行case2
+            // 继续执行case2
 
-	 
 
-	case 2:
 
-	    {       
+    case 2:
 
-	        int v;
+        {       
 
-	        ...
+            int v;
 
-	    }
+            ...
 
-	    break;
+        }
 
-	 
+        break;
 
-	default:
 
-	}
-</code></pre>
-<h2>2.9. 使用goto,continue,break 和 ?: （适用于C/C++）</h2>
-<h3>2.9.1.    Goto</h3>
-<p>²  尽量避免使用Goto 语句。一个合理使用goto语句的场合是，当你需要从多层循环中跳出。例如：</p>
-<pre><code>	for (...)
 
-	{
+    default:
 
-	    while (...)
+    }
+</code></pre><h2 id="2-9-使用goto-continue-break-和-（适用于C-C-）"><a href="#2-9-使用goto-continue-break-和-（适用于C-C-）" class="headerlink" title="2.9. 使用goto,continue,break 和 ?: （适用于C/C++）"></a>2.9. 使用goto,continue,break 和 ?: （适用于C/C++）</h2><h3 id="2-9-1-Goto"><a href="#2-9-1-Goto" class="headerlink" title="2.9.1.    Goto"></a>2.9.1.    Goto</h3><p>²  尽量避免使用Goto 语句。一个合理使用goto语句的场合是，当你需要从多层循环中跳出。例如：</p>
+<pre><code>    for (...)
 
-	    {
+    {
 
-	        ...
+        while (...)
 
-	            if (disaster)
+        {
 
-	goto error; //跳出循环
+            ...
 
-	    }
+                if (disaster)
 
-	}
+    goto error; //跳出循环
 
-	...
+        }
 
-	error:
+    }
 
-	clean up the mess
-</code></pre>
-<p>²  跳转的标号必须单独在一行的最左边。Goto语句需要有相应的注释，说明它的用途。</p>
-<h3>2.9.2.    Continue and Break</h3>
-<p>²  Continue 和break 实际上起到与goto一样的作用，因此，尽量少用为上。并且，Continue与break最好不要连用。</p>
-<h3>2.9.3.    ?:</h3>
-<p>²  用括号把条件表达式括起来。</p>
+    ...
+
+    error:
+
+    clean up the mess
+</code></pre><p>²  跳转的标号必须单独在一行的最左边。Goto语句需要有相应的注释，说明它的用途。</p>
+<h3 id="2-9-2-Continue-and-Break"><a href="#2-9-2-Continue-and-Break" class="headerlink" title="2.9.2.    Continue and Break"></a>2.9.2.    Continue and Break</h3><p>²  Continue 和break 实际上起到与goto一样的作用，因此，尽量少用为上。并且，Continue与break最好不要连用。</p>
+<h3 id="2-9-3"><a href="#2-9-3" class="headerlink" title="2.9.3.    ?:"></a>2.9.3.    ?:</h3><p>²  用括号把条件表达式括起来。</p>
 <p>²  不要在 ? : 中写上过多的代码，操作表达式应尽可能简洁。</p>
 <p>²  操作语句应分行写，除非它们能够简洁的放在一行当中。</p>
 <p>例如：</p>
-<pre><code>	(condition) ?funct1() : func2();
-</code></pre>
-<p>或</p>
-<pre><code>	(condition)
+<pre><code>       (condition) ?funct1() : func2();
+</code></pre><p>   或</p>
+<pre><code>       (condition)
 
- 		 ? longstatement
+          ? longstatement
 
-  		: anotherlong statement;
-</code></pre>
-<h2>2.10.   运算符号的规则 （适用于C/C++）</h2>
-<p>²  一元操作符如（!、~ 等等）应贴近操作对象。
-如：</p>
-<pre><code>	if (!IsOk)
+          : anotherlong statement;
+</code></pre><h2 id="2-10-运算符号的规则-（适用于C-C-）"><a href="#2-10-运算符号的规则-（适用于C-C-）" class="headerlink" title="2.10.   运算符号的规则 （适用于C/C++）"></a>2.10.   运算符号的规则 （适用于C/C++）</h2><p>²  一元操作符如（!、~ 等等）应贴近操作对象。<br>如：</p>
+<pre><code>    if (!IsOk)
 
-		return ++v;
-</code></pre>
-<p>²  二元操作符如（+、*、%、== 等等）应在前后留空格。
-如：</p>
-<pre><code>	if ( v1 == v2)
+        return ++v;
+</code></pre><p>²  二元操作符如（+、*、%、== 等等）应在前后留空格。<br>如：</p>
+<pre><code>    if ( v1 == v2)
 
-	     return v1 * 3;
-</code></pre>
-<p>²  ++ 和 -- 尽量使用前置运算。在C++中，不管 ++i 还是 i++，总是++i更容易生成优化代码。
-如：
-		for(int i = 0; i &lt; 10; ++i)</p>
-<h2>2.11.    变量声明语句块 （适用于C/C++）</h2>
-<p>²  变量应该是随用随声明，不要集中在函数前（有些C语言不支持，则不在此要求之列）。特别是在for语句的循环变量，应只在for语句中定义。
-如：
-		for(int i = 0; i &lt; 10; ++i)</p>
+         return v1 * 3;
+</code></pre><p>²  ++ 和 – 尽量使用前置运算。在C++中，不管 ++i 还是 i++，总是++i更容易生成优化代码。<br>如：<br>        for(int i = 0; i &lt; 10; ++i)</p>
+<h2 id="2-11-变量声明语句块-（适用于C-C-）"><a href="#2-11-变量声明语句块-（适用于C-C-）" class="headerlink" title="2.11.    变量声明语句块 （适用于C/C++）"></a>2.11.    变量声明语句块 （适用于C/C++）</h2><p>²  变量应该是随用随声明，不要集中在函数前（有些C语言不支持，则不在此要求之列）。特别是在for语句的循环变量，应只在for语句中定义。<br>如：<br>        for(int i = 0; i &lt; 10; ++i)</p>
 <p>²  声明语句块必须要对齐</p>
 <p>类型，变量，等号和初始化值要分别对齐。</p>
 <p>例如：</p>
-<pre><code>	   DWORD      mDword;
+<pre><code>       DWORD      mDword;
 
-	   DWORD*     mpDword;
+       DWORD*     mpDword;
 
-	   char*      mpChar;
+       char*      mpChar;
 
-	   char       mChar;
+       char       mChar;
 
-	 
 
-	   mDword     =    0;
 
-	   mpDword    =    NULL;
+       mDword     =    0;
 
-	   mpChar      =    NULL;
+       mpDword    =    NULL;
 
-	   mChar      =    0;
-</code></pre>
-<h1>3.    文档及注释</h1>
-<p>应当使用文档自动生成工具，来生成相关的程序文档。</p>
-<h2>3.1. 文件或程序库的文档注释（适用于C/C++）</h2>
-<p>可以为整个文件编写文档。</p>
+       mpChar      =    NULL;
+
+       mChar      =    0;
+</code></pre><h1 id="3-文档及注释"><a href="#3-文档及注释" class="headerlink" title="3.    文档及注释"></a>3.    文档及注释</h1><p>应当使用文档自动生成工具，来生成相关的程序文档。</p>
+<h2 id="3-1-文件或程序库的文档注释（适用于C-C-）"><a href="#3-1-文件或程序库的文档注释（适用于C-C-）" class="headerlink" title="3.1. 文件或程序库的文档注释（适用于C/C++）"></a>3.1. 文件或程序库的文档注释（适用于C/C++）</h2><p>可以为整个文件编写文档。</p>
 <p>例如：</p>
-<pre><code>	/** @file file.h
+<pre><code>    /** @file file.h
 
-	 * Abrief file description.
+     * Abrief file description.
 
-	 * Amore elaborated file description.
+     * Amore elaborated file description.
 
-	 */
-</code></pre>
-<h2>3.2. 类文档注释（适用于C/C++）</h2>
-<p>在类定义前面应加上类说明文档。</p>
+     */
+</code></pre><h2 id="3-2-类文档注释（适用于C-C-）"><a href="#3-2-类文档注释（适用于C-C-）" class="headerlink" title="3.2. 类文档注释（适用于C/C++）"></a>3.2. 类文档注释（适用于C/C++）</h2><p>在类定义前面应加上类说明文档。</p>
 <p>例如：</p>
-<pre><code>	/** WindowsNT
+<pre><code>    /** WindowsNT
 
-	 *  @brief Windows Nice Try.
+     *  @brief Windows Nice Try.
 
-	 *  @author Bill Gates
+     *  @author Bill Gates
 
-	 *  @author Several species of small furryanimals gathered together
+     *  @author Several species of small furryanimals gathered together
 
-	 *          in a cave and grooving with a pict.
+     *          in a cave and grooving with a pict.
 
-	 *  @version 4.0
+     *  @version 4.0
 
-	 *  @date   1996-1998
+     *  @date   1996-1998
 
-	 *  @bug It crashes a lot and requires hugeamounts of memory.
+     *  @bug It crashes a lot and requires hugeamounts of memory.
 
-	 *  @bug The class introduces the more bugs, thelonger it is used.
+     *  @bug The class introduces the more bugs, thelonger it is used.
 
-	 *  @warning This class may explode in your face.
+     *  @warning This class may explode in your face.
 
-	 *  @warning If you inherit anything from thisclass, you're doomed.
+     *  @warning If you inherit anything from thisclass, you&#39;re doomed.
 
-	 */
+     */
 
-	class WindowsNT {};
-</code></pre>
-<h2>3.3. 函数文档注释（适用于C/C++）</h2>
-<p>²  函数注释</p>
+    class WindowsNT {};
+</code></pre><h2 id="3-3-函数文档注释（适用于C-C-）"><a href="#3-3-函数文档注释（适用于C-C-）" class="headerlink" title="3.3. 函数文档注释（适用于C/C++）"></a>3.3. 函数文档注释（适用于C/C++）</h2><p>²  函数注释</p>
 <p>所有的参数都应该有文档说明(param)，所有的返回代码都应该有文档说明(return)，所有的例外都应该有文档说明(exception)。可以使用(see)引用有关的开发资源。如：</p>
-<pre><code>	  /**
+<pre><code>      /**
 
-	   * 赋值操作符
+       * 赋值操作符
 
-	   *
+       *
 
-	   *@param val 将要赋给本对象的值
+       *@param val 将要赋给本对象的值
 
-	   *
+       *
 
-	   *@return 本对象的引用
+       *@return 本对象的引用
 
-	   */
+       */
 
-	  XX&amp;  operator =(XX&amp; val);
-</code></pre>
-<p>²  注释属性</p>
+      XX&amp;  operator =(XX&amp; val);
+</code></pre><p>²  注释属性</p>
 <p>一些自动文档工具定义的属性可以包含在文档中，常用的有：</p>
-<p>n  前提条件 (pre)
-定义调用这个函数的前提条件</p>
-<p>n  警告说明 (warning)
-定义一些关于这个函数必须知道的事情。</p>
-<p>n  备注说明 (remarks)
-定义一些关于这个函数的备注信息。</p>
-<p>n  将要完成的工作 (todo)
-说明哪些事情将在不久以后完成</p>
-<p>n  使用例子说明 (example)
-一个图片能表达100句话，一个好的例子能解答1000个问题。</p>
+<p>n  前提条件 (pre)<br>定义调用这个函数的前提条件</p>
+<p>n  警告说明 (warning)<br>定义一些关于这个函数必须知道的事情。</p>
+<p>n  备注说明 (remarks)<br>定义一些关于这个函数的备注信息。</p>
+<p>n  将要完成的工作 (todo)<br>说明哪些事情将在不久以后完成</p>
+<p>n  使用例子说明 (example)<br>一个图片能表达100句话，一个好的例子能解答1000个问题。</p>
 <p>例如：</p>
-<pre><code>	  /**
+<pre><code>      /**
 
-	   * 复制一个字串
+       * 复制一个字串
 
-	   *
+       *
 
-	   *@pre
+       *@pre
 
-	   *     - 需要保证(from != 0)
+       *     - 需要保证(from != 0)
 
-	   *     - 需要保证(to != 0)
+       *     - 需要保证(to != 0)
 
-	   *
+       *
 
-	   *@warning
+       *@warning
 
-	   * 缓冲区必需足够大，以便容纳的下要拷贝的字串。
+       * 缓冲区必需足够大，以便容纳的下要拷贝的字串。
 
-	   *
+       *
 
-	   *@example teststrcpy.cpp
+       *@example teststrcpy.cpp
 
-	   *
+       *
 
-	   *@param from 要拷贝的字串
+       *@param from 要拷贝的字串
 
-	   *@param to 用于容纳字串的缓冲区
+       *@param to 用于容纳字串的缓冲区
 
-	   *@return void
+       *@return void
 
-	   */
+       */
 
-	  void  strcpy(constchar* from, char* to);
-</code></pre>
-<h2>3.4. Include 语句注释 （适用于C/C++）</h2>
-<p>²  如果有必要，＃include语句也应有注释，它可以告诉我们，为什么要包含这个头文件。</p>
-<h2>3.5.语句块注释（适用于C/C++）</h2>
-<p>²  语句块的注释可以用在语句块的开头和结束位置：</p>
-<pre><code>	{ 
+      void  strcpy(constchar* from, char* to);
+</code></pre><h2 id="3-4-Include-语句注释-（适用于C-C-）"><a href="#3-4-Include-语句注释-（适用于C-C-）" class="headerlink" title="3.4. Include 语句注释 （适用于C/C++）"></a>3.4. Include 语句注释 （适用于C/C++）</h2><p>²  如果有必要，＃include语句也应有注释，它可以告诉我们，为什么要包含这个头文件。</p>
+<h2 id="3-5-语句块注释（适用于C-C-）"><a href="#3-5-语句块注释（适用于C-C-）" class="headerlink" title="3.5.语句块注释（适用于C/C++）"></a>3.5.语句块注释（适用于C/C++）</h2><p>²  语句块的注释可以用在语句块的开头和结束位置：</p>
+<pre><code>    { 
 
-	    // Block1 (meaningful comment about Block1)
+        // Block1 (meaningful comment about Block1)
 
-	    ... some code
+        ... some code
 
-	 
 
-	    { 
 
-	        // Block2 (meaningful comment about Block2)
+        { 
 
-	        ... somecode
+            // Block2 (meaningful comment about Block2)
 
-	    }  // End Block2
+            ... somecode
 
-	 
+        }  // End Block2
 
-	}  // End Block1
-</code></pre>
-<h1>4.    编码要求</h1>
-<h2>4.1. 不要忽略编译器的警告（适用于C/C++）</h2>
-<p>²  编译器的警告，通常能够指示出编码存在的笔误或逻辑错误。因此，不能轻视编译器的任何警告。正确的作法是，不允许代码在编译时产生任何警告信息。</p>
-<h2>4.2. 应使用源代码管理器（适用于C/C++）</h2>
-<p>²  根据开发规模，选择合适的源代码管理器。使用源代码管理器是非常必要的。</p>
-<h2>4.3. 固有的类方法成员（适用于C++）</h2>
-<p>²  默认构造函数(DefaultConstructor)</p>
+
+
+    }  // End Block1
+</code></pre><h1 id="4-编码要求"><a href="#4-编码要求" class="headerlink" title="4.    编码要求"></a>4.    编码要求</h1><h2 id="4-1-不要忽略编译器的警告（适用于C-C-）"><a href="#4-1-不要忽略编译器的警告（适用于C-C-）" class="headerlink" title="4.1. 不要忽略编译器的警告（适用于C/C++）"></a>4.1. 不要忽略编译器的警告（适用于C/C++）</h2><p>²  编译器的警告，通常能够指示出编码存在的笔误或逻辑错误。因此，不能轻视编译器的任何警告。正确的作法是，不允许代码在编译时产生任何警告信息。</p>
+<h2 id="4-2-应使用源代码管理器（适用于C-C-）"><a href="#4-2-应使用源代码管理器（适用于C-C-）" class="headerlink" title="4.2. 应使用源代码管理器（适用于C/C++）"></a>4.2. 应使用源代码管理器（适用于C/C++）</h2><p>²  根据开发规模，选择合适的源代码管理器。使用源代码管理器是非常必要的。</p>
+<h2 id="4-3-固有的类方法成员（适用于C-）"><a href="#4-3-固有的类方法成员（适用于C-）" class="headerlink" title="4.3. 固有的类方法成员（适用于C++）"></a>4.3. 固有的类方法成员（适用于C++）</h2><p>²  默认构造函数(DefaultConstructor)</p>
 <p>如果构造函数的所有参数都是可选的，那么这个构造函数也是默认构造函数。如果没有定义任何普通构造函数，则编译将自动生成一个。</p>
 <p>²  虚析构函数(Virtual Destructor)</p>
 <p>如果一个类可以被继承，那么应该使用虚析构函数。如果没有定义虚析构函数，则编译器将自动生成一个。</p>
@@ -1542,171 +1427,138 @@ enum { STATE_ERR, STATE_OPEN, STATE_RUNNING, STATE_DYING};
 <p>如果一个类不应该被拷贝，应该定义一个私有的拷贝构造函数，并且不定义它的实现。如果不知道一个类是否应该被拷贝，就认为它是不可拷贝的，直到你确认它应该被拷贝。如果没有定义拷贝构造函数，则编译器将自动生成一个。</p>
 <p>²  赋值操作(AssignmentOperator)</p>
 <p>如果一个类不应该被赋值，应该定义一个私有的赋值操作函数，并且不定义它的实现。如果不知道一个类是否应该被赋值，就认为它是不可赋值的，直到你确认它应该被赋值。如果没有定义赋值操作函数，则编译器将自动生成一个。</p>
-<h2>4.4. 使用命名空间 （适用于C++）</h2>
-<p>²  命名规则</p>
+<h2 id="4-4-使用命名空间-（适用于C-）"><a href="#4-4-使用命名空间-（适用于C-）" class="headerlink" title="4.4. 使用命名空间 （适用于C++）"></a>4.4. 使用命名空间 （适用于C++）</h2><p>²  命名规则</p>
 <p>根名字一般是设计者的名字。比如公司名称等等。</p>
 <p>²  不要在全局空间使用using语句。</p>
-<h2>4.5. 初始化所有的变量 （适用于C/C++）</h2>
-<p>²  无论如何，都要初始化所有的变量。我们无法保证编译器会给个什么样的初值。</p>
-<h2>4.6. 保持函数短小精悍（适用于C/C++）</h2>
-<p>²  一般情况下，一个函数最好在一个屏幕内，不要超过三个屏幕。</p>
-<h2>4.7.对空语句进行注释 （适用于C/C++）</h2>
-<p>²  For和while语句如果跟随一个空语句，需要对此语句进行注释，并且空语句应另起一行。如：</p>
-<pre><code>	   while(*dest++ = *srC++)
+<h2 id="4-5-初始化所有的变量-（适用于C-C-）"><a href="#4-5-初始化所有的变量-（适用于C-C-）" class="headerlink" title="4.5. 初始化所有的变量 （适用于C/C++）"></a>4.5. 初始化所有的变量 （适用于C/C++）</h2><p>²  无论如何，都要初始化所有的变量。我们无法保证编译器会给个什么样的初值。</p>
+<h2 id="4-6-保持函数短小精悍（适用于C-C-）"><a href="#4-6-保持函数短小精悍（适用于C-C-）" class="headerlink" title="4.6. 保持函数短小精悍（适用于C/C++）"></a>4.6. 保持函数短小精悍（适用于C/C++）</h2><p>²  一般情况下，一个函数最好在一个屏幕内，不要超过三个屏幕。</p>
+<h2 id="4-7-对空语句进行注释-（适用于C-C-）"><a href="#4-7-对空语句进行注释-（适用于C-C-）" class="headerlink" title="4.7.对空语句进行注释 （适用于C/C++）"></a>4.7.对空语句进行注释 （适用于C/C++）</h2><p>²  For和while语句如果跟随一个空语句，需要对此语句进行注释，并且空语句应另起一行。如：</p>
+<pre><code>       while(*dest++ = *srC++)
 
-	      ;         // VOID
-</code></pre>
-<p>²  不允许写成：</p>
-<pre><code>	   while (*dest++ = *srC++) ;   // 绝对不允许这么写
-</code></pre>
-<h2>4.8. 不要用if语句的默认方法测试非零值（适用于C/C++）</h2>
-<p>²  If语句只用于检测布尔值(bool)，不要用默认的方法测试非零值，比如：</p>
+          ;         // VOID
+</code></pre><p>²  不允许写成：</p>
+<pre><code>       while (*dest++ = *srC++) ;   // 绝对不允许这么写
+</code></pre><h2 id="4-8-不要用if语句的默认方法测试非零值（适用于C-C-）"><a href="#4-8-不要用if语句的默认方法测试非零值（适用于C-C-）" class="headerlink" title="4.8. 不要用if语句的默认方法测试非零值（适用于C/C++）"></a>4.8. 不要用if语句的默认方法测试非零值（适用于C/C++）</h2><p>²  If语句只用于检测布尔值(bool)，不要用默认的方法测试非零值，比如：</p>
 <p>建议使用：</p>
-<pre><code>	if (FAIL != f())
-</code></pre>
-<p>不建议使用下面的表达式：</p>
-<pre><code>	if (f())
-</code></pre>
-<p>²  宏定义的情况也一样：</p>
-<pre><code>	#define STREQ(a,b) (strcmp((a), (b)) == 0)
-</code></pre>
-<p>或者使用内联函数：</p>
-<pre><code>	   inline bool
+<pre><code>       if (FAIL != f())
+</code></pre><p>不建议使用下面的表达式：</p>
+<pre><code>       if (f())
+</code></pre><p>²  宏定义的情况也一样：</p>
+<pre><code>       #define STREQ(a,b) (strcmp((a), (b)) == 0)
+</code></pre><p>或者使用内联函数：</p>
+<pre><code>       inline bool
 
-	  StringEqual(char* a, char* b)
+      StringEqual(char* a, char* b)
 
-	   {
+       {
 
-	      (strcmp(a, b)== 0) ? return true : return false;
+          (strcmp(a, b)== 0) ? return true : return false;
 
-	       Or more compactly:
+           Or more compactly:
 
-	      returnstrcmp(a, b) == 0;
+          returnstrcmp(a, b) == 0;
 
-	   }
-</code></pre>
-<h2>4.9.布尔类型 （适用于C/C++）</h2>
-<p>²  早期的C++没有布尔类型，但新的C++标准增加了布尔类型。如果可以使用内置的布尔类型的情况下，应使用布尔类型。</p>
+       }
+</code></pre><h2 id="4-9-布尔类型-（适用于C-C-）"><a href="#4-9-布尔类型-（适用于C-C-）" class="headerlink" title="4.9.布尔类型 （适用于C/C++）"></a>4.9.布尔类型 （适用于C/C++）</h2><p>²  早期的C++没有布尔类型，但新的C++标准增加了布尔类型。如果可以使用内置的布尔类型的情况下，应使用布尔类型。</p>
 <p>早期的布尔类型定义为：</p>
-<pre><code>	   typedef int     bool;
+<pre><code>       typedef int     bool;
 
-	   #defineTRUE    1
+       #defineTRUE    1
 
-	   #defineFALSE   0
-</code></pre>
-<p>或：</p>
-<pre><code>	   const intTRUE  = 1;
+       #defineFALSE   0
+</code></pre><p>或：</p>
+<pre><code>       const intTRUE  = 1;
 
-	   const int FALSE= 0;
-</code></pre>
-<p>²  在这种情况下，条件表达式不要比较1值(如TRUE，YES等等)，而要用0值(如FALSE,NO等等)进行比较。因为多数函数返回0表示FALSE，而非零表示TRUE。如：</p>
-<pre><code>	if (TRUE ==func()) { ... // 错误：假如func()返回 2 怎么办？
-</code></pre>
-<p>必须写成：</p>
-<pre><code>	if (FALSE !=func()) { ...
-</code></pre>
-<h2>4.10.   避免在语句中内含赋值 （适用于C/C++）</h2>
-<p>²  只有一种情况可以在语句中内含赋值，它要能使代码显得更易理解，例如：</p>
-<pre><code>	   while (EOF != (c= getchar()))
+       const int FALSE= 0;
+</code></pre><p>²  在这种情况下，条件表达式不要比较1值(如TRUE，YES等等)，而要用0值(如FALSE,NO等等)进行比较。因为多数函数返回0表示FALSE，而非零表示TRUE。如：</p>
+<pre><code>       if (TRUE ==func()) { ... // 错误：假如func()返回 2 怎么办？
+</code></pre><p>必须写成：</p>
+<pre><code>       if (FALSE !=func()) { ...
+</code></pre><h2 id="4-10-避免在语句中内含赋值-（适用于C-C-）"><a href="#4-10-避免在语句中内含赋值-（适用于C-C-）" class="headerlink" title="4.10.   避免在语句中内含赋值 （适用于C/C++）"></a>4.10.   避免在语句中内含赋值 （适用于C/C++）</h2><p>²  只有一种情况可以在语句中内含赋值，它要能使代码显得更易理解，例如：</p>
+<pre><code>       while (EOF != (c= getchar()))
 
-	   {
+       {
 
-	      process thecharacter
+          process thecharacter
 
-	   }
-</code></pre>
-<p>²  ++ 和 -- 操作也是一种赋值语句</p>
+       }
+</code></pre><p>²  ++ 和 – 操作也是一种赋值语句</p>
 <p>²  内含赋值语句常常会带来一些副作用。在遇到这种情况时，我们应分成几个语句来写。比如：</p>
-<pre><code>	   a = b + c;
+<pre><code>       a = b + c;
 
-	   d = a + r;
-</code></pre>
-<p>不应该写成：</p>
-<pre><code>		d = (a = b + c)+ r;
-</code></pre>
-<h2>4.11.   正确的使用Const （适用于C/C++）</h2>
-<p>²  C/C++ 提供const 关键字，用于指示不应该被修改的对象或数据。正确的使用Const既可以提供编译器的优化指示，也能够避免一些编码错误。</p>
-<h2>4.12.    不要在头文件定义数据（适用于C/C++）</h2>
-<p>不要把数据定义放在头文件，如：</p>
-<pre><code>	/*
+       d = a + r;
+</code></pre><p>不应该写成：</p>
+<pre><code>           d = (a = b + c)+ r;
+</code></pre><h2 id="4-11-正确的使用Const-（适用于C-C-）"><a href="#4-11-正确的使用Const-（适用于C-C-）" class="headerlink" title="4.11.   正确的使用Const （适用于C/C++）"></a>4.11.   正确的使用Const （适用于C/C++）</h2><p>²  C/C++ 提供const 关键字，用于指示不应该被修改的对象或数据。正确的使用Const既可以提供编译器的优化指示，也能够避免一些编码错误。</p>
+<h2 id="4-12-不要在头文件定义数据（适用于C-C-）"><a href="#4-12-不要在头文件定义数据（适用于C-C-）" class="headerlink" title="4.12.    不要在头文件定义数据（适用于C/C++）"></a>4.12.    不要在头文件定义数据（适用于C/C++）</h2><p>不要把数据定义放在头文件，如：</p>
+<pre><code>    /*
 
-	 * aheader.h
+     * aheader.h
 
-	 */
+     */
 
-	int x = 0;
-</code></pre>
-<h2>4.13.   不要直接使用数字 （适用于C/C++）</h2>
-<p>²  直接使用数字，会使源代码难以理解和维护。如：</p>
-<pre><code>	if      (22 ==foo)    { start_thermo_nuclear_war(); }
+    int x = 0;
+</code></pre><h2 id="4-13-不要直接使用数字-（适用于C-C-）"><a href="#4-13-不要直接使用数字-（适用于C-C-）" class="headerlink" title="4.13.   不要直接使用数字 （适用于C/C++）"></a>4.13.   不要直接使用数字 （适用于C/C++）</h2><p>²  直接使用数字，会使源代码难以理解和维护。如：</p>
+<pre><code>    if      (22 ==foo)    { start_thermo_nuclear_war(); }
 
-	else if (19 == foo)    {refund_lotso_money(); }
+    else if (19 == foo)    {refund_lotso_money(); }
 
-	else if (16 == foo)    {infinite_loop(); }
+    else if (16 == foo)    {infinite_loop(); }
 
-	else                   { cry_cause_im_lost(); }
-</code></pre>
-<p>当一段时间过去以后，有谁会记得22和19是什么意思？假如数字改变，或者是编写错误，更是难以发现问题。</p>
+    else                   { cry_cause_im_lost(); }
+</code></pre><p>当一段时间过去以后，有谁会记得22和19是什么意思？假如数字改变，或者是编写错误，更是难以发现问题。</p>
 <p>²  我们可以用#define或者常量来改变这一状况，如：</p>
-<pre><code>	#define  PRESIDENT_WENT_CRAZY  (22)
+<pre><code>    #define  PRESIDENT_WENT_CRAZY  (22)
 
-	const int WE_GOOFED= 19;
+    const int WE_GOOFED= 19;
 
-	enum
+    enum
 
-	{
+    {
 
-	    THEY_DIDNT_PAY=16
+        THEY_DIDNT_PAY=16
 
-	};
+    };
 
-	 
 
-	if (PRESIDENT_WENT_CRAZY    == foo) { start_thermo_nuclear_war(); }
 
-	else if (WE_GOOFED          == foo)  {refund_lotso_money(); }
+    if (PRESIDENT_WENT_CRAZY    == foo) { start_thermo_nuclear_war(); }
 
-	else if (THEY_DIDNT_PAY     == foo) { infinite_loop();}
+    else if (WE_GOOFED          == foo)  {refund_lotso_money(); }
 
-	else                                 {happy_days_i_know_why_im_here(); }
-</code></pre>
-<h2>4.14.    宏（适用于C/C++）</h2>
-<p>²  如果可以，使用内联函数代替宏。</p>
+    else if (THEY_DIDNT_PAY     == foo) { infinite_loop();}
+
+    else                                 {happy_days_i_know_why_im_here(); }
+</code></pre><h2 id="4-14-宏（适用于C-C-）"><a href="#4-14-宏（适用于C-C-）" class="headerlink" title="4.14.    宏（适用于C/C++）"></a>4.14.    宏（适用于C/C++）</h2><p>²  如果可以，使用内联函数代替宏。</p>
 <p>例如：</p>
-<pre><code>	#ifndef MAX
+<pre><code>    #ifndef MAX
 
-	#define  MAX(x,y)  (((x) &gt; (y) ? (x) : (y))    // 取最大数
+    #define  MAX(x,y)  (((x) &gt; (y) ? (x) : (y))    // 取最大数
 
-	#endif
-</code></pre>
-<p>使用内联函数可以达到相同的效果，而且更安全：</p>
-<pre><code>	   inline int
+    #endif
+</code></pre><p>使用内联函数可以达到相同的效果，而且更安全：</p>
+<pre><code>       inline int
 
-	   max(int x, inty)
+       max(int x, inty)
 
-	   {
+       {
 
-	      return (x&gt; y ? x : y);
+          return (x&gt; y ? x : y);
 
-	   }
-</code></pre>
-<p>²  要注意副作用</p>
+       }
+</code></pre><p>²  要注意副作用</p>
 <p>必须小心副作用，因为在调用表达式时，会发生潜在的错误。</p>
 <p>例如：</p>
-<pre><code>	 MAX(f(x),z++);
-</code></pre>
-<p>²  表达式总是用括号括起来</p>
+<pre><code>       MAX(f(x),z++);
+</code></pre><p>²  表达式总是用括号括起来</p>
 <p>在宏展开时，使用括号可以避免宏展开后产生的二义性。</p>
 <p>例如：</p>
-<pre><code>	#define ADD(x,y) x + y
-</code></pre>
-<p>必须写成：</p>
-<pre><code>	#define ADD(x,y) ((x) + (y))
-</code></pre>
-<p>²  保证宏名称的唯一性</p>
+<pre><code>    #define ADD(x,y) x + y
+</code></pre><p>必须写成：</p>
+<pre><code>    #define ADD(x,y) ((x) + (y))
+</code></pre><p>²  保证宏名称的唯一性</p>
 <p>和全局变量一样，宏也会与其它名称产生冲突。下面两条规则有助于解决这个问题：</p>
-<p>n  在宏名称前加上库的名字
-避免使用简单而常用的名字，如：MAX 和MIN。</p>
+<p>n  在宏名称前加上库的名字<br>避免使用简单而常用的名字，如：MAX 和MIN。</p>
 
       
     </div>
@@ -1966,7 +1818,7 @@ enum { STATE_ERR, STATE_OPEN, STATE_RUNNING, STATE_DYING};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">1.    命名规则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">1.1. 起个合适的名字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1.1.    类的名称（适用于C++）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.1.2.    方法和函数的名称（适用于C/C++）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.1.3.   含有度量单位的名称（适用于C/C++）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.4.</span> <span class="nav-text">1.1.4.    缩写名称不要全部大写（适用于C/C++）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">1.2.类的命名（适用于C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">1.3.类库（或程序库）命名 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">1.4.方法和函数的命名（适用于C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.5.</span> <span class="nav-text">1.5.类属性的命名（适用于C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.6.</span> <span class="nav-text">1.6.方法和函数参数的命名（适用于C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.7.</span> <span class="nav-text">1.7.局部变量的命名（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.8.</span> <span class="nav-text">1.8.指针变量的命名前缀（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.9.</span> <span class="nav-text">1.9.引用变量和返回引用函数的命名前缀（适用于C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.10.</span> <span class="nav-text">1.10.   全局变量的命名前缀（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.11.</span> <span class="nav-text">1.11.   全局常量的命名（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.12.</span> <span class="nav-text">1.12.   静态变量的命名前缀（适用于C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.13.</span> <span class="nav-text">1.13.   自定义类型（typedef）的命名（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.14.</span> <span class="nav-text">1.14.   宏定义的命名（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.15.</span> <span class="nav-text">1.15.   C 函数的命名（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.16.</span> <span class="nav-text">1.16.   枚举的命名（适用于C/C++）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">2.    排版规则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">2.1. 布局和模板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.1.</span> <span class="nav-text">2.1.1.    类的布局模板 （适用于C++）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.2.</span> <span class="nav-text">2.1.2.   源文件格式（适用于C++）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.3.</span> <span class="nav-text">2.1.3.    保护头文件不被重复包含 （适用于C/C++）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.4.</span> <span class="nav-text">2.1.4.    方法和函数的布局 （适用于C/C++）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">2.2. 缩进、制表符以及空格 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">2.3. 尽量使一行不要超过78个字母 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.</span> <span class="nav-text">2.4. 保证一行只写一条语句 （适用于C/C++）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.1.</span> <span class="nav-text">2.5.2.    什么时候应使用花括号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.2.</span> <span class="nav-text">2.5.3.    在花括号结束的位置加上注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.3.</span> <span class="nav-text">2.5.4.    注意屏幕大小</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.5.</span> <span class="nav-text">2.6.圆括号 () 规则 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.6.</span> <span class="nav-text">2.7.if else 语句的格式 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.7.</span> <span class="nav-text">2.8.switch 格式 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.8.</span> <span class="nav-text">2.9. 使用goto,continue,break 和 ?: （适用于C/C++）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.8.1.</span> <span class="nav-text">2.9.1.    Goto</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.8.2.</span> <span class="nav-text">2.9.2.    Continue and Break</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.8.3.</span> <span class="nav-text">2.9.3.    ?:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.9.</span> <span class="nav-text">2.10.   运算符号的规则 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.10.</span> <span class="nav-text">2.11.    变量声明语句块 （适用于C/C++）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">3.    文档及注释</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">3.1. 文件或程序库的文档注释（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.</span> <span class="nav-text">3.2. 类文档注释（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.3.</span> <span class="nav-text">3.3. 函数文档注释（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.4.</span> <span class="nav-text">3.4. Include 语句注释 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.5.</span> <span class="nav-text">3.5.语句块注释（适用于C/C++）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">4.    编码要求</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.1.</span> <span class="nav-text">4.1. 不要忽略编译器的警告（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.2.</span> <span class="nav-text">4.2. 应使用源代码管理器（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.3.</span> <span class="nav-text">4.3. 固有的类方法成员（适用于C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.4.</span> <span class="nav-text">4.4. 使用命名空间 （适用于C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.5.</span> <span class="nav-text">4.5. 初始化所有的变量 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.6.</span> <span class="nav-text">4.6. 保持函数短小精悍（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.7.</span> <span class="nav-text">4.7.对空语句进行注释 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.8.</span> <span class="nav-text">4.8. 不要用if语句的默认方法测试非零值（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.9.</span> <span class="nav-text">4.9.布尔类型 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.10.</span> <span class="nav-text">4.10.   避免在语句中内含赋值 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.11.</span> <span class="nav-text">4.11.   正确的使用Const （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.12.</span> <span class="nav-text">4.12.    不要在头文件定义数据（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.13.</span> <span class="nav-text">4.13.   不要直接使用数字 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.14.</span> <span class="nav-text">4.14.    宏（适用于C/C++）</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-命名规则"><span class="nav-number">1.</span> <span class="nav-text">1.    命名规则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-起个合适的名字"><span class="nav-number">1.1.</span> <span class="nav-text">1.1. 起个合适的名字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-1-类的名称（适用于C-）"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1.1.    类的名称（适用于C++）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-2-方法和函数的名称（适用于C-C-）"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.1.2.    方法和函数的名称（适用于C/C++）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-3-含有度量单位的名称（适用于C-C-）"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.1.3.   含有度量单位的名称（适用于C/C++）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-4-缩写名称不要全部大写（适用于C-C-）"><span class="nav-number">1.1.4.</span> <span class="nav-text">1.1.4.    缩写名称不要全部大写（适用于C/C++）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-类的命名（适用于C-）"><span class="nav-number">1.2.</span> <span class="nav-text">1.2.类的命名（适用于C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-类库（或程序库）命名-（适用于C-C-）"><span class="nav-number">1.3.</span> <span class="nav-text">1.3.类库（或程序库）命名 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-方法和函数的命名（适用于C-）"><span class="nav-number">1.4.</span> <span class="nav-text">1.4.方法和函数的命名（适用于C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-类属性的命名（适用于C-）"><span class="nav-number">1.5.</span> <span class="nav-text">1.5.类属性的命名（适用于C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-方法和函数参数的命名（适用于C-）"><span class="nav-number">1.6.</span> <span class="nav-text">1.6.方法和函数参数的命名（适用于C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7-局部变量的命名（适用于C-C-）"><span class="nav-number">1.7.</span> <span class="nav-text">1.7.局部变量的命名（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8-指针变量的命名前缀（适用于C-C-）"><span class="nav-number">1.8.</span> <span class="nav-text">1.8.指针变量的命名前缀（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-9-引用变量和返回引用函数的命名前缀（适用于C-）"><span class="nav-number">1.9.</span> <span class="nav-text">1.9.引用变量和返回引用函数的命名前缀（适用于C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-10-全局变量的命名前缀（适用于C-C-）"><span class="nav-number">1.10.</span> <span class="nav-text">1.10.   全局变量的命名前缀（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-11-全局常量的命名（适用于C-C-）"><span class="nav-number">1.11.</span> <span class="nav-text">1.11.   全局常量的命名（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-12-静态变量的命名前缀（适用于C-）"><span class="nav-number">1.12.</span> <span class="nav-text">1.12.   静态变量的命名前缀（适用于C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-13-自定义类型（typedef）的命名（适用于C-C-）"><span class="nav-number">1.13.</span> <span class="nav-text">1.13.   自定义类型（typedef）的命名（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-14-宏定义的命名（适用于C-C-）"><span class="nav-number">1.14.</span> <span class="nav-text">1.14.   宏定义的命名（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-15-C-函数的命名（适用于C-C-）"><span class="nav-number">1.15.</span> <span class="nav-text">1.15.   C 函数的命名（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-16-枚举的命名（适用于C-C-）"><span class="nav-number">1.16.</span> <span class="nav-text">1.16.   枚举的命名（适用于C/C++）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-排版规则"><span class="nav-number">2.</span> <span class="nav-text">2.    排版规则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-布局和模板"><span class="nav-number">2.1.</span> <span class="nav-text">2.1. 布局和模板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-1-类的布局模板-（适用于C-）"><span class="nav-number">2.1.1.</span> <span class="nav-text">2.1.1.    类的布局模板 （适用于C++）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-2-源文件格式（适用于C-）"><span class="nav-number">2.1.2.</span> <span class="nav-text">2.1.2.   源文件格式（适用于C++）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-3-保护头文件不被重复包含-（适用于C-C-）"><span class="nav-number">2.1.3.</span> <span class="nav-text">2.1.3.    保护头文件不被重复包含 （适用于C/C++）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-4-方法和函数的布局-（适用于C-C-）"><span class="nav-number">2.1.4.</span> <span class="nav-text">2.1.4.    方法和函数的布局 （适用于C/C++）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-缩进、制表符以及空格-（适用于C-C-）"><span class="nav-number">2.2.</span> <span class="nav-text">2.2. 缩进、制表符以及空格 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-尽量使一行不要超过78个字母-（适用于C-C-）"><span class="nav-number">2.3.</span> <span class="nav-text">2.3. 尽量使一行不要超过78个字母 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-保证一行只写一条语句-（适用于C-C-）"><span class="nav-number">2.4.</span> <span class="nav-text">2.4. 保证一行只写一条语句 （适用于C/C++）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-2-什么时候应使用花括号"><span class="nav-number">2.4.1.</span> <span class="nav-text">2.5.2.    什么时候应使用花括号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-3-在花括号结束的位置加上注释"><span class="nav-number">2.4.2.</span> <span class="nav-text">2.5.3.    在花括号结束的位置加上注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-4-注意屏幕大小"><span class="nav-number">2.4.3.</span> <span class="nav-text">2.5.4.    注意屏幕大小</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-圆括号-规则-（适用于C-C-）"><span class="nav-number">2.5.</span> <span class="nav-text">2.6.圆括号 () 规则 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-7-if-else-语句的格式-（适用于C-C-）"><span class="nav-number">2.6.</span> <span class="nav-text">2.7.if else 语句的格式 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-8-switch-格式-（适用于C-C-）"><span class="nav-number">2.7.</span> <span class="nav-text">2.8.switch 格式 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-9-使用goto-continue-break-和-（适用于C-C-）"><span class="nav-number">2.8.</span> <span class="nav-text">2.9. 使用goto,continue,break 和 ?: （适用于C/C++）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-9-1-Goto"><span class="nav-number">2.8.1.</span> <span class="nav-text">2.9.1.    Goto</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-9-2-Continue-and-Break"><span class="nav-number">2.8.2.</span> <span class="nav-text">2.9.2.    Continue and Break</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-9-3"><span class="nav-number">2.8.3.</span> <span class="nav-text">2.9.3.    ?:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-10-运算符号的规则-（适用于C-C-）"><span class="nav-number">2.9.</span> <span class="nav-text">2.10.   运算符号的规则 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-11-变量声明语句块-（适用于C-C-）"><span class="nav-number">2.10.</span> <span class="nav-text">2.11.    变量声明语句块 （适用于C/C++）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-文档及注释"><span class="nav-number">3.</span> <span class="nav-text">3.    文档及注释</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-文件或程序库的文档注释（适用于C-C-）"><span class="nav-number">3.1.</span> <span class="nav-text">3.1. 文件或程序库的文档注释（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-类文档注释（适用于C-C-）"><span class="nav-number">3.2.</span> <span class="nav-text">3.2. 类文档注释（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-函数文档注释（适用于C-C-）"><span class="nav-number">3.3.</span> <span class="nav-text">3.3. 函数文档注释（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-Include-语句注释-（适用于C-C-）"><span class="nav-number">3.4.</span> <span class="nav-text">3.4. Include 语句注释 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-语句块注释（适用于C-C-）"><span class="nav-number">3.5.</span> <span class="nav-text">3.5.语句块注释（适用于C/C++）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-编码要求"><span class="nav-number">4.</span> <span class="nav-text">4.    编码要求</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-不要忽略编译器的警告（适用于C-C-）"><span class="nav-number">4.1.</span> <span class="nav-text">4.1. 不要忽略编译器的警告（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-应使用源代码管理器（适用于C-C-）"><span class="nav-number">4.2.</span> <span class="nav-text">4.2. 应使用源代码管理器（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-固有的类方法成员（适用于C-）"><span class="nav-number">4.3.</span> <span class="nav-text">4.3. 固有的类方法成员（适用于C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-使用命名空间-（适用于C-）"><span class="nav-number">4.4.</span> <span class="nav-text">4.4. 使用命名空间 （适用于C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-初始化所有的变量-（适用于C-C-）"><span class="nav-number">4.5.</span> <span class="nav-text">4.5. 初始化所有的变量 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-6-保持函数短小精悍（适用于C-C-）"><span class="nav-number">4.6.</span> <span class="nav-text">4.6. 保持函数短小精悍（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-7-对空语句进行注释-（适用于C-C-）"><span class="nav-number">4.7.</span> <span class="nav-text">4.7.对空语句进行注释 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-8-不要用if语句的默认方法测试非零值（适用于C-C-）"><span class="nav-number">4.8.</span> <span class="nav-text">4.8. 不要用if语句的默认方法测试非零值（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-9-布尔类型-（适用于C-C-）"><span class="nav-number">4.9.</span> <span class="nav-text">4.9.布尔类型 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-10-避免在语句中内含赋值-（适用于C-C-）"><span class="nav-number">4.10.</span> <span class="nav-text">4.10.   避免在语句中内含赋值 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-11-正确的使用Const-（适用于C-C-）"><span class="nav-number">4.11.</span> <span class="nav-text">4.11.   正确的使用Const （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-12-不要在头文件定义数据（适用于C-C-）"><span class="nav-number">4.12.</span> <span class="nav-text">4.12.    不要在头文件定义数据（适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-13-不要直接使用数字-（适用于C-C-）"><span class="nav-number">4.13.</span> <span class="nav-text">4.13.   不要直接使用数字 （适用于C/C++）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-14-宏（适用于C-C-）"><span class="nav-number">4.14.</span> <span class="nav-text">4.14.    宏（适用于C/C++）</span></a></li></ol></li></ol></div>
             
 
           </div>

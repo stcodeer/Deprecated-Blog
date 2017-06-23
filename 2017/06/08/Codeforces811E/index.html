@@ -88,31 +88,25 @@
 
 
 <meta name="description" content="Vladik and Entertaining Flags
-
-题目描述
-In his spare time Vladik estimates beauty of the flags.
+题目描述In his spare time Vladik estimates beauty of the flags.
 Every flag could be represented as the matrix n × m which consists of positive integers.
-Let&apos;s define the be">
+Let’s define the beau">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Codeforces811E Vladik and Entertaining Flags">
 <meta property="og:url" content="https://prostkhala.github.io/2017/06/08/Codeforces811E/index.html">
 <meta property="og:site_name" content="ST">
 <meta property="og:description" content="Vladik and Entertaining Flags
-
-题目描述
-In his spare time Vladik estimates beauty of the flags.
+题目描述In his spare time Vladik estimates beauty of the flags.
 Every flag could be represented as the matrix n × m which consists of positive integers.
-Let&apos;s define the be">
+Let’s define the beau">
 <meta property="og:image" content="http://i1.piimg.com/1949/417a3106618464c4.png">
 <meta property="og:updated_time" content="2017-06-08T03:20:25.109Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Codeforces811E Vladik and Entertaining Flags">
 <meta name="twitter:description" content="Vladik and Entertaining Flags
-
-题目描述
-In his spare time Vladik estimates beauty of the flags.
+题目描述In his spare time Vladik estimates beauty of the flags.
 Every flag could be represented as the matrix n × m which consists of positive integers.
-Let&apos;s define the be">
+Let’s define the beau">
 <meta name="twitter:image" content="http://i1.piimg.com/1949/417a3106618464c4.png">
 
 
@@ -511,25 +505,17 @@ Let&apos;s define the be">
       
 
       
-        <h1><a href="http://codeforces.com/contest/811/problem/E" target="_blank" rel="external">Vladik and Entertaining Flags</a></h1>
-<hr>
-<h2>题目描述</h2>
-<p>In his spare time Vladik estimates beauty of the flags.</p>
+        <h1 id="Vladik-and-Entertaining-Flags"><a href="#Vladik-and-Entertaining-Flags" class="headerlink" title="Vladik and Entertaining Flags"></a><a href="http://codeforces.com/contest/811/problem/E" target="_blank" rel="external">Vladik and Entertaining Flags</a></h1><hr>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>In his spare time Vladik estimates beauty of the flags.</p>
 <p>Every flag could be represented as the matrix n × m which consists of positive integers.</p>
-<p>Let's define the beauty of the flag as number of components in its matrix. We call component a set of cells with same numbers and between any pair of cells from that set there exists a path through adjacent cells from same component. Here is the example of the partitioning some flag matrix into components:
-<img src="http://i1.piimg.com/1949/417a3106618464c4.png" alt=""></p>
+<p>Let’s define the beauty of the flag as number of components in its matrix. We call component a set of cells with same numbers and between any pair of cells from that set there exists a path through adjacent cells from same component. Here is the example of the partitioning some flag matrix into components:<br><img src="http://i1.piimg.com/1949/417a3106618464c4.png" alt=""></p>
 <p>But this time he decided to change something in the process. Now he wants to estimate not the entire flag, but some segment. Segment of flag can be described as a submatrix of the flag matrix with opposite corners at (1, l) and (n, r), where conditions 1 ≤ l ≤ r ≤ m are satisfied.</p>
 <p>Help Vladik to calculate the beauty for some segments of the given flag.</p>
-<h3>输入输出格式</h3>
-<h4>输入格式：</h4>
-<p>First line contains three space-separated integers n, m, q  — dimensions of flag matrix and number of segments respectively.</p>
+<h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h4><p>First line contains three space-separated integers n, m, q  — dimensions of flag matrix and number of segments respectively.</p>
 <p>Each of next n lines contains m space-separated integers — description of flag matrix. All elements of flag matrix is positive integers not exceeding 106.</p>
 <p>Each of next q lines contains two space-separated integers l, r (1 ≤ l ≤ r ≤ m) — borders of segment which beauty Vladik wants to know.</p>
-<h4>输出格式：</h4>
-<p>For each segment print the result on the corresponding line.</p>
-<h3>输入输出样例</h3>
-<h4>输入样例：</h4>
-<pre><code>4 5 4
+<h4 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h4><p>For each segment print the result on the corresponding line.</p>
+<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><pre><code>4 5 4
 1 1 1 1 1
 1 2 2 3 3
 1 1 1 2 5
@@ -538,22 +524,15 @@ Let&apos;s define the be">
 2 5
 1 2
 4 5
-</code></pre>
-<h4>输出样例：</h4>
-<pre><code>6
+</code></pre><h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><pre><code>6
 7
 3
 4
-</code></pre>
-<h3>数据范围</h3>
-<p>(1 ≤ n ≤ 10, 1 ≤ m, q ≤ 105)</p>
+</code></pre><h3 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h3><p> (1 ≤ n ≤ 10, 1 ≤ m, q ≤ 105)</p>
 <hr>
-<h2>题解</h2>
-<p>考虑到$n$的范围较小，可以直接通过并查集暴力每一列的联通性，每次询问通过归并查询，可以先用线段树预处理以降低时间复杂度。
-$ls，rs$数组表示当前需要合并的$[l，r]$的左右两边的连通性，归并时向上更新，$l,r$数组表示线段树当前节点的$[l，r]$的连通性，需要提前预处理。对于合并操作，考虑需要合并的两个区间，连通性改变的部分只有两个区间相邻的部分，同样可以通过并查集暴力求解。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>考虑到$n$的范围较小，可以直接通过并查集暴力每一列的联通性，每次询问通过归并查询，可以先用线段树预处理以降低时间复杂度。<br>$ls，rs$数组表示当前需要合并的$[l，r]$的左右两边的连通性，归并时向上更新，$l,r$数组表示线段树当前节点的$[l，r]$的连通性，需要提前预处理。对于合并操作，考虑需要合并的两个区间，连通性改变的部分只有两个区间相邻的部分，同样可以通过并查集暴力求解。</p>
 <hr>
-<h3>CODE</h3>
-<pre><code>#include&lt;iostream&gt;
+<h3 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h3><pre><code>#include&lt;iostream&gt;
 #include&lt;cstdio&gt;
 using namespace std;
 const int N = 5e5+1;
@@ -594,7 +573,7 @@ int build(int ll,int rr,int x)
     {
         for(int i=1;i&lt;=n;++i)
         if(a[i][ll]==a[i-1][ll])l[x][i]=r[x][i]=l[x][i-1];
-        else	l[x][i]=r[x][i]=++cnt,sum[x]++;
+        else    l[x][i]=r[x][i]=++cnt,sum[x]++;
         return 0;
     }
     int mid=ll+rr&gt;&gt;1;
@@ -644,7 +623,7 @@ int mergesort(int ll,int rr,int x,int y,int now)
     int ret=0;
     int mid=ll+rr&gt;&gt;1;
     if(x&lt;=mid) ret+=mergesort(ll,mid,x,y,now*2);
-    if(mid&lt;y)	ret+=mergesort(mid+1,rr,x,y,now*2+1);
+    if(mid&lt;y)    ret+=mergesort(mid+1,rr,x,y,now*2+1);
     return ret;
 }
 
@@ -662,8 +641,7 @@ int main()
         printf(&quot;%d\n&quot;,mergesort(1,m,ll,rr,1));
     }
 }
-</code></pre>
-<hr>
+</code></pre><hr>
 
       
     </div>
@@ -931,7 +909,7 @@ int main()
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Vladik and Entertaining Flags</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vladik-and-Entertaining-Flags"><span class="nav-number">1.</span> <span class="nav-text">Vladik and Entertaining Flags</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出格式"><span class="nav-number">1.1.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入格式："><span class="nav-number">1.1.1.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出格式："><span class="nav-number">1.1.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出样例"><span class="nav-number">1.1.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入样例："><span class="nav-number">1.1.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出样例："><span class="nav-number">1.1.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据范围"><span class="nav-number">1.1.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解"><span class="nav-number">1.2.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE"><span class="nav-number">1.2.1.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
