@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="SPLAY," />
+  <meta name="keywords" content="线段树,主席树," />
 
 
 
@@ -87,34 +87,28 @@
 
 
 
-<meta name="description" content="NOI2005 维护数列洛谷2042 COGS339
-题目描述 请写一个程序，要求维护一个数列，支持以下 6 种操作：（请注意，格式栏 中的下划线‘ _ ’表示实际输入文件中的空格）
-操作编号    输入文件中的格式    说明
+<meta name="description" content="Functions On The Segments
+题目描述You have an array $f$ of $n$ functions.The function $f_i(x) (1 ≤ i ≤ n)$ is characterized by parameters: $x1, x2, y1, a, b, y2$ and take values:
 
-
-1.  插入    INSERT_posi_tot_c1_c2_..._ctot
-在当前数列的第 posi 个数字后插入 tot个数字：c1, c2, …, ctot">
+$y1$, if $x ≤ x1$.
+$a·x">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NOI2005 维修数列">
-<meta property="og:url" content="https://prostkhala.github.io/2017/03/21/维护队列/index.html">
+<meta property="og:title" content="Codeforces837G Functions on the Segments">
+<meta property="og:url" content="https://prostkhala.github.io/2017/09/01/Codeforces837G/index.html">
 <meta property="og:site_name" content="ST">
-<meta property="og:description" content="NOI2005 维护数列洛谷2042 COGS339
-题目描述 请写一个程序，要求维护一个数列，支持以下 6 种操作：（请注意，格式栏 中的下划线‘ _ ’表示实际输入文件中的空格）
-操作编号    输入文件中的格式    说明
+<meta property="og:description" content="Functions On The Segments
+题目描述You have an array $f$ of $n$ functions.The function $f_i(x) (1 ≤ i ≤ n)$ is characterized by parameters: $x1, x2, y1, a, b, y2$ and take values:
 
-
-1.  插入    INSERT_posi_tot_c1_c2_..._ctot
-在当前数列的第 posi 个数字后插入 tot个数字：c1, c2, …, ctot">
-<meta property="og:updated_time" content="2017-03-22T11:22:14.332Z">
+$y1$, if $x ≤ x1$.
+$a·x">
+<meta property="og:updated_time" content="2017-09-01T04:02:47.120Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NOI2005 维修数列">
-<meta name="twitter:description" content="NOI2005 维护数列洛谷2042 COGS339
-题目描述 请写一个程序，要求维护一个数列，支持以下 6 种操作：（请注意，格式栏 中的下划线‘ _ ’表示实际输入文件中的空格）
-操作编号    输入文件中的格式    说明
+<meta name="twitter:title" content="Codeforces837G Functions on the Segments">
+<meta name="twitter:description" content="Functions On The Segments
+题目描述You have an array $f$ of $n$ functions.The function $f_i(x) (1 ≤ i ≤ n)$ is characterized by parameters: $x1, x2, y1, a, b, y2$ and take values:
 
-
-1.  插入    INSERT_posi_tot_c1_c2_..._ctot
-在当前数列的第 posi 个数字后插入 tot个数字：c1, c2, …, ctot">
+$y1$, if $x ≤ x1$.
+$a·x">
 
 
 
@@ -142,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="https://prostkhala.github.io/2017/03/21/维护队列/"/>
+  <link rel="canonical" href="https://prostkhala.github.io/2017/09/01/Codeforces837G/"/>
 
 
 
 
 
-  <title> NOI2005 维修数列 | ST </title>
+  <title> Codeforces837G Functions on the Segments | ST </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -361,7 +355,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://prostkhala.github.io/2017/03/21/维护队列/">
+    <link itemprop="mainEntityOfPage" href="https://prostkhala.github.io/2017/09/01/Codeforces837G/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ST">
@@ -382,7 +376,7 @@
             
             
               
-                NOI2005 维修数列
+                Codeforces837G Functions on the Segments
               
             
           </h2>
@@ -397,8 +391,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-21T22:13:15+08:00">
-                2017-03-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-01T10:55:17+08:00">
+                2017-09-01
               </time>
             
 
@@ -413,8 +407,8 @@
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2017-03-22T19:22:14+08:00">
-                2017-03-22
+              <time title="Post modified" itemprop="dateModified" datetime="2017-09-01T12:02:47+08:00">
+                2017-09-01
               </time>
             
           </span>
@@ -432,19 +426,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/平衡树/" itemprop="url" rel="index">
-                    <span itemprop="name">平衡树</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/平衡树/SPLAY/" itemprop="url" rel="index">
-                    <span itemprop="name">SPLAY</span>
+                  <a href="/categories/Codeforces-AtCoder/" itemprop="url" rel="index">
+                    <span itemprop="name">Codeforces&AtCoder</span>
                   </a>
                 </span>
 
@@ -461,8 +444,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/21/维护队列/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/21/维护队列/" itemprop="commentCount"></span>
+                <a href="/2017/09/01/Codeforces837G/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/09/01/Codeforces837G/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -523,402 +506,189 @@
       
 
       
-        <h1 id="NOI2005-维护数列"><a href="#NOI2005-维护数列" class="headerlink" title="NOI2005 维护数列"></a>NOI2005 维护数列</h1><h2 id="洛谷2042-COGS339"><a href="#洛谷2042-COGS339" class="headerlink" title="洛谷2042 COGS339"></a><a href="https://www.luogu.org/problem/show?pid=2042" target="_blank" rel="external">洛谷2042</a> <a href="http://cogs.pro/cogs/problem/problem.php?pid=339" target="_blank" rel="external">COGS339</a></h2><hr>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p> 请写一个程序，要求维护一个数列，支持以下 6 种操作：（请注意，格式栏 中的下划线‘ _ ’表示实际输入文件中的空格）</p>
-<pre><code>操作编号    输入文件中的格式    说明
-
-
-1.  插入    INSERT_posi_tot_c1_c2_..._ctot
-在当前数列的第 posi 个数字后插入 tot个数字：c1, c2, …, ctot；若在数列首插入，则 posi 为 0
-
-2.  删除    DELETE_posi_tot
-从当前数列的第 posi 个数字开始连续删除 tot 个数字
-
-3.  修改    MAKE-SAME_posi_tot_c
- 将当前数列的第 posi 个数字开始的连续 tot 个数字统一修改为 c
-
-4.  翻转    REVERSE_posi_tot
- 取出从当前数列的第 posi 个数字开始的 tot 个数字，翻转后放入原来的位置
-
-5.  求和    GET-SUM_posi_tot
-计算从当前数列开始的第 posi 个数字开始的 tot 个数字的和并输出
-
-6.  求和最大的子列    MAX-SUM
-求出当前数列中和最大的一段子列，并输出最大和 
-</code></pre><h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h4><p> 输入文件的第 1 行包含两个数 N 和 M，N 表示初始时数列中数的个数，M表示要进行的操作数目。</p>
-<p>第 2 行包含 N 个数字，描述初始时的数列。</p>
-<p>以下 M 行，每行一条命令，格式参见问题描述中的表格。 </p>
-<h4 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h4><p>对于输入数据中的 GET-SUM 和 MAX-SUM 操作，向输出文件依次打印结果，每个答案（数字）占一行。 </p>
-<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><pre><code>9 8
-2 -6 3 5 1 -5 -3 6 3
-GET-SUM 5 4
-MAX-SUM INSERT 8 3 -5 7 2
-DELETE 12 1
-MAKE-SAME 3 3 2
-REVERSE 3 6
-GET-SUM 5 4
-MAX-SUM
-</code></pre><h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><pre><code>-1
-10
+        <h1 id="Functions-On-The-Segments"><a href="#Functions-On-The-Segments" class="headerlink" title="Functions On The Segments"></a><a href="http://codeforces.com/contest/837/problem/G" target="_blank" rel="external">Functions On The Segments</a></h1><hr>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>You have an array $f$ of $n$ functions.The function $f_i(x) (1 ≤ i ≤ n)$ is characterized by parameters: $x1, x2, y1, a, b, y2$ and take values:</p>
+<ul>
+<li>$y1$, if $x ≤ x1$.</li>
+<li>$a·x + b$, if $x1 &lt; x ≤ x2$.</li>
+<li>$y2$, if $x &gt; x2$. </li>
+</ul>
+<p>There are m queries. Each query is determined by numbers $l$, $r$ and $x$. For a query with number $i$  $(1 ≤ i ≤ m)$, you need to calculate the sum of all $f_j(x_i)$ where $l ≤ j ≤ r$. The value of xi is calculated as follows: $xi = (x + last)$ mod $1e9$, where last is the answer to the query with number $i - 1$. The value of last equals $0$ if $i = 1$.</p>
+<h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h4><p>First line contains one integer number $n (1 ≤ n ≤ 75000)$.</p>
+<p>Each of the next n lines contains six integer numbers:$ x1, x2, y1, a, b, y2 (0 ≤ x1 &lt; x2 ≤ 2·1^5, 0 ≤ y1, y2 ≤ 10^9, 0 ≤ a, b ≤ 10^4)$.</p>
+<p>Next line contains one integer number $m (1 ≤ m ≤ 500000)$.</p>
+<p>Each of the next m lines contains three integer numbers: $l, r$ and $x (1 ≤ l ≤ r ≤ n, 0 ≤ x ≤ 10^9)$.</p>
+<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入样例1："><a href="#输入样例1：" class="headerlink" title="输入样例1："></a>输入样例1：</h4><pre><code>1
+1 2 1 4 5 10
 1
-10
-</code></pre><h3 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h3><p>你可以认为在任何时刻，数列中至少有 1 个数。</p>
-<p>输入数据一定是正确的，即指定位置的数在数列中一定存在。</p>
-<p>50%的数据中，任何时刻数列中最多含有 30 000 个数；</p>
-<p>100%的数据中，任何时刻数列中最多含有 500 000 个数。</p>
-<p>100%的数据中，任何时刻数列中任何一个数字均在[-1 000, 1 000]内。</p>
-<p>100%的数据中，M ≤20 000，插入的数字总数不超过 4 000 000 个，输入文件大小不超过 20MBytes。</p>
+1 1 2
+</code></pre><h4 id="输出样例1："><a href="#输出样例1：" class="headerlink" title="输出样例1："></a>输出样例1：</h4><pre><code>13
+</code></pre><h4 id="输入样例2："><a href="#输入样例2：" class="headerlink" title="输入样例2："></a>输入样例2：</h4><pre><code>3
+2 5 1 1 1 4
+3 6 8 2 5 7
+1 3 5 1 4 10
+3
+1 3 3
+2 3 2
+1 2 5
+</code></pre><h4 id="输出样例2："><a href="#输出样例2：" class="headerlink" title="输出样例2："></a>输出样例2：</h4><pre><code>19
+17
+11
+</code></pre><hr>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>题目大意为给定$n$个函数，求将$x$代入连续的一段函数中所得的值的和，强制在线。考虑将求和信息更改为代入$(1,r)$中所得答案与代入 $(1,l-1)$ 所得答案相减，那么问题变可以通过<br>主席树进行实现，每一个函数以下具有两种形式：</p>
+<ul>
+<li>1：<ul>
+<li>$y1$, if $x ≤ x1$.</li>
+<li>$b$, if $x1 &lt; x ≤ x2$.</li>
+<li>$y2$, if $x &gt; x2$. </li>
+</ul>
+</li>
+<li>2：<ul>
+<li>$a*x$,if $x1 &lt; x ≤ x2$</li>
+</ul>
+</li>
+</ul>
+<p>对于这两种形式各建一颗主席树，分别求和。需要注意该题可以直接将标记永久化，则不需要过于主席树中繁琐的pushdown。</p>
 <hr>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>对于删除操作和插入操作，应将删除区间左边一位的端点旋转到根，再将区间右边一位的端点旋转到根的右儿子（对于插入操作则为将插入位置前一位旋转到根，后一位旋转到其右儿子），需要注意的是，插入元素时应按顺序建立二分搜索树，而不应直接插入，否则会导致时间复杂度过高，同时操作后也要注意更新信息。</p>
-<p>对于修改操作和反转操作，可以借鉴线段树的懒人标记，在进行形如删除操作的旋转后，将操作区间打上标记，将深度最浅的节点进行操作，然后在待该子树变动时再下传标记。</p>
-<p>对于求和操作，具体实现与线段树相同。</p>
-<p>对于求最大子串和的操作，可以其具体实现与动规相同，只是在其他操作中实时更新，这样便可以做到$O(1)$查询。</p>
-<p>（一开始写了个几近暴力的实现，后两个操作都是遍历一遍后才能得到答案。数据范围中虽然说明最多会插入4e6个元素，但同时也说明队列中最多只有5e5个元素，对此可以进行空间上的优化，将被删除元素的下标标记下来，添加时重新使用。）</p>
-<hr>
-<h3 id="CODE-V1（暴力）"><a href="#CODE-V1（暴力）" class="headerlink" title="CODE V1（暴力）"></a>CODE V1（暴力）</h3><pre><code>#include&lt;iostream&gt;
-#include&lt;cstdio&gt;
-const int N = 4e6+5;
-const int inf = 0x7fffffff;
+<h3 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h3><pre><code>#include&lt;bits/stdc++.h&gt;
 using namespace std;
-int tot,root,rev[N],size[N],w[N],fa[N],son[N][2],id[N];
-void update(int x)
+typedef long long ll;
+const int N = 2e5+1;
+const int M = N*81;
+const int lim = 2e5+1;
+const ll mod = 1e9;
+int n,q;
+struct Chairman_Tree
 {
-    size[x]=size[son[x][0]]+size[son[x][1]]+1;
-}
-void pushdown(int x)
-{
-    if(rev[x])
+    int rt[N],lc[M],rc[M];
+    ll w[M];
+    int tot;
+    void init(){tot=0;}
+    int build(int l,int r)
     {
-        swap(son[x][0],son[x][1]);
-        rev[son[x][0]]^=1;
-        rev[son[x][1]]^=1;
-        rev[x]=0;
+        int x=++tot;
+        w[x]=0;
+        if(l==r) return x;
+        int mid=(l+r)&gt;&gt;1;
+        lc[x]=build(l,mid);
+        rc[x]=build(mid+1,r);
+        return x;
     }
-    return;
-}
-void zg(int x)
-{
-    pushdown(fa[x]),pushdown(x);
-    int y=fa[x],z=fa[y],t=(son[y][0]==x);
-    if(z) son[z][son[z][1]==y]=x;fa[x]=z;
-    son[y][!t]=son[x][t];fa[son[y][!t]]=y;
-    son[x][t]=y;fa[y]=x;
-    update(y);update(x);
-}
-void splay(int x,int f)
-{
-    while(fa[x]!=f)
+    int update(int x,int l,int r,int y1,int y2,int val)
     {
-        int y=fa[x],z=fa[y];
-        if(z!=f)
+        int y=++tot;
+        w[y]=w[x];lc[y]=lc[x];rc[y]=rc[x];
+        if(y1&lt;=l&amp;&amp;y2&gt;=r)
         {
-            if(son[z][0]==y^son[y][0]==x) zg(x);
-            else zg(y);
-        } 
-        zg(x);    
+            w[y]+=val;
+            return y;
+        }
+        int mid=(l+r)&gt;&gt;1;
+        if(y1&lt;=mid) lc[y]=update(lc[x],l,mid,y1,y2,val);
+        if(y2&gt;mid) rc[y]=update(rc[x],mid+1,r,y1,y2,val);
+        return y;
     }
-    if(!f) root=x;
-}
-void insert(int &amp;x,int v,int f)
-{
-    if(!x)
+    ll query(int x,int l,int r,int pos)
     {
-        x=++tot;
-        son[x][0]=son[x][1]=0;
-        size[x]=1;
-        w[x]=v;fa[x]=f;
-        splay(x,0);
-        return;
+        if(l==r) return w[x];
+        int mid=(l+r)&gt;&gt;1;
+        if(pos&lt;=mid) return query(lc[x],l,mid,pos)+w[x];
+        else return query(rc[x],mid+1,r,pos)+w[x];
     }
-    insert(son[x][v&gt;w[x]],v,x);
-    update(x);
-}
-int get(int v)
-{
-    int x=root;
-    while(x&amp;&amp;v!=w[x]) x=son[x][v&gt;w[x]];
-    return x;
-}
-int find(int k,int rank)
-{
-    pushdown(k);
-    int l=son[k][0],r=son[k][1];
-    if(size[l]+1==rank)return k;
-    else if(size[l]&gt;=rank)return find(l,rank);
-    else return find(r,rank-size[l]-1);
-}
-int a[N];
-char op[19];
-int sum1,ans1,max1;
-int inorder(int x)
-{
-    pushdown(x);
-    if(son[x][0])inorder(son[x][0]);
-    if(w[x]!=inf&amp;&amp;w[x]!=-inf)printf(&quot;%d &quot;,a[w[x]]);
-    if(son[x][1])inorder(son[x][1]);
-}
-int inordermax(int x)
-{
-    pushdown(x);
-    if(son[x][0])inordermax(son[x][0]);
-    if(w[x]!=inf&amp;&amp;w[x]!=-inf)
-    {
-        max1=max(max1,a[w[x]]);
-        sum1+=a[w[x]]*num[x];
-        if(sum1&gt;0)ans1=max(ans1,sum1);
-        else    sum1=0;
-    }
-    if(son[x][1])inordermax(son[x][1]);
-}
-
+}T[2];
 int main()
 {
-//    freopen(&quot;seq2005.in&quot;,&quot;r&quot;,stdin);
-//    freopen(&quot;seq2005.out&quot;,&quot;w&quot;,stdout);
-    int n,m,tmp;
-    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
-    insert(root,-inf,0);insert(root,inf,0);
-    for(int i=1;i&lt;=n;++i)scanf(&quot;%d&quot;,a+i);
-    for(int i=1;i&lt;=n;++i)insert(root,i,0);
-    tmp=n;
-    for(int i=1,pos,tt,x;i&lt;=m;++i)
+    for(int i=0;i&lt;2;++i) 
     {
-        scanf(&quot;%s&quot;,op);
-        if(op[0]==&#39;I&#39;)
-        {
-            scanf(&quot;%d%d&quot;,&amp;pos,&amp;tt);
-            int now=find(root,pos+1),ne=find(root,pos+2);
-            update(now),update(ne);
-            splay(now,0);splay(ne,root);
-            for(int i=1;i&lt;=tt;++i)scanf(&quot;%d&quot;,&amp;a[++tmp]),insert(son[ne][0],tmp,ne);
-            update(root),update(son[root][1]);
-        }
-        if(op[0]==&#39;D&#39;)
-        {
-            scanf(&quot;%d%d&quot;,&amp;pos,&amp;tt);
-            int now=find(root,pos),ne=find(root,pos+tt+1);
-            splay(now,0);splay(ne,root);
-            fa[son[ne][0]]=0;
-            son[ne][0]=0;
-            update(ne);update(now);
-        }
-        if(op[0]==&#39;M&#39;&amp;&amp;op[2]==&#39;K&#39;)
-        {
-            scanf(&quot;%d%d%d&quot;,&amp;pos,&amp;tt,&amp;x);
-            for(int t=pos+1;t&lt;=pos+tt;++t)
-            a[w[find(root,t)]]=x;
-        }
-        if(op[0]==&#39;R&#39;)
-        {
-            scanf(&quot;%d%d&quot;,&amp;pos,&amp;tt);
-            int now=find(root,pos),ne=find(root,pos+tt+1);
-            update(now),update(ne);
-            splay(now,0);splay(ne,root);
-            int s=son[ne][0];
-            rev[s]^=1;
-        }
-        if(op[0]==&#39;G&#39;)
-        {
-            scanf(&quot;%d%d&quot;,&amp;pos,&amp;tt);
-            int sum=0;
-            for(int t=1;t&lt;=tt;++t)
-            sum+=a[find(root,pos+t)-2];
-            printf(&quot;%d\n&quot;,sum);
-        }
-        if(op[0]==&#39;M&#39;&amp;&amp;op[2]==&#39;X&#39;)
-        {
-            sum1=ans1=0;max1=-0x7fffffff;
-            inordermax(root);
-            printf(&quot;%d\n&quot;,ans1==0?max1:ans1);
-        }
+        T[i].init();
+        T[i].rt[0]=T[i].build(0,lim);
     }
-    //    inorder(root);
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=1;i&lt;=n;++i)
+    {
+        int xx1,xx2,yy1,a,b,yy2;
+        scanf(&quot;%d%d%d%d%d%d&quot;,&amp;xx1,&amp;xx2,&amp;yy1,&amp;a,&amp;b,&amp;yy2);
+        int tmp;
+        tmp=T[0].update(T[0].rt[i-1],0,lim,0,xx1,yy1);
+        tmp=T[0].update(tmp,0,lim,xx1+1,xx2,b);
+        T[0].rt[i]=T[0].update(tmp,0,lim,xx2+1,lim,yy2);
+        T[1].rt[i]=T[1].update(T[1].rt[i-1],0,lim,xx1+1,xx2,a);
+    }
+    int q;
+    scanf(&quot;%d&quot;,&amp;q);
+    ll ans=0;
+    while(q--)
+    {
+        int l,r,x;
+        scanf(&quot;%d%d%d&quot;,&amp;l,&amp;r,&amp;x);
+        x=(x+ans)%mod;
+        int lx=min(x,lim);
+        ans=0;
+        ans+=T[0].query(T[0].rt[r],0,lim,lx)-T[0].query(T[0].rt[l-1],0,lim,lx);
+        ans+=x*(T[1].query(T[1].rt[r],0,lim,lx)-T[1].query(T[1].rt[l-1],0,lim,lx));
+        printf(&quot;%I64d\n&quot;,ans);
+    }
+    return 0;
 }
 </code></pre><hr>
-<h3 id="CODE-V2"><a href="#CODE-V2" class="headerlink" title="CODE V2"></a>CODE V2</h3><pre><code>#include&lt;iostream&gt;
-#include&lt;cstdio&gt;
-#include&lt;cstring&gt;
-#include&lt;algorithm&gt;
-#include&lt;queue&gt;
+<hr>
+<pre><code>#include&lt;bits/stdc++.h&gt;
 using namespace std;
-const int inf = 1e9;
-const int N = 1e6+1;
-inline int read()
+typedef long long ll;
+const int N = 1e5+1;
+int w[N],a[N],add[N];
+void up(int x){w[x]=w[x&lt;&lt;1]+w[x&lt;&lt;1|1];}
+void build(int x,int l,int r)
 {
-    int x=0,f=1;char ch=getchar();
-    while(ch&lt;&#39;0&#39;||ch&gt;&#39;9&#39;){if(ch==&#39;-&#39;)f=-1;ch=getchar();}
-    while(ch&gt;=&#39;0&#39;&amp;&amp;ch&lt;=&#39;9&#39;){x=x*10+ch-&#39;0&#39;;ch=getchar();}
-    return x*f;
-}
-int n,m,root,cnt;
-int sum[N],size[N],v[N],mx[N],lx[N],rx[N],a[N],id[N],fa[N],son[N][2];;
-bool tag[N],rev[N];
-queue&lt;int&gt;q;
-void pushdown(int x)
-{
-    int sonl=son[x][0],sonr=son[x][1];
-    if(tag[x])
-    {
-
-        if(sonl)tag[sonl]=true,v[sonl]=v[x],sum[sonl]=v[x]*size[sonl];
-        if(sonr)tag[sonr]=true,v[sonr]=v[x],sum[sonr]=v[x]*size[sonr];
-        if(v[x]&gt;=0)
-        {
-            if(sonl)lx[sonl]=rx[sonl]=mx[sonl]=sum[sonl];
-            if(sonr)lx[sonr]=rx[sonr]=mx[sonr]=sum[sonr];
-        }
-        else 
-        {
-            if(sonl)lx[sonl]=rx[sonl]=0,mx[sonl]=v[x];
-            if(sonr)lx[sonr]=rx[sonr]=0,mx[sonr]=v[x];
-        }
-        rev[x]=tag[x]=0;
-    }
-    if(rev[x])
-    {
-        rev[x]^=1;rev[sonl]^=1;rev[sonr]^=1;
-        swap(lx[sonl],rx[sonl]);swap(lx[sonr],rx[sonr]);
-        swap(son[sonl][0],son[sonl][1]);swap(son[sonr][0],son[sonr][1]);
-    }
-}
-int inorder(int x)
-{
-    pushdown(x);
-    if(son[x][0])inorder(son[x][0]);
-    if(v[x]!=inf&amp;&amp;v[x]!=-inf)printf(&quot;%d &quot;,v[x]);
-    if(son[x][1])inorder(son[x][1]);
-}
-void update(int x)
-{
-    int sonl=son[x][0],sonr=son[x][1];
-    sum[x]=sum[sonl]+sum[sonr]+v[x];
-    size[x]=size[sonl]+size[sonr]+1;
-    mx[x]=max(mx[sonl],mx[sonr]);
-    mx[x]=max(mx[x],rx[sonl]+v[x]+lx[sonr]);
-    lx[x]=max(lx[sonl],sum[sonl]+v[x]+lx[sonr]);
-    rx[x]=max(rx[sonr],sum[sonr]+v[x]+rx[sonl]);
-}
-
-void rotate(int x,int &amp;k)
-{
-    int y=fa[x],z=fa[y],l,r;
-    l=(son[y][1]==x);r=l^1;
-    if(y==k)k=x;
-    else son[z][son[z][1]==y]=x;
-    fa[son[x][r]]=y;fa[y]=x;fa[x]=z;
-    son[y][l]=son[x][r];son[x][r]=y;
-    update(y);update(x);
-}
-void splay(int x,int &amp;k)
-{
-    while(x!=k)
-    {
-        int y=fa[x],z=fa[y];
-        if(y!=k)
-        {
-            if(son[y][0]==x^son[z][0]==y)rotate(x,k);
-            else rotate(y,k);
-        }
-        rotate(x,k);
-    }
-}
-int find(int x,int rk)
-{
-    pushdown(x);
-    int l=son[x][0],r=son[x][1];
-    if(size[l]+1==rk)return x;
-    if(size[l]&gt;=rk)return find(l,rk);
-    return find(r,rk-size[l]-1);
-}
-void rec(int x)
-{
-    if(!x)return;
-    int l=son[x][0],r=son[x][1];
-    rec(l);rec(r);q.push(x);
-    fa[x]=son[x][0]=son[x][1]=0;
-    tag[x]=rev[x]=0;
-}
-int split(int k,int tt)
-{
-    int x=find(root,k),y=find(root,k+tt+1);
-    splay(x,root);splay(y,son[x][1]);
-    return son[y][0];
-}
-void modify(int k,int tt,int val)
-{
-    int x=split(k,tt),y=fa[x];
-    v[x]=val;tag[x]=1;sum[x]=size[x]*val;
-    if(val&gt;=0)lx[x]=rx[x]=mx[x]=sum[x];
-    else lx[x]=rx[x]=0,mx[x]=val;
-    update(y);update(fa[y]);
-}
-void rever(int k,int tt)
-{
-    int x=split(k,tt),y=fa[x];
-    if(!tag[x])
-    {
-        rev[x]^=1;
-        swap(son[x][0],son[x][1]);
-        swap(lx[x],rx[x]);
-        update(y);update(fa[y]);
-    }
-}
-void delet(int k,int tt)
-{
-    int x=split(k,tt),y=fa[x];
-    rec(x);son[y][0]=0;
-    update(y);update(fa[y]);
-}
-void build(int l,int r,int s)
-{
-    if(l&gt;r)return;
-    int mid=(l+r)&gt;&gt;1,now=id[mid],last=id[s];
     if(l==r)
     {
-        sum[now]=a[l];size[now]=1;
-        tag[now]=rev[now]=0;
-        if(a[l]&gt;=0)lx[now]=rx[now]=mx[now]=a[l];
-        else lx[now]=rx[now]=0,mx[now]=a[l];
+        w[x]=a[l];
+        return;
     }
-    else build(l,mid-1,mid),build(mid+1,r,mid);
-    v[now]=a[mid];fa[now]=last;update(now);
-    son[last][mid&gt;=s]=now;
-   }
-void insert(int k,int tt)
-{
-    for(int i=1;i&lt;=tt;i++)a[i]=read();
-    for(int i=1;i&lt;=tt;i++)
-    if(!q.empty())id[i]=q.front(),q.pop();
-    else id[i]=++cnt;
-    build(1,tt,0);int z=id[(1+tt)&gt;&gt;1];
-    int x=find(root,k+1),y=find(root,k+2);
-    splay(x,root);splay(y,son[x][1]);
-    fa[z]=y;son[y][0]=z;
-    update(y);update(x);
+    int mid=l+r&gt;&gt;1;
+    build(x&lt;&lt;1,l,mid);build(x&lt;&lt;1|1,mid+1,r);
+    up(x);
 }
+
+void upd(int x,int l,int r,int L,int R,int d)
+{
+    if(L&lt;=l&amp;&amp;r&lt;=R){add[x]+=d;return;}
+    w[x]+=d*(R-L+1);
+    int mid=l+r&gt;&gt;1;
+    if(L&lt;=mid)upd(x&lt;&lt;1,l,mid,L,R,d);
+    if(R&gt;mid)upd(x&lt;&lt;1|1,mid+1,r,L,R,d);
+    return;
+}
+
+int query(int x,int l,int r,int L,int R)
+{
+    int ret=add[x]*(R-L+1);
+    if(L&lt;=l&amp;&amp;r&lt;=R){return ret+w[x];}
+    int mid=l+r&gt;&gt;1;
+    if(L&lt;=mid)ret+=query(x&lt;&lt;1,l,mid,L,R);
+    if(R&gt;mid)ret+=query(x&lt;&lt;1|1,mid+1,r,L,R);
+    return ret;
+}
+int n,m;
 int main()
 {
-//    freopen(&quot;seq2005.in&quot;,&quot;r&quot;,stdin);
-//    freopen(&quot;seq2005.out&quot;,&quot;w&quot;,stdout);
     scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
-    mx[0]=a[1]=a[n+2]=-inf;
-    for(int i=2;i&lt;=n+1;i++)a[i]=read();
-    for(int i=1;i&lt;=n+2;i++)id[i]=i;
-    build(1,n+2,0);
-    root=(n+3)&gt;&gt;1;cnt=n+2;
-    int k,tt,val;
-    char op[19];
-    for(int i=1;i&lt;=m;++i)
+    for(int i=1;i&lt;=n;++i)scanf(&quot;%d&quot;,a+i);
+    build(1,1,n);
+    for(int i=1,q,x,y,k;i&lt;=m;++i)
     {
-        scanf(&quot;%s&quot;,op);
-        if(op[0]==&#39;I&#39;)k=read(),tt=read(),insert(k,tt);
-        if(op[0]==&#39;D&#39;)k=read(),tt=read(),delet(k,tt);
-        if(op[0]==&#39;M&#39;&amp;&amp;op[2]==&#39;X&#39;)printf(&quot;%d\n&quot;,mx[root]);
-        if(op[0]==&#39;M&#39;&amp;&amp;op[2]==&#39;K&#39;)k=read(),tt=read(),val=read(),modify(k,tt,val);
-        if(op[0]==&#39;R&#39;)k=read(),tt=read(),rever(k,tt);
-        if(op[0]==&#39;G&#39;){k=read(),tt=read();printf(&quot;%d\n&quot;,sum[split(k,tt)]);}
+        scanf(&quot;%d&quot;,&amp;q);
+        if(q==1)
+        {
+            scanf(&quot;%d%d%d&quot;,&amp;x,&amp;y,&amp;k);
+            upd(1,1,n,x,y,k);
+        }
+        if(q==2)
+        {
+            scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+            printf(&quot;%d\n&quot;,query(1,1,n,x,y));
+        }
     }
-//        inorder(root);
 }
 </code></pre>
       
@@ -943,7 +713,9 @@ int main()
       
         <div class="post-tags">
           
-            <a href="/tags/SPLAY/" rel="tag"># SPLAY</a>
+            <a href="/tags/线段树/" rel="tag"># 线段树</a>
+          
+            <a href="/tags/主席树/" rel="tag"># 主席树</a>
           
         </div>
       
@@ -966,8 +738,8 @@ int main()
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/19/普通平衡树/" rel="next" title="普通平衡树">
-                <i class="fa fa-chevron-left"></i> 普通平衡树
+              <a href="/2017/08/31/Codeforces798E/" rel="next" title="Codeforces798E Mike and Code of a Permutation">
+                <i class="fa fa-chevron-left"></i> Codeforces798E Mike and Code of a Permutation
               </a>
             
           </div>
@@ -975,10 +747,6 @@ int main()
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/28/乘法逆元总结/" rel="prev" title="乘法逆元总结">
-                乘法逆元总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -1042,8 +810,8 @@ int main()
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/03/21/维护队列/"
-           data-title="NOI2005 维修数列" data-url="https://prostkhala.github.io/2017/03/21/维护队列/">
+      <div class="ds-thread" data-thread-key="2017/09/01/Codeforces837G/"
+           data-title="Codeforces837G Functions on the Segments" data-url="https://prostkhala.github.io/2017/09/01/Codeforces837G/">
       </div>
     
   </div>
@@ -1183,7 +951,7 @@ int main()
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NOI2005-维护数列"><span class="nav-number">1.</span> <span class="nav-text">NOI2005 维护数列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#洛谷2042-COGS339"><span class="nav-number">1.1.</span> <span class="nav-text">洛谷2042 COGS339</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.2.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出格式"><span class="nav-number">1.2.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入格式："><span class="nav-number">1.2.1.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出格式："><span class="nav-number">1.2.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出样例"><span class="nav-number">1.2.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入样例："><span class="nav-number">1.2.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出样例："><span class="nav-number">1.2.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据范围"><span class="nav-number">1.2.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解"><span class="nav-number">1.3.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE-V1（暴力）"><span class="nav-number">1.3.1.</span> <span class="nav-text">CODE V1（暴力）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE-V2"><span class="nav-number">1.3.2.</span> <span class="nav-text">CODE V2</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Functions-On-The-Segments"><span class="nav-number">1.</span> <span class="nav-text">Functions On The Segments</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出格式"><span class="nav-number">1.1.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入格式："><span class="nav-number">1.1.1.1.</span> <span class="nav-text">输入格式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出样例"><span class="nav-number">1.1.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入样例1："><span class="nav-number">1.1.2.1.</span> <span class="nav-text">输入样例1：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出样例1："><span class="nav-number">1.1.2.2.</span> <span class="nav-text">输出样例1：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入样例2："><span class="nav-number">1.1.2.3.</span> <span class="nav-text">输入样例2：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出样例2："><span class="nav-number">1.1.2.4.</span> <span class="nav-text">输出样例2：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解"><span class="nav-number">1.2.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE"><span class="nav-number">1.2.1.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
