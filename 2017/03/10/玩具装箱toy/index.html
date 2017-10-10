@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="ST">
 <meta property="og:description" content="[HNOI2008]  玩具装箱toyBZOJ1010 COGS1330
 题目描述P教授要去看奥运，但是他舍不下他的玩具，于是他决定把所有的玩具运到北京。他使用自己的压缩器进行压缩，其可以将任意物品变成一堆，再放到一种特殊的一维容器中。P教授有编号为1…N的N件玩具，第i件玩具经过压缩后变成一维长度为Ci.为了方便整理，P教授要求在一个一维容器中的玩具编号是连续的。同时如果一个一维容器中有多个玩具">
-<meta property="og:updated_time" content="2017-09-28T02:33:37.163Z">
+<meta property="og:updated_time" content="2017-09-28T08:55:32.322Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HNOI2008     玩具装箱Toy(详解)">
 <meta name="twitter:description" content="[HNOI2008]  玩具装箱toyBZOJ1010 COGS1330
@@ -398,7 +398,7 @@
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2017-09-28T10:33:37+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2017-09-28T16:55:32+08:00">
                 2017-09-28
               </time>
             
@@ -584,7 +584,7 @@ int main()
 <p>$(yk-yj)/(xk-xj)&lt;ansi$</p>
 <p>已知b[i]为前缀和的形式，所以b[i]单调递增，可知斜率为单调递增。则适用决策单调性。</p>
 <p>设$g[k,j]=(yk-yj)/(xk-xj)$,则当且仅当$g[A1,A2]&lt;b[i]-2l$时，由$A1$转移而来优于$A2$。</p>
-<p>当$a&lt;b&lt;c$时，且$g[c,b]&lt;g[b,a]$,易证得b必不为最优决策。</p>
+<p>当$g[c,b]&lt;g[b,a]$时,易证得b必不为最优决策。</p>
 <h2 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h2><h3 id="1-g-c-b-lt-ansi"><a href="#1-g-c-b-lt-ansi" class="headerlink" title="1.$g[c,b]&lt;ansi$"></a>1.$g[c,b]&lt;ansi$</h3><p>此时c决策优于b，则b一定不为最优决策。</p>
 <h3 id="2-g-c-b-gt-ansi"><a href="#2-g-c-b-gt-ansi" class="headerlink" title="2.$g[c,b]&gt;=ansi$"></a>2.$g[c,b]&gt;=ansi$</h3><p>此时b决策优于c，但又有$g[b,a]&gt;g[c,b]&gt;=ansi$,此时b决策不优于a决策。</p>
 <p>综上所述，则可将所有满足$g[c,b]&lt;g<a href="a&lt;b&lt;c">b,a</a>$的决策b排除掉。此时函数满足上凸的性质，即有斜率递减。</p>
