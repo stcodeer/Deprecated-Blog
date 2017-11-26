@@ -1,0 +1,1556 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="线段树,主席树,树状数组," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="概略主席树又称可持久化线段树，相对与普通的线段树，其解决的是各种不适用于结合律的区间问题，诸如区间第K大，区间种类个数等。
+线段树的每个结点，保存的是这个区间含有的数字的性质的结合。
+主席树的每个结点，保存的元素以元素大小为第一维位置，同时保证以区间为第二维位置，直接实现是$O（n^2logn）$的时间空间复杂度，即每一个区间都要建一棵树，考虑每颗线段树的大小和形态是一样的，那么我们便可以利用主席">
+<meta property="og:type" content="article">
+<meta property="og:title" content="主席树总结">
+<meta property="og:url" content="https://prostkhala.github.io/2017/06/07/主席树总结/index.html">
+<meta property="og:site_name" content="ST">
+<meta property="og:description" content="概略主席树又称可持久化线段树，相对与普通的线段树，其解决的是各种不适用于结合律的区间问题，诸如区间第K大，区间种类个数等。
+线段树的每个结点，保存的是这个区间含有的数字的性质的结合。
+主席树的每个结点，保存的元素以元素大小为第一维位置，同时保证以区间为第二维位置，直接实现是$O（n^2logn）$的时间空间复杂度，即每一个区间都要建一棵树，考虑每颗线段树的大小和形态是一样的，那么我们便可以利用主席">
+<meta property="og:image" content="http://i1.piimg.com/1949/8785d9d077857f7c.png">
+<meta property="og:updated_time" content="2017-06-07T07:55:10.538Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="主席树总结">
+<meta name="twitter:description" content="概略主席树又称可持久化线段树，相对与普通的线段树，其解决的是各种不适用于结合律的区间问题，诸如区间第K大，区间种类个数等。
+线段树的每个结点，保存的是这个区间含有的数字的性质的结合。
+主席树的每个结点，保存的元素以元素大小为第一维位置，同时保证以区间为第二维位置，直接实现是$O（n^2logn）$的时间空间复杂度，即每一个区间都要建一棵树，考虑每颗线段树的大小和形态是一样的，那么我们便可以利用主席">
+<meta name="twitter:image" content="http://i1.piimg.com/1949/8785d9d077857f7c.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '2QO73P8IRL',
+      apiKey: 'd708fdfc7728c0f4e49cf1d1dbfbc6f7',
+      indexName: 'ProSTKhala',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://prostkhala.github.io/2017/06/07/主席树总结/"/>
+
+
+
+
+
+  <title> 主席树总结 | ST </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+	<div id="vk_api_transport"></div>
+	<script type="text/javascript">
+		window.vkAsyncInit = function() {
+			VK.init({
+				apiId: 
+			});
+
+			
+				VK.Widgets.Like("vk_like", {type: "mini", height: 20});
+			
+
+			
+				VK.Widgets.Comments("vk_comments", {limit: 10, attach: "*"});
+			
+		};
+		setTimeout(function() {
+			var el = document.createElement("script");
+			el.type = "text/javascript";
+			el.src = "//vk.com/js/api/openapi.js";
+			el.async = true;
+			document.getElementById("vk_api_transport").appendChild(el);
+		}, 0);
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ST</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">A HAOIER</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://prostkhala.github.io/2017/06/07/主席树总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ST">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/ProSTKhala/ProSTKhala.github.io/master/images/ST.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ST">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                主席树总结
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-07T10:44:12+08:00">
+                2017-06-07
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2017-06-07T15:55:10+08:00">
+                2017-06-07
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/主席树/" itemprop="url" rel="index">
+                    <span itemprop="name">主席树</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/07/主席树总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/07/主席树总结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Words count in article</span>
+                  
+                    <span title="Words count in article" }}">
+                      
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Reading time</span>
+                  
+                    <span title="Reading time" }}">
+                      
+                    </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="概略"><a href="#概略" class="headerlink" title="概略"></a>概略</h1><p>主席树又称可持久化线段树，相对与普通的线段树，其解决的是各种不适用于结合律的区间问题，诸如区间第K大，区间种类个数等。</p>
+<p>线段树的每个结点，保存的是这个区间含有的数字的性质的结合。</p>
+<p>主席树的每个结点，保存的元素以元素大小为第一维位置，同时保证以区间为第二维位置，直接实现是$O（n^2logn）$的时间空间复杂度，即每一个区间都要建一棵树，考虑每颗线段树的大小和形态是一样的，那么我们便可以利用主席树之间相互进行加减运算的性质，进行可持久化建树。</p>
+<p>具体过程是按区间位置进行建树，每次插入新的数，只需要重新插入一条链，因为对于那些性质没有改变的前缀（如插入元素的大小是$3$，那么节点： $ [ 1 , 2 ] $ 就没有必要改变），只需要重新调用皆可，否则利用原节点建一个新的节点（如插入元素的大小是$3$，那么节点： $ [ 3 , 4 ] $ 的性质一定发生了改变，但又要保证原区间的该节点性质不变，那么便可以先将该节点粘过来，再在此基础上建一个新的节点，插入在当前根节点下），这样时间空间复杂度均降到了$O(nlog^2n)$（可持久化线段树按权值建树，其时间复杂度实际与权值范围有关（所以要离散化），本文全部以$n$代替）。</p>
+<p>当然，这样实现也会导致整个数据结构实际上完全不是一棵树了，但是却仍满足每个节点最多有两个后继的限制，因此查询时只要调用$l-1$，$r$两个根节点即可。</p>
+<p>如图，</p>
+<p>$n=3，a=[ 1 , 3 , 2 ]$</p>
+<p><img src="http://i1.piimg.com/1949/8785d9d077857f7c.png" alt=""></p>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="区间第K大"><a href="#区间第K大" class="headerlink" title="区间第K大"></a>区间第K大</h2><h3 id="COGS1534"><a href="#COGS1534" class="headerlink" title="COGS1534"></a><a href="http://cogs.pro/cogs/problem/problem.php?pid=1534" target="_blank" rel="external">COGS1534</a></h3><hr>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>区间第$K$大。</p>
+<p>给出一个长度为$n$的序列$a1~an$，有$m$次询问$(x,y,k)$，每次询问$a[x]~a[y]$内的第$K$小数。</p>
+<h4 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h4><h5 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h5><p>输入第一行为$n,m$，第二行为$a1~an$，接下来$m$行是$m$个$(x,y,k)$。</p>
+<p>由于数据较大，请使用C风格的输入输出。 </p>
+<h5 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h5><p>对于每次询问输出一行要求的K小数。</p>
+<h4 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h4><h5 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h5><pre><code>7 3
+1 5 2 6 3 7 4
+2 5 3
+4 4 1
+1 7 3 
+</code></pre><h5 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h5><pre><code>5
+6
+3
+</code></pre><h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>$1&lt;=n&lt;=100000,1&lt;=m&lt;=5000$ </p>
+<hr>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>实现与按权值维护的平衡树类似，直接递归查询即可。</p>
+<hr>
+<h3 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h3><pre><code>#include&lt;algorithm&gt;
+#include&lt;cstdio&gt;
+using namespace std;
+const int N = 1e5+1;
+int n,m,totn,a[N],b[N];
+struct nd{int ls,rs,sum;}t[N*20];
+int tot,root[N];
+void insert(int l,int r,int x,int &amp;y,int v)
+{
+    y=++tot;
+    t[y]=t[x];t[y].sum+=1;
+    if(l==r)return;
+    int mid=l+r&gt;&gt;1;
+    if(v&lt;=mid)     insert(l,mid,t[x].ls,t[y].ls,v);
+    else         insert(mid+1,r,t[x].rs,t[y].rs,v);
+}
+int get(int l,int r,int x,int y,int k)
+{
+    if(l==r)return l;
+    int mid=(l+r)&gt;&gt;1;
+    int v=t[t[y].ls].sum-t[t[x].ls].sum;
+    if(v&gt;=k)     return get(l,mid,t[x].ls,t[y].ls,k);
+    else         return get(mid+1,r,t[x].rs,t[y].rs,k-v);
+}
+int main()
+{
+//    freopen(&quot;kthnumber.in&quot;,&quot;r&quot;,stdin);
+//    freopen(&quot;kthnumber.out&quot;,&quot;w&quot;,stdout);
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+    for(int i=1;i&lt;=n;i++)scanf(&quot;%d&quot;,&amp;a[i]),b[i]=a[i];
+    sort(b+1,b+n+1);
+    totn=unique(b+1,b+n+1)-b-1;
+    for(int i=1;i&lt;=n;i++)
+      insert(1,totn,root[i-1],root[i],lower_bound(b+1,b+totn+1,a[i])-b);
+    for(int i=1,x,y,z;i&lt;=m;i++)
+      scanf(&quot;%d%d%d&quot;,&amp;x,&amp;y,&amp;z),
+      printf(&quot;%d\n&quot;,b[get(1,totn,root[x-1],root[y],z)]);
+}
+</code></pre><hr>
+<h2 id="HH的项链"><a href="#HH的项链" class="headerlink" title="HH的项链"></a>HH的项链</h2><h3 id="COGS421"><a href="#COGS421" class="headerlink" title="COGS421"></a><a href="http://cogs.pro/cogs/problem/problem.php?pid=421" target="_blank" rel="external">COGS421</a></h3><hr>
+<h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><p>区间种类个数。</p>
+<p>HH有一串由各种漂亮的贝壳组成的项链。HH相信不同的贝壳会带来好运，所以每次散步<br>完后，他都会随意取出一段贝壳，思考它们所表达的含义。HH不断地收集新的贝壳，因此，<br>他的项链变得越来越长。有一天，他突然提出了一个问题：某一段贝壳中，包含了多少种不同<br>的贝壳？这个问题很难回答。。。因为项链实在是太长了。于是，他只好求助睿智的你，来解<br>决这个问题。</p>
+<h4 id="输入输出格式-1"><a href="#输入输出格式-1" class="headerlink" title="输入输出格式"></a>输入输出格式</h4><h5 id="输入格式：-1"><a href="#输入格式：-1" class="headerlink" title="输入格式："></a>输入格式：</h5><p>第一行：一个整数$N$，表示项链的长度。<br>第二行：$N$个整数，表示依次表示项链中贝壳的编号（编号为$0$到$1000000$之间的整数）。<br>第三行：一个整数$M$，表示HH询问的个数。<br>接下来$M$行：每行两个整数，$L$和$R（1 ≤ L ≤ R ≤ N）$，表示询问的区间。 </p>
+<h5 id="输出格式：-1"><a href="#输出格式：-1" class="headerlink" title="输出格式："></a>输出格式：</h5><p>$M$行，每行一个整数，依次表示询问对应的答案。</p>
+<h4 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例"></a>输入输出样例</h4><h5 id="输入样例：-1"><a href="#输入样例：-1" class="headerlink" title="输入样例："></a>输入样例：</h5><pre><code>6
+1 2 3 4 3 5
+3
+1 2
+3 5
+2 6
+</code></pre><h5 id="输出样例：-1"><a href="#输出样例：-1" class="headerlink" title="输出样例："></a>输出样例：</h5><pre><code>2
+2
+4
+</code></pre><h4 id="数据范围-1"><a href="#数据范围-1" class="headerlink" title="数据范围"></a>数据范围</h4><p>对于20%的数据，$N ≤ 100，M ≤ 1000$；</p>
+<p>对于40%的数据，$N ≤ 3000，M ≤ 200000$；</p>
+<p>对于100%的数据，$N ≤ 50000，M ≤ 200000$。</p>
+<hr>
+<h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><p>对于每一个元素，记录其在数列内下一个种类相同的元素的位置（以 $to$ 数组表示），那么问题就转化为了求区间内有多少个元素的 $to$ 值大于查询的右区间位置，将 $to$ 数组插入到主席树中，直接建树求解即可。</p>
+<hr>
+<h3 id="CODE-1"><a href="#CODE-1" class="headerlink" title="CODE"></a>CODE</h3><pre><code>#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+const int N = 5e4+1;
+struct nd{int rs,ls,sum;}t[N*25];
+int a[N],tot,b[N],totn,n,m,root[N],vis[N],to[N];
+void insert(int l,int r,int x,int &amp;y,int k)
+{
+    y=++tot;
+    t[y]=t[x];
+    t[y].sum++;
+    if(l==r)return;
+    int mid=l+r&gt;&gt;1;
+    if(k&lt;=mid)    insert(l,mid,t[x].ls,t[y].ls,k);
+    else        insert(mid+1,r,t[x].rs,t[y].rs,k);
+}
+
+int get(int l,int r,int x,int y,int v)
+{
+    if(r&lt;v)return 0;
+    if(l&gt;=v)return t[y].sum-t[x].sum;
+    int mid=l+r&gt;&gt;1;
+    return get(l,mid,t[x].ls,t[y].ls,v)+get(mid+1,r,t[x].rs,t[y].rs,v);
+}
+
+int main()
+{
+    freopen(&quot;diff.in&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;diff.out&quot;,&quot;w&quot;,stdout);
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=1,x;i&lt;=n;++i)
+    {
+        scanf(&quot;%d&quot;,&amp;x);
+        if(vis[x])to[vis[x]]=i;
+        vis[x]=i;
+    }
+    for(int i=1;i&lt;=n;++i)if(!to[i])to[i]=n+1;
+    for(int i=1;i&lt;=n;++i)
+    insert(1,n+1,root[i-1],root[i],to[i]);
+    scanf(&quot;%d&quot;,&amp;m);
+    for(int i=1,l,r;i&lt;=m;++i)
+    {
+        scanf(&quot;%d%d&quot;,&amp;l,&amp;r);
+        printf(&quot;%d\n&quot;,get(1,n+1,root[l-1],root[r],r+1));
+    }
+
+}
+</code></pre><hr>
+<h2 id="动态排名系统"><a href="#动态排名系统" class="headerlink" title="动态排名系统"></a>动态排名系统</h2><h3 id="COGS257"><a href="#COGS257" class="headerlink" title="COGS257"></a><a href="http://cogs.pro/cogs/problem/problem.php?pid=257" target="_blank" rel="external">COGS257</a></h3><hr>
+<h3 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h3><p>带修改的区间第K大。</p>
+<p>给定一个长度为N的已知序列A<a href="1&lt;=i&lt;=N">i</a>，要求维护这个序列，能够支持以下两种操作：<br>1、查询A[i],A[i+1],A[i+2],…,A<a href="1&lt;=i&lt;=j&lt;=N">j</a>中，升序排列后排名第k的数。<br>2、修改A[i]的值为j。</p>
+<p>所谓排名第k，指一些数按照升序排列后，第k位的数。例如序列{6,1,9,6,6}，排名第3的数是6，排名第5的数是9。</p>
+<h4 id="输入输出格式-2"><a href="#输入输出格式-2" class="headerlink" title="输入输出格式"></a>输入输出格式</h4><h5 id="输入格式：-2"><a href="#输入格式：-2" class="headerlink" title="输入格式："></a>输入格式：</h5><p>第一行包含一个整数$D(0&lt;=D&lt;=4)$，表示测试数据的数目。接下来有$D$组测试数据，每组测试数据中，首先是两个整数$N$，表示序列的长度为$N$，有$M$个操作。接下来的$N$个不大于$1,000,000,000$正整数，第$i$个表示序列$A[i]$的初始值。然后的$M$行，每行为一个操作</p>
+<p>$Q i j k $或者</p>
+<p>$C i j$</p>
+<p>分别表示查询$A[i],A[i+1],A[i+2],…,A<a href="1&lt;=i&lt;=j&lt;=N">j</a>$中，升序排列后排名第k的数，和修改$A[i]$的值为$j$。</p>
+<h5 id="输出格式：-2"><a href="#输出格式：-2" class="headerlink" title="输出格式："></a>输出格式：</h5><p>对于每个查询，输出一行整数，为查询的结果。测试数据之间不应有空行。</p>
+<h4 id="输入输出样例-2"><a href="#输入输出样例-2" class="headerlink" title="输入输出样例"></a>输入输出样例</h4><h5 id="输入样例：-2"><a href="#输入样例：-2" class="headerlink" title="输入样例："></a>输入样例：</h5><pre><code>2
+5 3
+3 2 1 4 7
+Q 1 4 3
+C 2 6
+Q 2 5 3
+5 3
+3 2 1 4 7
+Q 1 4 3
+C 2 6
+Q 2 5 3
+</code></pre><h5 id="输出样例：-2"><a href="#输出样例：-2" class="headerlink" title="输出样例："></a>输出样例：</h5><pre><code>3
+6
+3
+6
+</code></pre><h4 id="数据范围-2"><a href="#数据范围-2" class="headerlink" title="数据范围"></a>数据范围</h4><p>$N(1&lt;=N&lt;=50000),M(1&lt;=M&lt;=10000)$</p>
+<hr>
+<h3 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h3><p>本题为裸的带修改区间第K大，如果直接在例1的基础上修改，则会导致超时，因为每次修改都要修改$nlogn$个节点，即最坏情况下每一个根都要修改$log$个没有指向前面节点的节点。那么可以考虑，主席树维护的实际上是数列的前缀的性质，可以利用树状数组优化，即将原先的对于每一个新元素的前缀建树，改为对于树状数组中的前缀建树，那么修改时只要修改$log^2n$个节点即可。</p>
+<hr>
+<h3 id="CODE-2"><a href="#CODE-2" class="headerlink" title="CODE"></a>CODE</h3><pre><code>#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;algorithm&gt;
+#define lowbit(x) x&amp;(-x)
+using namespace std;
+const int N = 8e6+1;
+struct nd{int ls,rs,sum;}t[N];
+int T,n,m,A[N],B[N],C[N],b[N],a[N],X[N],Y[N],root[N],totx,toty,totn,tot;
+char s[3];
+void insert(int l,int r,int x,int &amp;y,int k,int v)
+{
+    y=++tot;
+    t[y]=t[x];
+    t[y].sum+=v;
+    if(l==r)return;
+    int mid=l+r&gt;&gt;1;
+    if(k&lt;=mid)    insert(l,mid,t[x].ls,t[y].ls,k,v);
+    else        insert(mid+1,r,t[x].rs,t[y].rs,k,v);
+    return;
+}
+
+
+void add(int x,int v)
+{
+    int k=lower_bound(b+1,b+totn+1,a[x])-b;
+    for(int i=x;i&lt;=n;i+=lowbit(i))
+    insert(1,totn,root[i],root[i],k,v);
+}
+int query(int l,int r,int k)
+{
+    int sum=0,mid=l+r&gt;&gt;1;
+    if(l==r)return l;
+    for(int i=1;i&lt;=totx;++i)sum-=t[t[X[i]].ls].sum;
+    for(int i=1;i&lt;=toty;++i)sum+=t[t[Y[i]].ls].sum;
+    if(k&lt;=sum)
+    {
+        for(int i=1;i&lt;=totx;++i)X[i]=t[X[i]].ls;
+        for(int i=1;i&lt;=toty;++i)Y[i]=t[Y[i]].ls;
+        return query(l,mid,k);
+    }
+    else
+    {
+        for(int i=1;i&lt;=totx;++i)X[i]=t[X[i]].rs;
+        for(int i=1;i&lt;=toty;++i)Y[i]=t[Y[i]].rs;
+        return query(mid+1,r,k-sum);
+    }
+}
+
+
+
+int main()
+{
+    freopen(&quot;dynrank.in&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;dynrank.out&quot;,&quot;w&quot;,stdout);
+    scanf(&quot;%d&quot;,&amp;T);
+    while(T--)
+    {
+        memset(root,0,sizeof(root));
+        memset(C,0,sizeof(C));
+        totn=tot=0;
+        scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+        for(int i=1;i&lt;=n;++i)
+        scanf(&quot;%d&quot;,a+i),b[++totn]=a[i];
+        for(int i=1;i&lt;=m;++i)
+        {
+            scanf(&quot;%s%d%d&quot;,s,A+i,B+i);
+            if(s[0]==&#39;Q&#39;)    scanf(&quot;%d&quot;,C+i);
+            else            b[++totn]=B[i];
+        }
+        sort(b+1,b+totn+1);
+        totn=unique(b+1,b+totn+1)-b-1;
+        for(int i=1;i&lt;=n;++i)add(i,1);
+        for(int i=1;i&lt;=m;++i)
+        if(C[i])
+        {
+            totx=toty=0;
+            for(int j=A[i]-1;j;j-=lowbit(j))X[++totx]=root[j];
+            for(int j=B[i];j;j-=lowbit(j))    Y[++toty]=root[j];
+            printf(&quot;%d\n&quot;,b[query(1,totn,C[i])]);
+        }
+        else
+        {
+            add(A[i],-1);
+            a[A[i]]=B[i];
+            add(A[i],1);
+        }
+    }
+}
+</code></pre><hr>
+<h2 id="国家集训队2011-数颜色"><a href="#国家集训队2011-数颜色" class="headerlink" title="国家集训队2011 数颜色"></a>国家集训队2011 数颜色</h2><h3 id="COGS1901-BZOJ2120"><a href="#COGS1901-BZOJ2120" class="headerlink" title="COGS1901 BZOJ2120"></a><a href="http://cogs.pro/cogs/problem/problem.php?pid=1901" target="_blank" rel="external">COGS1901</a> <a href="http://www.lydsy.com/JudgeOnline/problem.php?id=2120" target="_blank" rel="external">BZOJ2120</a></h3><hr>
+<h3 id="题目描述-3"><a href="#题目描述-3" class="headerlink" title="题目描述"></a>题目描述</h3><p>带修改的区间种类个数。</p>
+<p>墨墨购买了一套N支彩色画笔（其中有些颜色可能相同），摆成一排，你需要回答墨墨的提问。墨墨会像你发布如下指令： 1、 Q L R代表询问你从第L支画笔到第R支画笔中共有几种不同颜色的画笔。 2、 R P Col 把第P支画笔替换为颜色Col。为了满足墨墨的要求，你知道你需要干什么了吗？</p>
+<h4 id="输入输出格式-3"><a href="#输入输出格式-3" class="headerlink" title="输入输出格式"></a>输入输出格式</h4><h5 id="输入格式：-3"><a href="#输入格式：-3" class="headerlink" title="输入格式："></a>输入格式：</h5><p>第1行两个整数N，M，分别代表初始画笔的数量以及墨墨会做的事情的个数。第2行N个整数，分别代表初始画笔排中第i支画笔的颜色。第3行到第2+M行，每行分别代表墨墨会做的一件事情，格式见题干部分。</p>
+<h5 id="输出格式：-3"><a href="#输出格式：-3" class="headerlink" title="输出格式："></a>输出格式：</h5><p>对于每一个Query的询问，你需要在对应的行中给出一个数字，代表第L支画笔到第R支画笔中共有几种不同颜色的画笔。</p>
+<h4 id="输入输出样例-3"><a href="#输入输出样例-3" class="headerlink" title="输入输出样例"></a>输入输出样例</h4><h5 id="输入样例：-3"><a href="#输入样例：-3" class="headerlink" title="输入样例："></a>输入样例：</h5><pre><code>6 5
+
+1 2 3 4 5 5
+
+Q 1 4
+
+Q 2 6
+
+R 1 2
+
+Q 1 4
+
+Q 2 6
+</code></pre><h5 id="输出样例：-3"><a href="#输出样例：-3" class="headerlink" title="输出样例："></a>输出样例：</h5><pre><code>4
+
+4
+
+3
+
+4
+</code></pre><h4 id="数据范围-3"><a href="#数据范围-3" class="headerlink" title="数据范围"></a>数据范围</h4><p>对于100%的数据，N≤10000，M≤10000，修改操作不多于1000次，所有的输入数据中出现的所有整数均大于等于1且不超过10^6。</p>
+<hr>
+<h3 id="题解-3"><a href="#题解-3" class="headerlink" title="题解"></a>题解</h3><p>同样是记录$to$数组，对于修改操作，可以暴力求出修改后该位置 $to$ 的变化，考虑一下可能造成的在该元素前的元素的 $to$ 指针的变化即可（注意同样要修改主席树），详见代码。（对于to数组的查询和修改可以用平衡树优化）</p>
+<hr>
+<h3 id="CODE-3"><a href="#CODE-3" class="headerlink" title="CODE"></a>CODE</h3><pre><code>#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;algorithm&gt;
+#include&lt;cstring&gt;
+#define lowbit(x) x&amp;(-x)
+using namespace std;
+typedef int ll;
+const ll N = 1e4+1;
+struct nd{ll ls,rs,sum;}t[N*600];
+ll n,m,a[N],b[N],X[55],Y[55],A[N],B[N],C[N],to[N],vis[1000001];
+ll root[N],totn,tot,totx,toty;
+char s[3];
+
+void insert(ll l,ll r,ll x,ll &amp;y,ll k,ll v)
+{
+    if(!y){y=++tot;t[y]=t[x];}
+    t[y].sum+=v;
+    if(l==r)return;
+    ll mid=l+r&gt;&gt;1;
+    if(k&lt;=mid)    insert(l,mid,t[x].ls,t[y].ls,k,v);
+    else        insert(mid+1,r,t[x].rs,t[y].rs,k,v);
+    return;
+}
+
+void add(ll x,ll v)
+{
+    for(ll i=x;i&lt;=n+1;i+=lowbit(i))
+    insert(1,n+1,root[i],root[i],to[x],v);
+}
+
+ll get(ll l,ll r,ll v)
+{
+    if(r&lt;v)return 0;
+    if(l&gt;=v)
+    {
+        ll sum=0;
+        for(ll i=1;i&lt;=totx;++i)sum-=t[X[i]].sum;
+        for(ll i=1;i&lt;=toty;++i)sum+=t[Y[i]].sum;
+        return sum;
+    }
+    ll X1[55],Y1[55];
+    for(ll i=1;i&lt;=totx;++i)X1[i]=X[i];
+    for(ll i=1;i&lt;=toty;++i)Y1[i]=Y[i];
+
+    ll mid=l+r&gt;&gt;1;
+    ll sum=0;
+    for(ll i=1;i&lt;=totx;++i)X[i]=t[X1[i]].ls;
+    for(ll i=1;i&lt;=toty;++i)Y[i]=t[Y1[i]].ls;
+    sum+=get(l,mid,v);
+
+    for(ll i=1;i&lt;=totx;++i)X[i]=t[X1[i]].rs;
+    for(ll i=1;i&lt;=toty;++i)Y[i]=t[Y1[i]].rs;
+    sum+=get(mid+1,r,v);
+    return sum;
+}
+int main()
+{
+
+    freopen(&quot;nt2011_color.in&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;nt2011_color.out&quot;,&quot;w&quot;,stdout);
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+    for(ll i=1,x;i&lt;=n;++i)
+    {
+        scanf(&quot;%d&quot;,&amp;x);
+        a[i]=x;
+        if(vis[x])to[vis[x]]=i;
+        vis[x]=i;
+    }
+    for(ll i=1;i&lt;=n;++i)if(!to[i])to[i]=n+1;
+    for(ll i=1;i&lt;=m;++i)
+    {
+        scanf(&quot;%s%d%d&quot;,s,A+i,B+i);
+        if(s[0]==&#39;R&#39;);
+        else C[i]=1;
+    }
+//    sort(b+1,b+totn+1);
+    for(ll i=1;i&lt;=n;++i)add(i,1);
+    for(ll i=1;i&lt;=m;++i)
+    {
+        totx=toty=0;
+        if(C[i])
+        {
+            memset(X,0,sizeof(X));
+            memset(Y,0,sizeof(Y));
+            for(ll j=A[i]-1;j;j-=lowbit(j))    X[++totx]=root[j];
+            for(ll j=B[i];j;j-=lowbit(j))    Y[++toty]=root[j];
+            printf(&quot;%d\n&quot;,get(1,n+1,B[i]+1));
+        }
+        else
+        {
+            add(A[i],-1);
+            a[A[i]]=B[i];
+            to[A[i]]=n+1;
+            for(ll t=A[i]+1;t&lt;=n;++t)
+            if(a[t]==B[i]){to[A[i]]=t;break;}
+            add(A[i],1);
+            for(int j=A[i]-1;j&gt;=1;--j)
+            {
+                if(to[j]==A[i])
+                {
+                    add(j,-1);
+                    to[j]=n+1;
+                    for(int t=j+1;t&lt;=n;++t)
+                    if(a[t]==a[j]){to[j]=t;break;}
+                    add(j,1);
+                }
+                if(a[j]==B[i]&amp;&amp;to[j]&gt;A[i])
+                {
+                    add(j,-1);
+                    to[j]=A[i];
+                    add(j,1);
+                }
+            }
+        }
+    }
+}
+
+/*
+6 6
+1 1 1 2 2 2
+Q 1 3
+R 2 2
+Q 1 3
+R 3 2
+Q 1 3
+Q 1 2
+*/
+</code></pre><hr>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/线段树/" rel="tag"># 线段树</a>
+          
+            <a href="/tags/主席树/" rel="tag"># 主席树</a>
+          
+            <a href="/tags/树状数组/" rel="tag"># 树状数组</a>
+          
+        </div>
+      
+
+      
+        
+          <div class="social-like">
+            
+              <div class="vk_like">
+                <span id="vk_like"></span>
+              </div>
+            
+
+            
+          </div>
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/02/2017年5月 题目总结/" rel="next" title="2017年5月 题目总结">
+                <i class="fa fa-chevron-left"></i> 2017年5月 题目总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/08/Codeforces811E/" rel="prev" title="Codeforces811E Vladik and Entertaining Flags">
+                Codeforces811E Vladik and Entertaining Flags <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/06/07/主席树总结/"
+           data-title="主席树总结" data-url="https://prostkhala.github.io/2017/06/07/主席树总结/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://raw.githubusercontent.com/ProSTKhala/ProSTKhala.github.io/master/images/ST.jpg"
+               alt="ST" />
+          <p class="site-author-name" itemprop="name">ST</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ProSTKhala" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/su-tong-75-78/activities" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-https://raw.githubusercontent.com/prostkhala/prostkhala.github.io/master/images/zhihu.jpg"></i>
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://pb0207.github.io/" title="我校大神%%%" target="_blank">我校大神%%%</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概略"><span class="nav-number">1.</span> <span class="nav-text">概略</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">2.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#区间第K大"><span class="nav-number">2.1.</span> <span class="nav-text">区间第K大</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#COGS1534"><span class="nav-number">2.1.1.</span> <span class="nav-text">COGS1534</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述"><span class="nav-number">2.1.2.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出格式"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入格式："><span class="nav-number">2.1.2.1.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出格式："><span class="nav-number">2.1.2.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出样例"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入样例："><span class="nav-number">2.1.2.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出样例："><span class="nav-number">2.1.2.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据范围"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解"><span class="nav-number">2.1.3.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE"><span class="nav-number">2.1.4.</span> <span class="nav-text">CODE</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HH的项链"><span class="nav-number">2.2.</span> <span class="nav-text">HH的项链</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#COGS421"><span class="nav-number">2.2.1.</span> <span class="nav-text">COGS421</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出格式-1"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入格式：-1"><span class="nav-number">2.2.2.1.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出格式：-1"><span class="nav-number">2.2.2.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出样例-1"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入样例：-1"><span class="nav-number">2.2.2.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出样例：-1"><span class="nav-number">2.2.2.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据范围-1"><span class="nav-number">2.2.2.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-1"><span class="nav-number">2.2.3.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE-1"><span class="nav-number">2.2.4.</span> <span class="nav-text">CODE</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态排名系统"><span class="nav-number">2.3.</span> <span class="nav-text">动态排名系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#COGS257"><span class="nav-number">2.3.1.</span> <span class="nav-text">COGS257</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-2"><span class="nav-number">2.3.2.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出格式-2"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入格式：-2"><span class="nav-number">2.3.2.1.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出格式：-2"><span class="nav-number">2.3.2.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出样例-2"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入样例：-2"><span class="nav-number">2.3.2.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出样例：-2"><span class="nav-number">2.3.2.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据范围-2"><span class="nav-number">2.3.2.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-2"><span class="nav-number">2.3.3.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE-2"><span class="nav-number">2.3.4.</span> <span class="nav-text">CODE</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#国家集训队2011-数颜色"><span class="nav-number">2.4.</span> <span class="nav-text">国家集训队2011 数颜色</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#COGS1901-BZOJ2120"><span class="nav-number">2.4.1.</span> <span class="nav-text">COGS1901 BZOJ2120</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-3"><span class="nav-number">2.4.2.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出格式-3"><span class="nav-number">2.4.2.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入格式：-3"><span class="nav-number">2.4.2.1.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出格式：-3"><span class="nav-number">2.4.2.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出样例-3"><span class="nav-number">2.4.2.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入样例：-3"><span class="nav-number">2.4.2.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出样例：-3"><span class="nav-number">2.4.2.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据范围-3"><span class="nav-number">2.4.2.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-3"><span class="nav-number">2.4.3.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE-3"><span class="nav-number">2.4.4.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ST</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"prostkhala"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+  
+
+</body>
+</html>

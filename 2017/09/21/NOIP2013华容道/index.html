@@ -1,0 +1,1293 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="BFS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="华容道
+题目描述
+输入输出及样例解释
+数据范围题解在本题中，真正可以自由移动的只有空格子，考虑对于指定格子的移动，必然是将空格格子移动到当前节点与目标节点的路径上，并将其于当前节点互换，重复以上过程直到当前节点与目标节点重合，以上过程用普通的BFS即可模拟。
+但是本题中询问次数过多，实际上存在很多重复计算，可以考虑进行预处理优化。
+由于每次都要将空格子移动到当前节点旁边，所以空格子的路径不能经过当">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NOIP2013 华容道">
+<meta property="og:url" content="https://prostkhala.github.io/2017/09/21/NOIP2013华容道/index.html">
+<meta property="og:site_name" content="ST">
+<meta property="og:description" content="华容道
+题目描述
+输入输出及样例解释
+数据范围题解在本题中，真正可以自由移动的只有空格子，考虑对于指定格子的移动，必然是将空格格子移动到当前节点与目标节点的路径上，并将其于当前节点互换，重复以上过程直到当前节点与目标节点重合，以上过程用普通的BFS即可模拟。
+但是本题中询问次数过多，实际上存在很多重复计算，可以考虑进行预处理优化。
+由于每次都要将空格子移动到当前节点旁边，所以空格子的路径不能经过当">
+<meta property="og:image" content="http://cogs.pro/upload/image/20131118/20131118201912_84538.png">
+<meta property="og:image" content="http://cogs.pro/upload/image/20131118/20131118201920_74338.png">
+<meta property="og:image" content="http://cogs.pro/upload/image/20131118/20131118201931_43656.png">
+<meta property="og:image" content="http://cogs.pro/upload/image/20131118/20131118201940_40826.png">
+<meta property="og:updated_time" content="2017-09-21T07:40:28.181Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NOIP2013 华容道">
+<meta name="twitter:description" content="华容道
+题目描述
+输入输出及样例解释
+数据范围题解在本题中，真正可以自由移动的只有空格子，考虑对于指定格子的移动，必然是将空格格子移动到当前节点与目标节点的路径上，并将其于当前节点互换，重复以上过程直到当前节点与目标节点重合，以上过程用普通的BFS即可模拟。
+但是本题中询问次数过多，实际上存在很多重复计算，可以考虑进行预处理优化。
+由于每次都要将空格子移动到当前节点旁边，所以空格子的路径不能经过当">
+<meta name="twitter:image" content="http://cogs.pro/upload/image/20131118/20131118201912_84538.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '2QO73P8IRL',
+      apiKey: 'd708fdfc7728c0f4e49cf1d1dbfbc6f7',
+      indexName: 'ProSTKhala',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://prostkhala.github.io/2017/09/21/NOIP2013华容道/"/>
+
+
+
+
+
+  <title> NOIP2013 华容道 | ST </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+	<div id="vk_api_transport"></div>
+	<script type="text/javascript">
+		window.vkAsyncInit = function() {
+			VK.init({
+				apiId: 
+			});
+
+			
+				VK.Widgets.Like("vk_like", {type: "mini", height: 20});
+			
+
+			
+				VK.Widgets.Comments("vk_comments", {limit: 10, attach: "*"});
+			
+		};
+		setTimeout(function() {
+			var el = document.createElement("script");
+			el.type = "text/javascript";
+			el.src = "//vk.com/js/api/openapi.js";
+			el.async = true;
+			document.getElementById("vk_api_transport").appendChild(el);
+		}, 0);
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ST</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">A HAOIER</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://prostkhala.github.io/2017/09/21/NOIP2013华容道/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ST">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/ProSTKhala/ProSTKhala.github.io/master/images/ST.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ST">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                NOIP2013 华容道
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-21T15:26:25+08:00">
+                2017-09-21
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2017-09-21T15:40:28+08:00">
+                2017-09-21
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/BFS/" itemprop="url" rel="index">
+                    <span itemprop="name">BFS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/09/21/NOIP2013华容道/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/09/21/NOIP2013华容道/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Words count in article</span>
+                  
+                    <span title="Words count in article" }}">
+                      
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Reading time</span>
+                  
+                    <span title="Reading time" }}">
+                      
+                    </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="华容道"><a href="#华容道" class="headerlink" title="华容道"></a><a href="http://cogs.pro/cogs/problem/problem.php?pid=1442" target="_blank" rel="external">华容道</a></h1><hr>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><img src="http://cogs.pro/upload/image/20131118/20131118201912_84538.png" alt=""></p>
+<h3 id="输入输出及样例解释"><a href="#输入输出及样例解释" class="headerlink" title="输入输出及样例解释"></a>输入输出及样例解释</h3><p><img src="http://cogs.pro/upload/image/20131118/20131118201920_74338.png" alt=""><br><img src="http://cogs.pro/upload/image/20131118/20131118201931_43656.png" alt=""></p>
+<h3 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h3><h2 id=""><a href="#" class="headerlink" title=""></a><img src="http://cogs.pro/upload/image/20131118/20131118201940_40826.png" alt=""></h2><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>在本题中，真正可以自由移动的只有空格子，考虑对于指定格子的移动，必然是将空格格子移动到当前节点与目标节点的路径上，并将其于当前节点互换，重复以上过程直到当前节点与目标节点重合，以上过程用普通的BFS即可模拟。</p>
+<p>但是本题中询问次数过多，实际上存在很多重复计算，可以考虑进行预处理优化。</p>
+<p>由于每次都要将空格子移动到当前节点旁边，所以空格子的路径不能经过当前节点，否则将会导致答案不为最少时间，如果空格子的路径必须经过当前节点，则显然无解。（见样例2）那么可以设$f[x][y][k][h]$表示从$(x,y)$的$k$方向节点在不经过$(x,y)$的情况下移动到$h$方向节点的最小时间，对其进行预处理，然后每次询问通过SPFA求解即可。</p>
+<hr>
+<h3 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h3><pre><code>#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;queue&gt;
+#include&lt;cstring&gt;
+#define mp make_pair 
+using namespace std;
+typedef long long ll;
+const int inf = 0x3f3f3f3f;
+const int N =31+1;
+int n,m,Q,e1,e2,s1,s2,t1,t2;
+int f[N][N][4][4],d[N][N],dis[N][N][5],a[N][N];
+bool vis[N][N],in[N][N][5];
+int fx[4]={-1,1,0,0};
+int fy[4]={0,0,-1,1};
+struct nd{
+    int x,y,k;
+};
+queue&lt;nd&gt;q,q1;
+
+int rev(int x){
+    if(x==1)return 0;
+    if(x==0)return 1;
+    if(x==2)return 3;
+    if(x==3)return 2;
+}
+
+int bfs(int x1,int y1,int x2,int y2){
+    if(!a[x1][y1]||!a[x2][y2])return inf;
+    memset(vis,0,sizeof(vis));
+    memset(d,0x3f,sizeof(d));
+    nd p;
+    d[x1][y1]=0;
+    vis[x1][y1]=1;
+    while(!q1.empty())q1.pop();
+    q1.push((nd){x1,y1,0});
+    while(!q1.empty()&amp;&amp;!vis[x2][y2]){
+        p=q1.front();q1.pop();
+        for(int i=0;i&lt;4;++i){
+            int x=p.x+fx[i],y=p.y+fy[i];
+            if(!vis[x][y]&amp;&amp;a[x][y]){
+                vis[x][y]=1;
+                d[x][y]=d[p.x][p.y]+1;
+                q1.push((nd){x,y,0});
+            }
+        }
+    }
+    return d[x2][y2];
+}
+
+void init(){
+    memset(f,0x3f,sizeof(f));
+    for(int i=1;i&lt;=n;++i)
+    for(int t=1;t&lt;=m;++t)
+    if(a[i][t]){
+        a[i][t]=0;
+        for(int k=0;k&lt;4;++k)
+        for(int h=0;h&lt;4;++h){
+            if(h&lt;k){f[i][t][k][h]=f[i][t][h][k];continue;}
+            int x=i+fx[k],y=t+fy[k];
+            int x11=i+fx[h],y11=t+fy[h];
+            if(!a[x][y]||!a[x11][y11])continue;
+            f[i][t][k][h]=bfs(x,y,x11,y11)+1;
+//            cout&lt;&lt;i&lt;&lt;&quot; &quot;&lt;&lt;t&lt;&lt;&quot; &quot;&lt;&lt;f[i][t][k][h]&lt;&lt;endl;
+        }
+        a[i][t]=1;
+    }
+}
+
+int spfa(int x1,int y1,int x2,int y2,int e1,int e2){
+    if(x1==x2&amp;&amp;y1==y2)return 0;
+    if(!a[x1][y1]||!a[x2][y2])return -1;
+    memset(dis,0x3f,sizeof(dis));
+    memset(in,0,sizeof(in));
+    while(!q.empty())q.pop();
+    a[x1][y1]=0;
+    for(int k=0;k&lt;4;++k){
+        q.push((nd){x1,y1,k});
+        in[x1][y1][k]=1;
+        dis[x1][y1][k]=bfs(e1,e2,x1+fx[k],y1+fy[k]);
+    }
+    a[x1][y1]=1;
+    nd x,y;
+    while(!q.empty()){
+        x=q.front();q.pop();
+        in[x.x][x.y][x.k]=0;
+        for(int h=0;h&lt;4;++h){
+            y.x=x.x+fx[h],y.y=x.y+fy[h];
+            y.k=rev(h);
+            if(dis[y.x][y.y][y.k]&gt;dis[x.x][x.y][x.k]+f[x.x][x.y][x.k][h]){
+                dis[y.x][y.y][y.k]=dis[x.x][x.y][x.k]+f[x.x][x.y][x.k][h];
+                if(!in[y.x][y.y][y.k])in[y.x][y.y][y.k]=1,q.push(y);
+            }
+        }
+    }
+    int ret=inf;
+    for(int i=0;i&lt;4;++i)ret=min(ret,dis[x2][y2][i]);
+    return ret&lt;inf?ret:-1;
+}
+int main(){
+    freopen(&quot;PuzzleNOIP2013.in&quot;,&quot;r&quot;,stdin);
+    freopen(&quot;PuzzleNOIP2013.out&quot;,&quot;w&quot;,stdout);
+    scanf(&quot;%d%d%d&quot;,&amp;n,&amp;m,&amp;Q);
+    for(int i=1;i&lt;=n;++i)
+    for(int t=1;t&lt;=m;++t)
+    scanf(&quot;%d&quot;,&amp;a[i][t]);
+    init();
+    while(Q--){
+        scanf(&quot;%d%d%d%d%d%d&quot;,&amp;e1,&amp;e2,&amp;s1,&amp;s2,&amp;t1,&amp;t2);
+        int ans=0,tot=0;
+        printf(&quot;%d\n&quot;,spfa(s1,s2,t1,t2,e1,e2));
+        dddd:;
+    }
+}
+/*
+3 4 2
+0 1 1 1
+0 1 1 0
+0 1 0 0
+3 2 1 2 2 2
+1 2 2 2 3 2
+*/
+/*
+
+
+3 3 1
+1 1 0
+1 1 0
+1 1 0
+3 1 1 1 3 1
+
+
+*/
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/BFS/" rel="tag"># BFS</a>
+          
+        </div>
+      
+
+      
+        
+          <div class="social-like">
+            
+              <div class="vk_like">
+                <span id="vk_like"></span>
+              </div>
+            
+
+            
+          </div>
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/13/Codeforces852I/" rel="next" title="Codeforces852I Dating">
+                <i class="fa fa-chevron-left"></i> Codeforces852I Dating
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/28/NOI2014购票/" rel="prev" title="NOI2014 购票">
+                NOI2014 购票 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/09/21/NOIP2013华容道/"
+           data-title="NOIP2013 华容道" data-url="https://prostkhala.github.io/2017/09/21/NOIP2013华容道/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://raw.githubusercontent.com/ProSTKhala/ProSTKhala.github.io/master/images/ST.jpg"
+               alt="ST" />
+          <p class="site-author-name" itemprop="name">ST</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ProSTKhala" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/su-tong-75-78/activities" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-https://raw.githubusercontent.com/prostkhala/prostkhala.github.io/master/images/zhihu.jpg"></i>
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://pb0207.github.io/" title="我校大神%%%" target="_blank">我校大神%%%</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#华容道"><span class="nav-number">1.</span> <span class="nav-text">华容道</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出及样例解释"><span class="nav-number">1.1.1.</span> <span class="nav-text">输入输出及样例解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据范围"><span class="nav-number">1.1.2.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.2.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解"><span class="nav-number">1.3.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE"><span class="nav-number">1.3.1.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ST</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"prostkhala"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+  
+
+</body>
+</html>

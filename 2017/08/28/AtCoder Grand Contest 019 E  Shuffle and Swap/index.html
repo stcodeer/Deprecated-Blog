@@ -1,0 +1,1307 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="动态规划,组合数学,逆元,FFT,快速幂," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Shuffle and Swap
+题目描述You have two strings A=A1A2…An and B=B1B2…Bn of the same length consisting of 0 and 1. The number of 1’s in A and B is equal.
+You’ve decided to transform A using the following alg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AtCoder Grand Contest 019 E  Shuffle and Swap">
+<meta property="og:url" content="https://prostkhala.github.io/2017/08/28/AtCoder Grand Contest 019 E  Shuffle and Swap/index.html">
+<meta property="og:site_name" content="ST">
+<meta property="og:description" content="Shuffle and Swap
+题目描述You have two strings A=A1A2…An and B=B1B2…Bn of the same length consisting of 0 and 1. The number of 1’s in A and B is equal.
+You’ve decided to transform A using the following alg">
+<meta property="og:updated_time" content="2017-09-11T11:39:26.503Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AtCoder Grand Contest 019 E  Shuffle and Swap">
+<meta name="twitter:description" content="Shuffle and Swap
+题目描述You have two strings A=A1A2…An and B=B1B2…Bn of the same length consisting of 0 and 1. The number of 1’s in A and B is equal.
+You’ve decided to transform A using the following alg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '2QO73P8IRL',
+      apiKey: 'd708fdfc7728c0f4e49cf1d1dbfbc6f7',
+      indexName: 'ProSTKhala',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://prostkhala.github.io/2017/08/28/AtCoder Grand Contest 019 E  Shuffle and Swap/"/>
+
+
+
+
+
+  <title> AtCoder Grand Contest 019 E  Shuffle and Swap | ST </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+	<div id="vk_api_transport"></div>
+	<script type="text/javascript">
+		window.vkAsyncInit = function() {
+			VK.init({
+				apiId: 
+			});
+
+			
+				VK.Widgets.Like("vk_like", {type: "mini", height: 20});
+			
+
+			
+				VK.Widgets.Comments("vk_comments", {limit: 10, attach: "*"});
+			
+		};
+		setTimeout(function() {
+			var el = document.createElement("script");
+			el.type = "text/javascript";
+			el.src = "//vk.com/js/api/openapi.js";
+			el.async = true;
+			document.getElementById("vk_api_transport").appendChild(el);
+		}, 0);
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ST</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">A HAOIER</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://prostkhala.github.io/2017/08/28/AtCoder Grand Contest 019 E  Shuffle and Swap/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ST">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/ProSTKhala/ProSTKhala.github.io/master/images/ST.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ST">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                AtCoder Grand Contest 019 E  Shuffle and Swap
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-28T21:25:14+08:00">
+                2017-08-28
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2017-09-11T19:39:26+08:00">
+                2017-09-11
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Codeforces-AtCoder/" itemprop="url" rel="index">
+                    <span itemprop="name">Codeforces&AtCoder</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/28/AtCoder Grand Contest 019 E  Shuffle and Swap/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/28/AtCoder Grand Contest 019 E  Shuffle and Swap/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Words count in article</span>
+                  
+                    <span title="Words count in article" }}">
+                      
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Reading time</span>
+                  
+                    <span title="Reading time" }}">
+                      
+                    </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Shuffle-and-Swap"><a href="#Shuffle-and-Swap" class="headerlink" title="Shuffle and Swap"></a><a href="http://agc019.contest.atcoder.jp/tasks/agc019_e" target="_blank" rel="external">Shuffle and Swap</a></h1><hr>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>You have two strings A=A1A2…An and B=B1B2…Bn of the same length consisting of 0 and 1. The number of 1’s in A and B is equal.</p>
+<p>You’ve decided to transform A using the following algorithm:</p>
+<ul>
+<li>Let a1, a2, …, ak be the indices of 1’s in A.</li>
+<li>Let b1, b2, …, bk be the indices of 1’s in B.</li>
+<li>Replace a and b with their random permutations, chosen independently and uniformly.</li>
+<li>For each i from 1 to k, in order, swap Aai and Abi.</li>
+</ul>
+<p>Let P be the probability that strings A and B become equal after the procedure above.</p>
+<p>Let Z=P×(k!)2. Clearly, Z is an integer.</p>
+<p>Find Z modulo 998244353.</p>
+<h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h4><ul>
+<li>Input is given from Standard Input in the following format:</li>
+</ul>
+<pre><code>A
+
+B
+</code></pre><h4 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h4><ul>
+<li>Print the value of Z modulo 998244353.</li>
+</ul>
+<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入样例1："><a href="#输入样例1：" class="headerlink" title="输入样例1："></a>输入样例1：</h4><pre><code>1010
+1100
+</code></pre><h4 id="输出样例1："><a href="#输出样例1：" class="headerlink" title="输出样例1："></a>输出样例1：</h4><pre><code>3
+</code></pre><h4 id="输入样例2："><a href="#输入样例2：" class="headerlink" title="输入样例2："></a>输入样例2：</h4><pre><code>101010
+010101
+</code></pre><h4 id="输出样例2："><a href="#输出样例2：" class="headerlink" title="输出样例2："></a>输出样例2：</h4><pre><code>36
+</code></pre><h4 id="输入样例3："><a href="#输入样例3：" class="headerlink" title="输入样例3："></a>输入样例3：</h4><pre><code>1101011011110
+0111101011101
+</code></pre><h4 id="输出样例3："><a href="#输出样例3：" class="headerlink" title="输出样例3："></a>输出样例3：</h4><pre><code>932171449
+</code></pre><h3 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h3><ul>
+<li>1≤|A|=|B|≤10,000</li>
+<li>A and B consist of 0 and 1.</li>
+<li>A and B contain the same number of 1’s.</li>
+<li>A and B contain at least one 1.</li>
+</ul>
+<hr>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>题目大意为将A与B中所有为一处的下标分别加入a，b集合，求有多少种a，b的排列满足在依次交换$A_{a_i}$，$A_{b_i}$后满足A=B。</p>
+<p>交换操作实际为将A中的1调整匹配到B中1的位置，所以当不存在$A_i=B_i=1$时，不论如何打乱a，b的排列，在操作后总有A=B。当存在$A_i=B_i=1$时，$A_i$的交换有两种情况：</p>
+<ul>
+<li>$A_i$ 所对应的 $B_i$ 为 1。</li>
+<li>$A_i$ 所对应的 $B_i$ 为 0。</li>
+</ul>
+<p>在进行第一种交换后，如果与0进行交换后，需要在操作结束后重新交换回来。那么我们不妨从$A_i$到$B_i$连一条边，易知每一个点出度入度均不超过1，且根据以上结论，设x为$A_i=B_i=1$的个数，y为$A_i!=B_i  and  A_i=1$的个数，可知该生成图共有y条链，且x个点可以作为变换的中转节点加入y条链中，那么我们可设$f(i,j)$表示在前i条链加入j个节点点的方案数，转移方程如下：</p>
+<pre><code>f[0][0]=1;
+for(int i=1;i&lt;=y;++i)
+for(int j=0;j&lt;=x;++j)
+for(int k=0;k&lt;=j;++k)
+(f[i][j]+=f[i-1][j-k]*rev[k+1])%=mod;(rev[k+1]为k+1阶乘的逆元)
+</code></pre><p>该DP时间复杂度为$O（n^3）$，期望得分为1200。<br>考虑进行优化，观察可知$f[i-1][j-k]×rev[k+1]$为卷积形式，可以用NTT进行优化，代码如下：</p>
+<pre><code>f[0][0]=1;
+for(int i=1;i&lt;=y;++i)
+{
+    for(int j=x+1;j&lt;=x*3;++j)a[j]=b[j]=0;
+    for(int j=0;j&lt;=x;++j)a[j]=f[(i-1)&amp;1][j],b[j]=rev[j+1];
+    NTT(a,b,x);
+    for(int j=0;j&lt;=x;++j)f[i&amp;1][j]=a[j];
+}
+</code></pre><p>此处观察易知，该方程实质上就是将f数组乘了y遍rev数组，加上快速幂优化即可通过极限数据，期望得分1700：</p>
+<pre><code>a[0]=1;
+for(int i=0;i&lt;=x;++i)b[i]=rev[i+1];
+for(int t=y;t;t&gt;&gt;=1)
+{
+    for(int i=x+1;i&lt;N;++i)a[i]=b[i]=c[i]=d[i]=0;
+    if(t&amp;1)NTT(a,b,x,0);
+    NTT(b,b,x,1);
+}
+</code></pre><hr>
+<h3 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h3><pre><code>#include&lt;bits/stdc++.h&gt;
+#define inv(x) qpow(x,mod-2)
+using namespace std;
+typedef long long ll;
+
+const int N = 5e4+1;
+const ll mod = 998244353;
+const ll G = 3;
+const double pi = acos(-1);
+
+char a1[N],b1[N];
+int x,y;
+ll rev[N],fac[N],r[N];
+ll a[N],b[N],c[N],d[N];
+
+int qpow(ll a,int b)
+{
+    ll ret=1;
+    while(b)
+    {
+        if(b&amp;1)ret=(ret*a)%mod;
+        b&gt;&gt;=1;
+        a=(a*a)%mod;
+    }
+    return ret;
+}
+
+void pre()
+{
+    ll i;
+    for(i=1,fac[0]=1;i&lt;N;++i)fac[i]=(fac[i-1]*i)%mod;
+    for(rev[N-1]=inv(fac[N-1]),i=N-2;i&gt;=0;--i)rev[i]=(rev[i+1]*(i+1))%mod;
+}
+
+inline void ntt(ll *a,int f,ll n)
+{
+    for(int i=0;i&lt;n;i++)if(i&lt;r[i])swap(a[i],a[r[i]]);
+    for(int i=1,t=1;i&lt;n;i&lt;&lt;=1,++t)
+    {
+        ll wn=qpow(G,(mod-1)/(1&lt;&lt;t));
+        if(f==-1) wn=inv(wn);
+        for(int j=0;j&lt;n;j+=(i&lt;&lt;1))
+        for(ll k=0,w=1;k&lt;i;k++,w=w*wn%mod)
+        {
+            ll x=a[j+k],y=a[j+k+i]*w%mod;
+            a[j+k]=(x+y)%mod;a[j+k+i]=(x-y+mod)%mod;
+        }
+    }
+}
+
+void NTT(ll *a,ll *b,ll len,bool tag)
+{
+    ll n=1,m=0;
+    while(n&lt;=2*len)n&lt;&lt;=1,m++;
+    for(int i=0;i&lt;n;++i)r[i]=r[i&gt;&gt;1]&gt;&gt;1|(1&amp;i)&lt;&lt;(m-1);
+    copy(a,a+x+1,c);copy(b,b+x+1,d);
+    for(int i=x+1;i&lt;N;++i)a[i]=b[i]=c[i]=d[i]=0;
+    ntt(c,1,n);ntt(d,1,n);
+    for(int i=0;i&lt;n;++i)(c[i]*=d[i])%=mod;
+    ntt(c,-1,n);ll t=inv(n);
+    for(int i=0;i&lt;=len;++i)a[i]=c[i]*t%mod;
+    return;
+}
+
+/*
+
+1101011011110
+0111101011101
+
+*/
+
+int main()
+{
+    pre();
+    scanf(&quot;%s%s&quot;,a1+1,b1+1);
+    int len=strlen(a1+1);
+    for(int i=1;i&lt;=len;++i)
+    if(b1[i]==&#39;1&#39;&amp;&amp;a1[i]==&#39;1&#39;)x++;
+    else if(a1[i]==&#39;1&#39;)y++;
+    a[0]=1;
+    for(int i=0;i&lt;=x;++i)b[i]=rev[i+1];
+    for(int t=y;t;t&gt;&gt;=1)
+    {
+        for(int i=x+1;i&lt;N;++i)a[i]=b[i]=c[i]=d[i]=0;
+        if(t&amp;1)NTT(a,b,x,0);
+        NTT(b,b,x,1);
+    }
+    ll ans=0;
+    for(int i=0;i&lt;=x;++i)(ans+=a[i]*fac[x]%mod*fac[y]%mod*fac[x+y])%=mod;
+    cout&lt;&lt;ans;
+}
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/动态规划/" rel="tag"># 动态规划</a>
+          
+            <a href="/tags/组合数学/" rel="tag"># 组合数学</a>
+          
+            <a href="/tags/逆元/" rel="tag"># 逆元</a>
+          
+            <a href="/tags/FFT/" rel="tag"># FFT</a>
+          
+            <a href="/tags/快速幂/" rel="tag"># 快速幂</a>
+          
+        </div>
+      
+
+      
+        
+          <div class="social-like">
+            
+              <div class="vk_like">
+                <span id="vk_like"></span>
+              </div>
+            
+
+            
+          </div>
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/21/二逼平衡树/" rel="next" title="二逼平衡树">
+                <i class="fa fa-chevron-left"></i> 二逼平衡树
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/31/Codeforces798E/" rel="prev" title="Codeforces798E Mike and Code of a Permutation">
+                Codeforces798E Mike and Code of a Permutation <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/08/28/AtCoder Grand Contest 019 E  Shuffle and Swap/"
+           data-title="AtCoder Grand Contest 019 E  Shuffle and Swap" data-url="https://prostkhala.github.io/2017/08/28/AtCoder Grand Contest 019 E  Shuffle and Swap/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://raw.githubusercontent.com/ProSTKhala/ProSTKhala.github.io/master/images/ST.jpg"
+               alt="ST" />
+          <p class="site-author-name" itemprop="name">ST</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ProSTKhala" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/su-tong-75-78/activities" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-https://raw.githubusercontent.com/prostkhala/prostkhala.github.io/master/images/zhihu.jpg"></i>
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://pb0207.github.io/" title="我校大神%%%" target="_blank">我校大神%%%</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Shuffle-and-Swap"><span class="nav-number">1.</span> <span class="nav-text">Shuffle and Swap</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出格式"><span class="nav-number">1.1.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入格式："><span class="nav-number">1.1.1.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出格式："><span class="nav-number">1.1.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出样例"><span class="nav-number">1.1.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入样例1："><span class="nav-number">1.1.2.1.</span> <span class="nav-text">输入样例1：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出样例1："><span class="nav-number">1.1.2.2.</span> <span class="nav-text">输出样例1：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入样例2："><span class="nav-number">1.1.2.3.</span> <span class="nav-text">输入样例2：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出样例2："><span class="nav-number">1.1.2.4.</span> <span class="nav-text">输出样例2：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入样例3："><span class="nav-number">1.1.2.5.</span> <span class="nav-text">输入样例3：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出样例3："><span class="nav-number">1.1.2.6.</span> <span class="nav-text">输出样例3：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据范围"><span class="nav-number">1.1.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解"><span class="nav-number">1.2.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE"><span class="nav-number">1.2.1.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ST</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"prostkhala"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+  
+
+</body>
+</html>
