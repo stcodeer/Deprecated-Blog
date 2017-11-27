@@ -1,0 +1,1657 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="动态规划,虚树," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="概念与构造概念虚树可以用来解决在树上的多次询问，约束总询问点数的动态规划问题，相较直接BFS的高复杂度，虚树可以将开销降到与单次询问点数相关的时间复杂度之内。
+建树考虑动态规划合并多个询问节点，只有在遍历到关键的$LCA$时才会计算贡献，且可以直接以$LCA$代替以下节点，所以可以设计出以下算法流程：
+$1.$ 维护一个以$dfn$序为关键字的单调栈，栈顶元素$p$为所有已经处理过的节点中$dfn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="虚树总结">
+<meta property="og:url" content="https://prostkhala.github.io/2017/11/27/虚树总结/index.html">
+<meta property="og:site_name" content="ST">
+<meta property="og:description" content="概念与构造概念虚树可以用来解决在树上的多次询问，约束总询问点数的动态规划问题，相较直接BFS的高复杂度，虚树可以将开销降到与单次询问点数相关的时间复杂度之内。
+建树考虑动态规划合并多个询问节点，只有在遍历到关键的$LCA$时才会计算贡献，且可以直接以$LCA$代替以下节点，所以可以设计出以下算法流程：
+$1.$ 维护一个以$dfn$序为关键字的单调栈，栈顶元素$p$为所有已经处理过的节点中$dfn">
+<meta property="og:updated_time" content="2017-11-27T09:42:25.710Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="虚树总结">
+<meta name="twitter:description" content="概念与构造概念虚树可以用来解决在树上的多次询问，约束总询问点数的动态规划问题，相较直接BFS的高复杂度，虚树可以将开销降到与单次询问点数相关的时间复杂度之内。
+建树考虑动态规划合并多个询问节点，只有在遍历到关键的$LCA$时才会计算贡献，且可以直接以$LCA$代替以下节点，所以可以设计出以下算法流程：
+$1.$ 维护一个以$dfn$序为关键字的单调栈，栈顶元素$p$为所有已经处理过的节点中$dfn">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '2QO73P8IRL',
+      apiKey: 'd708fdfc7728c0f4e49cf1d1dbfbc6f7',
+      indexName: 'ProSTKhala',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://prostkhala.github.io/2017/11/27/虚树总结/"/>
+
+
+
+
+
+  <title> 虚树总结 | ST </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+	<div id="vk_api_transport"></div>
+	<script type="text/javascript">
+		window.vkAsyncInit = function() {
+			VK.init({
+				apiId: 
+			});
+
+			
+				VK.Widgets.Like("vk_like", {type: "mini", height: 20});
+			
+
+			
+				VK.Widgets.Comments("vk_comments", {limit: 10, attach: "*"});
+			
+		};
+		setTimeout(function() {
+			var el = document.createElement("script");
+			el.type = "text/javascript";
+			el.src = "//vk.com/js/api/openapi.js";
+			el.async = true;
+			document.getElementById("vk_api_transport").appendChild(el);
+		}, 0);
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ST</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">A HAOIER</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://prostkhala.github.io/2017/11/27/虚树总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ST">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/ProSTKhala/ProSTKhala.github.io/master/images/ST.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ST">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                虚树总结
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-27T17:42:01+08:00">
+                2017-11-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2017-11-27T17:42:25+08:00">
+                2017-11-27
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/总结/" itemprop="url" rel="index">
+                    <span itemprop="name">总结</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/27/虚树总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/11/27/虚树总结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Words count in article</span>
+                  
+                    <span title="Words count in article" }}">
+                      
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Reading time</span>
+                  
+                    <span title="Reading time" }}">
+                      
+                    </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="概念与构造"><a href="#概念与构造" class="headerlink" title="概念与构造"></a>概念与构造</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>虚树可以用来解决在树上的多次询问，约束总询问点数的动态规划问题，相较直接BFS的高复杂度，虚树可以将开销降到与单次询问点数相关的时间复杂度之内。</p>
+<h2 id="建树"><a href="#建树" class="headerlink" title="建树"></a>建树</h2><p>考虑动态规划合并多个询问节点，只有在遍历到关键的$LCA$时才会计算贡献，且可以直接以$LCA$代替以下节点，所以可以设计出以下算法流程：</p>
+<p>$1.$ 维护一个以$dfn$序为关键字的单调栈，栈顶元素$p$为所有已经处理过的节点中$dfn$最大的节点，一般以根为初始节点，将所有询问节点按$dfn$排序进行插入。</p>
+<p>$2.$ 根据以上算法，一定有$dfn_x &gt; dfn_p$。设栈顶第二个元素为$q$，根据$LCA$与$q$的关系进行分类讨论：</p>
+<ul>
+<li><p>当$LCA = p$时，将$x$入栈。</p>
+</li>
+<li><p>否则$p$与$q$分别在$lca$的两个子树中，则需要重复以下操作，直到$p$到$lca$中所有节点处理完毕，然后再将$x$入栈。</p>
+<ul>
+<li>当$dfn_q &gt; dfn_{lca}$时，连边$(q,p)$,并将$p$退栈。</li>
+<li>当$dfn_q = dfn_{lca}$时，连边$(lca,p)$。此时$p$到$lca$已经处理完毕，即可跳出循环。</li>
+<li>当$dfn_q &lt; dfn_{lca}$时，此时$lca$在$q-&gt;p$上，建边$(lca,p)$，以$lca$代替$p$在栈中的位置。此时$p$到$lca$已经处理完毕，即可跳出循环。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="SDOI2011-消耗战"><a href="#SDOI2011-消耗战" class="headerlink" title="SDOI2011 消耗战"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=2286" target="_blank" rel="external">SDOI2011 消耗战</a></h2><hr>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>在一场战争中，战场由n个岛屿和n-1个桥梁组成，保证每两个岛屿间有且仅有一条路径可达。现在，我军已经侦查到敌军的总部在编号为1的岛屿，而且他们已经没有足够多的能源维系战斗，我军胜利在望。已知在其他k个岛屿上有丰富能源，为了防止敌军获取能源，我军的任务是炸毁一些桥梁，使得敌军不能到达任何能源丰富的岛屿。由于不同桥梁的材质和结构不同，所以炸毁不同的桥梁有不同的代价，我军希望在满足目标的同时使得总代价最小。</p>
+<p>侦查部门还发现，敌军有一台神秘机器。即使我军切断所有能源之后，他们也可以用那台机器。机器产生的效果不仅仅会修复所有我军炸毁的桥梁，而且会重新随机资源分布（但可以保证的是，资源不会分布到1号岛屿上）。不过侦查部门还发现了这台机器只能够使用m次，所以我们只需要把每次任务完成即可。</p>
+<h4 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h4><h5 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h5><p>第一行一个整数$n$，代表岛屿数量。</p>
+<p>接下来$n-1$行，每行三个整数$u,v,w$，代表$u$号岛屿和$v$号岛屿由一条代价为c的桥梁直接相连，保证$1&lt;=u,v&lt;=n$且$1&lt;=c&lt;=100000$。</p>
+<p>第$n+1$行，一个整数$m$，代表敌方机器能使用的次数。</p>
+<p>接下来$m$行，每行一个整数$k_i$，代表第$i$次后，有$k_i$个岛屿资源丰富，接下来$k$个整数$h_1,h_2,…h_k$，表示资源丰富岛屿的编号。</p>
+<h5 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h5><p>输出有$m$行，分别代表每次任务的最小代价。</p>
+<h4 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h4><h5 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h5><pre><code>10
+1 5 13
+1 9 6
+2 1 19
+2 4 8
+2 3 91
+5 6 8
+7 5 4
+7 8 31
+10 7 9
+3
+2 10 6
+4 5 7 8 3
+3 9 4 6
+</code></pre><h5 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h5><pre><code>12
+32
+22
+</code></pre><h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p> $2&lt;=n&lt;=250000$</p>
+<p> $m&gt;=1$</p>
+<p> $\sum k_i&lt;=500000$</p>
+<p> $1&lt;=k_i&lt;=n-1$</p>
+<hr>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>设$f_x$为覆盖以$x$为跟子树的最小代价，则有$f_x=min(\sum f_{sonx},g_x)$，其中$g_x$代表根到$x$路径上的最小权值边，用虚树优化即可。</p>
+<hr>
+<h4 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h4><pre><code>#include&lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+const int N = 1e6+1;
+const ll inf = 1e15;
+
+int read(){
+    int x=0,f=1;char ch=getchar();
+    while(ch&lt;&#39;0&#39;||ch&gt;&#39;9&#39;){if(ch==&#39;-&#39;)f=-1;ch=getchar();}
+    while(ch&gt;=&#39;0&#39;&amp;&amp;ch&lt;=&#39;9&#39;)x=x*10+ch-&#39;0&#39;,ch=getchar();
+    return x*f;
+}
+
+int n,m,k,head[N],d[N],cnt,f[N][19],q[N],dfn[N],totw,st[N],vis[N];
+ll dp[N],g[N];
+struct nd{
+    int ne,to;ll w;
+}e[N*2];
+
+void in(int x,int y,ll w){
+    if(x==y)return;
+    e[++cnt].to=y;e[cnt].ne=head[x];head[x]=cnt;e[cnt].w=w;
+}
+
+void dfs(int x,int fa=-1){
+    dfn[x]=++totw;
+    for(int i=head[x];i;i=e[i].ne)
+    if(e[i].to!=fa){
+        int y=e[i].to;
+        f[y][0]=x;
+        g[y]=min(g[x],e[i].w);
+        d[y]=d[x]+1;
+        dfs(y,x);
+    }
+}
+
+int lca(int x,int y){
+    if(d[x]&lt;d[y])swap(x,y);
+    for(int i=18;i&gt;=0;--i)
+    if(d[f[x][i]]&gt;=d[y])x=f[x][i];
+    if(x==y)return x;
+    for(int i=18;i&gt;=0;--i)
+    if(f[x][i]!=f[y][i])x=f[x][i],y=f[y][i];
+    return f[x][0];
+}
+
+bool cmp(int a,int b){
+    return dfn[a]&lt;dfn[b];
+}
+int T=0;
+ll get(int x){
+    ll k=0;
+    for(int i=head[x];i;i=e[i].ne)k+=get(e[i].to);
+    head[x]=0;
+    return dp[x]=(vis[x]!=T?min(g[x],k):g[x]);
+}
+
+ll solve(){
+    cnt=0;++T;
+    sort(q+1,q+k+1,cmp);
+    for(int i=1;i&lt;=k;++i)vis[q[i]]=T;
+    int L=0;
+    st[++L]=1;
+    for(int i=1;i&lt;=k;++i){
+        int x=q[i],l=lca(x,st[L]);
+        if(l==st[L])st[++L]=x;
+        else{
+            while(1){
+                if(dfn[l]&gt;=dfn[st[L-1]]){
+                    in(l,st[L--],0);
+                    if(st[L]!=l)st[++L]=l;
+                    break;
+                }
+                in(st[L-1],st[L],0),L--;
+            }
+            if(x!=st[L])st[++L]=x;
+        }
+    }
+    while(--L)in(st[L],st[L+1],0);
+    return get(1);
+}
+
+
+int main(){
+//  freopen(&quot;c.in&quot;,&quot;r&quot;,stdin);
+    n=read();
+    for(int i=1,x,y,w;i&lt;n;++i){
+        x=read(),y=read(),w=read();
+        in(x,y,w);in(y,x,w);
+    }
+    d[1]=1;g[1]=inf;dfs(1);
+    for(int j=1;j&lt;19;++j)
+    for(int i=1;i&lt;=n;++i)
+    f[i][j]=f[f[i][j-1]][j-1];
+    m=read();
+    memset(head,0,sizeof(head));cnt=0;
+    while(m--){
+        k=read();
+        for(int j=1;j&lt;=k;++j)q[j]=read();
+        printf(&quot;%lld\n&quot;,solve());
+    }
+}
+</code></pre><hr>
+<h2 id="HNOI2014-世界树"><a href="#HNOI2014-世界树" class="headerlink" title="HNOI2014 世界树"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=3572" target="_blank" rel="external">HNOI2014 世界树</a></h2><hr>
+<h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><p>世界树是一棵无比巨大的树，它伸出的枝干构成了整个世界。在这里，生存着各种各样的种族和生灵，他们共同信奉着绝对公正公平的女神艾莉森，在他们的信条里，公平是使世界树能够生生不息、持续运转的根本基石。</p>
+<p>世界树的形态可以用一个数学模型来描述：世界树中有n个种族，种族的编号分别从1到n，分别生活在编号为1到n的聚居地上，种族的编号与其聚居地的编号相同。有的聚居地之间有双向的道路相连，道路的长度为1。保证连接的方式会形成一棵树结构，即所有的聚居地之间可以互相到达，并且不会出现环。定义两个聚居地之间的距离为连接他们的道路的长度；例如，若聚居地a和b之间有道路，b和c之间有道路，因为每条道路长度为1而且又不可能出现环，所卧a与c之间的距离为2。</p>
+<p>出于对公平的考虑，第i年，世界树的国王需要授权m[i]个种族的聚居地为临时议事处。对于某个种族x（x为种族的编号），如果距离该种族最近的临时议事处为y（y为议事处所在聚居地的编号），则种族x将接受y议事处的管辖（如果有多个临时议事处到该聚居地的距离一样，则y为其中编号最小的临时议事处）。<br>现在国王想知道，在q年的时间里，每一年完成授权后，当年每个临时议事处将会管理多少个种族（议事处所在的聚居地也将接受该议事处管理）。 现在这个任务交给了以智慧著称的灵长类的你：程序猿。请帮国王完成这个任务吧。 </p>
+<h4 id="输入输出格式-1"><a href="#输入输出格式-1" class="headerlink" title="输入输出格式"></a>输入输出格式</h4><h5 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式:"></a>输入格式:</h5><p>第一行为一个正整数n，表示世界树中种族的个数。</p>
+<p>接下来n-l行，每行两个正整数x，y，表示x聚居地与y聚居地之间有一条长度为1的双向道路。接下来一行为一个正整数q，表示国王询问的年数。</p>
+<p>接下来q块，每块两行：</p>
+<p>第i块的第一行为1个正整数m[i]，表示第i年授权的临时议事处的个数。</p>
+<p>第i块的第二行为m[i]个正整数h[l]、h[2]、…、h[m[i]]，表示被授权为临时议事处的聚居地编号（保证互不相同）。 </p>
+<h5 id="输出格式：-1"><a href="#输出格式：-1" class="headerlink" title="输出格式："></a>输出格式：</h5><p>输出包含q行，第i行为m[i]个整数，该行的第j(j=1，2…，，m[i])个数表示第i年被授权的聚居地h[j]的临时议事处管理的种族个数。</p>
+<h4 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例"></a>输入输出样例</h4><h5 id="输入样例：-1"><a href="#输入样例：-1" class="headerlink" title="输入样例："></a>输入样例：</h5><pre><code>10 
+2 1 
+3 2 
+4 3 
+5 4 
+6 1
+7 3 
+8 3 
+9 4 
+10 1 
+
+5 
+2 
+6 1   
+5 
+2 7 3 6 9   
+1 
+8  
+4 
+8 7 10 3   
+5 
+2 9 3 5 8 
+</code></pre><h5 id="输出样例：-1"><a href="#输出样例：-1" class="headerlink" title="输出样例："></a>输出样例：</h5><pre><code>1 9   
+3 1 4 1 1   
+10  
+1 1 3 5   
+4 1 3 1 1 
+</code></pre><h4 id="数据范围-1"><a href="#数据范围-1" class="headerlink" title="数据范围"></a>数据范围</h4><p> N&lt;=300000, q&lt;=300000,m[1]+m[2]+…+m[q]&lt;=300000</p>
+<hr>
+<h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><p>先建立虚树，两遍DP找出每个点的控制点，然后在考虑虚树上每一条边的贡献，如果两个顶点属于同一个控制点，直接计算即可，否则二分出控制点不同的位置在计算贡献，注意这一步不应计算端点，否则会导致重复计算，对于没有考虑到的点，其控制点一定在第一个在虚树上的父亲节点上，也要计算在内，最后应注意清空数组。</p>
+<hr>
+<h4 id="CODE-1"><a href="#CODE-1" class="headerlink" title="CODE"></a>CODE</h4><pre><code>#include&lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+const int N = 3e5+1;
+
+int read(){
+    int x=0;char ch=getchar();
+    while(ch&lt;&#39;0&#39;||ch&gt;&#39;9&#39;)ch=getchar();
+    while(ch&gt;=&#39;0&#39;&amp;&amp;ch&lt;=&#39;9&#39;)x=(x&lt;&lt;3)+(x&lt;&lt;1)+ch-&#39;0&#39;,ch=getchar();
+    return x;
+}
+
+int n,k,q[N],bel[N],a[N],c[N],d[N],dfn[N],f[N][19],ans[N],g1[N],head[N],cnt,st[N],sz[N];
+struct nd{
+    int ne,to;
+}e[N*2];
+
+void in(int x,int y){
+    if(x==y||!x||!y)return;
+    e[++cnt].to=y;e[cnt].ne=head[x];head[x]=cnt;
+}
+
+int dfs(int x,int fa=-1){
+    static int totw=0;
+    dfn[x]=++totw;sz[x]=1;
+    for(int i=head[x];i;i=e[i].ne)
+    if(e[i].to!=fa){
+        int y=e[i].to;
+        d[y]=d[x]+1;f[y][0]=x;
+        dfs(y,x);
+        sz[x]+=sz[y];
+    }
+}
+
+int lca(int x,int y){
+//    cout&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;&quot; &quot;;
+    if(d[x]&lt;d[y])swap(x,y);
+    for(int i=18;i&gt;=0;--i)
+    if(d[f[x][i]]&gt;=d[y])x=f[x][i];
+    if(x==y){
+//        cout&lt;&lt;x&lt;&lt;endl;
+        return x;
+    }
+    for(int i=18;i&gt;=0;--i)
+    if(f[x][i]!=f[y][i])x=f[x][i],y=f[y][i];
+//    cout&lt;&lt;f[x][0]&lt;&lt;endl;
+    return f[x][0];
+}
+
+int dis(int x,int y){
+    return d[x]+d[y]-2*d[lca(x,y)];
+}
+
+bool cmp(int a,int b){
+    return dfn[a]&lt;dfn[b];
+}
+
+void dfs1(int x,int fa=-1){
+//    cout&lt;&lt;x&lt;&lt;&quot; &quot;;
+    c[++c[0]]=x;g1[x]=sz[x];
+    for(int i=head[x];i;i=e[i].ne)
+    if(e[i].to!=fa){
+        int y=e[i].to;
+        dfs1(y,x);
+        if(!bel[y])continue;
+        if(!bel[x])bel[x]=bel[y];
+        else{
+            int d1=dis(bel[x],x);
+            int d2=dis(bel[y],x);
+            if(d2&lt;d1||(d2==d1&amp;&amp;bel[y]&lt;bel[x]))bel[x]=bel[y];
+        }
+    }
+}
+
+void dfs2(int x,int fa=-1){
+    for(int i=head[x];i;i=e[i].ne)
+    if(e[i].to!=fa){
+        int y=e[i].to;
+        if(!bel[y])bel[y]=bel[x];
+        else{
+            int d1=dis(bel[x],y);
+            int d2=dis(bel[y],y);
+            if(d1&lt;d2||(d1==d2&amp;&amp;bel[x]&lt;bel[y]))bel[y]=bel[x];
+        }
+        dfs2(y,x);
+    }
+}
+
+void solve(int x,int y){
+//    cout&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;endl;
+    int son=y,mid=y,now,d1,d2;
+    for(int i=18;i&gt;=0;--i)
+    if(d[f[son][i]]&gt;d[x])son=f[son][i];
+    g1[x]-=sz[son];
+    if(bel[x]==bel[y])return void(ans[bel[x]]+=sz[son]-sz[y]);
+    for(int i=18;i&gt;=0;--i){
+        now=f[mid][i];
+        if(d[now]&lt;=d[x])continue;
+        d1=dis(bel[x],now);d2=dis(bel[y],now);
+        if(d2&lt;d1||(d2==d1&amp;&amp;bel[y]&lt;bel[x]))mid=now;
+    }
+    ans[bel[x]]+=sz[son]-sz[mid];
+    ans[bel[y]]+=sz[mid]-sz[y];
+    return;
+}
+
+void solve(){
+    sort(q+1,q+k+1,cmp);cnt=0;c[0]=0;
+    for(int i=1;i&lt;=k;++i)bel[q[i]]=q[i];
+    int L=0;
+    st[++L]=1;
+    for(int i=1;i&lt;=k;++i){
+        int x=q[i],l=lca(x,st[L]);
+        while(1){
+            if(dfn[l]&gt;=dfn[st[L-1]]){
+                in(l,st[L--]);
+                if(st[L]!=l)st[++L]=l;
+                break;
+            }
+            in(st[L-1],st[L]);L--;
+        }
+        if(x!=st[L])st[++L]=x;
+    }
+    while(--L)in(st[L],st[L+1]);
+
+    dfs1(1);dfs2(1);
+//    for(int i=1;i&lt;=c[0];++i)cout&lt;&lt;bel[c[i]]&lt;&lt;&quot; &quot;;cout&lt;&lt;endl;
+    for(int i=1;i&lt;=c[0];++i){
+        int x=c[i];
+        for(int j=head[x];j;j=e[j].ne)
+        solve(x,e[j].to);
+    }
+    for(int i=1;i&lt;=c[0];++i)ans[bel[c[i]]]+=g1[c[i]];
+    for(int i=1;i&lt;=k;++i)printf(&quot;%d &quot;,ans[a[i]]);printf(&quot;\n&quot;);
+    for(int i=1;i&lt;=c[0];++i){
+        int x=c[i];
+        head[x]=ans[x]=g1[x]=bel[x]=0;
+    }
+    return;
+}
+
+int main(){
+//    freopen(&quot;c.in&quot;,&quot;r&quot;,stdin);
+    n=read();
+    for(int i=1,x,y;i&lt;n;++i)
+    x=read(),y=read(),in(x,y),in(y,x);
+    int Q=read();
+    d[1]=1;dfs(1);
+    for(int j=1;j&lt;19;++j)
+    for(int i=1;i&lt;=n;++i)
+    f[i][j]=f[f[i][j-1]][j-1];
+    memset(head,0,sizeof(head));cnt=0;
+    while(Q--){
+        k=read();
+        for(int i=1;i&lt;=k;++i)a[i]=q[i]=read();
+        solve();
+    }
+}
+</code></pre><hr>
+<h2 id="HEOI2014-大工程"><a href="#HEOI2014-大工程" class="headerlink" title="HEOI2014 大工程"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=3611" target="_blank" rel="external">HEOI2014 大工程</a></h2><hr>
+<h3 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h3><p>国家有一个大工程，要给一个非常大的交通网络里建一些新的通道。 </p>
+<p>我们这个国家位置非常特殊，可以看成是一个单位边权的树，城市位于顶点上。 </p>
+<p>在 2 个国家 a,b 之间建一条新通道需要的代价为树上 a,b 的最短路径。</p>
+<p> 现在国家有很多个计划，每个计划都是这样，我们选中了 k 个点，然后在它们两两之间 新建 C(k,2)条 新通道。</p>
+<p>现在对于每个计划，我们想知道：</p>
+<ol>
+<li><p>这些新通道的代价和</p>
+</li>
+<li><p>这些新通道中代价最小的是多少 </p>
+</li>
+</ol>
+<ol>
+<li>这些新通道中代价最大的是多少</li>
+</ol>
+<h4 id="输入输出格式-2"><a href="#输入输出格式-2" class="headerlink" title="输入输出格式"></a>输入输出格式</h4><h5 id="输入格式-2"><a href="#输入格式-2" class="headerlink" title="输入格式:"></a>输入格式:</h5><p>第一行 n 表示点数。</p>
+<p> 接下来 n-1 行，每行两个数 a,b 表示 a 和 b 之间有一条边。</p>
+<p>点从 1 开始标号。 接下来一行 q 表示计划数。</p>
+<p>对每个计划有 2 行，第一行 k 表示这个计划选中了几个点。</p>
+<p> 第二行用空格隔开的 k 个互不相同的数表示选了哪 k 个点。</p>
+<h5 id="输出格式：-2"><a href="#输出格式：-2" class="headerlink" title="输出格式："></a>输出格式：</h5><p>输出 q 行，每行三个数分别表示代价和，最小代价，最大代价。 </p>
+<h4 id="输入输出样例-2"><a href="#输入输出样例-2" class="headerlink" title="输入输出样例"></a>输入输出样例</h4><h5 id="输入样例：-2"><a href="#输入样例：-2" class="headerlink" title="输入样例："></a>输入样例：</h5><pre><code>10 
+2 1 
+3 2 
+4 1 
+5 2 
+6 4 
+7 5
+8 6 
+9 7
+10 9 
+5 
+2
+5 4 
+2 
+10 4 
+2 
+5 2 
+2 
+6 1 
+2 
+6 1 
+</code></pre><h5 id="输出样例：-2"><a href="#输出样例：-2" class="headerlink" title="输出样例："></a>输出样例：</h5><pre><code>3 3 3 
+
+6 6 6 
+
+1 1 1 
+
+2 2 2 
+
+2 2 2 
+</code></pre><hr>
+<h3 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h3><p>虚树裸题，逻辑清晰的实现会让代码难度降低一个等级。</p>
+<hr>
+<h4 id="CODE-2"><a href="#CODE-2" class="headerlink" title="CODE"></a>CODE</h4><pre><code>#include&lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+const int N = 1e6+1;
+const int inf = 1e8;
+
+
+int read(){
+    int x=0;char ch=getchar();
+    while(ch&lt;&#39;0&#39;||ch&gt;&#39;9&#39;)ch=getchar();
+    while(ch&gt;=&#39;0&#39;&amp;&amp;ch&lt;=&#39;9&#39;)x=(x&lt;&lt;3)+(x&lt;&lt;1)+ch-&#39;0&#39;,ch=getchar();
+    return x;
+}
+
+int n,m,f[N][21],st[N],dfn[N],q[N],head[N],d[N],cnt,k,vis[N],T,sz[N];
+struct nd{
+    int ne,to;
+}e[N*2];
+
+void in(int x,int y){
+    if(x==y||!x||!y)return;
+    e[++cnt].to=y;e[cnt].ne=head[x];head[x]=cnt;
+}
+
+int dfs(int x,int fa=-1){
+    static int totw=0;
+    dfn[x]=++totw;
+    for(int i=head[x];i;i=e[i].ne)
+    if(e[i].to!=fa){
+        int y=e[i].to;
+        f[y][0]=x;
+        d[y]=d[x]+1;
+        dfs(y,x);
+    }
+}
+
+bool cmp(int a,int b){
+    return dfn[a]&lt;dfn[b];
+}
+
+int lca(int x,int y){
+    if(d[x]&lt;d[y])swap(x,y);
+    for(int i=20;i&gt;=0;--i)
+    if(d[f[x][i]]&gt;=d[y])x=f[x][i];
+    if(x==y)return x;
+    for(int i=20;i&gt;=0;--i)
+    if(f[x][i]!=f[y][i])x=f[x][i],y=f[y][i];
+    return f[x][0];
+}
+
+
+ll s[N];
+ll ans=0;
+int mx=0,mn=inf,mnn[N],mxx[N];
+
+void get(int x){
+    s[x]=0;
+    sz[x]=(vis[x]==T);
+    mnn[x]=(vis[x]==T?0:inf);
+    mxx[x]=(vis[x]==T?0:-inf);
+    for(int i=head[x];i;i=e[i].ne){
+        int y=e[i].to;
+        get(y);
+        ans+=(s[x]+sz[x]*(d[y]-d[x]))*sz[y]+s[y]*sz[x];
+        sz[x]+=sz[y];
+        s[x]+=s[y]+(d[y]-d[x])*sz[y];
+        mx=max(mx,mxx[x]+mxx[y]+d[y]-d[x]);
+        mn=min(mn,mnn[x]+mnn[y]+d[y]-d[x]);
+        mxx[x]=max(mxx[x],mxx[y]+d[y]-d[x]);
+        mnn[x]=min(mnn[x],mnn[y]+d[y]-d[x]);
+    }
+    head[x]=0;
+}
+
+void solve(){
+    sort(q+1,q+k+1,cmp);cnt=0;++T;
+    for(int i=1;i&lt;=k;++i)vis[q[i]]=T;
+    ans=0;mx=0;mn=inf;
+    int L=0;
+    st[++L]=1;
+    for(int i=1;i&lt;=k;++i){
+        int x=q[i],l=lca(x,st[L]);
+        while(1){
+            if(d[l]&gt;=d[st[L-1]]){
+                in(l,st[L--]);
+                if(l!=st[L])st[++L]=l;
+                break;
+            }
+            in(st[L-1],st[L]);L--;
+        }
+        if(x!=st[L])st[++L]=x;
+    }
+    while(--L)in(st[L],st[L+1]);
+    get(1);
+    printf(&quot;%lld %d %d\n&quot;,ans,mn,mx);
+}
+
+int main(){
+//    freopen(&quot;c.in&quot;,&quot;r&quot;,stdin);
+    n=read();
+    for(int i=1,x,y;i&lt;n;++i)
+    x=read(),y=read(),in(x,y),in(y,x);
+    d[1]=1;dfn[0]=inf;dfs(1);
+    for(int j=1;j&lt;21;++j)
+    for(int i=1;i&lt;=n;++i)
+    f[i][j]=f[f[i][j-1]][j-1];
+    memset(head,0,sizeof(head));
+    int Q=read();
+    while(Q--){
+        k=read();
+        for(int i=1;i&lt;=k;++i)q[i]=read();
+        solve();
+    }
+}
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/动态规划/" rel="tag"># 动态规划</a>
+          
+            <a href="/tags/虚树/" rel="tag"># 虚树</a>
+          
+        </div>
+      
+
+      
+        
+          <div class="social-like">
+            
+              <div class="vk_like">
+                <span id="vk_like"></span>
+              </div>
+            
+
+            
+          </div>
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/26/Topcoder SRM553 div1 1000pts/" rel="next" title="Topcoder SRM553 Div1 1000pts">
+                <i class="fa fa-chevron-left"></i> Topcoder SRM553 Div1 1000pts
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/11/27/虚树总结/"
+           data-title="虚树总结" data-url="https://prostkhala.github.io/2017/11/27/虚树总结/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://raw.githubusercontent.com/ProSTKhala/ProSTKhala.github.io/master/images/ST.jpg"
+               alt="ST" />
+          <p class="site-author-name" itemprop="name">ST</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ProSTKhala" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/su-tong-75-78/activities" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-https://raw.githubusercontent.com/prostkhala/prostkhala.github.io/master/images/zhihu.jpg"></i>
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://pb0207.github.io/" title="我校大神%%%" target="_blank">我校大神%%%</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概念与构造"><span class="nav-number">1.</span> <span class="nav-text">概念与构造</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建树"><span class="nav-number">1.2.</span> <span class="nav-text">建树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SDOI2011-消耗战"><span class="nav-number">1.3.</span> <span class="nav-text">SDOI2011 消耗战</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述"><span class="nav-number">1.3.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出格式"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入格式"><span class="nav-number">1.3.1.1.1.</span> <span class="nav-text">输入格式:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出格式："><span class="nav-number">1.3.1.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出样例"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入样例："><span class="nav-number">1.3.1.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出样例："><span class="nav-number">1.3.1.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据范围"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解"><span class="nav-number">1.3.2.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CODE"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HNOI2014-世界树"><span class="nav-number">1.4.</span> <span class="nav-text">HNOI2014 世界树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出格式-1"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入格式-1"><span class="nav-number">1.4.1.1.1.</span> <span class="nav-text">输入格式:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出格式：-1"><span class="nav-number">1.4.1.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出样例-1"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入样例：-1"><span class="nav-number">1.4.1.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出样例：-1"><span class="nav-number">1.4.1.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据范围-1"><span class="nav-number">1.4.1.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-1"><span class="nav-number">1.4.2.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CODE-1"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HEOI2014-大工程"><span class="nav-number">1.5.</span> <span class="nav-text">HEOI2014 大工程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-2"><span class="nav-number">1.5.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出格式-2"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入格式-2"><span class="nav-number">1.5.1.1.1.</span> <span class="nav-text">输入格式:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出格式：-2"><span class="nav-number">1.5.1.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出样例-2"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入样例：-2"><span class="nav-number">1.5.1.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出样例：-2"><span class="nav-number">1.5.1.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-2"><span class="nav-number">1.5.2.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CODE-2"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ST</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"prostkhala"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+  
+
+</body>
+</html>
