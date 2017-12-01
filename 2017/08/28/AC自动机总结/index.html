@@ -1,0 +1,2087 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="动态规划,AC自动机,BFS,子树差分," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="AC自动机（简单版）
+题目描述给定n个模式串和1个文本串，求有多少个模式串在文本串里出现过。
+输入输出格式输入格式:第一行一个n，表示模式串个数；
+下面n行每行一个模式串；
+下面一行一个文本串。
+输出格式：一个数表示答案。
+输入输出样例输入样例：2
+a
+aa
+aa
+输出样例：2
+
+题解AC自动机裸题，如果不加last优化会TLE。
+
+CODE#include&amp;lt;bits/stdc++.h&amp;gt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AC自动机总结">
+<meta property="og:url" content="https://prostkhala.github.io/2017/08/28/AC自动机总结/index.html">
+<meta property="og:site_name" content="ST">
+<meta property="og:description" content="AC自动机（简单版）
+题目描述给定n个模式串和1个文本串，求有多少个模式串在文本串里出现过。
+输入输出格式输入格式:第一行一个n，表示模式串个数；
+下面n行每行一个模式串；
+下面一行一个文本串。
+输出格式：一个数表示答案。
+输入输出样例输入样例：2
+a
+aa
+aa
+输出样例：2
+
+题解AC自动机裸题，如果不加last优化会TLE。
+
+CODE#include&amp;lt;bits/stdc++.h&amp;gt">
+<meta property="og:image" content="http://218.28.19.228:8080/upload/image/20170425/20170425154024_30785.png">
+<meta property="og:image" content="http://218.28.19.228:8080/upload/image/20170425/20170425154034_33570.png">
+<meta property="og:image" content="http://218.28.19.228:8080/upload/image/20170425/20170425154044_87420.png">
+<meta property="og:image" content="http://218.28.19.228:8080/upload/image/20170425/20170425154144_60477.png">
+<meta property="og:updated_time" content="2017-12-01T03:06:02.944Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AC自动机总结">
+<meta name="twitter:description" content="AC自动机（简单版）
+题目描述给定n个模式串和1个文本串，求有多少个模式串在文本串里出现过。
+输入输出格式输入格式:第一行一个n，表示模式串个数；
+下面n行每行一个模式串；
+下面一行一个文本串。
+输出格式：一个数表示答案。
+输入输出样例输入样例：2
+a
+aa
+aa
+输出样例：2
+
+题解AC自动机裸题，如果不加last优化会TLE。
+
+CODE#include&amp;lt;bits/stdc++.h&amp;gt">
+<meta name="twitter:image" content="http://218.28.19.228:8080/upload/image/20170425/20170425154024_30785.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '2QO73P8IRL',
+      apiKey: 'd708fdfc7728c0f4e49cf1d1dbfbc6f7',
+      indexName: 'ProSTKhala',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://prostkhala.github.io/2017/08/28/AC自动机总结/"/>
+
+
+
+
+
+  <title> AC自动机总结 | ST </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+	<div id="vk_api_transport"></div>
+	<script type="text/javascript">
+		window.vkAsyncInit = function() {
+			VK.init({
+				apiId: 
+			});
+
+			
+				VK.Widgets.Like("vk_like", {type: "mini", height: 20});
+			
+
+			
+				VK.Widgets.Comments("vk_comments", {limit: 10, attach: "*"});
+			
+		};
+		setTimeout(function() {
+			var el = document.createElement("script");
+			el.type = "text/javascript";
+			el.src = "//vk.com/js/api/openapi.js";
+			el.async = true;
+			document.getElementById("vk_api_transport").appendChild(el);
+		}, 0);
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ST</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">A HAOIER</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://prostkhala.github.io/2017/08/28/AC自动机总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ST">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/ProSTKhala/ProSTKhala.github.io/master/images/ST.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ST">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                AC自动机总结
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-28T21:25:14+08:00">
+                2017-08-28
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2017-12-01T11:06:02+08:00">
+                2017-12-01
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/Hollerith-type/" itemprop="url" rel="index">
+                    <span itemprop="name">Hollerith-type</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/Hollerith-type/AC自动机/" itemprop="url" rel="index">
+                    <span itemprop="name">AC自动机</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/28/AC自动机总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/28/AC自动机总结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Words count in article</span>
+                  
+                    <span title="Words count in article" }}">
+                      
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">Reading time</span>
+                  
+                    <span title="Reading time" }}">
+                      
+                    </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="AC自动机（简单版）"><a href="#AC自动机（简单版）" class="headerlink" title="AC自动机（简单版）"></a><a href="https://www.luogu.org/problemnew/show/3808" target="_blank" rel="external">AC自动机（简单版）</a></h1><hr>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定n个模式串和1个文本串，求有多少个模式串在文本串里出现过。</p>
+<h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h4><p>第一行一个n，表示模式串个数；</p>
+<p>下面n行每行一个模式串；</p>
+<p>下面一行一个文本串。</p>
+<h4 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h4><p>一个数表示答案。</p>
+<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><pre><code>2
+a
+aa
+aa
+</code></pre><h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><pre><code>2
+</code></pre><hr>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>AC自动机裸题，如果不加last优化会TLE。</p>
+<hr>
+<h3 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h3><pre><code>#include&lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+const int N = 1e6+1;
+
+int ch[N][26],f[N],cnt;
+int l[N];
+int tag[N];
+
+void add(char *s){
+    int n=strlen(s);
+    int x=0;
+    for(int i=0;i&lt;n;++i){
+        int c=s[i]-&#39;a&#39;;
+        if(ch[x][c]==-1){
+            ch[x][c]=++cnt;
+            for(int j=0;j&lt;26;++j)ch[cnt][j]=-1;
+        }
+        x=ch[x][c];
+    }
+    tag[x]++;
+}
+
+void getfail(){
+    queue&lt;int&gt;q;
+    for(int i=0;i&lt;26;++i)
+    if(~ch[0][i])l[ch[0][i]]=f[ch[0][i]]=0,q.push(ch[0][i]);
+    else    ch[0][i]=0;
+//    static int g[N];
+    while(!q.empty()){
+        int x=q.front();q.pop();
+        for(int i=0;i&lt;26;++i){
+            if(tag[ch[f[x]][i]])l[ch[x][i]]=ch[f[x]][i];
+            else    l[ch[x][i]]=l[ch[f[x]][i]];
+            if(~ch[x][i])f[ch[x][i]]=ch[f[x]][i],q.push(ch[x][i]);
+            else    ch[x][i]=ch[f[x]][i];
+        }
+    }
+}
+bool vis[N];
+int get(char *s){
+
+    int n=strlen(s);
+    int x=0,ret=0;
+    for(int i=0;i&lt;n;++i){
+        x=ch[x][s[i]-&#39;a&#39;];
+        for(int j=x;j;j=l[j])
+        if(!vis[j])vis[j]=1,ret+=tag[j];
+    }
+    return ret;
+}
+
+int n;
+char s[N];
+int main(){
+//    freopen(&quot;c.in&quot;,&quot;r&quot;,stdin);
+    cin&gt;&gt;n;
+    for(int i=0;i&lt;26;++i)ch[0][i]=-1;
+    for(int i=0;i&lt;n;++i)scanf(&quot;%s&quot;,s),add(s);
+    getfail();
+    scanf(&quot;%s&quot;,s);
+    cout&lt;&lt;get(s)&lt;&lt;endl;
+}
+</code></pre><hr>
+<h1 id="AC自动机（加强版）"><a href="#AC自动机（加强版）" class="headerlink" title="AC自动机（加强版）"></a><a href="https://www.luogu.org/problemnew/show/3796" target="_blank" rel="external">AC自动机（加强版）</a></h1><hr>
+<h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>有N个由小写字母组成的模式串以及一个文本串T。每个模式串可能会在文本串中出现多次。你需要找出哪些模式串在文本串T中出现的次数最多。</p>
+<h3 id="输入输出格式-1"><a href="#输入输出格式-1" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式:"></a>输入格式:</h4><p>输入含多组数据。</p>
+<p>每组数据的第一行为一个正整数N，表示共有N个模式串，$1≤N≤150$。</p>
+<p>接下去N行，每行一个长度小于等于$70$的模式串。下一行是一个长度小于等于$10^6$的文本串T。</p>
+<p>输入结束标志为$N=0$。</p>
+<h4 id="输出格式：-1"><a href="#输出格式：-1" class="headerlink" title="输出格式："></a>输出格式：</h4><p>对于每组数据，第一行输出模式串最多出现的次数，接下去若干行每行输出一个出现次数最多的模式串，按输入顺序排列。</p>
+<h3 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入样例：-1"><a href="#输入样例：-1" class="headerlink" title="输入样例："></a>输入样例：</h4><pre><code>2
+aba
+bab
+ababababac
+6
+beta
+alpha
+haha
+delta
+dede
+tata
+dedeltalphahahahototatalpha
+0
+</code></pre><h4 id="输出样例：-1"><a href="#输出样例：-1" class="headerlink" title="输出样例："></a>输出样例：</h4><pre><code>4
+aba
+2
+alpha
+haha
+</code></pre><hr>
+<h2 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h2><p>AC自动机裸题。不加last优化也能过，多组数据注意清零。</p>
+<hr>
+<h3 id="CODE-1"><a href="#CODE-1" class="headerlink" title="CODE"></a>CODE</h3><pre><code>#include&lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+const int N = 1e6+1;
+
+int tr[N][26],f[N],cnt,ans[N];
+int l[N];
+int tag[N];
+
+void add(char *s,int fa){
+    int n=strlen(s);
+    int x=0;
+    for(int i=0;i&lt;n;++i){
+        int c=s[i]-&#39;a&#39;;
+        if(tr[x][c]==-1){
+            tr[x][c]=++cnt;
+            for(int j=0;j&lt;26;++j)tr[cnt][j]=-1;
+        }
+        x=tr[x][c];
+    }
+    tag[x]=fa;
+}
+
+void getfail(){
+    queue&lt;int&gt;q;
+    for(int i=0;i&lt;26;++i)
+    if(~tr[0][i])l[tr[0][i]]=f[tr[0][i]]=0,q.push(tr[0][i]);
+    else    tr[0][i]=0;    
+    while(!q.empty()){
+        int x=q.front();q.pop();
+        for(int i=0;i&lt;26;++i){
+            if(tr[x][i]==-1){tr[x][i]=tr[f[x]][i];continue;}
+            int y=tr[x][i];
+            q.push(y);
+            f[y]=tr[f[x]][i];
+//            l[y]=tag[f[y]]?f[y]:l[f[y]];
+        }
+    }
+}
+bool vis[N];
+
+void get(char *s){
+
+    int n=strlen(s);
+    int x=0,ret=0;
+    for(int i=0;i&lt;n;++i){
+        x=tr[x][s[i]-&#39;a&#39;];
+        for(int j=x;j;j=f[j])
+        if(tag[j])ans[tag[j]]++;
+    }
+}
+
+int n;
+char s[256][256];
+char s1[N];
+
+void put(char *s){
+    int n=strlen(s);
+    for(int i=0;i&lt;n;++i)putchar(s[i]);
+    printf(&quot;\n&quot;);
+}
+
+int main(){
+    while(scanf(&quot;%d&quot;,&amp;n)!=EOF){
+        if(!n)return 0;
+        cnt=0;
+        for(int i=0;i&lt;26;++i)tr[0][i]=-1;
+        for(int i=1;i&lt;=n;++i)scanf(&quot;%s&quot;,s[i]),add(s[i],i);
+        getfail();
+        scanf(&quot;%s&quot;,s1);get(s1);
+        int res=*max_element(ans+1,ans+n+1);
+        printf(&quot;%d\n&quot;,res);
+        for(int i=1;i&lt;=n;++i)if(ans[i]==res)put(s[i]);
+        for(int i=1;i&lt;=n;++i)ans[i]=0;
+        for(int i=1;i&lt;=cnt;++i)tag[i]=f[i]=l[i]=0;
+    }
+}
+</code></pre><hr>
+<h1 id="HNOI2006-最短母串"><a href="#HNOI2006-最短母串" class="headerlink" title="HNOI2006 最短母串"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1195" target="_blank" rel="external">HNOI2006 最短母串</a></h1><hr>
+<h2 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定n个字符串（S1,S2,„,Sn），要求找到一个最短的字符串T，使得这n个字符串（S1,S2,„,Sn）都是T的子串。</p>
+<h3 id="输入输出格式-2"><a href="#输入输出格式-2" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式-2"><a href="#输入格式-2" class="headerlink" title="输入格式:"></a>输入格式:</h4><p>第一行是一个正整数n（n&lt;=12），表示给定的字符串的个数。以下的n行，每行有一个全由大写字母组成的字符串。每个字符串的长度不超过50。</p>
+<h4 id="输出格式：-2"><a href="#输出格式：-2" class="headerlink" title="输出格式："></a>输出格式：</h4><p>只有一行，为找到的最短的字符串T。在保证最短的前提下，如果有多个字符串都满足要求，那么必须输出按字典序排列的第一个。</p>
+<h3 id="输入输出样例-2"><a href="#输入输出样例-2" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入样例：-2"><a href="#输入样例：-2" class="headerlink" title="输入样例："></a>输入样例：</h4><pre><code>2 
+ABCD
+BCDABC
+</code></pre><h4 id="输出样例：-2"><a href="#输出样例：-2" class="headerlink" title="输出样例："></a>输出样例：</h4><pre><code>ABCDABC
+</code></pre><hr>
+<h2 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h2><p>考虑$n$很小的性质，第一眼以为是状态压缩DP暴力转移（实际也能做，但是很难写），正解应该是将在AC自动机上DP。根据AC自动机的性质，易知一条路径即代表一个字符串。设$f[i][S]$表示当前走到第$i$号节点，已经覆盖串的集合为$S$的最小步数状态数为$n<em>50</em>2^n$，直接用BFS更新即可。</p>
+<hr>
+<h3 id="CODE-2"><a href="#CODE-2" class="headerlink" title="CODE"></a>CODE</h3><pre><code>#include&lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+const int N = 6e2+5;
+
+int read(){
+    int x=0;char ch=getchar();
+    while(ch&lt;&#39;0&#39;||ch&gt;&#39;9&#39;)ch=getchar();
+    while(ch&gt;=&#39;0&#39;&amp;&amp;ch&lt;=&#39;9&#39;)x=x*10+ch-&#39;0&#39;,ch=getchar();
+    return x;
+}
+
+char s[13][51];
+int n;
+struct kd{
+    int x,y;
+}X,Y;
+
+struct AC{
+    int cnt,tr[N][26],f[N],tag[N],pos[N];
+    int d[N][1&lt;&lt;12];
+    int prex[N][1&lt;&lt;12],prey[N][1&lt;&lt;12];
+
+    void init(){
+        cnt=0;
+        memset(tr[0],-1,sizeof(tr[0]));
+    }
+
+    void add(char *s,int k){
+        int n=strlen(s);
+        int x=0;
+        for(int i=0;i&lt;n;++i){
+            int c=s[i]-&#39;A&#39;;
+            if(tr[x][c]==-1){
+                tr[x][c]=++cnt;
+                pos[cnt]=c;
+                memset(tr[cnt],-1,sizeof(tr[cnt]));
+                tag[cnt]=0;
+            }
+            x=tr[x][c];
+        }
+        tag[x]|=1&lt;&lt;k;
+    }
+
+    void getf(){
+        queue&lt;int&gt;q;
+        f[0]=0;
+        for(int i=0;i&lt;26;++i)
+        if(~tr[0][i])f[tr[0][i]]=0,q.push(tr[0][i]);
+        else    tr[0][i]=0;
+        while(!q.empty()){
+            int x=q.front();q.pop();
+            tag[x]|=tag[f[x]];
+            for(int i=0;i&lt;26;++i){
+                if(~tr[x][i])f[tr[x][i]]=tr[f[x]][i],q.push(tr[x][i]);
+                else    tr[x][i]=tr[f[x]][i];
+            }
+        }
+    }
+
+    void output(int x,int y){
+        static int q[N];
+        while(x){
+            q[++q[0]]=pos[x]+&#39;A&#39;;    
+            int x1=x,y1=y;    
+            x=prex[x1][y1];
+            y=prey[x1][y1];
+        }
+        reverse(q+1,q+q[0]+1);
+        for(int i=1;i&lt;=q[0];++i)printf(&quot;%c&quot;,(char)q[i]);
+    }
+
+    void solve(){
+        getf();
+        int S=(1&lt;&lt;n)-1;
+        memset(d,-1,sizeof(d));
+        queue&lt;kd&gt;q;
+        X.x=0;X.y=0;
+        q.push(X);d[0][0]=0;
+        prex[0][0]=0;prey[0][0]=0;
+        while(!q.empty()){
+            X=q.front();q.pop();
+            for(int i=0;i&lt;26;++i)
+            if(tr[X.x][i]){
+                int to=tr[X.x][i];
+                Y.x=to;Y.y=X.y|tag[to];
+                if(d[Y.x][Y.y]==-1){
+                    prex[Y.x][Y.y]=X.x;prey[Y.x][Y.y]=X.y;
+                    d[Y.x][Y.y]=d[X.x][X.y]+1;
+                    if(Y.y==S){
+//                        printf(&quot;%d\n&quot;,d[Y.x][Y.y]);
+                        output(Y.x,Y.y);
+                        printf(&quot;\n&quot;);
+                        exit(0);
+                    }
+                    q.push(Y);
+                }
+            }
+        }
+    }
+}T;
+
+int main(){
+    scanf(&quot;%d&quot;,&amp;n);
+    T.init();
+    for(int i=0;i&lt;n;++i){
+        scanf(&quot;%s&quot;,s[i]);
+        T.add(s[i],i);
+    }
+    T.solve();
+}
+</code></pre><hr>
+<h1 id="Beijing2017-魔法咒语"><a href="#Beijing2017-魔法咒语" class="headerlink" title="Beijing2017 魔法咒语"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=4861" target="_blank" rel="external">Beijing2017 魔法咒语</a></h1><hr>
+<h2 id="题目描述-3"><a href="#题目描述-3" class="headerlink" title="题目描述"></a>题目描述</h2><p>Chandra 是一个魔法天才。</p>
+<p>从一岁时接受火之教会洗礼之后， Chandra 就显示出对火元素无与伦比的亲和力，轻而易举地学会种种晦涩难解的法术。这也多亏 Chandra 有着常人难以企及的语言天赋，让她能轻松流利地说出咒语中那些极其拗口的魔法词汇。直到十四岁，开始学习威力强大的禁咒法术时， Chandra 才遇到了障碍。根据火之魔法规则，禁咒的构成单位是 N 个基本词汇。施法时只要凝聚精神力，说出一段用这些词语组成的长度恰好等于 L 的语言，就能释放威力超乎想象的火法术。过去的魔法师们总结了几种表达起来最连贯的组合方式，方便施法者以最快语速完成法术。但具有魔法和语言双重天才的 Chandra 不满足于这几种流传下来的禁咒，因为她可以毫无困难地说出普通人几乎不可能表达的禁咒语句。然而，在实际施法时， Chandra 发现有些自创禁咒念出后不但没有预期效果，反而会使自己的精神力迅速枯竭，十分难受。这个问题令 Chandra 万分不解。她大量阅读典籍，到处走访魔法学者，并且不顾精神折磨一次又一次尝试新咒语，希望找出问题的答案。很多年过去了，在一次远古遗迹探险中， Chandra 意外闯进了火之神艾利克斯的不知名神殿。根据岩土特征分析，神殿应该有上万年的历史，这是极其罕见的。 Chandra 小心翼翼地四处探索，沿着魔力流动来到一间密室。她看见密室中央悬浮着一本书籍。在魔法保护下书籍状况完好。精通上古语言的 Chandra 读过此书，终于解开了多年的困惑。禁咒法术之所以威力强大，是因为咒语借用了火之神艾利克斯的神力。这本书里记载了艾利克斯生平忌讳的 M 个词语，比如情敌的名字、讨厌的植物等等。使用禁咒法术时，如果语言中含有任何忌讳词语，就会触怒神力而失效，施法者也一并遭受惩罚。例如，若 ”banana” 是唯一的忌讳词语， “an”、 ”ban”、 ”analysis” 是基本词汇，禁咒长度须是 11， 则“bananalysis” 是无效法术， ”analysisban”、 ”anbanbanban”是两个有效法术。注意：一个基本词汇在禁咒法术中可以出现零次、 一次或多次；只要组成方式不同就认为是不同的禁咒法术，即使书写形式相同。谜题破解， Chandra 心情大好。她决定计算一共有多少种有效的禁咒法术。由于答案可能很大，你需要输出答案模 1,000,000,007的结果。</p>
+<h3 id="输入输出格式-3"><a href="#输入输出格式-3" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式-3"><a href="#输入格式-3" class="headerlink" title="输入格式:"></a>输入格式:</h4><p>第一行，三个正整数 N, M, L。<br>接下来 N 行，每行一个只含小写英文字母的字符串，表示一个基本词汇。<br>接下来 M 行，每行一个只含小写英文字母的字符串，表示一个忌讳词语。<br>对于60%的数据1&lt;=N,M&lt;=50,L&lt;=100<br>对于另40%数据基本词汇长度不超过2,L&lt;=10^8</p>
+<h4 id="输出格式：-3"><a href="#输出格式：-3" class="headerlink" title="输出格式："></a>输出格式：</h4><p>仅一行，一个整数，表示答案（模 10^9+7）。</p>
+<h3 id="输入输出样例-3"><a href="#输入输出样例-3" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入样例：-3"><a href="#输入样例：-3" class="headerlink" title="输入样例："></a>输入样例：</h4><pre><code>4 2 10
+boom
+oo
+ooh
+bang
+ob
+mo
+</code></pre><h4 id="输出样例：-3"><a href="#输出样例：-3" class="headerlink" title="输出样例："></a>输出样例：</h4><pre><code>14
+</code></pre><h3 id="样例解释"><a href="#样例解释" class="headerlink" title="样例解释"></a>样例解释</h3><p>有效的禁咒法术共有 14 种：boom/bang/oo，oo/oo/oo/oo/oo，oo/oo/ooh/ooh，oo/ooh/oo/ooh， oo/ooh/ooh/oo， ooh/oo/oo/ooh， ooh/oo/ooh/oo，ooh/ooh/boom， ooh/ooh/oo/oo， ooh/ooh/bang，ooh/bang/ooh，bang/oo/oo/oo， bang/ooh/ooh， bang/bang/oo。</p>
+<hr>
+<h2 id="题解-3"><a href="#题解-3" class="headerlink" title="题解"></a>题解</h2><p>设$f[i][L]$为走到第$i$号节点，此时字符串长度（即路径长度）为$L$的方案数，那么由于字符集在此题中被限制为了一个个的字符串，所以需要预处理$go[i][j]$表示从$i$号节点出发后经过第$j$个基本词汇后所到达的节点，如果其中经过禁忌词语，则初始化为-1表示不可到达。那么DP方程如下：（$len[j]$表示基本词汇$j$的长度）</p>
+<p>$$f[go [i] [j] ][ L + len[j] ] += f[i][L]  (go[i][j]!=-1)$$</p>
+<p>观察数据范围，朴素的DP只能通过$60%$的数据，剩余$L&lt;=10^8$且$len[j]&lt;=2$的部分分，可以通过矩阵乘法优化，同先前的<a href="https://prostkhala.github.io/2017/03/18/DNA%20Sequence/">DNA Sequence</a>一样，用$f[i][j]$表示从$i$号节点一步到达$j$号节点的方案数，可以处理$len[j]=1$的情况。对于$len[j]=2$的情况，对于每个节点$i$设一个虚拟节点$b[i]$，然后$f[i][b[j]]$表示从$i$一步到$b[j]$的方案数，再从$b[j]$向$j$连一条边即可（即$f[b[j]][j]=1$）。</p>
+<hr>
+<h3 id="CODE-3"><a href="#CODE-3" class="headerlink" title="CODE"></a>CODE</h3><pre><code>#include&lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+const int N = 5e3+1;
+const ll mod = 1e9+7;
+int n,m,L,cnt,len[51];
+char a[51][401],b[51][401];
+
+void mul(int &amp;a,int b){
+    a+=b;
+    if(a&gt;=mod)a-=mod;
+}
+int t1k;
+struct Matrix{
+    ll a[401][401];
+    friend Matrix operator * (Matrix a,Matrix b){
+        Matrix c;
+        memset(c.a,0,sizeof(c.a));
+        for(int i=0;i&lt;=t1k;++i)
+        for(int j=0;j&lt;=t1k;++j){
+            for(int k=0;k&lt;=t1k;++k)
+            (c.a[i][j]+=a.a[i][k]*b.a[k][j])%=mod;
+        }
+        return c;
+    }
+}res,c;
+
+
+
+struct AC{
+    int tr[N][26],f[N],tag[N],val[N],to[N][51];
+
+    void init(){
+        cnt=0;
+        memset(tr[0],-1,sizeof(tr[0]));
+    }
+
+    void add(char *s,int h){
+        int x=0;
+        int n=strlen(s);
+        for(int i=0;i&lt;n;++i){
+            int c=s[i]-&#39;a&#39;;
+            if(tr[x][c]==-1){
+                tr[x][c]=++cnt;
+                val[cnt]=i;
+                memset(tr[cnt],-1,sizeof(tr[cnt]));
+            }
+            x=tr[x][c];
+        }
+        tag[x]=h;
+    }
+
+    void getf(){
+        queue&lt;int&gt;q;
+        for(int i=0;i&lt;26;++i)
+        if(~tr[0][i])f[tr[0][i]]=0,q.push(tr[0][i]);
+        else    tr[0][i]=0;
+        while(!q.empty()){
+            int x=q.front();q.pop();
+            tag[x]|=tag[f[x]];
+            for(int i=0;i&lt;26;++i)
+            if(~tr[x][i])f[tr[x][i]]=tr[f[x]][i],q.push(tr[x][i]);
+            else    tr[x][i]=tr[f[x]][i]; 
+        }
+    }
+
+    int go(int i,char *s){
+        int n=strlen(s);
+            int x=i;
+            if(tag[x])return -1;
+            for(int j=0;j&lt;n;++j){
+                x=tr[x][s[j]-&#39;a&#39;];
+                if(tag[x])return -1;
+            }
+            return x;
+    }
+
+    void A(){
+        static int dp[N][101];
+        dp[0][0]=1;
+        for(int l=0;l&lt;=L;++l)
+        for(int i=0;i&lt;=cnt;++i)
+        for(int j=0;j&lt;n;++j)
+        if(len[j]+l&lt;=L){
+            int y=to[i][j];
+            if(y==-1)continue;
+            mul(dp[y][len[j]+l],dp[i][l]);
+        }
+        int ans=0;
+        for(int i=0;i&lt;=cnt;++i)mul(ans,dp[i][L]);
+        printf(&quot;%d\n&quot;,ans);
+    }
+
+    void B(){
+        t1k=2*cnt+1;
+        int tp=cnt+1;
+        for(int i=0;i&lt;=cnt;++i)res.a[i+tp][i]=1;
+        for(int i=0;i&lt;=2*cnt+1;++i)c.a[i][i]=1;
+        for(int i=0;i&lt;=cnt;++i)
+        for(int j=0;j&lt;n;++j){
+            int y=to[i][j];
+            if(y==-1)continue;
+            if(len[j]==1)res.a[i][y]++;
+            else    res.a[i][y+tp]++;
+        }
+        while(L){
+            if(L&amp;1)c=c*res;
+            L&gt;&gt;=1;
+            res=res*res;
+        }
+        ll ans=0;
+        for(int i=0;i&lt;=cnt;++i)(ans+=c.a[0][i])%=mod;
+        printf(&quot;%lld\n&quot;,ans);
+    }
+
+    void solve(){
+        init();
+        for(int i=0;i&lt;m;++i)add(b[i],1);
+        getf();
+        for(int i=0;i&lt;=cnt;++i)
+        for(int j=0;j&lt;n;++j)
+        to[i][j]=go(i,a[j]);
+        if(L&lt;=100)A();
+        else     B();
+    }
+}T;
+
+int main(){
+//    freopen(&quot;c.in&quot;,&quot;r&quot;,stdin);
+    scanf(&quot;%d%d%d&quot;,&amp;n,&amp;m,&amp;L);
+    for(int i=0;i&lt;n;++i)scanf(&quot;%s&quot;,a[i]),len[i]=strlen(a[i]);
+    for(int i=0;i&lt;m;++i)scanf(&quot;%s&quot;,b[i]);
+    T.solve();
+}
+/*
+4 2 98
+bo
+oo
+hm
+ba
+ob
+mho
+*/
+</code></pre><hr>
+<h1 id="BeiJing2011-禁忌"><a href="#BeiJing2011-禁忌" class="headerlink" title="BeiJing2011 禁忌"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=2553" target="_blank" rel="external">BeiJing2011 禁忌</a></h1><hr>
+<h2 id="题目描述-4"><a href="#题目描述-4" class="headerlink" title="题目描述"></a>题目描述</h2><p>Magic Land上的人们总是提起那个传说：他们的祖先John在那个东方岛屿帮助Koishi与其姐姐Satori最终战平。而后，Koishi恢复了读心的能力……</p>
+<p>如今，在John已经成为传说的时代，再次造访那座岛屿的人们却发现Koishi遇到了新麻烦。</p>
+<p>这次她遇到了Flandre Scarlet——她拥有可以使用禁忌魔法而不会受到伤害的能力。</p>
+<p>为了说明什么是禁忌魔法及其伤害，引入以下概念：</p>
+<ol>
+<li><p>字母集A上的每个非空字符串对应了一个魔法。其中A是包含了前alphabet个小写字母的集合。</p>
+</li>
+<li><p>有一个集合T，包含了N个字母集A上的字符串.T中的每一串称为一个禁忌串（Taboo string）</p>
+</li>
+<li><p>一个魔法，或等价地，其对应的串s因为包含禁忌而对使用者造成的伤害按以下方式确定：把s分割成若干段，考虑其中是禁忌串的段的数目，不同的分割可能会有不同的数目，其最大值就是这个伤害。</p>
+</li>
+</ol>
+<p>由于拥有了读心的能力，Koishi总是随机地使用Flandre Scarlet的魔法，可以确定的是，她的魔法正好对应字母集A上所有长度为len的串。</p>
+<p>但是，Flandre Scarlet所使用的一些魔法是带有禁忌的，由于其自身特性，她可以使用禁忌魔法而不受到伤害，而Koishi就不同了。可怜的Koishi每一次使用对方的魔法都面临着受到禁忌伤害的威胁。</p>
+<p>你现在需要计算的是如果Koishi使用对方的每一个魔法的概率是均等的，那么每一次随机使用魔法所受到的禁忌伤害的期望值是多少。</p>
+<h3 id="输入输出格式-4"><a href="#输入输出格式-4" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式-4"><a href="#输入格式-4" class="headerlink" title="输入格式:"></a>输入格式:</h4><p>第一行包含三个正整数N、len、alphabet。<br>接下来N行，每行包含一个串Ti，表示禁忌串。</p>
+<h4 id="输出格式：-4"><a href="#输出格式：-4" class="headerlink" title="输出格式："></a>输出格式：</h4><p>一个非负实数，表示所受到禁忌伤害的期望值。</p>
+<h3 id="输入输出样例-4"><a href="#输入输出样例-4" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入样例：-4"><a href="#输入样例：-4" class="headerlink" title="输入样例："></a>输入样例：</h4><pre><code>2 4 2
+aa
+abb
+</code></pre><h4 id="输出样例：-4"><a href="#输出样例：-4" class="headerlink" title="输出样例："></a>输出样例：</h4><pre><code>0.75
+</code></pre><h3 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h3><p>100%的数据中N ≤ 5，len ≤109，1 ≤ alphabet ≤ 26。</p>
+<p>在所有数据中，有不少于40%的数据中：N = 1。</p>
+<p>数据保证每个串Ti的长度不超过15，并且不是空串。</p>
+<p>数据保证每个Ti均仅含有前alphabet个小写字母。</p>
+<p>数据保证集合T中没有相同的元素，即对任意不同的i和j，有Ti≠Tj。</p>
+<hr>
+<h2 id="题解-4"><a href="#题解-4" class="headerlink" title="题解"></a>题解</h2><p>首先考虑对于一个给定的串，如何求其禁忌伤害，这是一个经典的贪心问题，即线段覆盖问题，正确的姿势是按右端点排序，能取的尽量取即可，如果去除存在覆盖的禁忌串（一定没有只取被覆盖的子串优越），那么姿势等价于按左端点排序，且尽可能的取。</p>
+<p>考虑在AC自动机上的贪心，即为从根节点出发每次走到一个禁忌串后，直接返回根节点（因为禁忌串之间不能相互覆盖），重复过程直到路径长度为$L$并将答案加上返回次数除以 $2^{len}$ ，考虑如何用DP优化此过程，仍然设$f[i][L]$表示走到$i$号节点，路径长度为$L$的概率，那么显然有（0表示根节点,$tag$表示是否为禁忌串。）</p>
+<p>$$f[0][L+1]+=f[i][L]+1/alphabet    （tag[tr[x][i]]=1）$$</p>
+<p>$$f[tr[x][i]][L+1]+=f[i][L]+1/alphabet    （tag[tr[x][i]]=0）$$</p>
+<p>考虑如何将统计答案。在贪心的过程中，每次访问到禁忌串时不仅要返回根节点，还要将答案加上到当前节点的概率，即新建一个节点$g$表示答案节点，那么同样有<br>$$f[g][L+1]+=f[i][L]+1/alphabet    （tag[tr[x][i]]=1）$$</p>
+<p>即可以用矩阵乘法优化此过程，并且需要设定$matrix[g][g]=1$，矩阵$L$次方代表$1-L$前缀和的贡献，即为答案。</p>
+<hr>
+<h3 id="CODE-4"><a href="#CODE-4" class="headerlink" title="CODE"></a>CODE</h3><pre><code>#include&lt;bits/stdc++.h&gt;
+#define mp make_pair
+#define fr first
+#define sd second
+#define pii pair&lt;int,int&gt;
+using namespace std;
+typedef long long ll;
+typedef long double db;
+const int N = 1e2+1;
+
+int cnt,n,L,ml,len[6],tr[N][26],f[N],tag[N];
+char s[6][N];
+
+struct matrix{
+
+    db a[N][N];
+
+    friend matrix operator * (matrix a,matrix b){
+        matrix c;
+        for(int i=0;i&lt;=cnt+1;++i)
+        for(int j=0;j&lt;=cnt+1;++j)
+        c.a[i][j]=0;
+
+        for(int i=0;i&lt;=cnt+1;++i)
+        for(int j=0;j&lt;=cnt+1;++j)
+        for(int k=0;k&lt;=cnt+1;++k)
+        c.a[i][j]+=a.a[i][k]*b.a[k][j];
+        return c;
+    }
+
+}res;
+
+matrix qpow(ll b){
+    matrix c;
+    for(int i=0;i&lt;=cnt+1;++i)
+    for(int j=0;j&lt;=cnt+1;++j)
+    c.a[i][j]=(i==j);
+
+    while(b){
+        if(b&amp;1)c=c*res;
+        b&gt;&gt;=1;
+        res=res*res;
+    }
+    return c;
+}
+
+void solve(){
+    db k=1.00/(db)ml;
+    for(int i=0;i&lt;=cnt;++i)
+    for(int j=0;j&lt;ml;++j){
+        int y=tr[i][j];
+        if(tag[y])res.a[i][0]+=k,res.a[i][cnt+1]+=k;
+        else    res.a[i][y]+=k;
+    }
+    res.a[cnt+1][cnt+1]=1;
+    printf(&quot;%.8lf&quot;,(double)qpow(L).a[0][cnt+1]);
+}
+
+int add(char *s){
+    int n=strlen(s),x=0;
+    for(int i=0;i&lt;n;++i){
+        int c=s[i]-&#39;a&#39;;
+        if(tr[x][c]==-1){
+            tr[x][c]=++cnt;
+            memset(tr[cnt],-1,sizeof(tr[cnt]));
+        }
+        x=tr[x][c];
+    }
+    tag[x]=1;
+    return n;
+}
+
+void getf(){
+    queue&lt;int&gt;q;
+    for(int i=0;i&lt;ml;++i)
+    if(~tr[0][i])f[tr[0][i]]=0,q.push(tr[0][i]);
+    else    tr[0][i]=0;
+    while(!q.empty()){
+        int x=q.front();q.pop();
+        tag[x]|=tag[f[x]];
+        for(int i=0;i&lt;ml;++i){
+            if(~tr[x][i])f[tr[x][i]]=tr[f[x]][i],q.push(tr[x][i]);
+            else    tr[x][i]=tr[f[x]][i];
+        }
+    }
+}
+
+int main(){
+//    freopen(&quot;c.in&quot;,&quot;r&quot;,stdin);
+    memset(tr[0],-1,sizeof(tr[0]));
+    scanf(&quot;%d%d%d&quot;,&amp;n,&amp;L,&amp;ml);
+    for(int i=1;i&lt;=n;++i)scanf(&quot;%s&quot;,s[i]),len[i]=add(s[i]);
+    getf();
+    solve();
+}
+</code></pre><hr>
+<h1 id="SCOI2012-喵星球上的点名"><a href="#SCOI2012-喵星球上的点名" class="headerlink" title="SCOI2012 喵星球上的点名"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=2754" target="_blank" rel="external">SCOI2012 喵星球上的点名</a></h1><hr>
+<h2 id="题目描述-5"><a href="#题目描述-5" class="headerlink" title="题目描述"></a>题目描述</h2><p>a180285幸运地被选做了地球到喵星球的留学生。他发现喵星人在上课前的点名现象非常有趣。   假设课堂上有N个喵星人，每个喵星人的名字由姓和名构成。喵星球上的老师会选择M个串来点名，每次读出一个串的时候，如果这个串是一个喵星人的姓或名的子串，那么这个喵星人就必须答到。 然而，由于喵星人的字码过于古怪，以至于不能用ASCII码来表示。为了方便描述，a180285决定用数串来表示喵星人的名字。<br>现在你能帮助a180285统计每次点名的时候有多少喵星人答到，以及M次点名结束后每个喵星人答到多少次吗？   </p>
+<h3 id="输入输出格式-5"><a href="#输入输出格式-5" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式-5"><a href="#输入格式-5" class="headerlink" title="输入格式:"></a>输入格式:</h4><p>现在定义喵星球上的字符串给定方法：</p>
+<p>先给出一个正整数L，表示字符串的长度，接下来L个整数表示字符串的每个字符。</p>
+<p>输入的第一行是两个整数N和M。</p>
+<p>接下来有N行，每行包含第i 个喵星人的姓和名两个串。姓和名都是标准的喵星球上的字符串。</p>
+<p>接下来有M行，每行包含一个喵星球上的字符串，表示老师点名的串。 </p>
+<h4 id="输出格式：-5"><a href="#输出格式：-5" class="headerlink" title="输出格式："></a>输出格式：</h4><p>对于每个老师点名的串输出有多少个喵星人应该答到。</p>
+<p>然后在最后一行输出每个喵星人被点到多少次。 </p>
+<h3 id="输入输出样例-5"><a href="#输入输出样例-5" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入样例：-5"><a href="#输入样例：-5" class="headerlink" title="输入样例："></a>输入样例：</h4><pre><code>2 3 
+6 8 25 0 24 14 8 6 18 0 10 20 24 0 
+7 14 17 8 7 0 17 0 5 8 25 0 24 0 
+4 8 25 0 24 
+4 7 0 17 0 
+4 17 0 8 25 
+</code></pre><h4 id="输出样例：-5"><a href="#输出样例：-5" class="headerlink" title="输出样例："></a>输出样例：</h4><pre><code>2 
+1 
+0 
+1 2 
+</code></pre><h3 id="数据范围-1"><a href="#数据范围-1" class="headerlink" title="数据范围"></a>数据范围</h3><p> 对于30%的数据，保证：</p>
+<p>1&lt;=N,M&lt;=1000，喵星人的名字总长不超过4000，点名串的总长不超过2000。</p>
+<p>对于100%的数据，保证：</p>
+<p>1&lt;=N&lt;=20000，1&lt;=M&lt;=50000，喵星人的名字总长和点名串的总长分别不超过100000，保证喵星人的字符串中作为字符存在的数不超过10000。</p>
+<hr>
+<h2 id="题解-5"><a href="#题解-5" class="headerlink" title="题解"></a>题解</h2><p>由于本题中字符集过大，肯定不能将数组开满，需要用$map$来存储儿子，且不能在每次新建节点时将儿子都表示成$-1$，那么就要默认为$0$。同理需要将根节点设为$1$，并赋值$tr[0][i]=1$，在$getfail$的时候，也应该直接暴力跳$fail$。由于数据较水，这样即可通过此题。（正解为后缀数组+主席树）</p>
+<hr>
+<h3 id="CODE-5"><a href="#CODE-5" class="headerlink" title="CODE"></a>CODE</h3><pre><code>#include&lt;bits/stdc++.h&gt;
+#define pb push_back
+using namespace std;
+typedef long long ll;
+const int N = 1e5+5;
+
+map&lt;int,int&gt;tr[N];
+map&lt;int,int&gt;::iterator it;
+int n,m,L,cnt,f[N],g[N],ans[N],res[N],id[N];
+int vis[N],vis1[N],T;
+vector&lt;int&gt;a[N],b[N],tag[N];
+
+int read(){
+    int x=0;char ch=getchar();
+    while(ch&lt;&#39;0&#39;||ch&gt;&#39;9&#39;)ch=getchar();
+    while(ch&gt;=&#39;0&#39;&amp;&amp;ch&lt;=&#39;9&#39;)x=(x&lt;&lt;3)+(x&lt;&lt;1)+ch-&#39;0&#39;,ch=getchar();
+    return x;
+}
+
+void add(int *s,int n,int fa){
+    int x=1;
+    for(int i=1;i&lt;=n;++i){
+        int c=s[i];
+        if(!tr[x][c])tr[x][c]=++cnt;
+        x=tr[x][c];
+    }
+    tag[x].pb(fa);
+}
+
+void getf(){
+    queue&lt;int&gt;q;
+    q.push(1);
+    while(!q.empty()){
+        int x=q.front();q.pop();
+        for(it=tr[x].begin();it!=tr[x].end();++it){
+            int t=it-&gt;first,k=f[x];
+            while(!tr[k][t])k=f[k];
+            f[it-&gt;second]=tr[k][t];
+            q.push(it-&gt;second);
+        }
+//        for(int i=0;i&lt;L;++i){
+//            if(tr[x][i])f[tr[x][i]]=tr[f[x]][i],q.push(tr[x][i]);
+//            else    tr[x][i]=tr[f[x]][i];
+//        }
+    }
+}
+
+int cala(int g){
+    int x=1,ret=0;
+    for(int i=0;i&lt;a[g].size();++i){
+        int to=a[g][i];
+        while(!tr[x][to])x=f[x];x=tr[x][to];
+        for(int j=x;j;j=f[j]){
+            if(vis1[j]==T)break;vis1[j]=T;
+            for(int k=0;k&lt;tag[j].size();++k){
+                int y=tag[j][k];
+                if(vis[y]!=T)vis[y]=T,++ret,ans[y]++;
+            }
+        }
+    }
+    return ret;
+}
+
+int calb(int g){
+    int x=1,ret=0;
+    for(int i=0;i&lt;b[g].size();++i){
+        int to=b[g][i];
+        while(!tr[x][to])x=f[x];x=tr[x][to];
+        for(int j=x;j;j=f[j]){
+            if(vis1[j]==T)break;vis1[j]=T;
+            for(int k=0;k&lt;tag[j].size();++k){
+                int y=tag[j][k];
+                if(vis[y]!=T)vis[y]=T,++ret,ans[y]++;
+            }
+        }
+    }
+    return ret;
+}
+
+int main(){
+//    freopen(&quot;c.in&quot;,&quot;r&quot;,stdin);
+    L=10001;cnt=1;f[1]=0;
+    for(int i=0;i&lt;L;++i)tr[0][i]=1;
+    n=read();m=read();
+    for(int i=1,k;i&lt;=n;++i){
+        k=read();for(int j=1;j&lt;=k;++j)a[i].pb(read());
+        k=read();for(int j=1;j&lt;=k;++j)b[i].pb(read());
+    }
+    for(int i=1,k;i&lt;=m;++i){
+        k=read();for(int j=1;j&lt;=k;++j)g[j]=read();
+        add(g,k,i);
+    }
+    getf();
+    for(int i=1;i&lt;=n;++i){
+        ++T;
+        res[i]=
+        cala(i)+
+        calb(i);
+    }
+    for(int i=1;i&lt;=m;++i)printf(&quot;%d\n&quot;,ans[i]);
+    for(int i=1;i&lt;=n;++i){
+        printf(&quot;%d&quot;,res[i]);
+        if(i!=n)printf(&quot; &quot;);
+    }
+    return 0;
+}
+</code></pre><hr>
+<h1 id="HAOI2017-字符串"><a href="#HAOI2017-字符串" class="headerlink" title="HAOI2017 字符串"></a><a href="http://218.28.19.228:8080/cogs/problem/problem.php?pid=2673" target="_blank" rel="external">HAOI2017 字符串</a></h1><hr>
+<h2 id="题目描述-6"><a href="#题目描述-6" class="headerlink" title="题目描述"></a>题目描述</h2><p><img src="http://218.28.19.228:8080/upload/image/20170425/20170425154024_30785.png" alt=""></p>
+<h3 id="输入输出格式-6"><a href="#输入输出格式-6" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式-6"><a href="#输入格式-6" class="headerlink" title="输入格式:"></a>输入格式:</h4><p><img src="http://218.28.19.228:8080/upload/image/20170425/20170425154034_33570.png" alt=""></p>
+<h4 id="输出格式：-6"><a href="#输出格式：-6" class="headerlink" title="输出格式："></a>输出格式：</h4><p><img src="http://218.28.19.228:8080/upload/image/20170425/20170425154044_87420.png" alt=""></p>
+<h3 id="输入输出样例-6"><a href="#输入输出样例-6" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入样例：-6"><a href="#输入样例：-6" class="headerlink" title="输入样例："></a>输入样例：</h4><pre><code>1
+xyz
+3
+xz
+y
+xzy
+</code></pre><h4 id="输出样例：-6"><a href="#输出样例：-6" class="headerlink" title="输出样例："></a>输出样例：</h4><pre><code>2
+3
+0
+</code></pre><h3 id="数据范围-2"><a href="#数据范围-2" class="headerlink" title="数据范围"></a>数据范围</h3><p><img src="http://218.28.19.228:8080/upload/image/20170425/20170425154144_60477.png" alt=""></p>
+<hr>
+<h2 id="题解-6"><a href="#题解-6" class="headerlink" title="题解"></a>题解</h2><p>对于每个询问串和初始串，将问题转化为其前后缀的匹配（初始串的表示为$x,y$询问串的表示为为$a,b$）。先将所有询问串建到AC自动机上，然后建出$fail$树。</p>
+<p>同$NOI2011$阿狸的打字机一样，对于一个初始串的子串能匹配到询问串当且仅当在$fail$树中，$x[j]$在$a[j]$的子树中，且$y[j+k+1]$在$b[j+k+1]$的子树中，该算法可以通过子树差分来实现。但是如果直接统计所有前后缀的话，明显会存在重复的情况：</p>
+<p>初始串：$aaab$</p>
+<p>询问串：$abab$</p>
+<p>$k=2$</p>
+<p>此时显然询问串与初始串匹配了两回（即$x[0]-&gt;y[3]$与$a[0]-&gt;b[3]$和$x[1]-&gt;y[4]$与$a[1]-&gt;b[4]$）。</p>
+<p>一般性的，以上算法实际上求的是$k1 \in [1,k]$中所有可以匹配的$k1$的个数，那么$k$匹配个数即为$[1,k]$匹配个数与$[1,k-1]$匹配个数的差。（需要注意在求解$[1,k-1]$的时候，$a,b,x,y$的边界条件需要与求解$[1,k]$时对齐。）                                                                                                                                                                                 </p>
+<hr>
+<h3 id="CODE-6"><a href="#CODE-6" class="headerlink" title="CODE"></a>CODE</h3><pre><code>#include&lt;bits/stdc++.h&gt;
+#define mp make_pair
+#define pii pair&lt;int,int&gt;
+#define fr first
+#define pb push_back
+#define sd second
+using namespace std;
+typedef long long ll;
+const int N = 4e5+5;
+
+int k;
+char s[N],p[N];
+int n,ans[N];
+vector&lt;pii&gt;sum1[N],sum2[N];
+vector&lt;int&gt;g[N],ch1[N],ch2[N];
+int st[N],ed[N],totw;
+
+struct lb{
+    int a[N];
+    lb(){
+        memset(a,0,sizeof(a));
+    }
+    void add(int x){
+        for(;x&lt;=totw;x+=x&amp;-x)a[x]++;
+    }
+    int sum(int x){
+        int ret=0;
+        for(;x;x-=x&amp;-x)ret+=a[x];
+        return ret;
+    }
+    int get(int x){
+        return sum(ed[x])-sum(st[x]-1);
+    }
+}T[2];
+
+void _debug(int *a){
+    for(int i=0;a[i];++i)printf(&quot;%d &quot;,a[i]);
+    cout&lt;&lt;endl;
+}
+
+struct __AC{
+    int tr[N][95],f[N],cnt,x[N],y[N];
+    void add(char *s,int n,int *q,bool flag){
+        int x=0;
+        q[0]=q[n+1]=0;
+        for(int i=flag?n:1;flag?i&gt;=1:i&lt;=n;flag?--i:++i){
+            int c=s[i]-33;
+            if(tr[x][c]==-1){
+                tr[x][c]=++cnt;
+                memset(tr[cnt],-1,sizeof(tr[cnt]));
+            }
+            q[i]=x=tr[x][c];
+        }
+    }
+    void getf(){
+        queue&lt;int&gt;q;
+        for(int i=0;i&lt;95;++i)
+        if(~tr[0][i])q.push(tr[0][i]);
+        else    tr[0][i]=0;
+        while(!q.empty()){
+            int x=q.front();q.pop();
+            g[f[x]].pb(x);
+            for(int i=0;i&lt;95;++i)
+            if(~tr[x][i])f[tr[x][i]]=tr[f[x]][i],q.push(tr[x][i]);
+            else    tr[x][i]=tr[f[x]][i];
+        }
+    }
+    void dfs(int x){
+        st[x]=++totw;
+        for(int i=0;i&lt;g[x].size();++i)dfs(g[x][i]);
+        ed[x]=totw;
+    }
+    void getans(int x){
+        for(int i=0;i&lt;sum1[x].size();++i){pii t=sum1[x][i];ans[t.sd]-=T[0].get(t.fr);}
+        for(int i=0;i&lt;sum2[x].size();++i){pii t=sum2[x][i];ans[t.sd]+=T[1].get(t.fr);}
+        for(int i=0;i&lt;ch1[x].size();++i){int t=ch1[x][i];T[0].add(st[t]);}
+        for(int i=0;i&lt;ch2[x].size();++i){int t=ch2[x][i];T[1].add(st[t]);}
+        for(int i=0;i&lt;g[x].size();++i)getans(g[x][i]);
+        for(int i=0;i&lt;sum1[x].size();++i){pii t=sum1[x][i];ans[t.sd]+=T[0].get(t.fr);}
+        for(int i=0;i&lt;sum2[x].size();++i){pii t=sum2[x][i];ans[t.sd]-=T[1].get(t.fr);}
+    }
+    void solve(){
+        memset(tr[0],-1,sizeof(tr[0]));
+        int len=strlen(s+1);
+        for(int i=1;i&lt;=n;++i){
+            scanf(&quot;%s&quot;,p+1);
+            int m=strlen(p+1);
+            if(m&lt;=k)ans[i]=len-m+1;
+            else{
+                add(p,m,x,0);add(p,m,y,1);
+//                _debug(x);_debug(y);
+                for(int j=k+1;j&lt;=m+1;++j)sum1[x[j-k-1]].pb(mp(y[j],i));
+                for(int j=k+1;j&lt;=m;++j)sum2[x[j-k]].pb(mp(y[j],i));
+            }
+        }
+        getf();
+        int pt;
+        x[0]=x[len+1]=y[0]=y[len+1]=0;
+        pt=0;for(int i=1;i&lt;=len;++i)x[i]=pt=tr[pt][s[i]-33];
+        pt=0;for(int i=len;i&gt;=1;--i)y[i]=pt=tr[pt][s[i]-33];
+//        _debug(x);_debug(y);
+//        cout&lt;&lt;endl;
+        for(int j=k+1;j&lt;=len+1;++j)ch1[x[j-k-1]].pb(y[j]);
+        for(int j=k+1;j&lt;=len;++j)ch2[x[j-k]].pb(y[j]);
+        dfs(0);
+//        _debug(st);
+        getans(0);
+    }
+}AC;
+
+int main(){
+//    freopen(&quot;problemb.in&quot;,&quot;r&quot;,stdin);
+//    freopen(&quot;problemb.out&quot;,&quot;w&quot;,stdout);
+//    freopen(&quot;c.in&quot;,&quot;r&quot;,stdin);
+    scanf(&quot;%d%s%d&quot;,&amp;k,s+1,&amp;n);
+    AC.solve();
+    for(int i=1;i&lt;=n;++i)printf(&quot;%d\n&quot;,ans[i]);
+//    cout&lt;&lt;AC.cnt&lt;&lt;endl;
+}
+</code></pre><hr>
+<h1 id="Tjoi2013-单词"><a href="#Tjoi2013-单词" class="headerlink" title="Tjoi2013 单词"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=3172" target="_blank" rel="external">Tjoi2013 单词</a></h1><hr>
+<h1 id="Coci2015-Divljak"><a href="#Coci2015-Divljak" class="headerlink" title="Coci2015 Divljak"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=3881" target="_blank" rel="external">Coci2015 Divljak</a></h1>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/动态规划/" rel="tag"># 动态规划</a>
+          
+            <a href="/tags/AC自动机/" rel="tag"># AC自动机</a>
+          
+            <a href="/tags/BFS/" rel="tag"># BFS</a>
+          
+            <a href="/tags/子树差分/" rel="tag"># 子树差分</a>
+          
+        </div>
+      
+
+      
+        
+          <div class="social-like">
+            
+              <div class="vk_like">
+                <span id="vk_like"></span>
+              </div>
+            
+
+            
+          </div>
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/28/AtCoder Grand Contest 019 E  Shuffle and Swap/" rel="next" title="AtCoder Grand Contest 019 E  Shuffle and Swap">
+                <i class="fa fa-chevron-left"></i> AtCoder Grand Contest 019 E  Shuffle and Swap
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/31/Codeforces798E/" rel="prev" title="Codeforces798E Mike and Code of a Permutation">
+                Codeforces798E Mike and Code of a Permutation <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/08/28/AC自动机总结/"
+           data-title="AC自动机总结" data-url="https://prostkhala.github.io/2017/08/28/AC自动机总结/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://raw.githubusercontent.com/ProSTKhala/ProSTKhala.github.io/master/images/ST.jpg"
+               alt="ST" />
+          <p class="site-author-name" itemprop="name">ST</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">63</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ProSTKhala" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/su-tong-75-78/activities" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-https://raw.githubusercontent.com/prostkhala/prostkhala.github.io/master/images/zhihu.jpg"></i>
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://pb0207.github.io/" title="我校大神%%%" target="_blank">我校大神%%%</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AC自动机（简单版）"><span class="nav-number">1.</span> <span class="nav-text">AC自动机（简单版）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出格式"><span class="nav-number">1.1.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入格式"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">输入格式:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出格式："><span class="nav-number">1.1.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出样例"><span class="nav-number">1.1.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入样例："><span class="nav-number">1.1.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出样例："><span class="nav-number">1.1.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解"><span class="nav-number">1.2.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE"><span class="nav-number">1.2.1.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AC自动机（加强版）"><span class="nav-number">2.</span> <span class="nav-text">AC自动机（加强版）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-1"><span class="nav-number">2.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出格式-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入格式-1"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">输入格式:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出格式：-1"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出样例-1"><span class="nav-number">2.1.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入样例：-1"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出样例：-1"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解-1"><span class="nav-number">2.2.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HNOI2006-最短母串"><span class="nav-number">3.</span> <span class="nav-text">HNOI2006 最短母串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-2"><span class="nav-number">3.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出格式-2"><span class="nav-number">3.1.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入格式-2"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">输入格式:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出格式：-2"><span class="nav-number">3.1.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出样例-2"><span class="nav-number">3.1.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入样例：-2"><span class="nav-number">3.1.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出样例：-2"><span class="nav-number">3.1.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解-2"><span class="nav-number">3.2.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE-2"><span class="nav-number">3.2.1.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Beijing2017-魔法咒语"><span class="nav-number">4.</span> <span class="nav-text">Beijing2017 魔法咒语</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-3"><span class="nav-number">4.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出格式-3"><span class="nav-number">4.1.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入格式-3"><span class="nav-number">4.1.1.1.</span> <span class="nav-text">输入格式:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出格式：-3"><span class="nav-number">4.1.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出样例-3"><span class="nav-number">4.1.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入样例：-3"><span class="nav-number">4.1.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出样例：-3"><span class="nav-number">4.1.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例解释"><span class="nav-number">4.1.3.</span> <span class="nav-text">样例解释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解-3"><span class="nav-number">4.2.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE-3"><span class="nav-number">4.2.1.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BeiJing2011-禁忌"><span class="nav-number">5.</span> <span class="nav-text">BeiJing2011 禁忌</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-4"><span class="nav-number">5.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出格式-4"><span class="nav-number">5.1.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入格式-4"><span class="nav-number">5.1.1.1.</span> <span class="nav-text">输入格式:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出格式：-4"><span class="nav-number">5.1.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出样例-4"><span class="nav-number">5.1.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入样例：-4"><span class="nav-number">5.1.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出样例：-4"><span class="nav-number">5.1.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据范围"><span class="nav-number">5.1.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解-4"><span class="nav-number">5.2.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE-4"><span class="nav-number">5.2.1.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SCOI2012-喵星球上的点名"><span class="nav-number">6.</span> <span class="nav-text">SCOI2012 喵星球上的点名</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-5"><span class="nav-number">6.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出格式-5"><span class="nav-number">6.1.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入格式-5"><span class="nav-number">6.1.1.1.</span> <span class="nav-text">输入格式:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出格式：-5"><span class="nav-number">6.1.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出样例-5"><span class="nav-number">6.1.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入样例：-5"><span class="nav-number">6.1.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出样例：-5"><span class="nav-number">6.1.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据范围-1"><span class="nav-number">6.1.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解-5"><span class="nav-number">6.2.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE-5"><span class="nav-number">6.2.1.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HAOI2017-字符串"><span class="nav-number">7.</span> <span class="nav-text">HAOI2017 字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-6"><span class="nav-number">7.1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出格式-6"><span class="nav-number">7.1.1.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入格式-6"><span class="nav-number">7.1.1.1.</span> <span class="nav-text">输入格式:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出格式：-6"><span class="nav-number">7.1.1.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出样例-6"><span class="nav-number">7.1.2.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入样例：-6"><span class="nav-number">7.1.2.1.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出样例：-6"><span class="nav-number">7.1.2.2.</span> <span class="nav-text">输出样例：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据范围-2"><span class="nav-number">7.1.3.</span> <span class="nav-text">数据范围</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解-6"><span class="nav-number">7.2.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CODE-6"><span class="nav-number">7.2.1.</span> <span class="nav-text">CODE</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tjoi2013-单词"><span class="nav-number">8.</span> <span class="nav-text">Tjoi2013 单词</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Coci2015-Divljak"><span class="nav-number">9.</span> <span class="nav-text">Coci2015 Divljak</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ST</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"prostkhala"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+  
+
+</body>
+</html>
