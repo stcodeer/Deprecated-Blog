@@ -1,3 +1,3 @@
+https://prostkhala.github.io/2017/12/01/线性基题目总结/
 https://prostkhala.github.io/2017/12/01/AC自动机总结/
 https://prostkhala.github.io/2017/11/28/回文树总结/
-https://prostkhala.github.io/2017/11/27/虚树总结/
